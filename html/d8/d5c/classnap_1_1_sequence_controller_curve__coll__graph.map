@@ -1,0 +1,17 @@
+<map id="SequenceControllerCurve" name="SequenceControllerCurve">
+<area shape="rect" id="node2" href="$d0/dff/classnap_1_1_sequence_controller.html" title="SequenceController" alt="" coords="897,370,1032,397"/>
+<area shape="rect" id="node3" href="$dc/d17/classnap_1_1_sequence_player.html" title="SequencePlayer" alt="" coords="679,370,796,397"/>
+<area shape="rect" id="node4" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="348,334,408,361"/>
+<area shape="rect" id="node5" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="129,235,207,262"/>
+<area shape="rect" id="node16" href="$d9/dde/classnap_1_1_sequence_editor.html" title="SequenceEditor" alt="" coords="680,137,795,163"/>
+<area shape="rect" id="node6" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,235,65,262"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::SequencePlayer\l &amp;, bool \&gt;" alt="" coords="281,516,475,557"/>
+<area shape="rect" id="node9" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Sequence\lPlayerClock \&gt;" alt="" coords="290,71,466,112"/>
+<area shape="rect" id="node10" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="115,54,221,81"/>
+<area shape="rect" id="node17" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Sequence\lPlayer \&gt;" alt="" coords="290,5,466,47"/>
+<area shape="rect" id="node11" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::SequencePlayer &amp;\&gt;" alt="" coords="271,283,485,310"/>
+<area shape="rect" id="node12" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::SequencePlayer\l &amp;, double \&gt;" alt="" coords="281,385,475,427"/>
+<area shape="rect" id="node13" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::SequencePlayer\l &amp;, float \&gt;" alt="" coords="281,451,475,492"/>
+<area shape="rect" id="node14" href="$df/dbe/classnap_1_1_sequence_service.html" title="SequenceService" alt="" coords="317,589,439,615"/>
+<area shape="rect" id="node15" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="136,589,200,615"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="VideoAudioComponent" name="VideoAudioComponent">
+<area shape="rect" id="node2" href="$d5/dcb/classnap_1_1audio_1_1_audio_component_base.html" title="AudioComponentBase" alt="" coords="5,233,156,260"/>
+<area shape="rect" id="node3" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="37,157,125,184"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="42,81,119,108"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="51,5,111,32"/>
+<area shape="rect" id="node6" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::VideoPlayer \&gt;" alt="" coords="181,233,381,260"/>
+<area shape="rect" id="node7" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="227,157,334,184"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="OSCBaseValue" name="OSCBaseValue">
+<area shape="rect" id="node2" href="$d7/d55/classnap_1_1_o_s_c_blob.html" title="OSCBlob" alt="" coords="5,80,81,107"/>
+<area shape="rect" id="node3" href="$d9/d08/classnap_1_1_o_s_c_color.html" title="OSCColor" alt="" coords="106,80,186,107"/>
+<area shape="rect" id="node4" href="$d3/d0f/classnap_1_1_o_s_c_nil.html" title="OSCNil" alt="" coords="211,80,276,107"/>
+<area shape="rect" id="node5" href="$d5/d18/classnap_1_1_o_s_c_string.html" title="OSCString" alt="" coords="300,80,384,107"/>
+<area shape="rect" id="node6" href="$d1/d51/classnap_1_1_o_s_c_time_tag.html" title="OSCTimeTag" alt="" coords="409,80,507,107"/>
+<area shape="rect" id="node7" href="$d6/d4b/classnap_1_1_o_s_c_value.html" title="OSCValue\&lt; T \&gt;" alt="" coords="531,80,646,107"/>
+</map>

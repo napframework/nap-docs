@@ -1,0 +1,12 @@
+<map id="Renderable3DTextComponent" name="Renderable3DTextComponent">
+<area shape="rect" id="node2" href="$d6/d4f/classnap_1_1_renderable_text_component.html" title="RenderableTextComponent" alt="" coords="171,323,350,349"/>
+<area shape="rect" id="node3" href="$d1/d2c/classnap_1_1_renderable_component.html" title="RenderableComponent" alt="" coords="5,233,159,260"/>
+<area shape="rect" id="node4" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="38,157,126,184"/>
+<area shape="rect" id="node5" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="43,81,121,108"/>
+<area shape="rect" id="node6" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="52,5,112,32"/>
+<area shape="rect" id="node7" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Font \&gt;" alt="" coords="183,233,339,260"/>
+<area shape="rect" id="node8" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="207,157,314,184"/>
+<area shape="rect" id="node9" href="$d4/dd7/classnap_1_1_r_g_b_color.html" title="RGBColor\&lt; float \&gt;" alt="" coords="363,233,491,260"/>
+<area shape="rect" id="node10" href="$d6/d3d/classnap_1_1_color.html" title="Color\&lt; float, 3 \&gt;" alt="" coords="370,157,485,184"/>
+<area shape="rect" id="node11" href="$d8/d6a/classnap_1_1_base_color.html" title="BaseColor" alt="" coords="386,81,469,108"/>
+</map>

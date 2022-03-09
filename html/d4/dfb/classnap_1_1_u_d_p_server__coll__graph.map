@@ -1,0 +1,8 @@
+<map id="UDPServer" name="UDPServer">
+<area shape="rect" id="node2" href="$d7/da3/classnap_1_1_u_d_p_adapter.html" title="UDPAdapter" alt="" coords="77,178,171,205"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
+<area shape="rect" id="node5" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::UDPThread \&gt;" alt="" coords="107,81,303,108"/>
+<area shape="rect" id="node6" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="152,5,259,32"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lUDPPacket &amp;\&gt;" alt="" coords="195,171,330,212"/>
+</map>

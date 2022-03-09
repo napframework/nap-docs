@@ -1,0 +1,7 @@
+<map id="WebSocketConnectionEvent" name="WebSocketConnectionEvent">
+<area shape="rect" id="node4" href="$df/ddd/classnap_1_1_web_socket_connection_closed_event.html" title="WebSocketConnectionClosed\lEvent" alt="" coords="516,5,711,47"/>
+<area shape="rect" id="node5" href="$df/dd1/classnap_1_1_web_socket_connection_failed_event.html" title="WebSocketConnectionFailed\lEvent" alt="" coords="518,71,709,112"/>
+<area shape="rect" id="node6" href="$d1/d76/classnap_1_1_web_socket_connection_opened_event.html" title="WebSocketConnectionOpened\lEvent" alt="" coords="513,136,713,177"/>
+<area shape="rect" id="node2" href="$d6/d83/classnap_1_1_web_socket_event.html" title="WebSocketEvent" alt="" coords="108,78,231,105"/>
+<area shape="rect" id="node3" href="$d2/da2/classnap_1_1_event.html" title="Event" alt="" coords="5,78,60,105"/>
+</map>

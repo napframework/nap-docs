@@ -1,0 +1,9 @@
+<map id="CalendarItem" name="CalendarItem">
+<area shape="rect" id="node4" href="$dd/d1e/classnap_1_1_daily_calendar_item.html" title="DailyCalendarItem" alt="" coords="394,5,521,32"/>
+<area shape="rect" id="node5" href="$d6/d5e/classnap_1_1_monthly_calendar_item.html" title="MonthlyCalendarItem" alt="" coords="385,56,529,83"/>
+<area shape="rect" id="node6" href="$dc/dc6/classnap_1_1_unique_calendar_item.html" title="UniqueCalendarItem" alt="" coords="388,107,527,133"/>
+<area shape="rect" id="node7" href="$dc/df7/classnap_1_1_weekly_calendar_item.html" title="WeeklyCalendarItem" alt="" coords="386,157,529,184"/>
+<area shape="rect" id="node8" href="$d4/d63/classnap_1_1_yearly_calendar_item.html" title="YearlyCalendarItem" alt="" coords="390,208,525,235"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="113,107,191,133"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,107,65,133"/>
+</map>

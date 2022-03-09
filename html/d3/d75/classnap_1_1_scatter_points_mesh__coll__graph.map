@@ -1,0 +1,12 @@
+<map id="ScatterPointsMesh" name="ScatterPointsMesh">
+<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="5,209,63,236"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="11,81,89,108"/>
+<area shape="rect" id="node9" href="$d7/db2/classnap_1_1_base_vertex_attribute.html" title="BaseVertexAttribute" alt="" coords="71,157,210,184"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="20,5,80,32"/>
+<area shape="rect" id="node5" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="239,269,344,295"/>
+<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="234,157,298,184"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="323,157,529,184"/>
+<area shape="rect" id="node8" href="$d7/da0/classnap_1_1_vertex_attribute.html" title="VertexAttribute\&lt; glm\l::vec3 \&gt;" alt="" coords="72,261,215,303"/>
+<area shape="rect" id="node10" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::IMesh \&gt;" alt="" coords="478,269,643,295"/>
+<area shape="rect" id="node11" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="554,157,661,184"/>
+</map>

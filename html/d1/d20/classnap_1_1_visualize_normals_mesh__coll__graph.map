@@ -1,0 +1,13 @@
+<map id="VisualizeNormalsMesh" name="VisualizeNormalsMesh">
+<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="681,18,739,45"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="115,43,192,70"/>
+<area shape="rect" id="node9" href="$d7/db2/classnap_1_1_base_vertex_attribute.html" title="BaseVertexAttribute" alt="" coords="275,69,414,95"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,43,65,70"/>
+<area shape="rect" id="node5" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="657,186,763,213"/>
+<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="313,135,377,162"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="241,186,448,213"/>
+<area shape="rect" id="node8" href="$d7/da0/classnap_1_1_vertex_attribute.html" title="VertexAttribute\&lt; ELEMENTTYPE \&gt;" alt="" coords="596,69,824,95"/>
+<area shape="rect" id="node10" href="$d7/da0/classnap_1_1_vertex_attribute.html" title="VertexAttribute\&lt; glm\l::vec3 \&gt;" alt="" coords="639,120,781,161"/>
+<area shape="rect" id="node11" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::IMesh \&gt;" alt="" coords="627,237,793,263"/>
+<area shape="rect" id="node12" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="291,237,398,263"/>
+</map>

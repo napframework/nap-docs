@@ -1,0 +1,9 @@
+<map id="AudioComponentBase" name="AudioComponentBase">
+<area shape="rect" id="node5" href="$db/d0a/classnap_1_1audio_1_1_audio_input_component.html" title="AudioInputComponent" alt="" coords="593,5,743,32"/>
+<area shape="rect" id="node6" href="$d3/d49/classnap_1_1audio_1_1_playback_component.html" title="PlaybackComponent" alt="" coords="597,56,739,83"/>
+<area shape="rect" id="node7" href="$d2/d14/classnap_1_1audio_1_1_sequence_player_audio_output_component.html" title="SequencePlayerAudioOutput\lComponent" alt="" coords="573,107,763,149"/>
+<area shape="rect" id="node8" href="$db/df8/classnap_1_1audio_1_1_video_audio_component.html" title="VideoAudioComponent" alt="" coords="591,173,745,200"/>
+<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="239,85,327,112"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="113,85,191,112"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,85,65,112"/>
+</map>

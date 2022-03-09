@@ -1,0 +1,8 @@
+<map id="PointerInputComponentInstance" name="PointerInputComponentInstance">
+<area shape="rect" id="node2" href="$dc/da6/classnap_1_1_input_component_instance.html" title="InputComponentInstance" alt="" coords="301,5,467,32"/>
+<area shape="rect" id="node3" href="$d9/df2/classnap_1_1_component_instance.html" title="ComponentInstance" alt="" coords="115,5,252,32"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lPointerMoveEvent &amp;\&gt;" alt="" coords="311,57,457,98"/>
+<area shape="rect" id="node6" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lPointerPressEvent &amp;\&gt;" alt="" coords="309,122,459,163"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lPointerReleaseEvent &amp;\&gt;" alt="" coords="303,187,465,229"/>
+</map>

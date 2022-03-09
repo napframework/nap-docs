@@ -1,0 +1,5 @@
+<map id="InputNode" name="InputNode">
+<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title="Node" alt="" coords="15,81,67,108"/>
+<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title="Process" alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node4" href="$dc/d5a/classnap_1_1audio_1_1_output_pin.html" title="OutputPin" alt="" coords="91,81,171,108"/>
+</map>

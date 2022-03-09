@@ -1,0 +1,8 @@
+<map id="BoxMesh" name="BoxMesh">
+<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="15,157,73,184"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
+<area shape="rect" id="node5" href="$d6/db8/classnap_1_1_r_g_b_a_color.html" title="RGBAColor\&lt; float \&gt;" alt="" coords="97,157,234,184"/>
+<area shape="rect" id="node6" href="$d6/d3d/classnap_1_1_color.html" title="Color\&lt; float, 4 \&gt;" alt="" coords="108,81,223,108"/>
+<area shape="rect" id="node7" href="$d8/d6a/classnap_1_1_base_color.html" title="BaseColor" alt="" coords="124,5,207,32"/>
+</map>
