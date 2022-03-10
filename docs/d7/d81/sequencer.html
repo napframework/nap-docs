@@ -90,6 +90,14 @@ $(function() {
 <div class="textblock"><ul>
 <li><a class="el" href="../../d7/d81/sequencer.html#introduction">Introduction</a></li>
 <li><a class="el" href="../../d7/d81/sequencer.html#player_editor_gui">Player, Editor &amp; EditorGUI</a></li>
+<li><a class="el" href="../../d7/d81/sequencer.html#usage">Usage</a><ul>
+<li><a class="el" href="../../d7/d81/sequencer.html#using_event_track">Create and Use an Event Track </a></li>
+<li><a class="el" href="../../d7/d81/sequencer.html#using_curve_track">Create and Use a Curve Track</a></li>
+<li><a class="el" href="../../d7/d81/sequencer.html#using_audio_track">Create and Use an Audio Track</a></li>
+<li><a class="el" href="../../d7/d81/sequencer.html#inserting_markers">Inserting markers</a></li>
+<li><a class="el" href="../../d7/d81/sequencer.html#renaming_tracks">Renaming tracks</a></li>
+</ul>
+</li>
 <li><a class="el" href="../../d7/d81/sequencer.html#clocks">Clocks</a><ul>
 <li><a class="el" href="../../d7/d81/sequencer.html#standard_clock">Standard Clock</a></li>
 <li><a class="el" href="../../d7/d81/sequencer.html#independent_clock">Independent Clock</a></li>
@@ -103,14 +111,6 @@ $(function() {
 <li><a class="el" href="../../d7/d81/sequencer.html#outputs_and_adapters_examples_audio">Audio Track</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li>Example<ul>
-<li><a class="el" href="../../d7/d81/sequencer.html#using_event_track">Create and Use an Event Track </a></li>
-<li><a class="el" href="../../d7/d81/sequencer.html#using_curve_track">Create and Use a Curve Track</a></li>
-<li><a class="el" href="../../d7/d81/sequencer.html#using_audio_track">Create and Use an Audio Track</a></li>
-<li><a class="el" href="../../d7/d81/sequencer.html#inserting_markers">Inserting markers</a></li>
-<li><a class="el" href="../../d7/d81/sequencer.html#renaming_tracks">Renaming tracks</a></li>
 </ul>
 </li>
 </ul>
@@ -145,6 +145,45 @@ Player, Editor &amp; GUI</h1>
 <p>The following JSON snippet creates a sequence player that uses an <a class="el" href="../../d6/d0f/classnap_1_1_sequence_player_audio_clock.html">audio clock</a> for playback. The sequence editor links to the sequence player. The sequence GUI, in turn, links to the editor: </p><div class="fragment"><div class="line">{</div><div class="line">    &quot;Type&quot;: &quot;nap::SequenceEditor&quot;,</div><div class="line">    &quot;mID&quot;: &quot;SequenceEditor&quot;,</div><div class="line">    &quot;Sequence Player&quot;: &quot;SequencePlayer&quot;</div><div class="line">},</div><div class="line">{</div><div class="line">    &quot;Type&quot;: &quot;nap::SequenceEditorGUI&quot;,</div><div class="line">    &quot;mID&quot;: &quot;SequenceEditorGUI&quot;,</div><div class="line">    &quot;Sequence Editor&quot;: &quot;SequenceEditor&quot;,</div><div class="line">    &quot;Render Window&quot;: &quot;SequencerWindow&quot;,</div><div class="line">    &quot;Draw Full Window&quot;: true</div><div class="line">},</div><div class="line">{</div><div class="line">    &quot;Type&quot;: &quot;nap::SequencePlayer&quot;,</div><div class="line">    &quot;mID&quot;: &quot;SequencePlayer&quot;,</div><div class="line">    &quot;Default Show&quot;: &quot;Default Show.json&quot;,</div><div class="line">    &quot;Outputs&quot;: [],</div><div class="line">    &quot;Clock&quot;: {</div><div class="line">        &quot;Type&quot;: &quot;nap::SequencePlayerAudioClock&quot;,</div><div class="line">        &quot;mID&quot;: &quot;SequencePlayerAudioClock&quot;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><p>The sequence playback logic and data format is completely seperated from the sequence editor and GUI. This means that it is possible to create an application without a window or without the render engine and still use the sequence player (for example when working in headless real-time or near real-time environments) to play back sequences. Subsequently, the sequence editor can be declared without a GUI, meaning you can perform edit calls on a sequence without a GUI attached to it, although this is less common. The sequence editor GUI is defined in a separate module called <code>mod_sequencegui</code>, which depends on <code>mod_napsequence</code>.</p>
 <p>To ensure all (live) edits to a sequence are carried out in a thread-safe manner, all edit calls are routed through the sequence editor. The sequence editor creates <a class="el" href="../../d0/dff/classnap_1_1_sequence_controller.html">sequence controllers</a> for each available track type. <a class="el" href="../../d5/d30/classnap_1_1_sequence_track.html">Tracks</a> can be edited by these controllers. Controllers for each available track type are created by the application at run-time during initialization of the sequence editor. All created Sequence Controllers are owned by the sequence editor.</p>
 <p>Make sure the edit calls are performed on the same thread that is reading the sequence. For example: The GUI of the sequence editor is drawn on the main (render) thread of the application, so any edit calls to the sequence controller must be executed from the main thread as well.</p>
+<h1><a class="anchor" id="usage"></a>
+Usage</h1>
+<p>In the following example we will create a custom sequence using the <a class="el" href="../../dc/d17/classnap_1_1_sequence_player.html">Sequence Player</a>, <a class="el" href="../../d9/dde/classnap_1_1_sequence_editor.html">Sequence Editor</a> &amp; <a class="el" href="../../dd/d58/classnap_1_1_sequence_editor_g_u_i.html">Sequence GUI</a>. The <a class="el" href="../../d9/da0/classnap_1_1_sequence.html">sequence</a> contains one event track with a couple of events, one curve track that animates a <a class="el" href="../../d3/d14/namespacenap.html#a0f4980e334fbd44811cc38afc58a501e">float parameter</a> and an <a class="el" href="../../d9/d10/classnap_1_1_sequence_track_audio.html">audio track</a> that plays back an <a class="el" href="../../d4/db8/classnap_1_1_sequence_track_segment_audio.html">audio segment</a>. Alternatively you can skip this step and use the <code>sequencer demo</code> instead.</p>
+<p>Include the following modules to make sure your project can use all the features of the sequencer:</p>
+<ul>
+<li>mod_napsequence</li>
+<li>mod_napsequencegui</li>
+<li>mod_napsequenceaudio</li>
+<li>mod_napsequenceaudiogui</li>
+</ul>
+<p>Open <code>module.json</code> inside the <code>module</code> directory and add them to the <code>RequiredModules</code> field. For more information on how to add modules to your project read the <a class="el" href="../../d1/d66/getting_started.html#getting_started_overview">getting started</a> guide.</p>
+<p>Next step is to create a sequence player that has a <code><a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html">nap::SequencePlayerEventOutput</a></code>, a <code><a class="el" href="../../d7/d31/classnap_1_1_sequence_player_curve_output.html">nap::SequencePlayerCurveOutput</a></code> and a <code><a class="el" href="../../d4/d49/classnap_1_1_sequence_player_audio_output.html">nap::SequencePlayerAudioOutput</a></code>. You can use <a class="el" href="../../da/d34/napkin.html">Napkin</a> to set this up for you or use the following JSON snippet as an example:</p>
+<div class="fragment"><div class="line">{</div><div class="line">    &quot;Type&quot;: &quot;nap::SequencePlayer&quot;,</div><div class="line">    &quot;mID&quot;: &quot;SequencePlayer&quot;,</div><div class="line">    &quot;Default Show&quot;: &quot;Default Show.json&quot;,</div><div class="line">    &quot;Outputs&quot;: [</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerEventOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;SequencePlayerEventOutput&quot;</div><div class="line">        },</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerCurveOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;Float Output&quot;,</div><div class="line">            &quot;Parameter&quot;: &quot;Float1&quot;,</div><div class="line">            &quot;Use Main Thread&quot;: true</div><div class="line">        },</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerAudioOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;SequencePlayerAudioOutput&quot;,</div><div class="line">            &quot;Audio Buffers&quot;: [</div><div class="line">                &quot;AudioFileResource&quot;</div><div class="line">            ],</div><div class="line">            &quot;Manual Routing&quot;: true,</div><div class="line">            &quot;Max Channels&quot;: 2</div><div class="line">        }],</div><div class="line">    &quot;Clock&quot;: {</div><div class="line">        &quot;Type&quot;: &quot;nap::SequencePlayerAudioClock&quot;,</div><div class="line">        &quot;mID&quot;: &quot;SequencePlayerAudioClock&quot;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="using_event_track"></a>
+Create and Use an Event Track</h2>
+<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../de/d9d/classnap_1_1_sequence_track_event.html">nap::SequenceTrackEvent</a></code>. An empty event track will appear. To make sure events on the track get routed to the event output make sure to select the <code><a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html">nap::SequencePlayerEventOutput</a></code> from the inspector. To insert an event right-click somewhere in the track. A popup will appear with different types of events. In this example we will insert an event of type <a class="el" href="../../d3/d14/namespacenap.html#a27e46241d7cadda25ede3b9d843a9167">string</a>. An empty string event is inserted on the track. You can move it by dragging the handler of the event or by right clicking it and change the timestamp in the appearing popup. You can also change the value of this event. Because the event holds a string we change the string event to hold a string with the value <code>hello world</code>. When playing back the sequence the event will be dispatched whenever the playback time of the sequencer passes the time at which the event is inserted. To receive the event or get notified attach a listener to the <a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html#a1cb781a5a13cb819deeed97b86f549b3">signal</a> of the event output.</p>
+<div class="image">
+<img src="../../content/sequencer-event.gif" alt="Sequencer Event" style="width:100%;"/>
+</div>
+<h2><a class="anchor" id="using_curve_track"></a>
+Create and Use a Curve Track</h2>
+<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../d3/d14/namespacenap.html#a88f47d2154ddc3cddec82cc99f5537c4">nap::SequenceTrackCurveFloat</a></code>. An empty curve track will appear. To make sure the drawn curve on the track gets routed to the curve output make sure to select the <code><a class="el" href="../../d7/d31/classnap_1_1_sequence_player_curve_output.html">nap::SequencePlayerCurveOutput</a></code> from the inspector. To insert an event right-click somewhere in the track. A popup will appear asking you to insert a segment. Do so. A curve segment is inserted into the track. You can extend it by dragging the handler of the segment or by right clicking it and change the timestamp in the appearing popup. You can also change the value of this event by dragging the segment value or right click on the segment value. You can also insert point on the curve. Move the mouse cursor somewhere on the curve, right click and select <code>Insert Point</code> in the popup. You can also change the curve type to <code>linear</code> in this popup. When playing back the sequence the parameter, linked to from the curve output, will be set to the current value of the curve, evaluated at the current timestamp of the player.</p>
+<div class="image">
+<img src="../../content/sequencer-curve.gif" alt="Sequencer Curve" style="width:100%;"/>
+</div>
+<h2><a class="anchor" id="using_audio_track"></a>
+Create and Use an Audio Track</h2>
+<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../d9/d10/classnap_1_1_sequence_track_audio.html">nap::SequenceTrackAudio</a></code>. An empty audio track will appear. To make sure audio is routed to the audio output select the <code><a class="el" href="../../d4/d49/classnap_1_1_sequence_player_audio_output.html">nap::SequencePlayerAudioOutput</a></code> from the inspector. To insert an audio segment right-click somewhere in the track. A popup will appear with a popup containing all available audio buffer resources. In this example we will insert an audio segment that links to an <code>AudioFileResource</code>, which is an audio file read from disk. To add an audio file resource to your project refer to the <a class="el" href="../../dd/d1e/audio.html#audio_playback">audio</a> documentation. An audio segment will appear on the audio track. When the sequencer is playing the audio in the buffer of the segment will be routed to the audio output. Right clicking on the audio segment will open up a popup that enables you to edit the start time of the segment on the track, the start time within the audio buffer or end time within the audio buffer. This can also be achieved by dragging on the left or right side of the audio segment.</p>
+<div class="image">
+<img src="../../content/sequencer-audio.gif" alt="Sequencer Audio" style="width:100%;"/>
+</div>
+<h2><a class="anchor" id="inserting_markers"></a>
+Inserting Markers</h2>
+<p>The top bar of the gui holds markers. Makers are a visual aid that can be used to tag a specific point of interest in your sequence. Right click somewhere inside the marker bar, a popup will appear, name the marker whatever you like and choose <code>Insert Marker</code>. A marker will appear. You can move the marker by dragging it inside the marker bar or edit it by right clicking on the marker.</p>
+<div class="image">
+<img src="../../content/sequencer-marker.gif" alt="Sequencer Marker" style="width:100%;"/>
+</div>
+<h2><a class="anchor" id="renaming_tracks"></a>
+Renaming Tracks</h2>
+<p>You can rename tracks by clicking on the track title in the inspector.</p>
 <h1><a class="anchor" id="clocks"></a>
 Clocks</h1>
 <p>You have complete control over synchronisation. The way the sequencer updates is by using a <code>clock</code>. You can decide what type of clock is used. It is possible to write your own clock when you need synchronisation with another already running process. For now, three types of clocks are already implemented in NAP.</p>
@@ -190,46 +229,7 @@ Audio Track</h3>
 <div class="image">
 <img src="../../content/sequencer-audio.png" alt="Sequencer Audio" style="width:100%;"/>
 </div>
-<h1><a class="anchor" id="example"></a>
-Example</h1>
-<p>In the following example we will create a sequence using the <a class="el" href="../../dc/d17/classnap_1_1_sequence_player.html">sequence player</a>, <a class="el" href="../../d9/dde/classnap_1_1_sequence_editor.html">sequence editor</a> &amp; <a class="el" href="../../dd/d58/classnap_1_1_sequence_editor_g_u_i.html">sequence editor GUI</a>. In this example we will create a <a class="el" href="../../d9/da0/classnap_1_1_sequence.html">sequence</a> that contains one event track with a couple of events, one curve track that animates a <a class="el" href="../../d3/d14/namespacenap.html#a0f4980e334fbd44811cc38afc58a501e">float parameter</a> and an <a class="el" href="../../d9/d10/classnap_1_1_sequence_track_audio.html">audio track</a> that plays back an <a class="el" href="../../d4/db8/classnap_1_1_sequence_track_segment_audio.html">audio segment</a>.</p>
-<p>Include the following modules to make sure your project can use all the features of the sequencer:</p>
-<ul>
-<li>mod_napsequence</li>
-<li>mod_napsequencegui</li>
-<li>mod_napsequenceaudio</li>
-<li>mod_napsequenceaudiogui</li>
-</ul>
-<p>Open <code>module.json</code> inside the <code>module</code> directory and add them to the <code>RequiredModules</code> field. For more information on how to add modules to your project read the <a class="el" href="../../d1/d66/getting_started.html#getting_started_overview">getting started</a> guide.</p>
-<p>Next step is to create a sequence player that has a <code><a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html">nap::SequencePlayerEventOutput</a></code>, a <code><a class="el" href="../../d7/d31/classnap_1_1_sequence_player_curve_output.html">nap::SequencePlayerCurveOutput</a></code> and a <code><a class="el" href="../../d4/d49/classnap_1_1_sequence_player_audio_output.html">nap::SequencePlayerAudioOutput</a></code>. You can use <a class="el" href="../../da/d34/napkin.html">Napkin</a> to set this up for you or use the following JSON snippet as an example:</p>
-<div class="fragment"><div class="line">{</div><div class="line">    &quot;Type&quot;: &quot;nap::SequencePlayer&quot;,</div><div class="line">    &quot;mID&quot;: &quot;SequencePlayer&quot;,</div><div class="line">    &quot;Default Show&quot;: &quot;Default Show.json&quot;,</div><div class="line">    &quot;Outputs&quot;: [</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerEventOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;SequencePlayerEventOutput&quot;</div><div class="line">        },</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerCurveOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;Float Output&quot;,</div><div class="line">            &quot;Parameter&quot;: &quot;Float1&quot;,</div><div class="line">            &quot;Use Main Thread&quot;: true</div><div class="line">        },</div><div class="line">        {</div><div class="line">            &quot;Type&quot;: &quot;nap::SequencePlayerAudioOutput&quot;,</div><div class="line">            &quot;mID&quot;: &quot;SequencePlayerAudioOutput&quot;,</div><div class="line">            &quot;Audio Buffers&quot;: [</div><div class="line">                &quot;AudioFileResource&quot;</div><div class="line">            ],</div><div class="line">            &quot;Manual Routing&quot;: true,</div><div class="line">            &quot;Max Channels&quot;: 2</div><div class="line">        }],</div><div class="line">    &quot;Clock&quot;: {</div><div class="line">        &quot;Type&quot;: &quot;nap::SequencePlayerAudioClock&quot;,</div><div class="line">        &quot;mID&quot;: &quot;SequencePlayerAudioClock&quot;</div><div class="line">    }</div><div class="line">}</div></div><!-- fragment --><h2><a class="anchor" id="using_event_track"></a>
-Create and Use an Event Track</h2>
-<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../de/d9d/classnap_1_1_sequence_track_event.html">nap::SequenceTrackEvent</a></code>. An empty event track will appear. To make sure events on the track get routed to the event output make sure to select the <code><a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html">nap::SequencePlayerEventOutput</a></code> from the inspector. To insert an event right-click somewhere in the track. A popup will appear with different types of events. In this example we will insert an event of type <a class="el" href="../../d3/d14/namespacenap.html#a27e46241d7cadda25ede3b9d843a9167">string</a>. An empty string event is inserted on the track. You can move it by dragging the handler of the event or by right clicking it and change the timestamp in the appearing popup. You can also change the value of this event. Because the event holds a string we change the string event to hold a string with the value <code>hello world</code>. When playing back the sequence the event will be dispatched whenever the playback time of the sequencer passes the time at which the event is inserted. To receive the event or get notified attach a listener to the <a class="el" href="../../d3/d0d/classnap_1_1_sequence_player_event_output.html#a1cb781a5a13cb819deeed97b86f549b3">signal</a> of the event output.</p>
-<div class="image">
-<img src="../../content/sequencer-event.gif" alt="Sequencer Event" style="width:100%;"/>
-</div>
-<h2><a class="anchor" id="using_curve_track"></a>
-Create and Use a Curve Track</h2>
-<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../d3/d14/namespacenap.html#a88f47d2154ddc3cddec82cc99f5537c4">nap::SequenceTrackCurveFloat</a></code>. An empty curve track will appear. To make sure the drawn curve on the track gets routed to the curve output make sure to select the <code><a class="el" href="../../d7/d31/classnap_1_1_sequence_player_curve_output.html">nap::SequencePlayerCurveOutput</a></code> from the inspector. To insert an event right-click somewhere in the track. A popup will appear asking you to insert a segment. Do so. A curve segment is inserted into the track. You can extend it by dragging the handler of the segment or by right clicking it and change the timestamp in the appearing popup. You can also change the value of this event by dragging the segment value or right click on the segment value. You can also insert point on the curve. Move the mouse cursor somewhere on the curve, right click and select <code>Insert Point</code> in the popup. You can also change the curve type to <code>linear</code> in this popup. When playing back the sequence the parameter, linked to from the curve output, will be set to the current value of the curve, evaluated at the current timestamp of the player.</p>
-<div class="image">
-<img src="../../content/sequencer-curve.gif" alt="Sequencer Curve" style="width:100%;"/>
-</div>
-<h2><a class="anchor" id="using_audio_track"></a>
-Create and Use an Audio Track</h2>
-<p>Select the window that draws the sequencer gui. Select <code>Insert Track</code> and then click on <code><a class="el" href="../../d9/d10/classnap_1_1_sequence_track_audio.html">nap::SequenceTrackAudio</a></code>. An empty audio track will appear. To make sure audio is routed to the audio output select the <code><a class="el" href="../../d4/d49/classnap_1_1_sequence_player_audio_output.html">nap::SequencePlayerAudioOutput</a></code> from the inspector. To insert an audio segment right-click somewhere in the track. A popup will appear with a popup containing all available audio buffer resources. In this example we will insert an audio segment that links to an <code>AudioFileResource</code>, which is an audio file read from disk. To add an audio file resource to your project refer to the <a class="el" href="../../dd/d1e/audio.html#audio_playback">audio</a> documentation. An audio segment will appear on the audio track. When the sequencer is playing the audio in the buffer of the segment will be routed to the audio output. Right clicking on the audio segment will open up a popup that enables you to edit the start time of the segment on the track, the start time within the audio buffer or end time within the audio buffer. This can also be achieved by dragging on the left or right side of the audio segment.</p>
-<div class="image">
-<img src="../../content/sequencer-audio.gif" alt="Sequencer Audio" style="width:100%;"/>
-</div>
-<h2><a class="anchor" id="inserting_markers"></a>
-Inserting Markers</h2>
-<p>The top bar of the gui holds markers. Makers are a visual aid that can be used to tag a specific point of interest in your sequence. Right click somewhere inside the marker bar, a popup will appear, name the marker whatever you like and choose <code>Insert Marker</code>. A marker will appear. You can move the marker by dragging it inside the marker bar or edit it by right clicking on the marker.</p>
-<div class="image">
-<img src="../../content/sequencer-marker.gif" alt="Sequencer Marker" style="width:100%;"/>
-</div>
-<h2><a class="anchor" id="renaming_tracks"></a>
-Renaming Tracks</h2>
-<p>You can rename tracks by clicking on the track title in the inspector. </p>
-</div></div><!-- contents -->
+ </div></div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.13-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
