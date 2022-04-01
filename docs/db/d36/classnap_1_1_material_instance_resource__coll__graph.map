@@ -1,4 +1,5 @@
 <map id="MaterialInstanceResource" name="MaterialInstanceResource">
-<area shape="rect" id="node2" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Material \&gt;" alt="" coords="5,81,181,108"/>
-<area shape="rect" id="node3" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="40,5,147,32"/>
+<area shape="rect" id="node2" href="$df/d7a/classnap_1_1_base_material_instance_resource.html" title="BaseMaterialInstanceResource" alt="" coords="5,81,208,108"/>
+<area shape="rect" id="node3" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Material \&gt;" alt="" coords="232,81,408,108"/>
+<area shape="rect" id="node4" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="267,5,373,32"/>
 </map>

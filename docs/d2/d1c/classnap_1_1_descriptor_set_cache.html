@@ -103,15 +103,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a683b37b098af8b4cb8d89a9d10ee2cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7027aefff0b6fa57d4c09b0f29a4f2c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1c/classnap_1_1_descriptor_set_cache.html#a7027aefff0b6fa57d4c09b0f29a4f2c3">~DescriptorSetCache</a> ()</td></tr>
 <tr class="separator:a7027aefff0b6fa57d4c09b0f29a4f2c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac55659e47d56a2149fe09ca165122044"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1c/classnap_1_1_descriptor_set_cache.html#ac55659e47d56a2149fe09ca165122044">acquire</a> (const std::vector&lt; <a class="el" href="../../d9/d8c/classnap_1_1_uniform_buffer_object.html">UniformBufferObject</a> &gt; &amp;uniformBufferObjects, int numSamplers)</td></tr>
-<tr class="separator:ac55659e47d56a2149fe09ca165122044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b18514a4a3fe65f54f03af4768bb439"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1c/classnap_1_1_descriptor_set_cache.html#a7b18514a4a3fe65f54f03af4768bb439">acquire</a> (const std::vector&lt; <a class="el" href="../../d9/d8c/classnap_1_1_uniform_buffer_object.html">UniformBufferObject</a> &gt; &amp;uniformBufferObjects, int numStorageBufferObjects, int numSamplers)</td></tr>
+<tr class="separator:a7b18514a4a3fe65f54f03af4768bb439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a104e396be5354473e23bc49563e5e9a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d1c/classnap_1_1_descriptor_set_cache.html#a104e396be5354473e23bc49563e5e9a2">release</a> (int frameIndex)</td></tr>
 <tr class="separator:a104e396be5354473e23bc49563e5e9a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
 <div class="textblock"><p>Responsible for caching DescriptorSets and allocating them when the <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> is not in the cache. A <a class="el" href="../../d0/d51/classnap_1_1_descriptor_set_allocator.html">DescriptorSetAllocator</a> allocates DescriptorSets for a specific VkDescriptorSetLayout. Any <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> that is returned will be compatible with that VkDescriptorSetLayout.</p>
-<p>Internally it will maintain a free-list of available DescriptorSets. When a VkDescriptorSet is acquired, it is marked for use by that frame (the current <a class="el" href="../../d5/dc6/classnap_1_1_render_service.html">RenderService</a> frame is used). When a frame is fully <br />
-completed, release should be called for that frame so that the resources are return to the freel-ist, to be used by subsequent frames. </p>
+<p>Internally it will maintain a free-list of available DescriptorSets. When a VkDescriptorSet is acquired, it is marked for use by that frame (the current <a class="el" href="../../d5/dc6/classnap_1_1_render_service.html">RenderService</a> frame is used). When a frame is fully completed, release should be called for that frame so that the resources are return to the free-list, to be used by subsequent frames. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a683b37b098af8b4cb8d89a9d10ee2cc1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a683b37b098af8b4cb8d89a9d10ee2cc1">&#9670;&nbsp;</a></span>DescriptorSetCache()</h2>
@@ -165,8 +164,8 @@ completed, release should be called for that frame so that the resources are ret
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac55659e47d56a2149fe09ca165122044"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac55659e47d56a2149fe09ca165122044">&#9670;&nbsp;</a></span>acquire()</h2>
+<a id="a7b18514a4a3fe65f54f03af4768bb439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b18514a4a3fe65f54f03af4768bb439">&#9670;&nbsp;</a></span>acquire()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,6 +175,12 @@ completed, release should be called for that frame so that the resources are ret
           <td>(</td>
           <td class="paramtype">const std::vector&lt; <a class="el" href="../../d9/d8c/classnap_1_1_uniform_buffer_object.html">UniformBufferObject</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>uniformBufferObjects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numStorageBufferObjects</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -193,6 +198,7 @@ completed, release should be called for that frame so that the resources are ret
 <p>Acquires a <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> from the cache (or allocated it if not in the cache). For new DescriptorSets, also allocates Buffers for each UBO from the global Vulkan allocator. The result is a <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> that is fully compatible with the DescriptorSetLayout. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">uniformBufferObjects</td><td>The list of UBOs for this <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a>. </td></tr>
+    <tr><td class="paramname">numStorageBufferObjects</td><td>The number of HBOs for this <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a>. </td></tr>
     <tr><td class="paramname">numSamplers</td><td>The number of samplers for this <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> </td></tr>
   </table>
   </dd>

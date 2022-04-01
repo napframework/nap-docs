@@ -22,10 +22,11 @@ var searchData=
   ['square',['SQUARE',['../d9/de3/namespacenap_1_1math.html#a91402f70a69e38c60b204ceb2de45ab9a12dec4e1f7ec620651b2b95c440ffac0',1,'nap::math']]],
   ['srgb',['sRGB',['../d3/d14/namespacenap.html#a7c393d2c0bbdcdb8bd454d21632082fda9ed33d9be17d174aeb4393a989586ed9',1,'nap']]],
   ['start',['START',['../d3/d14/namespacenap.html#a9411d438c5223b29c5e068bd4e7db225ab078ffd28db767c502ac367053f6e0ac',1,'nap']]],
-  ['static',['Static',['../d3/d14/namespacenap.html#acf783615da7db48794fbc2f8fbce87bfa84a8921b25f505d0d2077aeb5db4bc16',1,'nap::Static()'],['../d3/d14/namespacenap.html#a2849662b0d54fdccea44f4cb6bf17f2aa84a8921b25f505d0d2077aeb5db4bc16',1,'nap::Static()']]],
+  ['static',['Static',['../d3/d14/namespacenap.html#a6ed754b2e3bf1b583a396012e3722c33a84a8921b25f505d0d2077aeb5db4bc16',1,'nap::Static()'],['../d3/d14/namespacenap.html#a2849662b0d54fdccea44f4cb6bf17f2aa84a8921b25f505d0d2077aeb5db4bc16',1,'nap::Static()']]],
   ['stepped',['Stepped',['../d9/de3/namespacenap_1_1math.html#a2f772784e7ab9ad0fe477b883084dcb4a5ea38ba255e963326e6dbe47d8be6568',1,'nap::math']]],
   ['stereo',['Stereo',['../d9/d35/classnap_1_1_audio_format.html#a1fad8a8b73f69fca221d2df1cbbfd2c4abbc45d9b35436f5f0ed9e33499efcea9',1,'nap::AudioFormat']]],
   ['stereo_5fdownmix',['Stereo_Downmix',['../d9/d35/classnap_1_1_audio_format.html#a1fad8a8b73f69fca221d2df1cbbfd2c4a01c70000d2edaff23fafd0d43615a096',1,'nap::AudioFormat']]],
+  ['storage',['Storage',['../d3/d14/namespacenap.html#a52b0f82d307362c05c9335922d1baf79a8c4aa541ee911e8d80451ef8cc304806',1,'nap']]],
   ['sunday',['Sunday',['../d3/d14/namespacenap.html#af9b78b0602f8b51ec287fbfae7012d53a9d1a0949c39e66a0cd65240bc0ac9177',1,'nap']]],
   ['surround',['Surround',['../d9/d35/classnap_1_1_audio_format.html#a1fad8a8b73f69fca221d2df1cbbfd2c4a428ea67d6ee5702028ad01753503828c',1,'nap::AudioFormat']]]
 ];

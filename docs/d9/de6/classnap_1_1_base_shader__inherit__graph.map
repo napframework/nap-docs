@@ -1,0 +1,12 @@
+<map id="BaseShader" name="BaseShader">
+<area shape="rect" id="node4" href="$d5/d73/classnap_1_1_compute_shader.html" title="ComputeShader" alt="" coords="380,44,495,71"/>
+<area shape="rect" id="node6" href="$dd/d44/classnap_1_1_shader.html" title="Shader" alt="" coords="406,132,469,159"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="113,107,191,133"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,107,65,133"/>
+<area shape="rect" id="node5" href="$d7/de3/classnap_1_1_compute_shader_from_file.html" title="ComputeShaderFromFile" alt="" coords="543,5,709,32"/>
+<area shape="rect" id="node7" href="$dd/d51/classnap_1_1_color_adjustment_shader.html" title="ColorAdjustmentShader" alt="" coords="547,56,705,83"/>
+<area shape="rect" id="node8" href="$d7/de0/classnap_1_1_constant_shader.html" title="ConstantShader" alt="" coords="569,107,683,133"/>
+<area shape="rect" id="node9" href="$d4/d6c/classnap_1_1_font_shader.html" title="FontShader" alt="" coords="581,157,671,184"/>
+<area shape="rect" id="node10" href="$dd/dee/classnap_1_1_gnomon_shader.html" title="GnomonShader" alt="" coords="570,208,682,235"/>
+<area shape="rect" id="node11" href="$d6/d49/classnap_1_1_shader_from_file.html" title="ShaderFromFile" alt="" coords="569,259,683,285"/>
+</map>

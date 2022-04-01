@@ -59,6 +59,8 @@ var searchData=
   ['tweenhandle',['TweenHandle',['../d9/d06/classnap_1_1_tween_handle.html#acf734c5fd1b4e5476068d47e7365db98',1,'nap::TweenHandle']]],
   ['tweenhandlebase',['TweenHandleBase',['../d0/dc0/classnap_1_1_tween_handle_base.html#afdcdf33214e1e8cf22cda4e91bf63bc6',1,'nap::TweenHandleBase']]],
   ['tweenservice',['TweenService',['../d7/d05/classnap_1_1_tween_service.html#ad966ced28deaae307e7262406831d9e8',1,'nap::TweenService']]],
-  ['typeduniformvaluearrayinstance',['TypedUniformValueArrayInstance',['../d3/d48/classnap_1_1_typed_uniform_value_array_instance.html#adecc292e5a8565ec2ec9d8c238383b49',1,'nap::TypedUniformValueArrayInstance']]],
-  ['typeduniformvalueinstance',['TypedUniformValueInstance',['../d7/d60/classnap_1_1_typed_uniform_value_instance.html#a972fd516e406e80b8a2755a987ba0c6f',1,'nap::TypedUniformValueInstance']]]
+  ['typedbufferbindingnumericinstance',['TypedBufferBindingNumericInstance',['../d3/d02/classnap_1_1_typed_buffer_binding_numeric_instance.html#a6c166f6b6899b4b5fd6573e424028cdc',1,'nap::TypedBufferBindingNumericInstance']]],
+  ['typedgpubuffernumeric',['TypedGPUBufferNumeric',['../d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html#a60e758e9547beb0ad53a04b260d99050',1,'nap::TypedGPUBufferNumeric::TypedGPUBufferNumeric(Core &amp;core)'],['../d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html#a71816fcf5c2027142a96d621e5bdb5ad',1,'nap::TypedGPUBufferNumeric::TypedGPUBufferNumeric(Core &amp;core, EMemoryUsage usage)']]],
+  ['typeduniformvaluearrayinstance',['TypedUniformValueArrayInstance',['../d3/d48/classnap_1_1_typed_uniform_value_array_instance.html#aad32ef951d3799ad53b76794e4a9098d',1,'nap::TypedUniformValueArrayInstance']]],
+  ['typeduniformvalueinstance',['TypedUniformValueInstance',['../d7/d60/classnap_1_1_typed_uniform_value_instance.html#aad9fc53a59be59cd6231da05d327783b',1,'nap::TypedUniformValueInstance']]]
 ];

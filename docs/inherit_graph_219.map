@@ -1,5 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$df/d86/classnap_1_1audio_1_1_translator.html" title="Translator\&lt; T \&gt;" alt="" coords="5,5,116,32"/>
-<area shape="rect" id="node2" href="$d1/d4e/classnap_1_1audio_1_1_table_translator.html" title="TableTranslator\&lt; T \&gt;" alt="" coords="164,5,305,32"/>
-<area shape="rect" id="node3" href="$d0/d7d/classnap_1_1audio_1_1_equal_power_translator.html" title="EqualPowerTranslator\&lt; T \&gt;" alt="" coords="353,5,532,32"/>
+<area shape="rect" id="node1" href="$d1/da3/classnap_1_1_thread_pool.html" title="ThreadPool" alt="" coords="5,5,92,32"/>
 </map>

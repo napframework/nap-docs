@@ -11,7 +11,7 @@ var searchData=
   ['firewire',['FireWire',['../d3/d14/namespacenap.html#a5e5004d0ee1a503cb3c04a0abab13f20a33fad1a1f7c1133461ca2f66ecd1b7e5',1,'nap']]],
   ['firstperson',['FirstPerson',['../d3/d14/namespacenap.html#a0b225409b28f8d97c1a3f05b8d6dcdf1a69e42bfc96b519dfef9e38ad76fc7429',1,'nap']]],
   ['five',['Five',['../d3/d14/namespacenap.html#a3c4e42c8b1a0e1644397e3b0ae5b2028ae5d9de39f7ca1ba2637e5640af3ae8aa',1,'nap']]],
-  ['float',['FLOAT',['../d3/d14/namespacenap.html#ac17d4ca4a0e0aedf17057a337d01553dae738c26bf4ce1037fa81b039a915cbf6',1,'nap::FLOAT()'],['../d3/d14/namespacenap.html#aed079998a35b355d20e97ea6a82c6582a22ae0e2b89e5e3d477f988cc36d3272b',1,'nap::Float()']]],
+  ['float',['Float',['../d3/d14/namespacenap.html#aab2900990b14d596f1cc6ef5228c930ea22ae0e2b89e5e3d477f988cc36d3272b',1,'nap::Float()'],['../d3/d14/namespacenap.html#ac17d4ca4a0e0aedf17057a337d01553dae738c26bf4ce1037fa81b039a915cbf6',1,'nap::FLOAT()']]],
   ['flt',['FLT',['../d9/d35/classnap_1_1_audio_format.html#a11628fcd25d9b8052e423d95dc1d2564a1cc288bb3360b602513d8ffe37a874f9',1,'nap::AudioFormat']]],
   ['font',['Font',['../d5/d40/namespacenap_1_1rtti.html#a8d15ffe77dfc821d5457dd3da6643849a194f5394ae2e9c74dc3c441b92862d1d',1,'nap::rtti']]],
   ['four',['Four',['../d3/d14/namespacenap.html#a0aa96290af7b249636beb86ed5b22dfba981b8fcee42e1e726a67a2b9a98ea6e9',1,'nap::Four()'],['../d3/d14/namespacenap.html#a4e2010010c8ecf228892f5a9cef8856ba981b8fcee42e1e726a67a2b9a98ea6e9',1,'nap::Four()']]],

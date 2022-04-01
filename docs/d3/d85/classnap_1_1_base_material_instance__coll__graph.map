@@ -1,0 +1,11 @@
+<map id="BaseMaterialInstance" name="BaseMaterialInstance">
+<area shape="rect" id="node2" href="$d5/d6c/classnap_1_1_uniform_container.html" title="UniformContainer" alt="" coords="157,5,279,32"/>
+<area shape="rect" id="node8" href="$da/d69/classnap_1_1_base_material.html" title="BaseMaterial" alt="" coords="521,64,620,91"/>
+<area shape="rect" id="node3" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="518,115,623,141"/>
+<area shape="rect" id="node4" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="186,115,250,141"/>
+<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="115,165,321,192"/>
+<area shape="rect" id="node6" href="$d2/d1c/classnap_1_1_descriptor_set_cache.html" title="DescriptorSetCache" alt="" coords="501,165,640,192"/>
+<area shape="rect" id="node7" href="$df/d7a/classnap_1_1_base_material_instance_resource.html" title="BaseMaterialInstanceResource" alt="" coords="469,216,672,243"/>
+<area shape="rect" id="node9" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="179,64,257,91"/>
+<area shape="rect" id="node10" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,64,65,91"/>
+</map>

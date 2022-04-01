@@ -90,6 +90,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../d7/d35/classnap_1_1_renderable_mesh_component_instance-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RenderableMeshComponentInstance Class Reference</div>  </div>
@@ -168,6 +169,36 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5ee3e294b03ba5137103ecaebfd770e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a5ee3e294b03ba5137103ecaebfd770e0">onDraw</a> (<a class="el" href="../../d7/da9/classnap_1_1_i_render_target.html">IRenderTarget</a> &amp;renderTarget, VkCommandBuffer commandBuffer, const glm::mat4 &amp;viewMatrix, const glm::mat4 &amp;projectionMatrix) override</td></tr>
 <tr class="separator:a5ee3e294b03ba5137103ecaebfd770e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a8068a52ea1fabe674c906b4c8a4bdc8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/d51/classnap_1_1_transform_component_instance.html">TransformComponentInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a8068a52ea1fabe674c906b4c8a4bdc8d">mTransformComponent</a></td></tr>
+<tr class="memdesc:a8068a52ea1fabe674c906b4c8a4bdc8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached pointer to transform.  <a href="#a8068a52ea1fabe674c906b4c8a4bdc8d">More...</a><br /></td></tr>
+<tr class="separator:a8068a52ea1fabe674c906b4c8a4bdc8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e36c5b66d744495f77a5ed1b76f9e63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/daa/classnap_1_1_material_instance.html">MaterialInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a1e36c5b66d744495f77a5ed1b76f9e63">mMaterialInstance</a></td></tr>
+<tr class="memdesc:a1e36c5b66d744495f77a5ed1b76f9e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="../../d0/daa/classnap_1_1_material_instance.html">MaterialInstance</a> as created from the resource.  <a href="#a1e36c5b66d744495f77a5ed1b76f9e63">More...</a><br /></td></tr>
+<tr class="separator:a1e36c5b66d744495f77a5ed1b76f9e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55419550301882367c49839ed6d202ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/da0/classnap_1_1math_1_1_rect.html">math::Rect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a55419550301882367c49839ed6d202ba">mClipRect</a></td></tr>
+<tr class="memdesc:a55419550301882367c49839ed6d202ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clipping rectangle for this instance, in pixel coordinates.  <a href="#a55419550301882367c49839ed6d202ba">More...</a><br /></td></tr>
+<tr class="separator:a55419550301882367c49839ed6d202ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af18a9adb704a9d484bf6aa464b10d128"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d52/classnap_1_1_renderable_mesh.html">RenderableMesh</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#af18a9adb704a9d484bf6aa464b10d128">mRenderableMesh</a></td></tr>
+<tr class="memdesc:af18a9adb704a9d484bf6aa464b10d128"><td class="mdescLeft">&#160;</td><td class="mdescRight">The currently active renderable mesh, either set during <a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a12e7013875ac592272a4104a4507b428">init()</a> or set by setMesh.  <a href="#af18a9adb704a9d484bf6aa464b10d128">More...</a><br /></td></tr>
+<tr class="separator:af18a9adb704a9d484bf6aa464b10d128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0092719ffde0d6d627d9ff27ceacc2cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/dc6/classnap_1_1_render_service.html">RenderService</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a0092719ffde0d6d627d9ff27ceacc2cc">mRenderService</a> = nullptr</td></tr>
+<tr class="memdesc:a0092719ffde0d6d627d9ff27ceacc2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the renderer.  <a href="#a0092719ffde0d6d627d9ff27ceacc2cc">More...</a><br /></td></tr>
+<tr class="separator:a0092719ffde0d6d627d9ff27ceacc2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3974833d538ab649e993c7d23f940396"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a3974833d538ab649e993c7d23f940396">mModelMatUniform</a> = nullptr</td></tr>
+<tr class="memdesc:a3974833d538ab649e993c7d23f940396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the model matrix uniform.  <a href="#a3974833d538ab649e993c7d23f940396">More...</a><br /></td></tr>
+<tr class="separator:a3974833d538ab649e993c7d23f940396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae484b20a6d570170bb7bd36707547dc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#ae484b20a6d570170bb7bd36707547dc4">mViewMatUniform</a> = nullptr</td></tr>
+<tr class="memdesc:ae484b20a6d570170bb7bd36707547dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the view matrix uniform.  <a href="#ae484b20a6d570170bb7bd36707547dc4">More...</a><br /></td></tr>
+<tr class="separator:ae484b20a6d570170bb7bd36707547dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d84312301c5a3c2d14a395944d2bdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#ae7d84312301c5a3c2d14a395944d2bdc">mProjectMatUniform</a> = nullptr</td></tr>
+<tr class="memdesc:ae7d84312301c5a3c2d14a395944d2bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the projection matrix uniform.  <a href="#ae7d84312301c5a3c2d14a395944d2bdc">More...</a><br /></td></tr>
+<tr class="separator:ae7d84312301c5a3c2d14a395944d2bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a99f9ed78e978c8fa666e192433396f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a2a99f9ed78e978c8fa666e192433396f">mLineWidth</a> = 1.0f</td></tr>
+<tr class="memdesc:a2a99f9ed78e978c8fa666e192433396f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/d34/classnap_1_1_line.html">Line</a> width, clamped to 1.0 if not supported by GPU.  <a href="#a2a99f9ed78e978c8fa666e192433396f">More...</a><br /></td></tr>
+<tr class="separator:a2a99f9ed78e978c8fa666e192433396f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_static_methods_classnap_1_1rtti_1_1_object"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_classnap_1_1rtti_1_1_object')"><img src="../../closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="../../de/d01/classnap_1_1rtti_1_1_object.html">Object</a></td></tr>
@@ -187,14 +218,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="dynheader">
 Inheritance diagram for RenderableMeshComponentInstance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7f/classnap_1_1_renderable_mesh_component_instance__inherit__graph.svg" width="246" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/d7f/classnap_1_1_renderable_mesh_component_instance__inherit__graph.svg" width="246" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for RenderableMeshComponentInstance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/daf/classnap_1_1_renderable_mesh_component_instance__coll__graph.svg" width="246" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/daf/classnap_1_1_renderable_mesh_component_instance__coll__graph.svg" width="1794" height="468"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a20af93e61ac5ba2ac67f3f5ab441f6af"></a>
@@ -544,6 +573,223 @@ Collaboration diagram for RenderableMeshComponentInstance:</div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a55419550301882367c49839ed6d202ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55419550301882367c49839ed6d202ba">&#9670;&nbsp;</a></span>mClipRect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da0/classnap_1_1math_1_1_rect.html">math::Rect</a> mClipRect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clipping rectangle for this instance, in pixel coordinates. </p>
+
+</div>
+</div>
+<a id="a2a99f9ed78e978c8fa666e192433396f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a99f9ed78e978c8fa666e192433396f">&#9670;&nbsp;</a></span>mLineWidth</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float mLineWidth = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../de/d34/classnap_1_1_line.html">Line</a> width, clamped to 1.0 if not supported by GPU. </p>
+
+</div>
+</div>
+<a id="a1e36c5b66d744495f77a5ed1b76f9e63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e36c5b66d744495f77a5ed1b76f9e63">&#9670;&nbsp;</a></span>mMaterialInstance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/daa/classnap_1_1_material_instance.html">MaterialInstance</a> mMaterialInstance</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The <a class="el" href="../../d0/daa/classnap_1_1_material_instance.html">MaterialInstance</a> as created from the resource. </p>
+
+</div>
+</div>
+<a id="a3974833d538ab649e993c7d23f940396"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3974833d538ab649e993c7d23f940396">&#9670;&nbsp;</a></span>mModelMatUniform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a>* mModelMatUniform = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the model matrix uniform. </p>
+
+</div>
+</div>
+<a id="ae7d84312301c5a3c2d14a395944d2bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d84312301c5a3c2d14a395944d2bdc">&#9670;&nbsp;</a></span>mProjectMatUniform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a>* mProjectMatUniform = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the projection matrix uniform. </p>
+
+</div>
+</div>
+<a id="af18a9adb704a9d484bf6aa464b10d128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af18a9adb704a9d484bf6aa464b10d128">&#9670;&nbsp;</a></span>mRenderableMesh</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d52/classnap_1_1_renderable_mesh.html">RenderableMesh</a> mRenderableMesh</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The currently active renderable mesh, either set during <a class="el" href="../../d9/d73/classnap_1_1_renderable_mesh_component_instance.html#a12e7013875ac592272a4104a4507b428">init()</a> or set by setMesh. </p>
+
+</div>
+</div>
+<a id="a0092719ffde0d6d627d9ff27ceacc2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0092719ffde0d6d627d9ff27ceacc2cc">&#9670;&nbsp;</a></span>mRenderService</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dc6/classnap_1_1_render_service.html">RenderService</a>* mRenderService = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the renderer. </p>
+
+</div>
+</div>
+<a id="a8068a52ea1fabe674c906b4c8a4bdc8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8068a52ea1fabe674c906b4c8a4bdc8d">&#9670;&nbsp;</a></span>mTransformComponent</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d51/classnap_1_1_transform_component_instance.html">TransformComponentInstance</a>* mTransformComponent</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cached pointer to transform. </p>
+
+</div>
+</div>
+<a id="ae484b20a6d570170bb7bd36707547dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae484b20a6d570170bb7bd36707547dc4">&#9670;&nbsp;</a></span>mViewMatUniform</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d14/namespacenap.html#a1484766793d4fdfc82650bbaeedb7cdd">UniformMat4Instance</a>* mViewMatUniform = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the view matrix uniform. </p>
 
 </div>
 </div>

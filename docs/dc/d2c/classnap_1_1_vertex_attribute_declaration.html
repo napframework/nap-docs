@@ -100,8 +100,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a521ab9de488b8377724d0a1474ece2c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#a521ab9de488b8377724d0a1474ece2c1">VertexAttributeDeclaration</a> (const std::string &amp;name, int location, VkFormat format)</td></tr>
-<tr class="separator:a521ab9de488b8377724d0a1474ece2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325d9ecbd7c6e0cdc601d8b7abda1569"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#a325d9ecbd7c6e0cdc601d8b7abda1569">VertexAttributeDeclaration</a> (const std::string &amp;name, int location, int elementSize, VkFormat format)</td></tr>
+<tr class="separator:a325d9ecbd7c6e0cdc601d8b7abda1569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b1ae73e0b40130668023944125eadb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#ac3b1ae73e0b40130668023944125eadb">VertexAttributeDeclaration</a> ()=delete</td></tr>
 <tr class="separator:ac3b1ae73e0b40130668023944125eadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -112,14 +112,17 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a424041bd2120c08830668be3c250a8a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c84180466ae2bebc209a2a94f87bdcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#a6c84180466ae2bebc209a2a94f87bdcd">mLocation</a></td></tr>
 <tr class="separator:a6c84180466ae2bebc209a2a94f87bdcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5bcc21176bfdb430d6e25bbf086f50f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#ab5bcc21176bfdb430d6e25bbf086f50f">mElementSize</a></td></tr>
+<tr class="memdesc:ab5bcc21176bfdb430d6e25bbf086f50f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element size of this vertex.  <a href="#ab5bcc21176bfdb430d6e25bbf086f50f">More...</a><br /></td></tr>
+<tr class="separator:ab5bcc21176bfdb430d6e25bbf086f50f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20e9b9d2de19728be186acf18f573311"><td class="memItemLeft" align="right" valign="top">VkFormat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d2c/classnap_1_1_vertex_attribute_declaration.html#a20e9b9d2de19728be186acf18f573311">mFormat</a></td></tr>
 <tr class="separator:a20e9b9d2de19728be186acf18f573311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
 <div class="textblock"><p>Represents an Vulkan vertex shader attribute </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a521ab9de488b8377724d0a1474ece2c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a521ab9de488b8377724d0a1474ece2c1">&#9670;&nbsp;</a></span>VertexAttributeDeclaration() <span class="overload">[1/2]</span></h2>
+<a id="a325d9ecbd7c6e0cdc601d8b7abda1569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a325d9ecbd7c6e0cdc601d8b7abda1569">&#9670;&nbsp;</a></span>VertexAttributeDeclaration() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,6 +138,12 @@ Public Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>location</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>elementSize</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -178,6 +187,22 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ab5bcc21176bfdb430d6e25bbf086f50f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5bcc21176bfdb430d6e25bbf086f50f">&#9670;&nbsp;</a></span>mElementSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mElementSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Element size of this vertex. </p>
+
+</div>
+</div>
 <a id="a20e9b9d2de19728be186acf18f573311"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20e9b9d2de19728be186acf18f573311">&#9670;&nbsp;</a></span>mFormat</h2>
 

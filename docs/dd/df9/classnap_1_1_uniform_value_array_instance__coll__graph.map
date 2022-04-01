@@ -1,6 +1,6 @@
 <map id="UniformValueArrayInstance" name="UniformValueArrayInstance">
-<area shape="rect" id="node2" href="$dd/d94/classnap_1_1_uniform_leaf_instance.html" title="UniformLeafInstance" alt="" coords="5,81,144,108"/>
+<area shape="rect" id="node2" href="$dd/d94/classnap_1_1_uniform_leaf_instance.html" title="UniformLeafInstance" alt="" coords="5,89,144,115"/>
 <area shape="rect" id="node3" href="$d6/d6a/classnap_1_1_uniform_instance.html" title="UniformInstance" alt="" coords="17,5,132,32"/>
-<area shape="rect" id="node4" href="$d5/dad/classnap_1_1_uniform_value_array_declaration.html" title="UniformValueArrayDeclaration" alt="" coords="168,81,363,108"/>
-<area shape="rect" id="node5" href="$d9/dfc/classnap_1_1_uniform_declaration.html" title="UniformDeclaration" alt="" coords="200,5,331,32"/>
+<area shape="rect" id="node4" href="$d8/d24/classnap_1_1_shader_variable_value_array_declaration.html" title="ShaderVariableValueArray\lDeclaration" alt="" coords="169,81,343,123"/>
+<area shape="rect" id="node5" href="$dc/d72/classnap_1_1_shader_variable_declaration.html" title="ShaderVariableDeclaration" alt="" coords="169,5,343,32"/>
 </map>

@@ -13,6 +13,7 @@ var searchData=
   ['linestrip',['LineStrip',['../d3/d14/namespacenap.html#af365e0290e738634563616c56a6879a7ae7f9e73b8edd21f420a63b3ace5768a2',1,'nap']]],
   ['local',['Local',['../da/dc9/classnap_1_1_date_time.html#abdf6dedf5c9053954d71c4d305c9fbfca509820290d57f333403f490dde7316f4',1,'nap::DateTime']]],
   ['loop',['LOOP',['../d3/d14/namespacenap.html#a818d03d28154571b24a3180e711b0ddaa61f7f1587bd5fe978d9ff3ece8d0624c',1,'nap']]],
+  ['low',['LOW',['../d4/db3/namespacenap_1_1pipins.html#ada908fa17adca10abf8dd5fd78addbd5a6a226f4143ca3b18999551694cdb72a8',1,'nap::pipins']]],
   ['lowpass',['LowPass',['../db/d66/classnap_1_1audio_1_1_filter_node.html#a837590fd5310ff5df56ffcf7c394787ea835f2dc4fd545ddcd275198d9fbadf63',1,'nap::audio::FilterNode']]],
   ['lowres',['LowRes',['../db/d66/classnap_1_1audio_1_1_filter_node.html#a837590fd5310ff5df56ffcf7c394787eaa23c807174701097064604dd72fb6044',1,'nap::audio::FilterNode']]]
 ];

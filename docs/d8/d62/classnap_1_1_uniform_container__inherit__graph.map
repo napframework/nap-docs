@@ -1,4 +1,8 @@
 <map id="UniformContainer" name="UniformContainer">
-<area shape="rect" id="node2" href="$d2/de3/classnap_1_1_material.html" title="Material" alt="" coords="5,80,73,107"/>
-<area shape="rect" id="node3" href="$d0/daa/classnap_1_1_material_instance.html" title="MaterialInstance" alt="" coords="98,80,215,107"/>
+<area shape="rect" id="node2" href="$da/d69/classnap_1_1_base_material.html" title="BaseMaterial" alt="" coords="133,80,232,107"/>
+<area shape="rect" id="node5" href="$d4/d2c/classnap_1_1_base_material_instance.html" title="BaseMaterialInstance" alt="" coords="256,80,403,107"/>
+<area shape="rect" id="node3" href="$de/d68/classnap_1_1_compute_material.html" title="ComputeMaterial" alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node4" href="$d2/de3/classnap_1_1_material.html" title="Material" alt="" coords="150,155,218,181"/>
+<area shape="rect" id="node6" href="$db/db6/classnap_1_1_compute_material_instance.html" title="ComputeMaterialInstance" alt="" coords="243,155,413,181"/>
+<area shape="rect" id="node7" href="$d0/daa/classnap_1_1_material_instance.html" title="MaterialInstance" alt="" coords="437,155,555,181"/>
 </map>

@@ -111,6 +111,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a342686faa40245d8946bfa22eb11ea5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d14/namespacenap.html#a68f2345d42ceb33677c88a526e49bd6f">RGBAColor8</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d0b/classnap_1_1_render_to_texture_component.html#a342686faa40245d8946bfa22eb11ea5d">mClearColor</a> = { 255, 255, 255, 255 }</td></tr>
 <tr class="memdesc:a342686faa40245d8946bfa22eb11ea5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ClearColor' the color that is used to clear the render target.  <a href="#a342686faa40245d8946bfa22eb11ea5d">More...</a><br /></td></tr>
 <tr class="separator:a342686faa40245d8946bfa22eb11ea5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a543ac69c30364f7c7c35ceecd8ade0ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d0b/classnap_1_1_render_to_texture_component.html#a543ac69c30364f7c7c35ceecd8ade0ed">mSampleShading</a> = true</td></tr>
+<tr class="memdesc:a543ac69c30364f7c7c35ceecd8ade0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'SampleShading' Reduces texture aliasing when enabled, at higher computational cost.  <a href="#a543ac69c30364f7c7c35ceecd8ade0ed">More...</a><br /></td></tr>
+<tr class="separator:a543ac69c30364f7c7c35ceecd8ade0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4059d943be4cb4b9ca569826ad91fac9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d0b/classnap_1_1_render_to_texture_component.html#a4059d943be4cb4b9ca569826ad91fac9">mPreserveAspect</a> = false</td></tr>
+<tr class="memdesc:a4059d943be4cb4b9ca569826ad91fac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'PreserveAspect' Whether to preserve the texture aspect ratio.  <a href="#a4059d943be4cb4b9ca569826ad91fac9">More...</a><br /></td></tr>
+<tr class="separator:a4059d943be4cb4b9ca569826ad91fac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnap_1_1_renderable_component"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnap_1_1_renderable_component')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../d1/d2c/classnap_1_1_renderable_component.html">RenderableComponent</a></td></tr>
 <tr class="memitem:a1d94696db39f3a31382dd7d2429f4953 inherit pub_attribs_classnap_1_1_renderable_component"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d2c/classnap_1_1_renderable_component.html#a1d94696db39f3a31382dd7d2429f4953">mVisible</a> = true</td></tr>
 <tr class="memdesc:a1d94696db39f3a31382dd7d2429f4953 inherit pub_attribs_classnap_1_1_renderable_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'Visible' if this object is rendered to target by the render service.  <a href="../../d1/d2c/classnap_1_1_renderable_component.html#a1d94696db39f3a31382dd7d2429f4953">More...</a><br /></td></tr>
@@ -155,17 +161,15 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Renders an effect directly to a texture using a custom material without having to define a render target or mesh. Use this component as a post process render step. This component manages its own render target and plane to render to. The plane is automatically scaled to fit the bounds of the render target.</p>
 <p>Simply declare the component in json and call <a class="el" href="../../d5/d30/classnap_1_1_render_to_texture_component_instance.html#a56c5cf8a568cff737ff95520cbe6b405">RenderToTextureComponentInstance::draw()</a> in the render part of your application, in between <a class="el" href="../../d5/dc6/classnap_1_1_render_service.html#a65dd7ed0e832c5b735e6e430c7374334">nap::RenderService::beginHeadlessRecording()</a> and <a class="el" href="../../d5/dc6/classnap_1_1_render_service.html#abfb5e43ad5537bf173aa5be9fb3a4975">nap::RenderService::endHeadlessRecording()</a>.</p>
 <p>This component expects a material with a shader that contains both a model and projection matrix uniform. The view matrix uniform is optional. It will be set if found, otherwise bypassed. If you don't care about view space (camera) transformation, don't declare it.</p>
-<div class="fragment"><div class="line">uniform <a class="code" href="../../d3/d14/namespacenap.html">nap</a></div><div class="line">{</div><div class="line">   uniform mat4 <a class="code" href="../../d4/dff/namespacenap_1_1uniform.html#a54ea6f6a3f54bbe9cce2538e475c7b0d">projectionMatrix</a>;</div><div class="line">   uniform mat4 <a class="code" href="../../d4/dff/namespacenap_1_1uniform.html#a69097cc755916870aecb2f8fc2239de3">modelMatrix</a>;</div><div class="line">} mvp;</div><div class="line">...</div><div class="line">void main(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">   gl_Position = mvp.projectionMatrix * mvp.modelMatrix;</div><div class="line">}</div></div><!-- fragment --> </div><div class="dynheader">
+<div class="fragment"><div class="line">uniform <a class="code" href="../../d3/d14/namespacenap.html">nap</a></div><div class="line">{</div><div class="line">   uniform mat4 <a class="code" href="../../d4/dff/namespacenap_1_1uniform.html#a54ea6f6a3f54bbe9cce2538e475c7b0d">projectionMatrix</a>;</div><div class="line">   uniform mat4 <a class="code" href="../../d4/dff/namespacenap_1_1uniform.html#a69097cc755916870aecb2f8fc2239de3">modelMatrix</a>;</div><div class="line">} mvp;</div><div class="line">...</div><div class="line">void <a class="code" href="../../db/d16/namespacenap_1_1shader.html#a11d9baeee1b04d679b67c69b2999a09a">main</a>(<span class="keywordtype">void</span>)</div><div class="line">{</div><div class="line">   gl_Position = mvp.projectionMatrix * mvp.modelMatrix;</div><div class="line">}</div></div><!-- fragment --> </div><div class="dynheader">
 Inheritance diagram for RenderToTextureComponent:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/dbe/classnap_1_1_render_to_texture_component__inherit__graph.svg" width="198" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d0/dbe/classnap_1_1_render_to_texture_component__inherit__graph.svg" width="198" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for RenderToTextureComponent:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/ddb/classnap_1_1_render_to_texture_component__coll__graph.svg" width="1303" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d1/ddb/classnap_1_1_render_to_texture_component__coll__graph.svg" width="1330" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a342686faa40245d8946bfa22eb11ea5d"></a>
@@ -216,6 +220,22 @@ Collaboration diagram for RenderToTextureComponent:</div>
 
 </div>
 </div>
+<a id="a4059d943be4cb4b9ca569826ad91fac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4059d943be4cb4b9ca569826ad91fac9">&#9670;&nbsp;</a></span>mPreserveAspect</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mPreserveAspect = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'PreserveAspect' Whether to preserve the texture aspect ratio. </p>
+
+</div>
+</div>
 <a id="a91c9273c1c4253013ff8c6d4301b5400"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91c9273c1c4253013ff8c6d4301b5400">&#9670;&nbsp;</a></span>mRequestedSamples</h2>
 
@@ -229,6 +249,22 @@ Collaboration diagram for RenderToTextureComponent:</div>
 </div><div class="memdoc">
 
 <p>Property: 'Samples' The number of samples used during Rasterization. For better results enable 'SampleShading'. </p>
+
+</div>
+</div>
+<a id="a543ac69c30364f7c7c35ceecd8ade0ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a543ac69c30364f7c7c35ceecd8ade0ed">&#9670;&nbsp;</a></span>mSampleShading</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mSampleShading = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'SampleShading' Reduces texture aliasing when enabled, at higher computational cost. </p>
 
 </div>
 </div>

@@ -163,17 +163,26 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a34a72646e46a69d96f9064d66946c730"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a34a72646e46a69d96f9064d66946c730">mForceOperational</a> = false</td></tr>
-<tr class="memdesc:a34a72646e46a69d96f9064d66946c730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ForceOperational' if all slaves need to reach operational state during startup.  <a href="#a34a72646e46a69d96f9064d66946c730">More...</a><br /></td></tr>
-<tr class="separator:a34a72646e46a69d96f9064d66946c730"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcd35fac06fab36f69c87109b8a1f2ed"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#abcd35fac06fab36f69c87109b8a1f2ed">mAdapter</a></td></tr>
 <tr class="memdesc:abcd35fac06fab36f69c87109b8a1f2ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'Adapter' the name of the ethernet adapter to use. A list of available adapters is printed by the SOEM service on startup.  <a href="#abcd35fac06fab36f69c87109b8a1f2ed">More...</a><br /></td></tr>
 <tr class="separator:abcd35fac06fab36f69c87109b8a1f2ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34a72646e46a69d96f9064d66946c730"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a34a72646e46a69d96f9064d66946c730">mForceOperational</a> = false</td></tr>
+<tr class="memdesc:a34a72646e46a69d96f9064d66946c730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ForceOperational' if all slaves need to reach operational state during startup.  <a href="#a34a72646e46a69d96f9064d66946c730">More...</a><br /></td></tr>
+<tr class="separator:a34a72646e46a69d96f9064d66946c730"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a3a13febfd20019af7ccea82dd98f7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#aa7a3a13febfd20019af7ccea82dd98f7">mForceSafeOperational</a> = true</td></tr>
+<tr class="memdesc:aa7a3a13febfd20019af7ccea82dd98f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ForceSafeOperational' if all slaves need to reach safe operational state during startup.  <a href="#aa7a3a13febfd20019af7ccea82dd98f7">More...</a><br /></td></tr>
+<tr class="separator:aa7a3a13febfd20019af7ccea82dd98f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3ff49dc26ade46a2ac8fdf91b2072a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a4a3ff49dc26ade46a2ac8fdf91b2072a">mOperationalTimeout</a> = 2000</td></tr>
+<tr class="memdesc:a4a3ff49dc26ade46a2ac8fdf91b2072a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'OperationalTimeout' given time (in ms) for all slaves to reach operational state.  <a href="#a4a3ff49dc26ade46a2ac8fdf91b2072a">More...</a><br /></td></tr>
+<tr class="separator:a4a3ff49dc26ade46a2ac8fdf91b2072a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d11280eb3a903bcaf51d8ad602062d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a16d11280eb3a903bcaf51d8ad602062d">mSafeOperationalTimeout</a> = 2000</td></tr>
+<tr class="memdesc:a16d11280eb3a903bcaf51d8ad602062d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'SafeOperationalTimeout' given time (in ms) for all slaves to reach pre-operational state.  <a href="#a16d11280eb3a903bcaf51d8ad602062d">More...</a><br /></td></tr>
+<tr class="separator:a16d11280eb3a903bcaf51d8ad602062d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae49a9262a139bfb72f51f64fe8f84e42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ae49a9262a139bfb72f51f64fe8f84e42">mErrorCycleTime</a> = 40000</td></tr>
-<tr class="memdesc:ae49a9262a139bfb72f51f64fe8f84e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ErrorCycleTime' error checking cycle time in us. 1000us = 1ms.  <a href="#ae49a9262a139bfb72f51f64fe8f84e42">More...</a><br /></td></tr>
+<tr class="memdesc:ae49a9262a139bfb72f51f64fe8f84e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'ErrorCycleTime' given time (in us) for a slave to recover. 1000us = 1ms.  <a href="#ae49a9262a139bfb72f51f64fe8f84e42">More...</a><br /></td></tr>
 <tr class="separator:ae49a9262a139bfb72f51f64fe8f84e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e8b621b4d0967f931d658bfe8af99d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ab3e8b621b4d0967f931d658bfe8af99d">mRecoveryTimeout</a> = 500</td></tr>
-<tr class="memdesc:ab3e8b621b4d0967f931d658bfe8af99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'RecoveryTimeout' given time (in us) for a slave to recover. 1000us = 1ms.  <a href="#ab3e8b621b4d0967f931d658bfe8af99d">More...</a><br /></td></tr>
+<tr class="memdesc:ab3e8b621b4d0967f931d658bfe8af99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'RecoveryTimeout' given time (in us) for a slave to recover. 1000us =.  <a href="#ab3e8b621b4d0967f931d658bfe8af99d">More...</a><br /></td></tr>
 <tr class="separator:ab3e8b621b4d0967f931d658bfe8af99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnap_1_1rtti_1_1_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnap_1_1rtti_1_1_object')"><img src="../../closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="../../de/d01/classnap_1_1rtti_1_1_object.html">Object</a></td></tr>
 <tr class="memitem:aec3ea91762e4774b00cc8bc7fee22618 inherit pub_attribs_classnap_1_1rtti_1_1_object"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d01/classnap_1_1rtti_1_1_object.html#aec3ea91762e4774b00cc8bc7fee22618">mID</a></td></tr>
@@ -188,12 +197,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a449ea6bd6ded28ffc5fa84df4ffe8dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e939d11de05de677a1c4eba947d883f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a6e939d11de05de677a1c4eba947d883f">onProcess</a> ()=0</td></tr>
 <tr class="separator:a6e939d11de05de677a1c4eba947d883f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5aa791436251fe1ba143ed41f1b6f00"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ae5aa791436251fe1ba143ed41f1b6f00">onStopProcessing</a> ()=0</td></tr>
-<tr class="separator:ae5aa791436251fe1ba143ed41f1b6f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c9d783dea3a7757cbca2c8bc09f4584"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a4c9d783dea3a7757cbca2c8bc09f4584">onPreOperational</a> (void *slave, int index)</td></tr>
-<tr class="separator:a4c9d783dea3a7757cbca2c8bc09f4584"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab65db6d3f5a4976b4af038a9dd5fc323"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ab65db6d3f5a4976b4af038a9dd5fc323">onSafeOperational</a> (void *slave, int index)</td></tr>
-<tr class="separator:ab65db6d3f5a4976b4af038a9dd5fc323"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad84d92fb6b5baa7f61c31289e762bbfa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ad84d92fb6b5baa7f61c31289e762bbfa">onStopProcessing</a> ()</td></tr>
+<tr class="separator:ad84d92fb6b5baa7f61c31289e762bbfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309bb8849f3929c63cbbfcdf69b6f3da"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a309bb8849f3929c63cbbfcdf69b6f3da">onPreOperational</a> (void *slave, int index, <a class="el" href="../../dd/d53/classnap_1_1utility_1_1_error_state.html">utility::ErrorState</a> &amp;error)</td></tr>
+<tr class="separator:a309bb8849f3929c63cbbfcdf69b6f3da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8507496fef1bab85cf86786c9492fbf"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#ae8507496fef1bab85cf86786c9492fbf">onSafeOperational</a> (void *slave, int index, <a class="el" href="../../dd/d53/classnap_1_1utility_1_1_error_state.html">utility::ErrorState</a> &amp;error)</td></tr>
+<tr class="separator:ae8507496fef1bab85cf86786c9492fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad56ba3082e65f6e8622fc8a7fdf3b9e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#aad56ba3082e65f6e8622fc8a7fdf3b9e">onOperational</a> (void *slave, int index)</td></tr>
 <tr class="separator:aad56ba3082e65f6e8622fc8a7fdf3b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20882a101f52c1ad4f0dec68c26a97a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d58/classnap_1_1_ether_c_a_t_master.html#a20882a101f52c1ad4f0dec68c26a97a1">sdoWrite</a> (<a class="el" href="../../d3/d14/namespacenap.html#aa720ba8c0d1dcc513c82c51d3f6e9995">uint16</a> slave, <a class="el" href="../../d3/d14/namespacenap.html#aa720ba8c0d1dcc513c82c51d3f6e9995">uint16</a> index, <a class="el" href="../../d3/d14/namespacenap.html#aa17fc6cc2c9a4ad80e9fcdd3f64320e1">uint8</a> subindex, bool ca, int psize, void *p)</td></tr>
@@ -242,14 +251,12 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="dynheader">
 Inheritance diagram for EtherCATMaster:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/dd2/classnap_1_1_ether_c_a_t_master__inherit__graph.svg" width="130" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d7/dd2/classnap_1_1_ether_c_a_t_master__inherit__graph.svg" width="130" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
 Collaboration diagram for EtherCATMaster:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d5a/classnap_1_1_ether_c_a_t_master__coll__graph.svg" width="130" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d6/d5a/classnap_1_1_ether_c_a_t_master__coll__graph.svg" width="130" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a20b7a8778ef4dd7745cc27fec399e420"></a>
@@ -695,8 +702,8 @@ Collaboration diagram for EtherCATMaster:</div>
 
 </div>
 </div>
-<a id="a4c9d783dea3a7757cbca2c8bc09f4584"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c9d783dea3a7757cbca2c8bc09f4584">&#9670;&nbsp;</a></span>onPreOperational()</h2>
+<a id="a309bb8849f3929c63cbbfcdf69b6f3da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a309bb8849f3929c63cbbfcdf69b6f3da">&#9670;&nbsp;</a></span>onPreOperational()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -705,7 +712,7 @@ Collaboration diagram for EtherCATMaster:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void onPreOperational </td>
+          <td class="memname">virtual bool onPreOperational </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>slave</em>, </td>
@@ -714,7 +721,13 @@ Collaboration diagram for EtherCATMaster:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d53/classnap_1_1utility_1_1_error_state.html">utility::ErrorState</a> &amp;&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -732,10 +745,11 @@ Collaboration diagram for EtherCATMaster:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">slave</td><td>ec_slavet* pointer to the slave on the network. </td></tr>
-    <tr><td class="paramname">index</td><td>slave index into SOEM ec_slave array, 1 = first slave. </td></tr>
+    <tr><td class="paramname">error</td><td>contains the error when operation fails </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>if operation succeeded, when false startup is aborted </dd></dl>
 
 </div>
 </div>
@@ -765,8 +779,8 @@ Collaboration diagram for EtherCATMaster:</div>
 
 </div>
 </div>
-<a id="ab65db6d3f5a4976b4af038a9dd5fc323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab65db6d3f5a4976b4af038a9dd5fc323">&#9670;&nbsp;</a></span>onSafeOperational()</h2>
+<a id="ae8507496fef1bab85cf86786c9492fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8507496fef1bab85cf86786c9492fbf">&#9670;&nbsp;</a></span>onSafeOperational()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -775,7 +789,7 @@ Collaboration diagram for EtherCATMaster:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void onSafeOperational </td>
+          <td class="memname">virtual bool onSafeOperational </td>
           <td>(</td>
           <td class="paramtype">void *&#160;</td>
           <td class="paramname"><em>slave</em>, </td>
@@ -784,7 +798,13 @@ Collaboration diagram for EtherCATMaster:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>index</em>&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d53/classnap_1_1utility_1_1_error_state.html">utility::ErrorState</a> &amp;&#160;</td>
+          <td class="paramname"><em>error</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -801,10 +821,11 @@ Collaboration diagram for EtherCATMaster:</div>
 <p>Called when a slave reaches the safe operational stage on the network. Note that this function can be called from multiple threads. PDO transmission is operational (slave sends data to master). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">slave</td><td>ec_slavet* pointer to the slave on the network. </td></tr>
-    <tr><td class="paramname">index</td><td>slave index into SOEM ec_slave array, 1 = first slave. </td></tr>
+    <tr><td class="paramname">error</td><td>contains the error when operation fails </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>if operation succeeded, when false startup is aborted </dd></dl>
 
 </div>
 </div>
@@ -867,8 +888,8 @@ Collaboration diagram for EtherCATMaster:</div>
 
 </div>
 </div>
-<a id="ae5aa791436251fe1ba143ed41f1b6f00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5aa791436251fe1ba143ed41f1b6f00">&#9670;&nbsp;</a></span>onStopProcessing()</h2>
+<a id="ad84d92fb6b5baa7f61c31289e762bbfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84d92fb6b5baa7f61c31289e762bbfa">&#9670;&nbsp;</a></span>onStopProcessing()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -885,7 +906,7 @@ Collaboration diagram for EtherCATMaster:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1408,7 +1429,7 @@ Collaboration diagram for EtherCATMaster:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Property: 'ErrorCycleTime' error checking cycle time in us. 1000us = 1ms. </p>
+<p>Property: 'ErrorCycleTime' given time (in us) for a slave to recover. 1000us = 1ms. </p>
 
 </div>
 </div>
@@ -1428,6 +1449,38 @@ Collaboration diagram for EtherCATMaster:</div>
 
 </div>
 </div>
+<a id="aa7a3a13febfd20019af7ccea82dd98f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a3a13febfd20019af7ccea82dd98f7">&#9670;&nbsp;</a></span>mForceSafeOperational</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mForceSafeOperational = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'ForceSafeOperational' if all slaves need to reach safe operational state during startup. </p>
+
+</div>
+</div>
+<a id="a4a3ff49dc26ade46a2ac8fdf91b2072a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3ff49dc26ade46a2ac8fdf91b2072a">&#9670;&nbsp;</a></span>mOperationalTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mOperationalTimeout = 2000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'OperationalTimeout' given time (in ms) for all slaves to reach operational state. </p>
+
+</div>
+</div>
 <a id="ab3e8b621b4d0967f931d658bfe8af99d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab3e8b621b4d0967f931d658bfe8af99d">&#9670;&nbsp;</a></span>mRecoveryTimeout</h2>
 
@@ -1440,7 +1493,23 @@ Collaboration diagram for EtherCATMaster:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Property: 'RecoveryTimeout' given time (in us) for a slave to recover. 1000us = 1ms. </p>
+<p>Property: 'RecoveryTimeout' given time (in us) for a slave to recover. 1000us =. </p>
+
+</div>
+</div>
+<a id="a16d11280eb3a903bcaf51d8ad602062d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16d11280eb3a903bcaf51d8ad602062d">&#9670;&nbsp;</a></span>mSafeOperationalTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mSafeOperationalTimeout = 2000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'SafeOperationalTimeout' given time (in ms) for all slaves to reach pre-operational state. </p>
 
 </div>
 </div>

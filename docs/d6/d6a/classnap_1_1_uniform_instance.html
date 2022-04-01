@@ -101,16 +101,15 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6ab2caddaafa38b904588d89a343e54"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d6a/classnap_1_1_uniform_instance.html#aa6ab2caddaafa38b904588d89a343e54">~UniformInstance</a> ()=default</td></tr>
 <tr class="separator:aa6ab2caddaafa38b904588d89a343e54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dce3fa063ddf84773a3ae39601e0da8"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../d9/dfc/classnap_1_1_uniform_declaration.html">UniformDeclaration</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d6a/classnap_1_1_uniform_instance.html#a9dce3fa063ddf84773a3ae39601e0da8">getDeclaration</a> () const =0</td></tr>
-<tr class="separator:a9dce3fa063ddf84773a3ae39601e0da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eae76b47258516b90ad05816f92295e"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="../../dc/d72/classnap_1_1_shader_variable_declaration.html">ShaderVariableDeclaration</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d6a/classnap_1_1_uniform_instance.html#a0eae76b47258516b90ad05816f92295e">getDeclaration</a> () const =0</td></tr>
+<tr class="separator:a0eae76b47258516b90ad05816f92295e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
 <div class="textblock"><p>Instantiated version of a <a class="el" href="../../d7/da4/classnap_1_1_uniform.html">nap::Uniform</a>. Every uniform 'resource' has an associative 'instance', ie: <a class="el" href="../../d4/d4a/classnap_1_1_uniform_value.html">nap::UniformValue</a> -&gt; <a class="el" href="../../d0/dac/classnap_1_1_uniform_value_instance.html">nap::UniformValueInstance</a>. An instance can be updated / inspected at run-time and is associated with a declaration. </p>
 </div><div class="dynheader">
 Inheritance diagram for UniformInstance:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/dec/classnap_1_1_uniform_instance__inherit__graph.svg" width="711" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d2/dec/classnap_1_1_uniform_instance__inherit__graph.svg" width="711" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa6ab2caddaafa38b904588d89a343e54"></a>
@@ -139,8 +138,8 @@ Inheritance diagram for UniformInstance:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9dce3fa063ddf84773a3ae39601e0da8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dce3fa063ddf84773a3ae39601e0da8">&#9670;&nbsp;</a></span>getDeclaration()</h2>
+<a id="a0eae76b47258516b90ad05816f92295e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eae76b47258516b90ad05816f92295e">&#9670;&nbsp;</a></span>getDeclaration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +148,7 @@ Inheritance diagram for UniformInstance:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="../../d9/dfc/classnap_1_1_uniform_declaration.html">UniformDeclaration</a>&amp; getDeclaration </td>
+          <td class="memname">virtual const <a class="el" href="../../dc/d72/classnap_1_1_shader_variable_declaration.html">ShaderVariableDeclaration</a>&amp; getDeclaration </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -163,7 +162,7 @@ Inheritance diagram for UniformInstance:</div>
 </div><div class="memdoc">
 <p>Required virtual, needs to be implemented in derived classes </p><dl class="section return"><dt>Returns</dt><dd>the declaration associated with this uniform instance </dd></dl>
 
-<p>Implemented in <a class="el" href="../../d8/da5/classnap_1_1_uniform_value_array_instance.html#aca069c63b1ec4adc2d19de6f8caefe1f">UniformValueArrayInstance</a>, <a class="el" href="../../d0/dac/classnap_1_1_uniform_value_instance.html#aca069c63b1ec4adc2d19de6f8caefe1f">UniformValueInstance</a>, <a class="el" href="../../d4/da2/classnap_1_1_uniform_struct_array_instance.html#aca069c63b1ec4adc2d19de6f8caefe1f">UniformStructArrayInstance</a>, and <a class="el" href="../../dd/d44/classnap_1_1_uniform_struct_instance.html#aca069c63b1ec4adc2d19de6f8caefe1f">UniformStructInstance</a>.</p>
+<p>Implemented in <a class="el" href="../../d8/da5/classnap_1_1_uniform_value_array_instance.html#a38aa39e43403c7985c77cd114adf44cc">UniformValueArrayInstance</a>, <a class="el" href="../../d0/dac/classnap_1_1_uniform_value_instance.html#a38aa39e43403c7985c77cd114adf44cc">UniformValueInstance</a>, <a class="el" href="../../d4/da2/classnap_1_1_uniform_struct_array_instance.html#a38aa39e43403c7985c77cd114adf44cc">UniformStructArrayInstance</a>, and <a class="el" href="../../dd/d44/classnap_1_1_uniform_struct_instance.html#a38aa39e43403c7985c77cd114adf44cc">UniformStructInstance</a>.</p>
 
 </div>
 </div>

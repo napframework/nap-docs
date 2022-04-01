@@ -103,8 +103,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afed48909f899c85bf51f6ad761ab81d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff1f8a553f866a6835381004d9c1980"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d51/classnap_1_1_descriptor_set_allocator.html#a8ff1f8a553f866a6835381004d9c1980">~DescriptorSetAllocator</a> ()</td></tr>
 <tr class="separator:a8ff1f8a553f866a6835381004d9c1980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae473edc8915bb054948bd4d23fb946ce"><td class="memItemLeft" align="right" valign="top">VkDescriptorSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d51/classnap_1_1_descriptor_set_allocator.html#ae473edc8915bb054948bd4d23fb946ce">allocate</a> (VkDescriptorSetLayout layout, int numUBODescriptors, int numSamplerDescriptors)</td></tr>
-<tr class="separator:ae473edc8915bb054948bd4d23fb946ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac67781ac8832d5a87c56affd7942d58"><td class="memItemLeft" align="right" valign="top">VkDescriptorSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d51/classnap_1_1_descriptor_set_allocator.html#aac67781ac8832d5a87c56affd7942d58">allocate</a> (VkDescriptorSetLayout layout, int numUBODescriptors, int numSSBODescriptors, int numSamplerDescriptors)</td></tr>
+<tr class="separator:aac67781ac8832d5a87c56affd7942d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description</h2>
 <div class="textblock"><p>Allocates DescriptorSets from a pool. Each pool is bound to a specific combination of UBOs and samplers, as allocates resources for each UBO and sampler as well as the <a class="el" href="../../d1/d0c/structnap_1_1_descriptor_set.html">DescriptorSet</a> itself. Any shader that has the same amount of UBOs and samplers can therefore allocate from the same pool.</p>
@@ -153,8 +153,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae473edc8915bb054948bd4d23fb946ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae473edc8915bb054948bd4d23fb946ce">&#9670;&nbsp;</a></span>allocate()</h2>
+<a id="aac67781ac8832d5a87c56affd7942d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac67781ac8832d5a87c56affd7942d58">&#9670;&nbsp;</a></span>allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,6 +175,12 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>numSSBODescriptors</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>numSamplerDescriptors</em>&#160;</td>
         </tr>
         <tr>
@@ -187,7 +193,8 @@ Public Member Functions</h2></td></tr>
 <p>Allocate a DescriptorSetLayout that is compatible with VkDescriptorSetLayout (same amount of UBOs and samplers). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">layout</td><td>layout of the descriptor set </td></tr>
-    <tr><td class="paramname">numUBODescriptors</td><td>number of uniform buffer objects descriptors </td></tr>
+    <tr><td class="paramname">numUBODescriptors</td><td>number of uniform buffer object descriptors </td></tr>
+    <tr><td class="paramname">numSSBODescriptors</td><td>number of storage buffer object descriptors </td></tr>
     <tr><td class="paramname">numSamplerDescriptors</td><td>number of sampler descriptors. </td></tr>
   </table>
   </dd>
