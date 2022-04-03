@@ -105,7 +105,10 @@ $(function() {
 </li>
 <li><a class="el" href="../../d9/d87/install.html#linux">Linux</a><ul>
 <li><a class="el" href="../../d9/d87/install.html#linux_desktop">Desktop</a></li>
-<li><a class="el" href="../../d9/d87/install.html#linux_pi">Raspberry Pi</a></li>
+<li><a class="el" href="../../d9/d87/install.html#linux_pi">Raspberry Pi</a><ul>
+<li><a class="el" href="../../d9/d87/install.html#install_vulkan_driver">Install the Vulkan Driver</a></li>
+</ul>
+</li>
 <li><a class="el" href="../../d9/d87/install.html#setup_build_env_linux">Setup Your Build Environment</a><ul>
 <li><a class="el" href="../../d9/d87/install.html#setup_manual_linux">Manual Dependency Installation</a></li>
 </ul>
@@ -120,7 +123,7 @@ Overview</h1>
 <p>The prerequisites installation script is called <code>check_build_environment</code> and can be found in the tools directory within the release. The script attempts to verify that your build environment is ready for NAP and is designed to be re-run until all checks are successfully passed.</p>
 <h1><a class="anchor" id="ides"></a>
 Development Environments</h1>
-<p>NAP 0.5.0 supports <code>Visual Studio 2019 (v142)</code> on Windows, <code>XCode 11.7</code> on macOS and <code>make files</code> on Linux. Instead of using these environments you can use <a href="https://code.visualstudio.com/">Visual Studio Code</a> or <a href="https://www.jetbrains.com/clion">CLion</a>. Although we don't officially support these environments others have confirmed that they work as expected. Both can be configured using CMake.</p>
+<p>NAP 0.5.0 supports <code>Visual Studio 2019 (v142)</code> on Windows, <code>XCode 11.7</code> on macOS and <code>make files</code> on Linux. Instead of using these environments you can use <a href="https://code.visualstudio.com/">Visual Studio Code</a> or <a href="https://www.jetbrains.com/clion">CLion</a> to author your code. Although we don't officially support these environments others have confirmed that they work as expected. Both <code>Visual Studio Code</code> and <code>CLion</code> can be configured using CMake, which is the system NAP uses to build and package applications.</p>
 <h1><a class="anchor" id="win64"></a>
 Windows</h1>
 <h2><a class="anchor" id="setup_build_env_win64"></a>
@@ -177,8 +180,10 @@ Desktop</h2>
 <p>NAP 0.5.0 supports <code>Ubuntu Linux 20.04</code> on <code>x86-64</code> machines using <code>GCC</code>. Although NAP is known to run on other distros: <code>Ubuntu 20.04 x86_64</code> is currently the only supported Linux desktop environment.</p>
 <h2><a class="anchor" id="linux_pi"></a>
 Raspberry Pi</h2>
-<p>Only the <code>Raspberry Pi 4</code> running <code>Debian Bullseye (v11, armhf)</code> is 'fully' supported. Targets that make use of the Vulkan render module 'might' run on older Raspberry Pi models, but without hardware acceleration, using the <code>LLVMpipe</code> instead of the integrated <code>Mali GPU</code>. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4.</p>
-<h2><a class="anchor" id="setup_build_env_linux"></a>
+<p>Only the <code>Raspberry Pi 4</code> running <code>Raspbian Bullseye (v11, armhf)</code> is 'fully' supported. Targets that make use of the Vulkan render module 'might' run on older Raspberry Pi models, but without hardware acceleration. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4.</p>
+<h3><a class="anchor" id="install_vulkan_driver"></a>
+Install the Vulkan Driver</h3>
+<p>Run the following command to install the Mesa Vulkan Drivers for the Raspberry Pi 4 Mali GPU. </p><div class="fragment"><div class="line">sudo apt install mesa-vulkan-drivers</div></div><!-- fragment --><h2><a class="anchor" id="setup_build_env_linux"></a>
 Setup Your Build Environment</h2>
 <ol type="1">
 <li>Extract the release: <div class="fragment"><div class="line">tar jxvf NAP-0.5.0-Linux.tar.bz2</div></div><!-- fragment --></li>
