@@ -88,7 +88,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
@@ -100,11 +99,6 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="../../d5/d5b/renderservice_8h_source.html">renderservice.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html">QueueCapabilities</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ae79fa5f128b59e2109cf64c410c5d39c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#ae79fa5f128b59e2109cf64c410c5d39c">EPhysicalDeviceType</a> : int { <a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#ae79fa5f128b59e2109cf64c410c5d39ca92d909e2ae45ed6c55a55088f1d46394">Integrated</a> = 1, 
@@ -141,6 +135,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:afd4be536641b74aa0e80038f6a73621a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#afd4be536641b74aa0e80038f6a73621a">mHeadless</a> = false</td></tr>
 <tr class="memdesc:afd4be536641b74aa0e80038f6a73621a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'Headless' Render without a window. Turning this on forbids the use of a <a class="el" href="../../d6/d4f/classnap_1_1_render_window.html">nap::RenderWindow</a>.  <a href="#afd4be536641b74aa0e80038f6a73621a">More...</a><br /></td></tr>
 <tr class="separator:afd4be536641b74aa0e80038f6a73621a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b48db1fb9645ba05903b4aabc51cdb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#a3b48db1fb9645ba05903b4aabc51cdb7">mCompute</a> = true</td></tr>
+<tr class="memdesc:a3b48db1fb9645ba05903b4aabc51cdb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'EnableCompute' Ensures the selected queue supports Vulkan Compute commands. Enable this if you wish to use Vulkan Compute functionality.  <a href="#a3b48db1fb9645ba05903b4aabc51cdb7">More...</a><br /></td></tr>
+<tr class="separator:a3b48db1fb9645ba05903b4aabc51cdb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0170fe1a3e46540f7ee42716e274c6bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#ae79fa5f128b59e2109cf64c410c5d39c">EPhysicalDeviceType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#a0170fe1a3e46540f7ee42716e274c6bc">mPreferredGPU</a> = <a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#ae79fa5f128b59e2109cf64c410c5d39ca4984667940802dedc139aa7a430a6553">EPhysicalDeviceType::Discrete</a></td></tr>
 <tr class="memdesc:a0170fe1a3e46540f7ee42716e274c6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'PreferredGPU' The preferred type of GPU to use. When unavailable, the first GPU in the list is selected.  <a href="#a0170fe1a3e46540f7ee42716e274c6bc">More...</a><br /></td></tr>
 <tr class="separator:a0170fe1a3e46540f7ee42716e274c6bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,9 +150,6 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a13642821bff83f41d4da0b156ff39562"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d14/namespacenap.html#a5522c54735d837fae7d6ba026b858441">uint32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#a13642821bff83f41d4da0b156ff39562">mVulkanVersionMinor</a> = 0</td></tr>
 <tr class="memdesc:a13642821bff83f41d4da0b156ff39562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'VulkanMinor' The minor required vulkan API instance version.  <a href="#a13642821bff83f41d4da0b156ff39562">More...</a><br /></td></tr>
 <tr class="separator:a13642821bff83f41d4da0b156ff39562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6053b74d097e29ccde23cf900b2ca902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html">QueueCapabilities</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#a6053b74d097e29ccde23cf900b2ca902">mRequiredQueueCapabilities</a> = { }</td></tr>
-<tr class="memdesc:a6053b74d097e29ccde23cf900b2ca902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: '<a class="el" href="../../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html">QueueCapabilities</a>' Required Vulkan queue capabilities.  <a href="#a6053b74d097e29ccde23cf900b2ca902">More...</a><br /></td></tr>
-<tr class="separator:a6053b74d097e29ccde23cf900b2ca902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92282a21c27458b9690236431b48f06e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d57/classnap_1_1_render_service_configuration.html#a92282a21c27458b9690236431b48f06e">mLayers</a> = { &quot;VK_LAYER_KHRONOS_validation&quot; }</td></tr>
 <tr class="memdesc:a92282a21c27458b9690236431b48f06e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property: 'Layers' Vulkan layers the engine tries to load in Debug mode. Warning is issued if the layer can't be loaded. Layers are disabled in release mode.  <a href="#a92282a21c27458b9690236431b48f06e">More...</a><br /></td></tr>
 <tr class="separator:a92282a21c27458b9690236431b48f06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -195,7 +189,7 @@ Inheritance diagram for RenderServiceConfiguration:</div>
 <div class="dynheader">
 Collaboration diagram for RenderServiceConfiguration:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d27/classnap_1_1_render_service_configuration__coll__graph.svg" width="375" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d5/d27/classnap_1_1_render_service_configuration__coll__graph.svg" width="191" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="ae79fa5f128b59e2109cf64c410c5d39c"></a>
@@ -290,6 +284,22 @@ Collaboration diagram for RenderServiceConfiguration:</div>
 </div><div class="memdoc">
 
 <p>Property: 'AnisotropicSamples' Default max number of anisotropic filter samples, can be overridden by a sampler if required. </p>
+
+</div>
+</div>
+<a id="a3b48db1fb9645ba05903b4aabc51cdb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b48db1fb9645ba05903b4aabc51cdb7">&#9670;&nbsp;</a></span>mCompute</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mCompute = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Property: 'EnableCompute' Ensures the selected queue supports Vulkan Compute commands. Enable this if you wish to use Vulkan Compute functionality. </p>
 
 </div>
 </div>
@@ -402,22 +412,6 @@ Collaboration diagram for RenderServiceConfiguration:</div>
 </div><div class="memdoc">
 
 <p>Property: 'ShowLayers' If all the available Vulkan layers are printed to console. </p>
-
-</div>
-</div>
-<a id="a6053b74d097e29ccde23cf900b2ca902"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6053b74d097e29ccde23cf900b2ca902">&#9670;&nbsp;</a></span>mRequiredQueueCapabilities</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html">QueueCapabilities</a> mRequiredQueueCapabilities = { }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Property: '<a class="el" href="../../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html">QueueCapabilities</a>' Required Vulkan queue capabilities. </p>
 
 </div>
 </div>

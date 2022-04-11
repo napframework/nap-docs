@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$dd/df0/classnap_1_1_shader_storage_buffer_object.html" title="ShaderStorageBufferObject" alt="" coords="5,5,184,32"/>
+<area shape="rect" id="node1" href="$dc/d72/classnap_1_1_shader_variable_declaration.html" title="ShaderVariableDeclaration" alt="" coords="5,137,180,163"/>
+<area shape="rect" id="node2" href="$de/d72/classnap_1_1_shader_variable_struct_array_declaration.html" title="ShaderVariableStructArray\lDeclaration" alt="" coords="245,5,421,47"/>
+<area shape="rect" id="node3" href="$d9/d70/classnap_1_1_shader_variable_struct_buffer_declaration.html" title="ShaderVariableStructBuffer\lDeclaration" alt="" coords="244,71,423,112"/>
+<area shape="rect" id="node4" href="$d1/d7d/classnap_1_1_shader_variable_struct_declaration.html" title="ShaderVariableStructDeclaration" alt="" coords="228,137,439,163"/>
+<area shape="rect" id="node6" href="$d8/d24/classnap_1_1_shader_variable_value_array_declaration.html" title="ShaderVariableValueArray\lDeclaration" alt="" coords="246,188,421,229"/>
+<area shape="rect" id="node7" href="$d6/df3/classnap_1_1_shader_variable_value_declaration.html" title="ShaderVariableValueDeclaration" alt="" coords="229,254,437,281"/>
+<area shape="rect" id="node5" href="$dd/d6b/classnap_1_1_buffer_object_declaration.html" title="BufferObjectDeclaration" alt="" coords="487,137,645,163"/>
 </map>

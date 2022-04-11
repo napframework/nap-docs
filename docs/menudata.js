@@ -24,4 +24,5 @@ for the JavaScript code in this file
 var menudata={children:[
 {text:"Overview",url:"index.html"},
 {text:"Manual",url:"pages.html"},
-{text:"Classes",url:"classes.html"}]}
+{text:"Classes",url:"classes.html"},
+{text:"Namespaces",url:"namespaces.html"}]}

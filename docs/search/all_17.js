@@ -11,7 +11,7 @@ var searchData=
   ['waitforreceiveframe',['waitForReceiveFrame',['../dc/dc1/classnap_1_1_a_v_state.html#a9d900e5ee335268fe877f3fda9466d1f',1,'nap::AVState']]],
   ['waitreadable',['waitReadable',['../d5/db1/classnap_1_1_serial_port.html#a61903e1046e74772ae2c5f3b7d1c66c7',1,'nap::SerialPort']]],
   ['waitseekstartpacketprocessed',['waitSeekStartPacketProcessed',['../dc/dc1/classnap_1_1_a_v_state.html#ae496daee2ba999a8416af4a5312b6764',1,'nap::AVState']]],
-  ['warning',['Warning',['../d3/d14/namespacenap.html#abd07ff46b2d7271cdfde44edb5d0fa63a0eaadb4fcb48a0a0ed7bc9868be9fbaa',1,'nap::Warning()'],['../d0/de8/namespacenap_1_1icon.html#a519dd88ea1f1a34ae1f5fb94105b51c8',1,'nap::icon::warning()']]],
+  ['warning',['warning',['../d0/de8/namespacenap_1_1icon.html#a519dd88ea1f1a34ae1f5fb94105b51c8',1,'nap::icon::warning()'],['../d3/d14/namespacenap.html#abd07ff46b2d7271cdfde44edb5d0fa63a0eaadb4fcb48a0a0ed7bc9868be9fbaa',1,'nap::Warning()']]],
   ['watchdirectory',['watchDirectory',['../dc/dab/classnap_1_1_resource_manager.html#a5811ac36b71e4e55c195cbe3086884e8',1,'nap::ResourceManager']]],
   ['waveform',['waveform',['../d9/de3/namespacenap_1_1math.html#a77c66bbf7cd5061ccb6b1fcee0d29314',1,'nap::math']]],
   ['websocketclient',['WebSocketClient',['../dd/d1b/classnap_1_1_web_socket_client.html',1,'WebSocketClient'],['../dd/d1b/classnap_1_1_web_socket_client.html#aa39d5213fdfebdc20b6c775c56ca31ce',1,'nap::WebSocketClient::WebSocketClient()']]],

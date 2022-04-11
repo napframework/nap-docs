@@ -9,7 +9,6 @@ var searchData=
   ['quart_5fout',['QUART_OUT',['../d3/d14/namespacenap.html#ad4d222b3c4e764403867b356a2debbeca922d683a190dc7333bb9792de953b006',1,'nap']]],
   ['quatinstancepropertyvalue',['QuatInstancePropertyValue',['../d3/d14/namespacenap.html#a1a7c4fbdb8e6702bc234db11dc7aaf7a',1,'nap']]],
   ['query',['query',['../d6/dd6/classnap_1_1_database_table.html#a7146b6b8189b7e587432251bdf8a903f',1,'nap::DatabaseTable']]],
-  ['queuecapabilities',['QueueCapabilities',['../d3/d6c/structnap_1_1_render_service_configuration_1_1_queue_capabilities.html',1,'nap::RenderServiceConfiguration']]],
   ['queuevulkanobjectdestructor',['queueVulkanObjectDestructor',['../d5/dc6/classnap_1_1_render_service.html#a3333c08a008d46c09e86c4fbb5f29d7f',1,'nap::RenderService']]],
   ['quint_5fin',['QUINT_IN',['../d3/d14/namespacenap.html#ad4d222b3c4e764403867b356a2debbeca8e6e65ad19604df922e1fff209fa76c8',1,'nap']]],
   ['quint_5finout',['QUINT_INOUT',['../d3/d14/namespacenap.html#ad4d222b3c4e764403867b356a2debbecae35feb77b81eeee5eb501bfa0f4a9ef0',1,'nap']]],

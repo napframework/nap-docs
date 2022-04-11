@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d0/d38/classnap_1_1_sampler_declaration.html" title="SamplerDeclaration" alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node1" href="$d2/dec/classnap_1_1_sampler_instance.html" title="SamplerInstance" alt="" coords="5,31,124,57"/>
+<area shape="rect" id="node2" href="$d3/db6/classnap_1_1_sampler2_d_array_instance.html" title="Sampler2DArrayInstance" alt="" coords="172,5,339,32"/>
+<area shape="rect" id="node3" href="$db/d93/classnap_1_1_sampler2_d_instance.html" title="Sampler2DInstance" alt="" coords="188,56,323,83"/>
 </map>
