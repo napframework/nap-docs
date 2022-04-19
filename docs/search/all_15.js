@@ -9,7 +9,7 @@ var searchData=
   ['udpservice',['UDPService',['../dc/dc3/classnap_1_1_u_d_p_service.html',1,'UDPService'],['../dc/dc3/classnap_1_1_u_d_p_service.html#abfc23239c8b7cffe2774ac2dc404b2dc',1,'nap::UDPService::UDPService()']]],
   ['udpthread',['UDPThread',['../d0/d7d/classnap_1_1_u_d_p_thread.html',1,'UDPThread'],['../d0/d7d/classnap_1_1_u_d_p_thread.html#a9fdaf13cd75e037fd46aa6f635cc7c16',1,'nap::UDPThread::UDPThread()']]],
   ['udpthreadobjectcreator',['UDPThreadObjectCreator',['../d3/d14/namespacenap.html#a9233ac77f70a86181277cbdef922f1f1',1,'nap']]],
-  ['uint',['uint',['../d3/d14/namespacenap.html#a69aa29b598b851b0640aa225a9e5d61d',1,'nap::uint()'],['../d3/d14/namespacenap.html#aab2900990b14d596f1cc6ef5228c930ea0b1291eded63143ac04709711274785a',1,'nap::UInt()']]],
+  ['uint',['UInt',['../d3/d14/namespacenap.html#aab2900990b14d596f1cc6ef5228c930ea0b1291eded63143ac04709711274785a',1,'nap::UInt()'],['../d3/d14/namespacenap.html#a69aa29b598b851b0640aa225a9e5d61d',1,'nap::uint()']]],
   ['uint16',['uint16',['../d3/d14/namespacenap.html#aa720ba8c0d1dcc513c82c51d3f6e9995',1,'nap']]],
   ['uint16instancepropertyvalue',['UInt16InstancePropertyValue',['../d3/d14/namespacenap.html#ab47c5cc42da1be4ce1c4879c4e484354',1,'nap']]],
   ['uint32',['uint32',['../d3/d14/namespacenap.html#a5522c54735d837fae7d6ba026b858441',1,'nap']]],

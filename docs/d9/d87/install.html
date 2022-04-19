@@ -183,7 +183,12 @@ Raspberry Pi</h2>
 <p>Only the <code>Raspberry Pi 4</code> running <code>Raspbian Bullseye (v11, armhf)</code> is 'fully' supported. Targets that make use of the Vulkan render module 'might' run on older Raspberry Pi models, but without hardware acceleration. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4.</p>
 <h3><a class="anchor" id="install_vulkan_driver"></a>
 Install the Vulkan Driver</h3>
-<p>Run the following command to install the Mesa Vulkan Drivers for the Raspberry Pi 4 Mali GPU. </p><div class="fragment"><div class="line">sudo apt install mesa-vulkan-drivers</div></div><!-- fragment --><h2><a class="anchor" id="setup_build_env_linux"></a>
+<p>Please note that the current <code>V3DV driver</code> in the <code>Raspbian Bullseye Repository</code> is tagged as experimental and should not be considered production ready. Although most demos work fine, we did run into minor render issues, most notably with the <code>heightmap</code> and <code>computeflocking</code> demos. Using a more recent (upstream) driver improved overall performance and resolved most known render issues.</p>
+<ul>
+<li>Run the following command to install the driver from the Raspbian Repository <div class="fragment"><div class="line">sudo apt install mesa-vulkan-drivers</div></div><!-- fragment --></li>
+<li>Or compile and install the latest <a href="https://mesa3d.org/">Mesa driver</a> from source</li>
+</ul>
+<h2><a class="anchor" id="setup_build_env_linux"></a>
 Setup Your Build Environment</h2>
 <ol type="1">
 <li>Extract the release: <div class="fragment"><div class="line">tar jxvf NAP-0.5.0-Linux.tar.bz2</div></div><!-- fragment --></li>
