@@ -18,3 +18,4 @@ build/
 docs/_build/
 .vscode
 nap/*
+nap
