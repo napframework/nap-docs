@@ -5,6 +5,7 @@ from sys import platform
 import distutils.dir_util
 import shutil
 from git_repo import Repository
+import argparse
 
 NAP_DIR = "../nap"
 BUILD_DIR = "../build"
@@ -13,6 +14,7 @@ CONFIG_FILE = "nap.clang-format"
 NAP_REPO = "https://github.com/naivisoftware/nap.git"
 
 
+# run process
 def call(cwd, cmd):
     print('dir: %s' % cwd)
     print('cmd: %s' % cmd)
@@ -23,6 +25,7 @@ def call(cwd, cmd):
     return out
 
 
+# collect output from proc
 def call_collecting_output(cwd, cmd):
     print('dir: %s' % cwd)
     print('cmd: %s' % cmd)
@@ -111,8 +114,7 @@ def populate_env_vars():
     if len(chunks) < 2:
         raise Exception("Error passing invalid output from version.cmake: %s" % version_unparsed)
 
-    #version = chunks[1].strip()
-    version = "0.5.3"
+    version = chunks[1].strip()
     os.environ["NAP_VERSION_FULL"] = version
     os.environ["NAP_VERSION_MAJOR"] = '.'.join(version.split('.')[:-1])
     os.environ["NAP_WORKING_DIR"] = get_nap_dir()
@@ -121,6 +123,11 @@ def populate_env_vars():
 
 # main run
 if __name__ == '__main__':
+
+    # options
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-p', '--push-changes', action="store_true", help="Push changes to remote")
+    args = parser.parse_args()
 
     # clone NAP and pull
     nap_repo = Repository(get_nap_dir(), NAP_REPO)
@@ -177,5 +184,6 @@ if __name__ == '__main__':
     copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
 
     # push changes to docs repo, if any
-    docs_repo = Repository(get_root_dir())
-    docs_repo.push("Updating docs for NAP {0}".format(os.environ["NAP_VERSION_FULL"]))
+    if args.push_changes:
+        docs_repo = Repository(get_root_dir())
+        docs_repo.push("Updating docs for NAP {0}".format(os.environ["NAP_VERSION_FULL"]))
