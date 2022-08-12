@@ -1,8 +1,9 @@
 <map id="Material" name="Material">
-<area shape="rect" id="node2" href="$da/d69/classnap_1_1_base_material.html" title="BaseMaterial" alt="" coords="108,157,207,184"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$d5/d6c/classnap_1_1_uniform_container.html" title="UniformContainer" alt="" coords="107,81,229,108"/>
-<area shape="rect" id="node6" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::Shader \&gt;" alt="" coords="231,157,401,184"/>
-<area shape="rect" id="node7" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="263,81,369,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="217,247,293,273"/>
+<area shape="rect" id="node2" href="$da/d69/classnap_1_1_base_material.html" title=" " alt="" coords="115,157,223,184"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$d5/d6c/classnap_1_1_uniform_container.html" title=" " alt="" coords="112,81,251,108"/>
+<area shape="rect" id="node6" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title=" " alt="" coords="248,157,437,184"/>
+<area shape="rect" id="node7" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="285,81,400,108"/>
 </map>

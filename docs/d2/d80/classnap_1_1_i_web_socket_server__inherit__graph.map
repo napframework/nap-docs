@@ -1,8 +1,9 @@
 <map id="IWebSocketServer" name="IWebSocketServer">
-<area shape="rect" id="node5" href="$d0/d37/classnap_1_1_a_p_i_web_socket_server.html" title="APIWebSocketServer" alt="" coords="5,304,152,331"/>
-<area shape="rect" id="node6" href="$d7/d1c/classnap_1_1_portal_web_socket_server.html" title="PortalWebSocketServer" alt="" coords="176,304,336,331"/>
-<area shape="rect" id="node7" href="$de/d44/classnap_1_1_web_socket_server.html" title="WebSocketServer" alt="" coords="361,304,487,331"/>
-<area shape="rect" id="node2" href="$d6/d44/classnap_1_1_web_socket_interface.html" title="WebSocketInterface" alt="" coords="187,155,325,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="217,80,295,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="226,5,286,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="203,229,342,256"/>
+<area shape="rect" id="node5" href="$d0/d37/classnap_1_1_a_p_i_web_socket_server.html" title=" " alt="" coords="5,304,161,331"/>
+<area shape="rect" id="node6" href="$d7/d1c/classnap_1_1_portal_web_socket_server.html" title=" " alt="" coords="186,304,359,331"/>
+<area shape="rect" id="node7" href="$de/d44/classnap_1_1_web_socket_server.html" title=" " alt="" coords="384,304,519,331"/>
+<area shape="rect" id="node2" href="$d6/d44/classnap_1_1_web_socket_interface.html" title=" " alt="" coords="197,155,348,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="231,80,314,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="241,5,305,32"/>
 </map>

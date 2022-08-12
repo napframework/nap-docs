@@ -1,6 +1,7 @@
 <map id="RenderableMeshComponent" name="RenderableMeshComponent">
-<area shape="rect" id="node2" href="$d1/d2c/classnap_1_1_renderable_component.html" title="RenderableComponent" alt="" coords="21,229,175,256"/>
-<area shape="rect" id="node3" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="54,155,142,181"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="59,80,137,107"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="68,5,128,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,304,212,331"/>
+<area shape="rect" id="node2" href="$d1/d2c/classnap_1_1_renderable_component.html" title=" " alt="" coords="23,229,194,256"/>
+<area shape="rect" id="node3" href="$db/d6b/classnap_1_1_component.html" title=" " alt="" coords="60,155,157,181"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="67,80,150,107"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="77,5,141,32"/>
 </map>

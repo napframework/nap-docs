@@ -1,5 +1,6 @@
 <map id="Font" name="Font">
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node4" href="$d2/dad/structnap_1_1_font_properties.html" title="FontProperties" alt="" coords="107,81,213,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="83,171,133,197"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node4" href="$d2/dad/structnap_1_1_font_properties.html" title=" " alt="" coords="113,81,229,108"/>
 </map>

@@ -1,9 +1,10 @@
 <map id="IWebSocketServer" name="IWebSocketServer">
-<area shape="rect" id="node2" href="$d6/d44/classnap_1_1_web_socket_interface.html" title="WebSocketInterface" alt="" coords="72,178,211,205"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$dd/d2f/classnap_1_1_web_socket_service.html" title="WebSocketService" alt="" coords="107,81,239,108"/>
-<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="141,5,205,32"/>
-<area shape="rect" id="node7" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::WebSocket\lServerEndPoint \&gt;" alt="" coords="235,171,421,212"/>
-<area shape="rect" id="node8" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="275,81,381,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="176,275,315,301"/>
+<area shape="rect" id="node2" href="$d6/d44/classnap_1_1_web_socket_interface.html" title=" " alt="" coords="71,178,222,205"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$dd/d2f/classnap_1_1_web_socket_service.html" title=" " alt="" coords="112,81,253,108"/>
+<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title=" " alt="" coords="147,5,218,32"/>
+<area shape="rect" id="node7" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title=" " alt="" coords="247,171,447,212"/>
+<area shape="rect" id="node8" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="289,81,404,108"/>
 </map>

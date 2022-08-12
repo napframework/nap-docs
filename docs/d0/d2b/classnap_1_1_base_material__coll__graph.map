@@ -1,5 +1,6 @@
 <map id="BaseMaterial" name="BaseMaterial">
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,80,83,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node4" href="$d5/d6c/classnap_1_1_uniform_container.html" title="UniformContainer" alt="" coords="107,80,229,107"/>
+<area shape="rect" id="node1" title=" " alt="" coords="59,155,167,181"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node4" href="$d5/d6c/classnap_1_1_uniform_container.html" title=" " alt="" coords="112,80,251,107"/>
 </map>

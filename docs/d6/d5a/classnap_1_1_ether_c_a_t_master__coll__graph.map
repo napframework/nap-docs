@@ -1,5 +1,6 @@
 <map id="EtherCATMaster" name="EtherCATMaster">
-<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="35,155,95,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="26,80,103,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="35,5,95,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,132,256"/>
+<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title=" " alt="" coords="35,155,102,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="27,80,110,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="37,5,101,32"/>
 </map>

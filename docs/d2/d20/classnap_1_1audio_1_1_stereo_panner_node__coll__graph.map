@@ -1,7 +1,8 @@
 <map id="StereoPannerNode" name="StereoPannerNode">
-<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title="Node" alt="" coords="21,81,73,108"/>
-<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title="Process" alt="" coords="5,5,76,32"/>
-<area shape="rect" id="node4" href="$d4/dd5/classnap_1_1audio_1_1_input_pin.html" title="InputPin" alt="" coords="110,81,179,108"/>
-<area shape="rect" id="node5" href="$d4/dc6/classnap_1_1audio_1_1_input_pin_base.html" title="InputPinBase" alt="" coords="101,5,199,32"/>
-<area shape="rect" id="node6" href="$dc/d5a/classnap_1_1audio_1_1_output_pin.html" title="OutputPin" alt="" coords="203,81,283,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="78,185,221,212"/>
+<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title=" " alt="" coords="20,81,76,108"/>
+<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title=" " alt="" coords="5,5,77,32"/>
+<area shape="rect" id="node4" href="$d4/dd5/classnap_1_1audio_1_1_input_pin.html" title=" " alt="" coords="112,81,187,108"/>
+<area shape="rect" id="node5" href="$d4/dc6/classnap_1_1audio_1_1_input_pin_base.html" title=" " alt="" coords="101,5,208,32"/>
+<area shape="rect" id="node6" href="$dc/d5a/classnap_1_1audio_1_1_output_pin.html" title=" " alt="" coords="211,81,298,108"/>
 </map>

@@ -1,6 +1,7 @@
 <map id="SequencePlayerIndependentClock" name="SequencePlayerIndependentClock">
-<area shape="rect" id="node2" href="$dd/dcd/classnap_1_1_sequence_player_clock.html" title="SequencePlayerClock" alt="" coords="55,171,206,197"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$db/dc3/classnap_1_1_slot.html" title="Slot\&lt; double \&gt;" alt="" coords="107,81,213,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="6,247,213,288"/>
+<area shape="rect" id="node2" href="$dd/dcd/classnap_1_1_sequence_player_clock.html" title=" " alt="" coords="28,171,191,197"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$db/dc3/classnap_1_1_slot.html" title=" " alt="" coords="113,81,234,108"/>
 </map>

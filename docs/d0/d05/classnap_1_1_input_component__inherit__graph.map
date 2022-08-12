@@ -1,8 +1,9 @@
 <map id="InputComponent" name="InputComponent">
-<area shape="rect" id="node5" href="$d1/d39/classnap_1_1_controller_input_component.html" title="ControllerInputComponent" alt="" coords="5,304,176,331"/>
-<area shape="rect" id="node6" href="$df/dd0/classnap_1_1_key_input_component.html" title="KeyInputComponent" alt="" coords="200,304,339,331"/>
-<area shape="rect" id="node7" href="$da/d57/classnap_1_1_pointer_input_component.html" title="PointerInputComponent" alt="" coords="363,304,520,331"/>
-<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="225,155,313,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="231,80,308,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="239,5,299,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="236,229,367,256"/>
+<area shape="rect" id="node5" href="$d1/d39/classnap_1_1_controller_input_component.html" title=" " alt="" coords="5,304,200,331"/>
+<area shape="rect" id="node6" href="$df/dd0/classnap_1_1_key_input_component.html" title=" " alt="" coords="224,304,379,331"/>
+<area shape="rect" id="node7" href="$da/d57/classnap_1_1_pointer_input_component.html" title=" " alt="" coords="403,304,579,331"/>
+<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title=" " alt="" coords="253,155,350,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="260,80,343,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="269,5,333,32"/>
 </map>

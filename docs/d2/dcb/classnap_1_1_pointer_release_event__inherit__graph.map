@@ -1,7 +1,8 @@
 <map id="PointerReleaseEvent" name="PointerReleaseEvent">
-<area shape="rect" id="node2" href="$dd/d3f/classnap_1_1_pointer_click_event.html" title="PointerClickEvent" alt="" coords="15,304,139,331"/>
-<area shape="rect" id="node3" href="$d3/d85/classnap_1_1_pointer_event.html" title="PointerEvent" alt="" coords="29,229,124,256"/>
-<area shape="rect" id="node4" href="$d6/d58/classnap_1_1_window_input_event.html" title="WindowInputEvent" alt="" coords="13,155,141,181"/>
-<area shape="rect" id="node5" href="$dc/dc0/classnap_1_1_input_event.html" title="InputEvent" alt="" coords="35,80,118,107"/>
-<area shape="rect" id="node6" href="$d2/da2/classnap_1_1_event.html" title="Event" alt="" coords="49,5,104,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,379,163,405"/>
+<area shape="rect" id="node2" href="$dd/d3f/classnap_1_1_pointer_click_event.html" title=" " alt="" coords="15,304,153,331"/>
+<area shape="rect" id="node3" href="$d3/d85/classnap_1_1_pointer_event.html" title=" " alt="" coords="31,229,137,256"/>
+<area shape="rect" id="node4" href="$d6/d58/classnap_1_1_window_input_event.html" title=" " alt="" coords="12,155,156,181"/>
+<area shape="rect" id="node5" href="$dc/dc0/classnap_1_1_input_event.html" title=" " alt="" coords="38,80,130,107"/>
+<area shape="rect" id="node6" href="$d2/da2/classnap_1_1_event.html" title=" " alt="" coords="55,5,113,32"/>
 </map>

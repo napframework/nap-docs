@@ -1,9 +1,10 @@
 <map id="ComputeShaderFromFile" name="ComputeShaderFromFile">
-<area shape="rect" id="node2" href="$d5/d73/classnap_1_1_compute_shader.html" title="ComputeShader" alt="" coords="44,275,159,301"/>
-<area shape="rect" id="node3" href="$d4/dd0/classnap_1_1_base_shader.html" title="BaseShader" alt="" coords="55,199,148,225"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,109,83,136"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node6" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="107,109,213,136"/>
-<area shape="rect" id="node7" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="113,5,177,32"/>
-<area shape="rect" id="node8" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="202,5,409,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="17,351,199,377"/>
+<area shape="rect" id="node2" href="$d5/d73/classnap_1_1_compute_shader.html" title=" " alt="" coords="45,275,171,301"/>
+<area shape="rect" id="node3" href="$d4/dd0/classnap_1_1_base_shader.html" title=" " alt="" coords="59,199,157,225"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,109,88,136"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node6" href="$d5/dc6/classnap_1_1_render_service.html" title=" " alt="" coords="113,109,229,136"/>
+<area shape="rect" id="node7" href="$d8/d8e/classnap_1_1_service.html" title=" " alt="" coords="119,5,190,32"/>
+<area shape="rect" id="node8" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="214,5,450,32"/>
 </map>

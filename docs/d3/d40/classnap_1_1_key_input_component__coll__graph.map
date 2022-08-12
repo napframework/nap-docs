@@ -1,6 +1,7 @@
 <map id="KeyInputComponent" name="KeyInputComponent">
-<area shape="rect" id="node2" href="$de/d9a/classnap_1_1_input_component.html" title="InputComponent" alt="" coords="17,229,133,256"/>
-<area shape="rect" id="node3" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="31,155,119,181"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="36,80,113,107"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="45,5,105,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,304,160,331"/>
+<area shape="rect" id="node2" href="$de/d9a/classnap_1_1_input_component.html" title=" " alt="" coords="17,229,148,256"/>
+<area shape="rect" id="node3" href="$db/d6b/classnap_1_1_component.html" title=" " alt="" coords="34,155,131,181"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="41,80,124,107"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="51,5,115,32"/>
 </map>

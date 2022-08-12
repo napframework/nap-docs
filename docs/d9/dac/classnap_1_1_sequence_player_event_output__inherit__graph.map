@@ -1,5 +1,6 @@
 <map id="SequencePlayerEventOutput" name="SequencePlayerEventOutput">
-<area shape="rect" id="node2" href="$de/dac/classnap_1_1_sequence_player_output.html" title="SequencePlayerOutput" alt="" coords="21,155,177,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="61,80,138,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="69,5,129,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,212,256"/>
+<area shape="rect" id="node2" href="$de/dac/classnap_1_1_sequence_player_output.html" title=" " alt="" coords="23,155,194,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="67,80,150,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="77,5,141,32"/>
 </map>

@@ -1,18 +1,19 @@
 <map id="WindowEvent" name="WindowEvent">
-<area shape="rect" id="node3" href="$d3/d68/classnap_1_1_parameterized_window_event.html" title="ParameterizedWindowEvent" alt="" coords="256,31,440,57"/>
-<area shape="rect" id="node6" href="$df/dc6/classnap_1_1_window_close_event.html" title="WindowCloseEvent" alt="" coords="281,81,415,108"/>
-<area shape="rect" id="node7" href="$d7/d03/classnap_1_1_window_enter_event.html" title="WindowEnterEvent" alt="" coords="283,132,413,159"/>
-<area shape="rect" id="node8" href="$d4/d8b/classnap_1_1_window_exposed_event.html" title="WindowExposedEvent" alt="" coords="273,183,423,209"/>
-<area shape="rect" id="node9" href="$db/d67/classnap_1_1_window_focus_gained_event.html" title="WindowFocusGainedEvent" alt="" coords="259,233,437,260"/>
-<area shape="rect" id="node10" href="$d1/d41/classnap_1_1_window_focus_lost_event.html" title="WindowFocusLostEvent" alt="" coords="267,284,429,311"/>
-<area shape="rect" id="node11" href="$dc/d3b/classnap_1_1_window_hidden_event.html" title="WindowHiddenEvent" alt="" coords="278,335,418,361"/>
-<area shape="rect" id="node12" href="$da/d55/classnap_1_1_window_leave_event.html" title="WindowLeaveEvent" alt="" coords="281,385,415,412"/>
-<area shape="rect" id="node13" href="$d7/d6a/classnap_1_1_window_maximized_event.html" title="WindowMaximizedEvent" alt="" coords="267,436,429,463"/>
-<area shape="rect" id="node14" href="$d0/db2/classnap_1_1_window_minimized_event.html" title="WindowMinimizedEvent" alt="" coords="269,487,427,513"/>
-<area shape="rect" id="node15" href="$d3/d8c/classnap_1_1_window_restored_event.html" title="WindowRestoredEvent" alt="" coords="272,537,424,564"/>
-<area shape="rect" id="node16" href="$dd/d16/classnap_1_1_window_shown_event.html" title="WindowShownEvent" alt="" coords="279,588,417,615"/>
-<area shape="rect" id="node17" href="$db/d02/classnap_1_1_window_take_focus_event.html" title="WindowTakeFocusEvent" alt="" coords="266,639,430,665"/>
-<area shape="rect" id="node2" href="$d2/da2/classnap_1_1_event.html" title="Event" alt="" coords="5,335,60,361"/>
-<area shape="rect" id="node4" href="$d8/d4b/classnap_1_1_window_moved_event.html" title="WindowMovedEvent" alt="" coords="493,5,630,32"/>
-<area shape="rect" id="node5" href="$d7/da9/classnap_1_1_window_resized_event.html" title="WindowResizedEvent" alt="" coords="488,56,635,83"/>
+<area shape="rect" id="node1" title=" " alt="" coords="112,335,223,361"/>
+<area shape="rect" id="node3" href="$d3/d68/classnap_1_1_parameterized_window_event.html" title=" " alt="" coords="271,31,476,57"/>
+<area shape="rect" id="node6" href="$df/dc6/classnap_1_1_window_close_event.html" title=" " alt="" coords="300,81,447,108"/>
+<area shape="rect" id="node7" href="$d7/d03/classnap_1_1_window_enter_event.html" title=" " alt="" coords="301,132,446,159"/>
+<area shape="rect" id="node8" href="$d4/d8b/classnap_1_1_window_exposed_event.html" title=" " alt="" coords="290,183,457,209"/>
+<area shape="rect" id="node9" href="$db/d67/classnap_1_1_window_focus_gained_event.html" title=" " alt="" coords="276,233,471,260"/>
+<area shape="rect" id="node10" href="$d1/d41/classnap_1_1_window_focus_lost_event.html" title=" " alt="" coords="286,284,461,311"/>
+<area shape="rect" id="node11" href="$dc/d3b/classnap_1_1_window_hidden_event.html" title=" " alt="" coords="295,335,452,361"/>
+<area shape="rect" id="node12" href="$da/d55/classnap_1_1_window_leave_event.html" title=" " alt="" coords="298,385,449,412"/>
+<area shape="rect" id="node13" href="$d7/d6a/classnap_1_1_window_maximized_event.html" title=" " alt="" coords="282,436,465,463"/>
+<area shape="rect" id="node14" href="$d0/db2/classnap_1_1_window_minimized_event.html" title=" " alt="" coords="284,487,463,513"/>
+<area shape="rect" id="node15" href="$d3/d8c/classnap_1_1_window_restored_event.html" title=" " alt="" coords="289,537,458,564"/>
+<area shape="rect" id="node16" href="$dd/d16/classnap_1_1_window_shown_event.html" title=" " alt="" coords="296,588,451,615"/>
+<area shape="rect" id="node17" href="$db/d02/classnap_1_1_window_take_focus_event.html" title=" " alt="" coords="285,639,462,665"/>
+<area shape="rect" id="node2" href="$d2/da2/classnap_1_1_event.html" title=" " alt="" coords="5,335,64,361"/>
+<area shape="rect" id="node4" href="$d8/d4b/classnap_1_1_window_moved_event.html" title=" " alt="" coords="528,5,683,32"/>
+<area shape="rect" id="node5" href="$d7/da9/classnap_1_1_window_resized_event.html" title=" " alt="" coords="524,56,687,83"/>
 </map>

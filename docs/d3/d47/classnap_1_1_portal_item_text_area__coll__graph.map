@@ -1,7 +1,11 @@
 <map id="PortalItemTextArea" name="PortalItemTextArea">
-<area shape="rect" id="node3" href="$da/d65/classnap_1_1_portal_item.html" title="PortalItem" alt="" coords="101,193,182,219"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,89,83,115"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node6" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lPortalItem &amp;\&gt;" alt="" coords="107,81,242,123"/>
-<area shape="rect" id="node9" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="393,89,500,115"/>
+<area shape="rect" id="node1" title=" " alt="" coords="219,380,365,407"/>
+<area shape="rect" id="node2" title=" " alt="" coords="207,289,377,331"/>
+<area shape="rect" id="node3" href="$da/d65/classnap_1_1_portal_item.html" title=" " alt="" coords="105,193,196,219"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,89,88,115"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node6" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="113,81,261,123"/>
+<area shape="rect" id="node7" title=" " alt="" coords="221,193,363,219"/>
+<area shape="rect" id="node8" title=" " alt="" coords="387,185,583,227"/>
+<area shape="rect" id="node9" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="428,89,543,115"/>
 </map>

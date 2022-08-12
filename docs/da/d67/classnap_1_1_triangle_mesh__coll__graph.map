@@ -1,5 +1,6 @@
 <map id="TriangleMesh" name="TriangleMesh">
-<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="26,155,83,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="16,80,93,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="25,5,85,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,113,256"/>
+<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title=" " alt="" coords="29,155,90,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="18,80,101,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="27,5,91,32"/>
 </map>

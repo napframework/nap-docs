@@ -1,8 +1,9 @@
 <map id="OperationalCalendar" name="OperationalCalendar">
-<area shape="rect" id="node2" href="$d3/dd1/classnap_1_1_i_calendar.html" title="ICalendar" alt="" coords="87,185,163,212"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$d0/dfd/classnap_1_1_core.html" title="Core" alt="" coords="107,81,157,108"/>
-<area shape="rect" id="node6" href="$d1/d8d/structnap_1_1_calendar_item_1_1_point.html" title="Point" alt="" coords="187,185,239,212"/>
-<area shape="rect" id="node7" href="$d4/db2/structnap_1_1_calendar_item_1_1_time.html" title="Time" alt="" coords="188,81,239,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="98,363,254,389"/>
+<area shape="rect" id="node2" href="$d3/dd1/classnap_1_1_i_calendar.html" title=" " alt="" coords="89,185,173,212"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$d0/dfd/classnap_1_1_core.html" title=" " alt="" coords="113,81,165,108"/>
+<area shape="rect" id="node6" href="$d1/d8d/structnap_1_1_calendar_item_1_1_point.html" title=" " alt="" coords="197,185,251,212"/>
+<area shape="rect" id="node7" href="$d4/db2/structnap_1_1_calendar_item_1_1_time.html" title=" " alt="" coords="197,81,251,108"/>
 </map>

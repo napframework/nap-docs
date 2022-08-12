@@ -1,4 +1,5 @@
 <map id="FilterNode" name="FilterNode">
-<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title="Node" alt="" coords="20,80,72,107"/>
-<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title="Process" alt="" coords="11,5,81,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,95,181"/>
+<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title=" " alt="" coords="22,80,78,107"/>
+<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title=" " alt="" coords="14,5,86,32"/>
 </map>

@@ -1,5 +1,6 @@
 <map id="ReadState" name="ReadState">
-<area shape="rect" id="node2" href="$d3/dcd/classnap_1_1rtti_1_1_factory.html" title="Factory" alt="" coords="5,5,72,32"/>
-<area shape="rect" id="node3" href="$d5/ddd/structnap_1_1rtti_1_1_deserialize_result.html" title="DeserializeResult" alt="" coords="96,5,219,32"/>
-<area shape="rect" id="node4" href="$d5/d81/classnap_1_1rtti_1_1_path.html" title="Path" alt="" coords="243,5,293,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="122,95,211,121"/>
+<area shape="rect" id="node2" href="$d3/dcd/classnap_1_1rtti_1_1_factory.html" title=" " alt="" coords="5,5,75,32"/>
+<area shape="rect" id="node3" href="$d5/ddd/structnap_1_1rtti_1_1_deserialize_result.html" title=" " alt="" coords="99,5,235,32"/>
+<area shape="rect" id="node4" href="$d5/d81/classnap_1_1rtti_1_1_path.html" title=" " alt="" coords="259,5,309,32"/>
 </map>

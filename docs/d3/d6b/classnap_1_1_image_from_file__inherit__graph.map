@@ -1,6 +1,7 @@
 <map id="ImageFromFile" name="ImageFromFile">
-<area shape="rect" id="node2" href="$dd/d82/classnap_1_1_image.html" title="Image" alt="" coords="31,229,88,256"/>
-<area shape="rect" id="node3" href="$d6/d0e/classnap_1_1_texture2_d.html" title="Texture2D" alt="" coords="19,155,100,181"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="21,80,98,107"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="29,5,89,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,304,124,331"/>
+<area shape="rect" id="node2" href="$dd/d82/classnap_1_1_image.html" title=" " alt="" coords="33,229,96,256"/>
+<area shape="rect" id="node3" href="$d6/d0e/classnap_1_1_texture2_d.html" title=" " alt="" coords="21,155,109,181"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="23,80,106,107"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="33,5,97,32"/>
 </map>

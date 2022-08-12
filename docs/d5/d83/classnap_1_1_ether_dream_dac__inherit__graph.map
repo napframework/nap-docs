@@ -1,5 +1,6 @@
 <map id="EtherDreamDac" name="EtherDreamDac">
-<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="33,155,93,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="24,80,101,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="33,5,93,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,131,256"/>
+<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title=" " alt="" coords="35,155,101,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="27,80,109,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="36,5,100,32"/>
 </map>

@@ -1,5 +1,6 @@
 <map id="Window" name="Window">
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,89,83,115"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node4" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lWindowEvent &amp;\&gt;" alt="" coords="107,81,242,123"/>
+<area shape="rect" id="node1" title=" " alt="" coords="79,185,153,212"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,89,88,115"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node4" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="113,81,261,123"/>
 </map>

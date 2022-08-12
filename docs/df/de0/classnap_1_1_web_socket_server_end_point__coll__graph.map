@@ -1,5 +1,6 @@
 <map id="WebSocketServerEndPoint" name="WebSocketServerEndPoint">
-<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="65,155,125,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="56,80,133,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="65,5,125,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,197,256"/>
+<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title=" " alt="" coords="68,155,135,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="60,80,143,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="69,5,133,32"/>
 </map>

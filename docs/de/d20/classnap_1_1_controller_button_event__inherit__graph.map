@@ -1,7 +1,8 @@
 <map id="ControllerButtonEvent" name="ControllerButtonEvent">
-<area shape="rect" id="node5" href="$d9/d4a/classnap_1_1_controller_button_press_event.html" title="ControllerButtonPressEvent" alt="" coords="5,304,187,331"/>
-<area shape="rect" id="node6" href="$de/da1/classnap_1_1_controller_button_release_event.html" title="ControllerButtonReleaseEvent" alt="" coords="211,304,405,331"/>
-<area shape="rect" id="node2" href="$d6/ded/classnap_1_1_controller_event.html" title="ControllerEvent" alt="" coords="147,155,256,181"/>
-<area shape="rect" id="node3" href="$dc/dc0/classnap_1_1_input_event.html" title="InputEvent" alt="" coords="160,80,243,107"/>
-<area shape="rect" id="node4" href="$d2/da2/classnap_1_1_event.html" title="Event" alt="" coords="174,5,229,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="140,229,307,256"/>
+<area shape="rect" id="node5" href="$d9/d4a/classnap_1_1_controller_button_press_event.html" title=" " alt="" coords="5,304,207,331"/>
+<area shape="rect" id="node6" href="$de/da1/classnap_1_1_controller_button_release_event.html" title=" " alt="" coords="231,304,450,331"/>
+<area shape="rect" id="node2" href="$d6/ded/classnap_1_1_controller_event.html" title=" " alt="" coords="162,155,285,181"/>
+<area shape="rect" id="node3" href="$dc/dc0/classnap_1_1_input_event.html" title=" " alt="" coords="177,80,269,107"/>
+<area shape="rect" id="node4" href="$d2/da2/classnap_1_1_event.html" title=" " alt="" coords="194,5,253,32"/>
 </map>

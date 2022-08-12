@@ -1,12 +1,13 @@
 <map id="BufferBindingStruct" name="BufferBindingStruct">
-<area shape="rect" id="node2" href="$d0/d99/classnap_1_1_buffer_binding.html" title="BufferBinding" alt="" coords="321,288,420,315"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="361,109,439,136"/>
-<area shape="rect" id="node5" href="$dd/df4/classnap_1_1_g_p_u_buffer.html" title="GPUBuffer" alt="" coords="245,199,328,225"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="370,5,430,32"/>
-<area shape="rect" id="node6" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="87,109,193,136"/>
-<area shape="rect" id="node7" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="5,5,69,32"/>
-<area shape="rect" id="node8" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="94,5,301,32"/>
-<area shape="rect" id="node9" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; Args \&gt;" alt="" coords="217,109,327,136"/>
-<area shape="rect" id="node10" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::StructBuffer \&gt;" alt="" coords="445,288,643,315"/>
-<area shape="rect" id="node11" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="491,199,597,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="425,377,573,404"/>
+<area shape="rect" id="node2" href="$d0/d99/classnap_1_1_buffer_binding.html" title=" " alt="" coords="349,288,460,315"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="398,109,481,136"/>
+<area shape="rect" id="node5" href="$dd/df4/classnap_1_1_g_p_u_buffer.html" title=" " alt="" coords="269,199,359,225"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="407,5,471,32"/>
+<area shape="rect" id="node6" href="$d5/dc6/classnap_1_1_render_service.html" title=" " alt="" coords="99,109,215,136"/>
+<area shape="rect" id="node7" href="$d8/d8e/classnap_1_1_service.html" title=" " alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node8" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="100,5,336,32"/>
+<area shape="rect" id="node9" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="239,109,360,136"/>
+<area shape="rect" id="node10" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title=" " alt="" coords="485,288,706,315"/>
+<area shape="rect" id="node11" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="538,199,653,225"/>
 </map>

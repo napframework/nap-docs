@@ -1,10 +1,11 @@
 <map id="GPUBuffer" name="GPUBuffer">
-<area shape="rect" id="node4" href="$dd/d69/classnap_1_1_g_p_u_buffer_numeric.html" title="GPUBufferNumeric" alt="" coords="141,229,272,256"/>
-<area shape="rect" id="node9" href="$de/d32/classnap_1_1_struct_buffer.html" title="StructBuffer" alt="" coords="296,229,387,256"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="235,80,312,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="243,5,303,32"/>
-<area shape="rect" id="node5" href="$d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html" title="TypedGPUBufferNumeric\&lt; T \&gt;" alt="" coords="5,311,203,338"/>
-<area shape="rect" id="node7" href="$d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html" title="TypedGPUBufferNumeric\l\&lt; uint \&gt;" alt="" coords="227,304,394,345"/>
-<area shape="rect" id="node6" href="$d9/d9a/classnap_1_1_vertex_buffer.html" title="VertexBuffer\&lt; T \&gt;" alt="" coords="42,393,166,420"/>
-<area shape="rect" id="node8" href="$de/d97/classnap_1_1_index_buffer.html" title="IndexBuffer" alt="" coords="267,393,354,420"/>
+<area shape="rect" id="node1" title=" " alt="" coords="255,155,344,181"/>
+<area shape="rect" id="node4" href="$dd/d69/classnap_1_1_g_p_u_buffer_numeric.html" title=" " alt="" coords="155,229,299,256"/>
+<area shape="rect" id="node9" href="$de/d32/classnap_1_1_struct_buffer.html" title=" " alt="" coords="323,229,422,256"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="258,80,341,107"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="267,5,331,32"/>
+<area shape="rect" id="node5" href="$d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html" title=" " alt="" coords="5,311,225,338"/>
+<area shape="rect" id="node7" href="$d4/d83/classnap_1_1_typed_g_p_u_buffer_numeric.html" title=" " alt="" coords="249,304,432,345"/>
+<area shape="rect" id="node6" href="$d9/d9a/classnap_1_1_vertex_buffer.html" title=" " alt="" coords="45,393,186,420"/>
+<area shape="rect" id="node8" href="$de/d97/classnap_1_1_index_buffer.html" title=" " alt="" coords="292,393,389,420"/>
 </map>

@@ -1,4 +1,5 @@
 <map id="VideoNode" name="VideoNode">
-<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title="Node" alt="" coords="22,80,74,107"/>
-<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title="Process" alt="" coords="13,5,83,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title=" " alt="" coords="24,80,80,107"/>
+<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title=" " alt="" coords="16,5,88,32"/>
 </map>
