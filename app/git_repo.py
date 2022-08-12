@@ -79,5 +79,3 @@ class Repository(object):
         self.repo.git.add(all=True)
         self.repo.index.commit(message)
         self.repo.remote(self.origin.name).push()
-
-
