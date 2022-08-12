@@ -1,5 +1,6 @@
 <map id="ScatterPointsMesh" name="ScatterPointsMesh">
-<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="43,155,101,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="33,80,111,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="42,5,102,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,148,256"/>
+<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title=" " alt="" coords="46,155,107,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="35,80,118,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="45,5,109,32"/>
 </map>

@@ -11,7 +11,7 @@
 }
 
 body{
-		background-color: #2D2D2D;
+	background-color: #2D2D2D;
     margin: 0em;
     font-size: 1rem;
     max-width: 850px;
@@ -20,7 +20,7 @@ body{
 
 body, table, div, p, dl,
 table.directory, #nav-tree,#nav-tree .label {
-	font: 400 0.95em/1.5em 'manrope',sans-serif;
+	font: 400 0.975em/1.5em 'manrope',sans-serif;
 	color: #CDCDC3;
 	letter-spacing: 0.01em;
 }
@@ -30,8 +30,6 @@ table.classindex {
 	margin: 0;
 }
 
-border-bottom: 6px solid #525369;
-}
 .arrow,
 .navpath li.navelem a,
 #navrow4 a,.icon, span.mlabel,

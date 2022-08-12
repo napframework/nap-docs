@@ -1,10 +1,11 @@
 <map id="Shader" name="Shader">
-<area shape="rect" id="node5" href="$dd/d51/classnap_1_1_color_adjustment_shader.html" title="ColorAdjustmentShader" alt="" coords="5,304,164,331"/>
-<area shape="rect" id="node6" href="$d7/de0/classnap_1_1_constant_shader.html" title="ConstantShader" alt="" coords="189,304,303,331"/>
-<area shape="rect" id="node7" href="$d4/d6c/classnap_1_1_font_shader.html" title="FontShader" alt="" coords="328,304,417,331"/>
-<area shape="rect" id="node8" href="$dd/dee/classnap_1_1_gnomon_shader.html" title="GnomonShader" alt="" coords="442,304,554,331"/>
-<area shape="rect" id="node9" href="$d6/d49/classnap_1_1_shader_from_file.html" title="ShaderFromFile" alt="" coords="578,304,693,331"/>
-<area shape="rect" id="node2" href="$d4/dd0/classnap_1_1_base_shader.html" title="BaseShader" alt="" coords="326,155,419,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="334,80,411,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="343,5,403,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="369,229,436,256"/>
+<area shape="rect" id="node5" href="$dd/d51/classnap_1_1_color_adjustment_shader.html" title=" " alt="" coords="5,304,181,331"/>
+<area shape="rect" id="node6" href="$d7/de0/classnap_1_1_constant_shader.html" title=" " alt="" coords="205,304,331,331"/>
+<area shape="rect" id="node7" href="$d4/d6c/classnap_1_1_font_shader.html" title=" " alt="" coords="355,304,450,331"/>
+<area shape="rect" id="node8" href="$dd/dee/classnap_1_1_gnomon_shader.html" title=" " alt="" coords="475,304,597,331"/>
+<area shape="rect" id="node9" href="$d6/d49/classnap_1_1_shader_from_file.html" title=" " alt="" coords="621,304,744,331"/>
+<area shape="rect" id="node2" href="$d4/dd0/classnap_1_1_base_shader.html" title=" " alt="" coords="353,155,452,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="361,80,444,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="371,5,435,32"/>
 </map>

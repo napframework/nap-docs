@@ -1,7 +1,8 @@
 <map id="IMultiChannelOutput" name="IMultiChannelOutput">
-<area shape="rect" id="node2" href="$da/dde/classnap_1_1audio_1_1_audio_component_base_instance.html" title="AudioComponentBaseInstance" alt="" coords="192,85,392,112"/>
-<area shape="rect" id="node3" href="$dc/d8b/classnap_1_1audio_1_1_audio_input_component_instance.html" title="AudioInputComponentInstance" alt="" coords="442,5,641,32"/>
-<area shape="rect" id="node4" href="$d5/d5b/classnap_1_1audio_1_1_playback_component_instance.html" title="PlaybackComponentInstance" alt="" coords="446,56,637,83"/>
-<area shape="rect" id="node5" href="$d4/da3/classnap_1_1audio_1_1_sequence_player_audio_output_component_instance.html" title="SequencePlayerAudioOutput\lComponentInstance" alt="" coords="447,107,636,149"/>
-<area shape="rect" id="node6" href="$df/de7/classnap_1_1audio_1_1_video_audio_component_instance.html" title="VideoAudioComponentInstance" alt="" coords="440,173,643,200"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,85,161,112"/>
+<area shape="rect" id="node2" href="$da/dde/classnap_1_1audio_1_1_audio_component_base_instance.html" title=" " alt="" coords="209,85,431,112"/>
+<area shape="rect" id="node3" href="$dc/d8b/classnap_1_1audio_1_1_audio_input_component_instance.html" title=" " alt="" coords="481,5,703,32"/>
+<area shape="rect" id="node4" href="$d5/d5b/classnap_1_1audio_1_1_playback_component_instance.html" title=" " alt="" coords="487,56,697,83"/>
+<area shape="rect" id="node5" href="$d4/da3/classnap_1_1audio_1_1_sequence_player_audio_output_component_instance.html" title=" " alt="" coords="489,107,695,149"/>
+<area shape="rect" id="node6" href="$df/de7/classnap_1_1audio_1_1_video_audio_component_instance.html" title=" " alt="" coords="479,173,705,200"/>
 </map>

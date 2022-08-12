@@ -1,7 +1,8 @@
 <map id="SequencePlayerOutput" name="SequencePlayerOutput">
-<area shape="rect" id="node4" href="$d4/d49/classnap_1_1_sequence_player_audio_output.html" title="SequencePlayerAudioOutput" alt="" coords="5,229,195,256"/>
-<area shape="rect" id="node5" href="$d7/d31/classnap_1_1_sequence_player_curve_output.html" title="SequencePlayerCurveOutput" alt="" coords="219,229,407,256"/>
-<area shape="rect" id="node6" href="$d3/d0d/classnap_1_1_sequence_player_event_output.html" title="SequencePlayerEventOutput" alt="" coords="431,229,619,256"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="275,80,352,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="283,5,343,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="255,155,426,181"/>
+<area shape="rect" id="node4" href="$d4/d49/classnap_1_1_sequence_player_audio_output.html" title=" " alt="" coords="5,229,212,256"/>
+<area shape="rect" id="node5" href="$d7/d31/classnap_1_1_sequence_player_curve_output.html" title=" " alt="" coords="237,229,445,256"/>
+<area shape="rect" id="node6" href="$d3/d0d/classnap_1_1_sequence_player_event_output.html" title=" " alt="" coords="469,229,676,256"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="299,80,382,107"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="309,5,373,32"/>
 </map>

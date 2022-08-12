@@ -1,6 +1,7 @@
 <map id="LineFromFile" name="LineFromFile">
-<area shape="rect" id="node2" href="$db/d34/classnap_1_1_poly_line.html" title="PolyLine" alt="" coords="18,229,90,256"/>
-<area shape="rect" id="node3" href="$dd/dac/classnap_1_1_i_mesh.html" title="IMesh" alt="" coords="25,155,83,181"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="15,80,93,107"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="24,5,84,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,304,111,331"/>
+<area shape="rect" id="node2" href="$db/d34/classnap_1_1_poly_line.html" title=" " alt="" coords="19,229,97,256"/>
+<area shape="rect" id="node3" href="$dd/dac/classnap_1_1_i_mesh.html" title=" " alt="" coords="27,155,89,181"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="17,80,99,107"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="26,5,90,32"/>
 </map>

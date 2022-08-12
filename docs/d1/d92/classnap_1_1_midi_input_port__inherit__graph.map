@@ -1,5 +1,6 @@
 <map id="MidiInputPort" name="MidiInputPort">
-<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="25,155,85,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="16,80,93,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="25,5,85,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,115,256"/>
+<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title=" " alt="" coords="27,155,93,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="19,80,101,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="28,5,92,32"/>
 </map>

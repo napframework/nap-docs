@@ -2,17 +2,15 @@
 import os
 import subprocess
 from sys import platform
-import shutil
 import distutils.dir_util
 import shutil
-import sys
+from git_repo import Repository
 
 NAP_DIR = "../nap"
 BUILD_DIR = "../build"
+DOCS_DIR = "../docs"
 CONFIG_FILE = "nap.clang-format"
-
-# errors
-ERROR_INVALID_NAP_VERSION = 2
+NAP_REPO = "https://github.com/naivisoftware/nap.git"
 
 
 def call(cwd, cmd):
@@ -43,8 +41,6 @@ def get_working_dir():
 # absolute path to nap directory
 def get_nap_dir():
     rel_dir = "{0}/{1}".format(get_working_dir(), NAP_DIR)
-    if not os.path.exists(rel_dir):
-        raise Exception("Directory {0} does not exist".format(rel_dir))
     return os.path.abspath(rel_dir)
 
 
@@ -56,6 +52,18 @@ def get_build_dir():
 # get absolute path to the build output html dir, not required to exist
 def get_output_dir():
     return "{0}/html".format(get_build_dir(), BUILD_DIR)
+
+
+# get absolute path to (hosted) docs directory
+def get_docs_dir():
+    rel_path = "{0}/{1}".format(get_working_dir(), DOCS_DIR)
+    return os.path.abspath(rel_path)
+
+
+# get absolute path to root directory
+def get_root_dir():
+    rel_path = "{0}/..".format(get_working_dir())
+    return os.path.abspath(rel_path)
 
 
 # path to doxygen executable, should be installed by homebrew or apt when running
@@ -112,6 +120,11 @@ def populate_env_vars():
 
 # main run
 if __name__ == '__main__':
+
+    # clone NAP and pull
+    nap_repo = Repository(get_nap_dir(), NAP_REPO)
+    nap_repo.pull()
+
     # find doxygen executable
     doxy_path = get_doxygen_path()
 
@@ -150,3 +163,18 @@ if __name__ == '__main__':
     # copy mono font
     copy_file("{0}/css/Inconsolata-Medium.ttf".format(get_working_dir()),
               "{0}/Inconsolata-Medium.ttf".format(get_output_dir()))
+
+    # clean docs directory
+    if os.path.exists(get_docs_dir()):
+        shutil.rmtree(get_docs_dir())
+
+    # copy html contents of build step to docs
+    copy_directory(get_output_dir(), get_docs_dir())
+
+    # copy cname file
+    copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
+
+    # push to docs repo
+    docs_repo = Repository(get_root_dir())
+    docs_repo.push()
+

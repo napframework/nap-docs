@@ -1,6 +1,7 @@
 <map id="ParameterButton" name="ParameterButton">
-<area shape="rect" id="node2" href="$d5/de5/classnap_1_1_parameter.html" title="Parameter" alt="" coords="5,157,88,184"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="8,81,85,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="17,5,77,32"/>
-<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; Args \&gt;" alt="" coords="112,157,221,184"/>
+<area shape="rect" id="node1" title=" " alt="" coords="80,276,212,303"/>
+<area shape="rect" id="node2" href="$d5/de5/classnap_1_1_parameter.html" title=" " alt="" coords="5,157,95,184"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="9,81,91,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="18,5,82,32"/>
+<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="119,157,240,184"/>
 </map>

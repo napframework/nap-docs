@@ -1,11 +1,12 @@
 <map id="RenderTexture2D" name="RenderTexture2D">
-<area shape="rect" id="node2" href="$d6/d0e/classnap_1_1_texture2_d.html" title="Texture2D" alt="" coords="176,199,257,225"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="30,109,107,136"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,5,65,32"/>
-<area shape="rect" id="node5" href="$d5/dc6/classnap_1_1_render_service.html" title="RenderService" alt="" coords="164,109,269,136"/>
-<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title="Service" alt="" coords="90,5,154,32"/>
-<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::RenderWindow &amp;\&gt;" alt="" coords="179,5,385,32"/>
-<area shape="rect" id="node8" href="$d6/db8/classnap_1_1_r_g_b_a_color.html" title="RGBAColor\&lt; float \&gt;" alt="" coords="323,199,460,225"/>
-<area shape="rect" id="node9" href="$d6/d3d/classnap_1_1_color.html" title="Color\&lt; float, 4 \&gt;" alt="" coords="373,109,487,136"/>
-<area shape="rect" id="node10" href="$d8/d6a/classnap_1_1_base_color.html" title="BaseColor" alt="" coords="410,5,493,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="238,288,373,315"/>
+<area shape="rect" id="node2" href="$d6/d0e/classnap_1_1_texture2_d.html" title=" " alt="" coords="191,199,279,225"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="33,109,116,136"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node5" href="$d5/dc6/classnap_1_1_render_service.html" title=" " alt="" coords="177,109,293,136"/>
+<area shape="rect" id="node6" href="$d8/d8e/classnap_1_1_service.html" title=" " alt="" coords="94,5,165,32"/>
+<area shape="rect" id="node7" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="189,5,425,32"/>
+<area shape="rect" id="node8" href="$d6/db8/classnap_1_1_r_g_b_a_color.html" title=" " alt="" coords="349,199,501,225"/>
+<area shape="rect" id="node9" href="$d6/d3d/classnap_1_1_color.html" title=" " alt="" coords="405,109,536,136"/>
+<area shape="rect" id="node10" href="$d8/d6a/classnap_1_1_base_color.html" title=" " alt="" coords="449,5,537,32"/>
 </map>

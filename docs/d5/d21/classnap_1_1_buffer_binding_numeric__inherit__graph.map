@@ -1,6 +1,7 @@
 <map id="BufferBindingNumeric" name="BufferBindingNumeric">
-<area shape="rect" id="node5" href="$d5/d93/classnap_1_1_typed_buffer_binding_numeric.html" title="TypedBufferBindingNumeric\&lt; T \&gt;" alt="" coords="5,304,217,331"/>
-<area shape="rect" id="node2" href="$d0/d99/classnap_1_1_buffer_binding.html" title="BufferBinding" alt="" coords="62,155,161,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="73,80,150,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="81,5,141,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="43,229,209,256"/>
+<area shape="rect" id="node5" href="$d5/d93/classnap_1_1_typed_buffer_binding_numeric.html" title=" " alt="" coords="5,304,247,331"/>
+<area shape="rect" id="node2" href="$d0/d99/classnap_1_1_buffer_binding.html" title=" " alt="" coords="71,155,181,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="85,80,167,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="94,5,158,32"/>
 </map>

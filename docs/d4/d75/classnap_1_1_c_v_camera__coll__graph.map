@@ -1,6 +1,7 @@
 <map id="CVCamera" name="CVCamera">
-<area shape="rect" id="node2" href="$d5/dc7/classnap_1_1_c_v_adapter.html" title="CVAdapter" alt="" coords="5,157,91,184"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="9,81,87,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="18,5,78,32"/>
-<area shape="rect" id="node5" href="$d2/df1/structnap_1_1_c_v_camera_settings.html" title="CVCameraSettings" alt="" coords="115,157,248,184"/>
+<area shape="rect" id="node1" title=" " alt="" coords="111,247,201,273"/>
+<area shape="rect" id="node2" href="$d5/dc7/classnap_1_1_c_v_adapter.html" title=" " alt="" coords="5,157,96,184"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="9,81,92,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="19,5,83,32"/>
+<area shape="rect" id="node5" href="$d2/df1/structnap_1_1_c_v_camera_settings.html" title=" " alt="" coords="120,157,264,184"/>
 </map>

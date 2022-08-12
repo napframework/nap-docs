@@ -1,3 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; const nap::\lKeyReleaseEvent &amp;\&gt;" alt="" coords="5,5,151,47"/>
+<area shape="rect" id="node1" href="$dc/d72/classnap_1_1_shader_variable_declaration.html" title=" " alt="" coords="5,137,200,163"/>
+<area shape="rect" id="node2" href="$de/d72/classnap_1_1_shader_variable_struct_array_declaration.html" title=" " alt="" coords="268,5,461,47"/>
+<area shape="rect" id="node3" href="$d9/d70/classnap_1_1_shader_variable_struct_buffer_declaration.html" title=" " alt="" coords="266,71,463,112"/>
+<area shape="rect" id="node4" href="$d1/d7d/classnap_1_1_shader_variable_struct_declaration.html" title=" " alt="" coords="248,137,481,163"/>
+<area shape="rect" id="node6" href="$d8/d24/classnap_1_1_shader_variable_value_array_declaration.html" title=" " alt="" coords="269,188,460,229"/>
+<area shape="rect" id="node7" href="$d6/df3/classnap_1_1_shader_variable_value_declaration.html" title=" " alt="" coords="249,254,480,281"/>
+<area shape="rect" id="node5" href="$dd/d6b/classnap_1_1_buffer_object_declaration.html" title=" " alt="" coords="529,137,708,163"/>
 </map>

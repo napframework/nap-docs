@@ -1,7 +1,8 @@
 <map id="TypedGPUBufferNumeric&lt; T &gt;" name="TypedGPUBufferNumeric&lt; T &gt;">
-<area shape="rect" id="node6" href="$d9/d9a/classnap_1_1_vertex_buffer.html" title="VertexBuffer\&lt; T \&gt;" alt="" coords="42,379,166,405"/>
-<area shape="rect" id="node2" href="$dd/d69/classnap_1_1_g_p_u_buffer_numeric.html" title="GPUBufferNumeric" alt="" coords="39,229,169,256"/>
-<area shape="rect" id="node3" href="$dd/df4/classnap_1_1_g_p_u_buffer.html" title="GPUBuffer" alt="" coords="63,155,145,181"/>
-<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="65,80,143,107"/>
-<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="74,5,134,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,304,225,331"/>
+<area shape="rect" id="node6" href="$d9/d9a/classnap_1_1_vertex_buffer.html" title=" " alt="" coords="45,379,186,405"/>
+<area shape="rect" id="node2" href="$dd/d69/classnap_1_1_g_p_u_buffer_numeric.html" title=" " alt="" coords="43,229,187,256"/>
+<area shape="rect" id="node3" href="$dd/df4/classnap_1_1_g_p_u_buffer.html" title=" " alt="" coords="71,155,160,181"/>
+<area shape="rect" id="node4" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="74,80,157,107"/>
+<area shape="rect" id="node5" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="83,5,147,32"/>
 </map>

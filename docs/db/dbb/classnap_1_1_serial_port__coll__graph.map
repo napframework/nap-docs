@@ -1,6 +1,7 @@
 <map id="SerialPort" name="SerialPort">
-<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title="Device" alt="" coords="14,157,74,184"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title="Signal\&lt; nap::SerialPort *\&gt;" alt="" coords="99,157,272,184"/>
+<area shape="rect" id="node1" title=" " alt="" coords="120,247,205,273"/>
+<area shape="rect" id="node2" href="$d3/dc5/classnap_1_1_device.html" title=" " alt="" coords="13,157,80,184"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="103,157,302,184"/>
 </map>

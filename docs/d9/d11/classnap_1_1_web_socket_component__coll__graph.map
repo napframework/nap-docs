@@ -1,7 +1,8 @@
 <map id="WebSocketComponent" name="WebSocketComponent">
-<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="5,165,93,191"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="11,81,88,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="19,5,79,32"/>
-<area shape="rect" id="node5" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title="ObjectPtr\&lt; nap::WebSocket\lInterface \&gt;" alt="" coords="117,157,304,199"/>
-<area shape="rect" id="node6" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title="ObjectPtrBase" alt="" coords="157,81,264,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="55,261,223,288"/>
+<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title=" " alt="" coords="5,165,103,191"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="13,81,95,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="22,5,86,32"/>
+<area shape="rect" id="node5" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title=" " alt="" coords="127,157,327,199"/>
+<area shape="rect" id="node6" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="170,81,285,108"/>
 </map>

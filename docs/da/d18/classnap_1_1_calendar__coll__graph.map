@@ -1,6 +1,7 @@
 <map id="Calendar" name="Calendar">
-<area shape="rect" id="node2" href="$d3/dd1/classnap_1_1_i_calendar.html" title="ICalendar" alt="" coords="50,171,126,197"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="5,81,83,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="14,5,74,32"/>
-<area shape="rect" id="node5" href="$d0/dfd/classnap_1_1_core.html" title="Core" alt="" coords="107,81,157,108"/>
+<area shape="rect" id="node1" title=" " alt="" coords="52,247,132,273"/>
+<area shape="rect" id="node2" href="$d3/dd1/classnap_1_1_i_calendar.html" title=" " alt="" coords="50,171,134,197"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
+<area shape="rect" id="node5" href="$d0/dfd/classnap_1_1_core.html" title=" " alt="" coords="113,81,165,108"/>
 </map>

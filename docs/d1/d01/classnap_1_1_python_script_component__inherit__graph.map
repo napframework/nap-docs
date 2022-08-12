@@ -1,5 +1,6 @@
 <map id="PythonScriptComponent" name="PythonScriptComponent">
-<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title="Component" alt="" coords="43,155,131,181"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="48,80,125,107"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="57,5,117,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,229,184,256"/>
+<area shape="rect" id="node2" href="$db/d6b/classnap_1_1_component.html" title=" " alt="" coords="46,155,143,181"/>
+<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="53,80,136,107"/>
+<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="63,5,127,32"/>
 </map>

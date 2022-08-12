@@ -1,11 +1,13 @@
 <map id="PortalItem" name="PortalItem">
-<area shape="rect" id="node4" href="$dc/d60/classnap_1_1_portal_item_button.html" title="PortalItemButton" alt="" coords="408,5,527,32"/>
-<area shape="rect" id="node5" href="$dd/ddc/classnap_1_1_portal_item_color.html" title="PortalItemColor\&lt; T \&gt;" alt="" coords="396,56,539,83"/>
-<area shape="rect" id="node6" href="$d2/d50/classnap_1_1_portal_item_numeric.html" title="PortalItemNumeric\&lt; T \&gt;" alt="" coords="387,107,547,133"/>
-<area shape="rect" id="node7" href="$d8/d3b/classnap_1_1_portal_item_operational_calendar.html" title="PortalItemOperationalCalendar" alt="" coords="368,157,567,184"/>
-<area shape="rect" id="node8" href="$d0/d9b/classnap_1_1_portal_item_simple.html" title="PortalItemSimple\&lt; T \&gt;" alt="" coords="391,208,543,235"/>
-<area shape="rect" id="node9" href="$d4/da8/classnap_1_1_portal_item_vec.html" title="PortalItemVec\&lt; T \&gt;" alt="" coords="400,259,535,285"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="113,157,191,184"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,157,65,184"/>
-<area shape="rect" id="node11" href="$d3/da2/classnap_1_1_portal_item_text_area.html" title="PortalItemTextArea" alt="" coords="615,317,748,344"/>
+<area shape="rect" id="node1" title=" " alt="" coords="248,157,339,184"/>
+<area shape="rect" id="node4" href="$dc/d60/classnap_1_1_portal_item_button.html" title=" " alt="" coords="432,5,565,32"/>
+<area shape="rect" id="node5" href="$dd/ddc/classnap_1_1_portal_item_color.html" title=" " alt="" coords="417,56,580,83"/>
+<area shape="rect" id="node6" href="$d2/d50/classnap_1_1_portal_item_numeric.html" title=" " alt="" coords="407,107,590,133"/>
+<area shape="rect" id="node7" href="$d8/d3b/classnap_1_1_portal_item_operational_calendar.html" title=" " alt="" coords="387,157,611,184"/>
+<area shape="rect" id="node8" href="$d0/d9b/classnap_1_1_portal_item_simple.html" title=" " alt="" coords="412,208,585,235"/>
+<area shape="rect" id="node9" href="$d4/da8/classnap_1_1_portal_item_vec.html" title=" " alt="" coords="423,259,574,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="413,310,584,351"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="117,157,200,184"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="5,157,69,184"/>
+<area shape="rect" id="node11" href="$d3/da2/classnap_1_1_portal_item_text_area.html" title=" " alt="" coords="659,317,805,344"/>
 </map>

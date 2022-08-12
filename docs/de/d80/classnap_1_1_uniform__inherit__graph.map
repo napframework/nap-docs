@@ -1,10 +1,11 @@
 <map id="Uniform" name="Uniform">
-<area shape="rect" id="node4" href="$d0/de5/classnap_1_1_uniform_struct.html" title="UniformStruct" alt="" coords="5,229,107,256"/>
-<area shape="rect" id="node5" href="$d9/d1e/classnap_1_1_uniform_struct_array.html" title="UniformStructArray" alt="" coords="131,229,263,256"/>
-<area shape="rect" id="node6" href="$d4/d4a/classnap_1_1_uniform_value.html" title="UniformValue" alt="" coords="288,229,387,256"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="159,80,236,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="167,5,227,32"/>
-<area shape="rect" id="node7" href="$d5/d6a/classnap_1_1_typed_uniform_value.html" title="TypedUniformValue\&lt; T \&gt;" alt="" coords="168,304,333,331"/>
-<area shape="rect" id="node8" href="$d6/d98/classnap_1_1_uniform_value_array.html" title="UniformValueArray" alt="" coords="357,304,488,331"/>
-<area shape="rect" id="node9" href="$d2/d01/classnap_1_1_typed_uniform_value_array.html" title="TypedUniformValueArray\&lt; T \&gt;" alt="" coords="325,379,521,405"/>
+<area shape="rect" id="node1" title=" " alt="" coords="179,155,254,181"/>
+<area shape="rect" id="node4" href="$d0/de5/classnap_1_1_uniform_struct.html" title=" " alt="" coords="5,229,119,256"/>
+<area shape="rect" id="node5" href="$d9/d1e/classnap_1_1_uniform_struct_array.html" title=" " alt="" coords="143,229,291,256"/>
+<area shape="rect" id="node6" href="$d4/d4a/classnap_1_1_uniform_value.html" title=" " alt="" coords="315,229,425,256"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="175,80,258,107"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="185,5,249,32"/>
+<area shape="rect" id="node7" href="$d5/d6a/classnap_1_1_typed_uniform_value.html" title=" " alt="" coords="181,304,367,331"/>
+<area shape="rect" id="node8" href="$d6/d98/classnap_1_1_uniform_value_array.html" title=" " alt="" coords="391,304,538,331"/>
+<area shape="rect" id="node9" href="$d2/d01/classnap_1_1_typed_uniform_value_array.html" title=" " alt="" coords="353,379,576,405"/>
 </map>

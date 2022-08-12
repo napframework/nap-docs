@@ -1,9 +1,10 @@
 <map id="ServiceConfiguration" name="ServiceConfiguration">
-<area shape="rect" id="node3" href="$de/d2e/classnap_1_1audio_1_1_audio_service_configuration.html" title="AudioServiceConfiguration" alt="" coords="313,5,485,32"/>
-<area shape="rect" id="node4" href="$d6/d63/classnap_1_1_c_v_service_configuration.html" title="CVServiceConfiguration" alt="" coords="321,56,478,83"/>
-<area shape="rect" id="node5" href="$d4/d0c/classnap_1_1_i_m_gui_service_configuration.html" title="IMGuiServiceConfiguration" alt="" coords="313,107,486,133"/>
-<area shape="rect" id="node6" href="$dd/de5/classnap_1_1_license_configuration.html" title="LicenseConfiguration" alt="" coords="328,157,471,184"/>
-<area shape="rect" id="node7" href="$d1/d24/classnap_1_1_parameter_service_configuration.html" title="ParameterServiceConfiguration" alt="" coords="300,208,499,235"/>
-<area shape="rect" id="node8" href="$df/d57/classnap_1_1_render_service_configuration.html" title="RenderServiceConfiguration" alt="" coords="309,259,489,285"/>
-<area shape="rect" id="node2" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="5,132,65,159"/>
+<area shape="rect" id="node1" title=" " alt="" coords="117,132,275,159"/>
+<area shape="rect" id="node3" href="$de/d2e/classnap_1_1audio_1_1_audio_service_configuration.html" title=" " alt="" coords="337,5,532,32"/>
+<area shape="rect" id="node4" href="$d6/d63/classnap_1_1_c_v_service_configuration.html" title=" " alt="" coords="347,56,522,83"/>
+<area shape="rect" id="node5" href="$d4/d0c/classnap_1_1_i_m_gui_service_configuration.html" title=" " alt="" coords="337,107,532,133"/>
+<area shape="rect" id="node6" href="$dd/de5/classnap_1_1_license_configuration.html" title=" " alt="" coords="355,157,514,184"/>
+<area shape="rect" id="node7" href="$d1/d24/classnap_1_1_parameter_service_configuration.html" title=" " alt="" coords="323,208,547,235"/>
+<area shape="rect" id="node8" href="$df/d57/classnap_1_1_render_service_configuration.html" title=" " alt="" coords="333,259,536,285"/>
+<area shape="rect" id="node2" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="5,132,69,159"/>
 </map>

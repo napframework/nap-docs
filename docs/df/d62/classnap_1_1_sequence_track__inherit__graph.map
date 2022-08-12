@@ -1,9 +1,10 @@
 <map id="SequenceTrack" name="SequenceTrack">
-<area shape="rect" id="node4" href="$d6/de8/classnap_1_1_base_sequence_track_curve.html" title="BaseSequenceTrackCurve" alt="" coords="97,229,272,256"/>
-<area shape="rect" id="node7" href="$d9/d10/classnap_1_1_sequence_track_audio.html" title="SequenceTrackAudio" alt="" coords="296,229,441,256"/>
-<area shape="rect" id="node8" href="$de/d9d/classnap_1_1_sequence_track_event.html" title="SequenceTrackEvent" alt="" coords="466,229,610,256"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title="Resource" alt="" coords="330,80,407,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title="Object" alt="" coords="339,5,399,32"/>
-<area shape="rect" id="node5" href="$d7/d62/classnap_1_1_sequence_track_curve.html" title="SequenceTrackCurve\&lt; T \&gt;" alt="" coords="5,311,180,338"/>
-<area shape="rect" id="node6" href="$d7/d62/classnap_1_1_sequence_track_curve.html" title="SequenceTrackCurve\l\&lt; CURVE_TYPE \&gt;" alt="" coords="205,304,349,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="341,155,459,181"/>
+<area shape="rect" id="node4" href="$d6/de8/classnap_1_1_base_sequence_track_curve.html" title=" " alt="" coords="108,229,297,256"/>
+<area shape="rect" id="node7" href="$d9/d10/classnap_1_1_sequence_track_audio.html" title=" " alt="" coords="322,229,478,256"/>
+<area shape="rect" id="node8" href="$de/d9d/classnap_1_1_sequence_track_event.html" title=" " alt="" coords="502,229,658,256"/>
+<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="359,80,441,107"/>
+<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="368,5,432,32"/>
+<area shape="rect" id="node5" href="$d7/d62/classnap_1_1_sequence_track_curve.html" title=" " alt="" coords="5,311,200,338"/>
+<area shape="rect" id="node6" href="$d7/d62/classnap_1_1_sequence_track_curve.html" title=" " alt="" coords="224,304,381,345"/>
 </map>
