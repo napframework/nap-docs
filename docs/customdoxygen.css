@@ -20,7 +20,7 @@ body{
 
 body, table, div, p, dl,
 table.directory, #nav-tree,#nav-tree .label {
-	font: 400 0.97em/1.5em 'manrope',sans-serif;
+	font: 400 0.965em/1.5em 'manrope',sans-serif;
 	color: #CDCDC3;
 	letter-spacing: 0.01em;
 }
