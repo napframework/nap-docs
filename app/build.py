@@ -9,16 +9,7 @@ import sys
 
 NAP_DIR = "../nap"
 BUILD_DIR = "../build"
-OUTPUT_DIR = "/" + BUILD_DIR + "/html"
-CONFIG_FILE = "/nap.clang-format"
-CONTENT_DIR = "/content"
-SEARCH_SOURCE = "/css/search.css"
-FONT_FILE_SOURCE = "/css/Manrope-Regular.ttf"
-MONO_FONT_FILE_SOURCE = "/css/Inconsolata-Medium.ttf"
-OVERRIDE_DIR = "/overrides"
-MONO_FONT_FILE_TARGET = OUTPUT_DIR + "/Inconsolata-Medium.ttf"
-FONT_FILE_TARGET = OUTPUT_DIR + "/Manrope-Regular.ttf"
-SEARCH_TARGET = OUTPUT_DIR + "/search/search.css"
+CONFIG_FILE = "nap.clang-format"
 
 # errors
 ERROR_INVALID_NAP_VERSION = 2
@@ -62,6 +53,11 @@ def get_build_dir():
     return os.path.abspath("{0}/{1}".format(get_working_dir(), BUILD_DIR))
 
 
+# get absolute path to the build output html dir, not required to exist
+def get_output_dir():
+    return "{0}/html".format(get_build_dir(), BUILD_DIR)
+
+
 # path to doxygen executable, should be installed by homebrew or apt when running
 # linux / osx. Binary is bundled for windows in repo
 def get_doxygen_path():
@@ -77,54 +73,22 @@ def get_doxygen_path():
 
 # path to doxygen config file
 def get_doxygen_config_file():
-    doxy_conf = get_working_dir() + CONFIG_FILE
-    if not os.path.exists(doxy_conf):
-        raise Exception("can't find doxygen configuration file: " + doxy_conf)
-    return doxy_conf
+    config_file = "{0}/{1}".format(get_working_dir(), CONFIG_FILE)
+    if not os.path.exists(config_file):
+        raise Exception("can't find doxygen configuration file: " + config_file)
+    return config_file
 
 
 # copy content
-def copy_content():
-    source = get_working_dir() + CONTENT_DIR
-    target = get_working_dir() + OUTPUT_DIR + CONTENT_DIR
+def copy_directory(source, target):
+    print("copy:{0} -> {1}".format(source, target))
+    distutils.dir_util.copy_tree(source, target)
+
+
+# copy file
+def copy_file(source, target):
     print("copy: %s -> %s" % (source, target))
-    try:
-        distutils.dir_util.copy_tree(source, target)
-    except Exception as error:
-        print("unable to copy content, are you running as admin? %s" % error)
-
-
-# copy overrides
-def copy_overrides():
-    source = get_working_dir() + OVERRIDE_DIR
-    target = get_working_dir() + OUTPUT_DIR
-    print("copy: %s -> %s" % (source, target))
-    try:
-        distutils.dir_util.copy_tree(source, target)
-    except Exception as error:
-        print("unable to copy overrides, are you running as admin? %s" % error)
-
-
-# copy search window
-def copy_search():
-    source = get_working_dir() + SEARCH_SOURCE
-    target = get_working_dir() + SEARCH_TARGET
-    print("copy: %s -> %s" % (source, target))
-    try:
-        shutil.copyfile(source, target)
-    except Exception as error:
-        print("unable to copy search stylesheet, are you running as admin? %s" % error)
-
-
-# copy font
-def copy_font(source, target):
-    font_source = get_working_dir() + source
-    font_target = get_working_dir() + target
-    print("copy: %s -> %s" % (font_source, font_target))
-    try:
-        shutil.copyfile(font_source, font_target)
-    except Exception as error:
-        print("unable to copy font, are you running as admin? %s" % error)
+    shutil.copyfile(source, target)
 
 
 def populate_env_vars():
@@ -161,18 +125,28 @@ if __name__ == '__main__':
     # and NAP_VERSION_MAJOR (eg. 0.1) accessible in doxygen manual like $(NAP_VERSION_FULL), $(NAP_VERSION_MAJOR)
     populate_env_vars()
 
+    # delete build output
+    shutil.rmtree(get_build_dir())
+
     # generate docs
     call(get_working_dir(), doxy_arg)
 
     # copy content
-    copy_content()
+    copy_directory("{0}/content".format(get_working_dir()),
+                   "{0}/content".format(get_output_dir()))
 
     # copy search
-    copy_search()
+    copy_file("{0}/css/search.css".format(get_working_dir()),
+              "{0}/search/search.css".format(get_output_dir()))
 
     # copy overrides
-    copy_overrides()
+    copy_directory("{0}/overrides".format(get_working_dir()),
+                   get_output_dir())
 
-    # copy fonts
-    copy_font(FONT_FILE_SOURCE, FONT_FILE_TARGET)
-    copy_font(MONO_FONT_FILE_SOURCE, MONO_FONT_FILE_TARGET)
+    # copy regular font
+    copy_file("{0}/css/Manrope-Regular.ttf".format(get_working_dir()),
+              "{0}/Manrope-Regular.ttf".format(get_output_dir()))
+
+    # copy mono font
+    copy_file("{0}/css/Inconsolata-Medium.ttf".format(get_working_dir()),
+              "{0}/Inconsolata-Medium.ttf".format(get_output_dir()))

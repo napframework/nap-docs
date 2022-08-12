@@ -926,9 +926,9 @@ EXCLUDE                = $(NAP_WORKING_DIR)/napkin \
                          $(NAP_WORKING_DIR)/apps \
                          $(NAP_WORKING_DIR)/test \
                          $(NAP_WORKING_DIR)/unittests \
-                         $(NAP_WORKING_DIR)/modules\napimgui\src\imgui \
-                         $(NAP_WORKING_DIR)/core\src\nap\blockingconcurrentqueue.h \
-                         $(NAP_WORKING_DIR)/core\src\nap\concurrentqueue.h \
+                         $(NAP_WORKING_DIR)/modules/napimgui/src/imgui \
+                         $(NAP_WORKING_DIR)/core/src/nap/blockingconcurrentqueue.h \
+                         $(NAP_WORKING_DIR)/core/src/nap/concurrentqueue.h \
                          $(NAP_WORKING_DIR)/napkin \
                          $(NAP_WORKING_DIR)/codeblocks \
                          $(NAP_WORKING_DIR)/tools \
