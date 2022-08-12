@@ -139,7 +139,8 @@ if __name__ == '__main__':
     populate_env_vars()
 
     # delete build output
-    shutil.rmtree(get_build_dir())
+    if os.path.exists(get_build_dir()):
+        shutil.rmtree(get_build_dir())
 
     # generate docs
     call(get_working_dir(), doxy_arg)
@@ -174,10 +175,6 @@ if __name__ == '__main__':
     # copy cname file
     copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
 
-    # delete build directory
-    shutil.rmtree(get_build_dir())
-
     # push changes to docs repo, if any
     docs_repo = Repository(get_root_dir())
     docs_repo.push("Updating docs for: {0}".format(os.environ["NAP_VERSION_FULL"]))
-

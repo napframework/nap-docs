@@ -74,13 +74,9 @@ class Repository(object):
     def push(self, message):
         """
         Push all local changes to remote
-        :return If something upstream changed and repo has been updated
         """
         self.repo.git.add(all=True)
         self.repo.index.commit(message)
         self.repo.remote(self.origin.name).push()
-
-    def checkout(self, tag):
-        self.git.checkout(tag)
 
 
