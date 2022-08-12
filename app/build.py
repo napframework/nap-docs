@@ -177,4 +177,4 @@ if __name__ == '__main__':
 
     # push changes to docs repo, if any
     docs_repo = Repository(get_root_dir())
-    docs_repo.push("Updating docs for: {0}".format(os.environ["NAP_VERSION_FULL"]))
+    docs_repo.push("Updating docs for NAP {0}".format(os.environ["NAP_VERSION_FULL"]))
