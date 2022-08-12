@@ -75,7 +75,7 @@ class Repository(object):
         """
         Push all local changes to remote
         """
-        print("pushing changes to {0}".format(self.origin.name))
+        print("pushing changes to {0}/{1}".format(self.origin.name, self.repo.active_branch))
         self.repo.git.add(all=True)
         self.repo.index.commit(message)
         self.repo.remote(self.origin.name).push()
