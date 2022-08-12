@@ -1,4 +1,5 @@
 from git import Repo
+from git import Git
 import os
 import shutil
 
@@ -73,5 +74,9 @@ class Repository(object):
         self.repo.git.add(all=True)
         self.repo.index.commit("Updating documentation")
         self.repo.remote(self.origin.name).push()
+
+    def checkout(self, tag):
+        git = Git(self.dir)
+        git.checkout(tag)
 
 

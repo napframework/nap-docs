@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "cemrt",
   7: "_abcdefghijklmnopqrstuvwxy",
   8: "i",
-  9: "aegilprsw"
+  9: "aegiloprsw"
 };
 
 var indexSectionNames =
