@@ -187,9 +187,7 @@ div.line {
         font-size: 13px;
 	min-height: 13px;
 	line-height: 1.0;
-	text-wrap: unrestricted;
 	white-space: -moz-pre-wrap; /* Moz */
-	white-space: -pre-wrap;     /* Opera 4-6 */
 	white-space: -o-pre-wrap;   /* Opera 7 */
 	white-space: pre-wrap;      /* CSS3  */
 	word-wrap: break-word;      /* IE 5.5+ */
@@ -259,7 +257,6 @@ div.ah, span.ah {
 	-webkit-box-shadow: 2px 2px 3px #999;
 	-moz-box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 2px;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#000),color-stop(0.3, #444));
-	background-image: -moz-linear-gradient(center top, #eee 0%, #444 40%, #000 110%);
 }
 
 div.classindex ul {
@@ -1063,8 +1060,8 @@ div.ingroups a
 
 div.header
 {
-        background-image:url('nav_h.png');
-        background-repeat:repeat-x;
+	background-image:url('nav_h.png');
+    background-repeat:repeat-x;
 	background-color: #F9FAFC;
 	margin:  0px;
 	border-bottom: 1px solid #C4CFE5;

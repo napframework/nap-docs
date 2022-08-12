@@ -111,7 +111,8 @@ def populate_env_vars():
     if len(chunks) < 2:
         raise Exception("Error passing invalid output from version.cmake: %s" % version_unparsed)
 
-    version = chunks[1].strip()
+    #version = chunks[1].strip()
+    version = "0.5.3"
     os.environ["NAP_VERSION_FULL"] = version
     os.environ["NAP_VERSION_MAJOR"] = '.'.join(version.split('.')[:-1])
     os.environ["NAP_WORKING_DIR"] = get_nap_dir()
