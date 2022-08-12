@@ -20,7 +20,7 @@ body{
 
 body, table, div, p, dl,
 table.directory, #nav-tree,#nav-tree .label {
-	font: 400 0.965em/1.525em 'manrope',sans-serif;
+	font: 400 0.965em/1.5em 'manrope',sans-serif;
 	color: #CDCDC3;
 	letter-spacing: 0.01em;
 }
@@ -163,7 +163,7 @@ h3.version {
 }
 div.qindex, div.navtab {
 	background-color: #2D2D2D;
-	border: none
+	border: none;
 	text-align: center;
 }
 
@@ -188,7 +188,6 @@ div.navtab {
 a, a:visited {
 	color: #AEACA4;
 	text-decoration: none;
-	text-decoration-style: none;
 }
 
 a:hover {
@@ -207,7 +206,6 @@ a.el, a.el:visited {
 	text-decoration: underline #AEACA4 solid;
  	text-underline-offset: 30%;
   font-weight: normal;
-  text-decoration-style: none;
 }
 
 .contents a:visited {
@@ -258,21 +256,19 @@ a.qindexHL {
 }
 
 .contents a.qindexHL:visited {
-	color: #AEACA;
+	color: #AEACA4;
 }
 
 a.code, a.code:visited {
 	color: #AEACA4;
 	font-weight: normal;
 	text-decoration: none;
-	text-decoration-style: none;
 }
 
 a.codeRef, a.codeRef:visited {
 	color: #AEACA4;
 	font-weight: normal;
 	text-decoration: none;
-	text-decoration-style: none;
 }
 
 a.code:hover, a.codeRef:hover {
@@ -313,9 +309,7 @@ div.fragment {
 div.line {
 	min-height: 15pt;
     line-height: 1.6em;
-    text-wrap: unrestricted;
     white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -356,7 +350,6 @@ span.lineno a:hover {
 }
 div.ah {
 	background-color: #FFFFFF;
-	font-weight: light;
 	color: #000000;/*white*/
 	margin-bottom: 3px;
 	margin-top: 1.75em;
