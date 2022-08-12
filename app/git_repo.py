@@ -71,13 +71,13 @@ class Repository(object):
         self.origin.pull()
         return True
 
-    def push(self):
+    def push(self, message):
         """
         Push all local changes to remote
         :return If something upstream changed and repo has been updated
         """
         self.repo.git.add(all=True)
-        self.repo.index.commit("Updating documentation")
+        self.repo.index.commit(message)
         self.repo.remote(self.origin.name).push()
 
     def checkout(self, tag):

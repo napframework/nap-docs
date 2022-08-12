@@ -174,7 +174,7 @@ if __name__ == '__main__':
     # copy cname file
     copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
 
-    # push changes to docs repo
+    # push changes to docs repo, if any
     docs_repo = Repository(get_root_dir())
-    docs_repo.push()
+    docs_repo.push("Updating docs for: {0}".format(os.environ["NAP_VERSION_FULL"]))
 
