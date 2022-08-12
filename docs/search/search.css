@@ -17,6 +17,7 @@
     width: 170px;
     height: 24px;
     z-index: 102;
+    margin-right: 12px;
 }
 
 #MSearchBox .left
