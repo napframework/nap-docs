@@ -124,7 +124,6 @@ if __name__ == '__main__':
     # clone NAP and pull
     nap_repo = Repository(get_nap_dir(), NAP_REPO)
     nap_repo.pull()
-    nap_repo.checkout("refs/tags/v0.5.3")
 
     # find doxygen executable
     doxy_path = get_doxygen_path()

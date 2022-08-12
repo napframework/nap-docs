@@ -28,6 +28,7 @@ class Repository(object):
             self._clone(clean)
 
         # Bind instance of the repo
+        self.git = Git(dir)
         self.repo = Repo(dir)
         self.origin = self.repo.remotes.origin
 
@@ -71,12 +72,15 @@ class Repository(object):
         return True
 
     def push(self):
+        """
+        Push all local changes to remote
+        :return If something upstream changed and repo has been updated
+        """
         self.repo.git.add(all=True)
         self.repo.index.commit("Updating documentation")
         self.repo.remote(self.origin.name).push()
 
     def checkout(self, tag):
-        git = Git(self.dir)
-        git.checkout(tag)
+        self.git.checkout(tag)
 
 

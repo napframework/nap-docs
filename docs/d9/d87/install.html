@@ -123,21 +123,21 @@ Overview</h1>
 <p>The prerequisites installation script is called <code>check_build_environment</code> and can be found in the tools directory within the release. The script attempts to verify that your build environment is ready for NAP and is designed to be re-run until all checks are successfully passed.</p>
 <h1><a class="anchor" id="ides"></a>
 Development Environments</h1>
-<p>NAP 0.5.3 supports <code>Visual Studio 2019 (v142)</code> on Windows, <code>XCode 11.7</code> on macOS and <code>make files</code> on Linux. Instead of using these environments you can use <a href="https://code.visualstudio.com/">Visual Studio Code</a> or <a href="https://www.jetbrains.com/clion">CLion</a> to author your code. Although we don't officially support these environments others have confirmed that they work as expected. Both <code>Visual Studio Code</code> and <code>CLion</code> can be configured using CMake, which is the system NAP uses to build and package applications.</p>
+<p>NAP 0.5.4 supports <code>Visual Studio 2019 (v142)</code> on Windows, <code>XCode 11.7</code> on macOS and <code>make files</code> on Linux. Instead of using these environments you can use <a href="https://code.visualstudio.com/">Visual Studio Code</a> or <a href="https://www.jetbrains.com/clion">CLion</a> to author your code. Although we don't officially support these environments others have confirmed that they work as expected. Both <code>Visual Studio Code</code> and <code>CLion</code> can be configured using CMake, which is the system NAP uses to build and package applications.</p>
 <h1><a class="anchor" id="win64"></a>
 Windows</h1>
 <h2><a class="anchor" id="setup_build_env_win64"></a>
 Setup Your Build Environment</h2>
-<p>NAP 0.5.3 supports <code>Windows 10 (x86_64)</code> with <code>Visual Studio 2019 (v142)</code>. Although NAP is known to work on other versions of Windows, v10 is the current supported platform. Other versions of Visual Studio are not supported at this moment.</p>
+<p>NAP 0.5.4 supports <code>Windows 10 (x86_64)</code> with <code>Visual Studio 2019 (v142)</code>. Although NAP is known to work on other versions of Windows, v10 is the current supported platform. Other versions of Visual Studio are not supported at this moment.</p>
 <p>Download and install <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio 2019</a>. This link points to the community edition which can be used for free. Make sure to select <code>Desktop development with C++</code> when installing Visual Studio, including <code>MSVC v142 - VS 2019 C++ x64/x86</code> and the <code>Windows 10 SDK</code>. Other settings are optional. Download and install the <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank">Visual C++ 2013 Redistributable (x64)</a>.</p>
 <ol type="1">
-<li>Extract <code>NAP-0.5.3-Win64-x86_64.zip</code> using Explorer (or your preferred tool)</li>
-<li>In <code>NAP-0.5.3-Win64-x86_64\tools</code> run <code>check_build_environment.bat</code> to guide you through installing prerequisites, following the instructions</li>
+<li>Extract <code>NAP-0.5.4-Win64-x86_64.zip</code> using Explorer (or your preferred tool)</li>
+<li>In <code>NAP-0.5.4-Win64-x86_64\tools</code> run <code>check_build_environment.bat</code> to guide you through installing prerequisites, following the instructions</li>
 </ol>
 <h2><a class="anchor" id="run_demo_win64"></a>
 Run Your First Demo</h2>
 <ol type="1">
-<li>Navigate to <code>NAP-0.5.3-Win64-x86_64\demos\helloworld</code> in Explorer</li>
+<li>Navigate to <code>NAP-0.5.4-Win64-x86_64\demos\helloworld</code> in Explorer</li>
 <li>Run <code>regenerate.bat</code></li>
 <li>Open the generated Visual Studio solution (shown in Explorer)</li>
 <li>Select the <code>Release</code> configuration</li>
@@ -147,12 +147,12 @@ Run Your First Demo</h2>
 macOS</h1>
 <h2><a class="anchor" id="setup_build_env_macos"></a>
 Setup Your Build Environment</h2>
-<p>NAP 0.5.3 supports <code>macOS Catalina (x86_64)</code> with <code>XCode 11.7</code>. Although NAP is known to work on other macOS releases with newer versions of XCode, Catalina is the current supported platform.</p>
+<p>NAP 0.5.4 supports <code>macOS Catalina (x86_64)</code> with <code>XCode 11.7</code>. Although NAP is known to work on other macOS releases with newer versions of XCode, Catalina is the current supported platform.</p>
 <ol type="1">
-<li>Extract the release by double clicking <code>NAP-0.5.3-macOS-x86_64.zip</code> in Finder</li>
+<li>Extract the release by double clicking <code>NAP-0.5.4-macOS-x86_64.zip</code> in Finder</li>
 <li>Ctrl-click on <code>tools/unquarantine_framework.command</code></li>
 <li>Select Open to remove the framework from <a href="https://en.wikipedia.org/wiki/Gatekeeper_(macOS)" target="_blank">macOS' Gatekeeper</a> quarantine</li>
-<li>In <code>NAP-0.5.3-macOS-x86_64/tools</code> run <code>check_build_environment</code> to guide you through installing prerequisites, following the instructions</li>
+<li>In <code>NAP-0.5.4-macOS-x86_64/tools</code> run <code>check_build_environment</code> to guide you through installing prerequisites, following the instructions</li>
 </ol>
 <p>Note: In a future release support for application bundles and codesigning will be assessed, however for the moment the script above is required to allow the framework to operate on a system with the Gatekeeper enabled. A similar script is included with packaged projects.</p>
 <h3><a class="anchor" id="setup_manual_macos"></a>
@@ -167,7 +167,7 @@ Manual Dependency Installation</h3>
 <h2><a class="anchor" id="run_demo_macos"></a>
 Run Your First Demo</h2>
 <ol type="1">
-<li>Navigate to <code>NAP-0.5.3-macOS-x86_64/demos/helloworld</code> in Finder</li>
+<li>Navigate to <code>NAP-0.5.4-macOS-x86_64/demos/helloworld</code> in Finder</li>
 <li>Run <code>regenerate</code></li>
 <li>Open the generated Xcode project</li>
 <li>Click on <code>edit scheme</code></li>
@@ -178,7 +178,7 @@ Run Your First Demo</h2>
 Linux</h1>
 <h2><a class="anchor" id="linux_desktop"></a>
 Desktop</h2>
-<p>NAP 0.5.3 supports <code>Ubuntu Linux 20.04</code> on <code>x86-64</code> machines using <code>GCC</code>. Although NAP is known to run on other distros: <code>Ubuntu 20.04 x86_64</code> is currently the only supported Linux desktop environment.</p>
+<p>NAP 0.5.4 supports <code>Ubuntu Linux 20.04</code> on <code>x86-64</code> machines using <code>GCC</code>. Although NAP is known to run on other distros: <code>Ubuntu 20.04 x86_64</code> is currently the only supported Linux desktop environment.</p>
 <h2><a class="anchor" id="linux_pi"></a>
 Raspberry Pi</h2>
 <p>Only the <code>Raspberry Pi 4</code> running <code>Raspbian Bullseye (v11, armhf)</code> is 'fully' supported. Targets that make use of the Vulkan render module 'might' run on older Raspberry Pi models, but without hardware acceleration. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4.</p>
