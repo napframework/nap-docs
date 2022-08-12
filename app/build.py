@@ -11,7 +11,7 @@ NAP_DIR = "../nap"
 BUILD_DIR = "../build"
 DOCS_DIR = "../docs"
 CONFIG_FILE = "nap.clang-format"
-NAP_REPO = "https://github.com/naivisoftware/nap.git"
+NAP_REPO = "https://github.com/napframework/nap.git"
 
 
 # run process
