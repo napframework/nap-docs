@@ -55,6 +55,7 @@ pre.fragment, div.line,
     font-size: 1rem;
    	background-color: #8D8B84;
     color: #FFFFFF;
+	padding: 4px 0px;
 }
 
 tr.heading h2,
@@ -204,8 +205,12 @@ a.el, a.el:visited {
 
 .contents a {
 	text-decoration: underline #AEACA4 solid;
- 	text-underline-offset: 30%;
-  font-weight: normal;
+	text-underline-offset: 30%;
+  	font-weight: normal;
+}
+
+.permalink a {
+	padding-left: 8px;
 }
 
 .contents a:visited {
@@ -377,7 +382,7 @@ div.groupText {
 div.contents {
 	margin-top: 10px;
 	margin-left: 12px;
-	margin-right: 8px;
+	margin-right: 12px;
 }
 td.indexkey {
 	background-color: #EBEFF6;
