@@ -69,19 +69,6 @@ def get_root_dir():
     return os.path.abspath(rel_path)
 
 
-# path to doxygen executable, should be installed by homebrew or apt when running
-# linux / osx. Binary is bundled for windows in repo
-def get_doxygen_path():
-    if platform in ["linux", "linux2", "darwin"]:
-        return "doxygen"
-
-    # windows
-    doxy_path = get_working_dir() + "/bin/doxygen.exe"
-    if not os.path.exists(doxy_path):
-        raise Exception("can't find doxygen executable: " + doxy_path)
-    return doxy_path
-
-
 # path to doxygen config file
 def get_doxygen_config_file():
     config_file = "{0}/{1}".format(get_working_dir(), CONFIG_FILE)
@@ -133,15 +120,6 @@ if __name__ == '__main__':
     nap_repo = Repository(get_nap_dir(), NAP_REPO)
     nap_repo.pull()
 
-    # find doxygen executable
-    doxy_path = get_doxygen_path()
-
-    # find doxygen exe script
-    doxy_conf = get_doxygen_config_file()
-
-    # create subprocess arguments
-    doxy_arg = "%s %s" % (doxy_path, doxy_conf)
-
     # populate NAP framework version from cmake/version.cmake to environment variables NAP_VERSION_FULL (eg. 0.1.0)
     # and NAP_VERSION_MAJOR (eg. 0.1) accessible in doxygen manual like $(NAP_VERSION_FULL), $(NAP_VERSION_MAJOR)
     populate_env_vars()
@@ -151,7 +129,7 @@ if __name__ == '__main__':
         shutil.rmtree(get_build_dir())
 
     # generate docs
-    call(get_working_dir(), doxy_arg)
+    call(get_working_dir(), "doxygen {0}".format(get_doxygen_config_file()))
 
     # copy content
     copy_directory("{0}/content".format(get_working_dir()),
