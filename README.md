@@ -3,7 +3,7 @@
   <img width=384 src="https://download.nap.tech/identity/svg/logos/nap_logo_blue.svg">
 </p>
 
-Generates the NAP Framework system documentation, available at https://docs.nap.tech. Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.
+Generates the NAP Framework system documentation, available at [docs.nap.tech](https://docs.nap.tech). Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.
 
 | docs.nap.tech |
 | ------------- |
