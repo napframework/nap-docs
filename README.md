@@ -3,10 +3,7 @@
   <img width=384 src="https://download.nap.tech/identity/svg/logos/nap_logo_blue.svg">
 </p>
 
-Generates the NAP Framework system documentation, available at https://docs.nap.tech. Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.  
-
-
-Run the `build.py` script inside the `app` directory to auto-generate system documentation using `doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs/html` directory.
+Generates the NAP Framework system documentation, available at https://docs.nap.tech. Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.
 
 ## Dependencies
 - [Python (3.8+)](https://www.python.org/downloads/) 
@@ -25,7 +22,7 @@ $ pipenv install
 ```
 
 ## Build
-Generate a static version of the website:
+Run the `build.py` script inside the `app` directory to auto-generate system documentation using `doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs/html` directory.
 ```shell
 $ pipenv shell
 $ cd app
