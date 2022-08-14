@@ -1,8 +1,0 @@
-<map id="MixNode" name="MixNode">
-<area shape="rect" id="node1" title=" " alt="" coords="113,171,193,197"/>
-<area shape="rect" id="node2" href="$dc/d0d/classnap_1_1audio_1_1_node.html" title=" " alt="" coords="16,81,72,108"/>
-<area shape="rect" id="node3" href="$d4/d2d/classnap_1_1audio_1_1_process.html" title=" " alt="" coords="5,5,77,32"/>
-<area shape="rect" id="node4" href="$d8/d10/classnap_1_1audio_1_1_multi_input_pin.html" title=" " alt="" coords="99,81,207,108"/>
-<area shape="rect" id="node5" href="$d4/dc6/classnap_1_1audio_1_1_input_pin_base.html" title=" " alt="" coords="101,5,208,32"/>
-<area shape="rect" id="node6" href="$dc/d5a/classnap_1_1audio_1_1_output_pin.html" title=" " alt="" coords="231,81,318,108"/>
-</map>

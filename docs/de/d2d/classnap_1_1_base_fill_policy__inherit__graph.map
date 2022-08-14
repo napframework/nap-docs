@@ -1,8 +1,0 @@
-<map id="BaseFillPolicy" name="BaseFillPolicy">
-<area shape="rect" id="node1" title=" " alt="" coords="136,155,248,181"/>
-<area shape="rect" id="node4" href="$d0/d25/classnap_1_1_fill_policy.html" title=" " alt="" coords="133,229,251,256"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="151,80,233,107"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="160,5,224,32"/>
-<area shape="rect" id="node5" href="$d1/d6f/classnap_1_1_constant_fill_policy.html" title=" " alt="" coords="5,304,181,331"/>
-<area shape="rect" id="node6" href="$d3/d93/classnap_1_1_random_fill_policy.html" title=" " alt="" coords="206,304,378,331"/>
-</map>

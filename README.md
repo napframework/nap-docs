@@ -3,9 +3,10 @@
   <img width=384 src="https://download.nap.tech/identity/svg/logos/nap_logo_blue.svg">
 </p>
 
-This repository hosts the [NAP technical documentation](https://docs.nap.tech). The docs are auto-generated from [source code](https://github.com/napframework/nap) and published here as a Github page. Documentation is built against the main branch of NAP and is available at https://docs.nap.tech
+Generates the NAP Framework system documentation, available at https://docs.nap.tech. Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.  
 
-Run the `build.py` script inside the `app` directory to auto-generate system documentation using `Doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs/html` directory and pushed to `nap-docs`, if the `push-changes` flag is set. Credentials are required to push.
+
+Run the `build.py` script inside the `app` directory to auto-generate system documentation using `doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs/html` directory.
 
 ## Dependencies
 - [Python (3.8+)](https://www.python.org/downloads/) 

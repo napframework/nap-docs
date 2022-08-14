@@ -1,9 +1,0 @@
-<map id="SequenceTrackSegment" name="SequenceTrackSegment">
-<area shape="rect" id="node1" title=" " alt="" coords="248,56,425,83"/>
-<area shape="rect" id="node4" href="$d4/db8/classnap_1_1_sequence_track_segment_audio.html" title=" " alt="" coords="493,5,707,32"/>
-<area shape="rect" id="node5" href="$dc/dd1/classnap_1_1_sequence_track_segment_curve.html" title=" " alt="" coords="473,56,727,83"/>
-<area shape="rect" id="node6" href="$d9/d16/classnap_1_1_sequence_track_segment_event_base.html" title=" " alt="" coords="477,107,723,133"/>
-<area shape="rect" id="node2" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="117,56,200,83"/>
-<area shape="rect" id="node3" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="5,56,69,83"/>
-<area shape="rect" id="node7" href="$de/df2/classnap_1_1_sequence_track_segment_event.html" title=" " alt="" coords="775,107,1027,133"/>
-</map>

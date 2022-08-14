@@ -1,9 +1,0 @@
-<map id="PlaneMesh" name="PlaneMesh">
-<area shape="rect" id="node1" title=" " alt="" coords="64,247,157,273"/>
-<area shape="rect" id="node2" href="$dd/dac/classnap_1_1_i_mesh.html" title=" " alt="" coords="16,157,77,184"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,81,88,108"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
-<area shape="rect" id="node5" href="$d6/db8/classnap_1_1_r_g_b_a_color.html" title=" " alt="" coords="101,157,253,184"/>
-<area shape="rect" id="node6" href="$d6/d3d/classnap_1_1_color.html" title=" " alt="" coords="112,81,243,108"/>
-<area shape="rect" id="node7" href="$d8/d6a/classnap_1_1_base_color.html" title=" " alt="" coords="133,5,221,32"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="PortalItemButton" name="PortalItemButton">
-<area shape="rect" id="node1" title=" " alt="" coords="196,289,329,316"/>
-<area shape="rect" id="node2" href="$da/d65/classnap_1_1_portal_item.html" title=" " alt="" coords="135,193,225,219"/>
-<area shape="rect" id="node3" href="$d9/dea/classnap_1_1_resource.html" title=" " alt="" coords="5,89,88,115"/>
-<area shape="rect" id="node4" href="$de/d01/classnap_1_1rtti_1_1_object.html" title=" " alt="" coords="15,5,79,32"/>
-<area shape="rect" id="node5" href="$de/d80/classnap_1_1_signal.html" title=" " alt="" coords="113,81,261,123"/>
-<area shape="rect" id="node6" href="$dd/d7c/classnap_1_1rtti_1_1_object_ptr.html" title=" " alt="" coords="250,185,446,227"/>
-<area shape="rect" id="node7" href="$d7/dcb/classnap_1_1rtti_1_1_object_ptr_base.html" title=" " alt="" coords="291,89,405,115"/>
-</map>

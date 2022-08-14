@@ -19,5 +19,4 @@ docs/_build/
 .vscode
 nap/*
 nap
-build/*
-build
+docs/
