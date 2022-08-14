@@ -113,6 +113,11 @@ def populate_env_vars():
 
 # main run
 if __name__ == '__main__':
+    """
+    Generate nap tech documentation using Doxygen.
+    Output is stored in the /docs directory.
+    Intermediate build info is stored in /build directory
+    """
 
     # options
     parser = argparse.ArgumentParser()
@@ -163,7 +168,3 @@ if __name__ == '__main__':
 
     # copy cname file
     copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
-
-    # push changes to docs repo, if any
-    if args.push_changes:
-        docs_repo.push("Updating docs for NAP {0}".format(os.environ["NAP_VERSION_FULL"]))
