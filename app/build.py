@@ -159,12 +159,9 @@ if __name__ == '__main__':
     copy_file("{0}/css/Inconsolata-Medium.ttf".format(get_working_dir()),
               "{0}/Inconsolata-Medium.ttf".format(get_output_dir()))
 
-    # clean docs directory
-    if os.path.exists(get_docs_dir()):
-        shutil.rmtree(get_docs_dir())
-
     # copy html contents of build step to docs
-    copy_directory(get_output_dir(), get_docs_dir())
+    print("move:{0} -> {1}".format(get_output_dir(), get_docs_dir()))
+    shutil.move(get_output_dir(), get_docs_dir())
 
     # copy cname file
     copy_file("{0}/CNAME".format(get_working_dir()), "{0}/CNAME".format(get_docs_dir()))
