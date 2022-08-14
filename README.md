@@ -22,7 +22,7 @@ $ pipenv install
 ```
 
 ## Build
-Run the `build.py` script inside the `app` directory to auto-generate system documentation using `doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs/html` directory.
+Run the `build.py` script inside the `app` directory to auto-generate system documentation using `doxygen`. The script clones and pulls the NAP repo if required. The result will be copied into the `docs` directory.
 ```shell
 $ pipenv shell
 $ cd app
