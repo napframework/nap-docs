@@ -119,10 +119,6 @@ if __name__ == '__main__':
     parser.add_argument('-p', '--push-changes', action="store_true", help="Push changes to remote")
     args = parser.parse_args()
 
-    # update this repo
-    docs_repo = Repository(get_root_dir())
-    docs_repo.pull()
-
     # clone NAP and pull
     nap_repo = Repository(get_nap_dir(), NAP_REPO)
     nap_repo.pull()
