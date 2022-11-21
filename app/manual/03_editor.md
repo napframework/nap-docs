@@ -41,7 +41,7 @@ See [Project Management](@ref project_management) for further details, including
 General Structure {#napkin_structure}
 =======================
 
-Content and configuration settings are stored in `.json` files. Both can be created and edited using Napkin. The app and Napkin share the same code base. If you adjust and recompile a `Resource`, Napkin will reflect those changes in the editor.
+Content and configuration settings are stored in `.json` files. Both can be created and edited using Napkin. The app and Napkin share the same code base. If you adjust and recompile a `Resource` or `Component`, Napkin will reflect those changes in the editor.
 
 Opening a Project {#napkin_project_management}
 -----------------------
@@ -95,11 +95,11 @@ To set the config file as project default:
 Resource Management {#napkin_res_management}
 -----------------------
 
-A document contains [Resources](@ref resources) and [Entities](@ref scene_overview).<br> 
-When an entity is placed in a [Scene](@ref scene_setup) it is instantiated (created) at startup of your application.
+Every document contains [Resources](@ref resources) and [Entities](@ref scene_overview).<br> 
+A resource is a stand alone building block that is always created and initialized on startup of your application. An entity is a special type of resource, which isn't created by default. Only entities that are part of your [Scene](@ref scene_setup) are instantiated. You can add the same entity to a scene multiple times, each with different settings.
 
 ### Create Resource {#new_resource} ###
-- In the Resources panel, `RMB` on `Entities` and choose `Resources`.
+- In the Resources panel, `RMB` on `Resources` and choose `Create Resource...`.
 - Select a resource from the list of available resources.
 - Double `LMB` on the newly created resource to change it's name.
 - Select the newly created resource to edit it's properties.
@@ -107,13 +107,20 @@ When an entity is placed in a [Scene](@ref scene_setup) it is instantiated (crea
 ### Edit Resource {#edit_resource_props} ###
 - Select a resource in the Resources panel.
 - Edit it's properties in the Inspector panel.
+
+### Create Group {#new_group}
+- In the Resources panel, `RMB` on `Resources` and choose `Create Group...`.
+- Select a group type from the list of available groups.
+- Double `LMB` on the newly created group to change it's name.
+- `RMB` on the group to add new or existing resources.
+- `RMB` on the group and select `Create Group` to create a sub group.
  
 ### Create Entity {#new_entity} ###
-- In the Resources panel, `RMB` on `Entities` and choose `Entity`.<br>
+- In the Resources panel, `RMB` on `Entities` and choose `Create Entity`.<br>
 - Double `LMB` on the newly created entity to change it's name.<br> 
 - You can delete the Entity by using `RMB` and choosing `Delete`.<br>
 
-### Add Component {#new_component} ###
+### Add Component to Entity {#new_component} ###
 - `RMB` on your entity and choose `Add Component`. <br> 
 - Pick the component from the list of available components.<br> 
 - Which Component types are exposed depends on which modules are loaded.<br>
@@ -136,8 +143,6 @@ When an entity is placed in a [Scene](@ref scene_setup) it is instantiated (crea
 - In the Inspector panel: `RMB` on the propery to clear.
 - Select `Remove override`
 
-Note that an empty (`new`) file does not contain a Scene by default. Create a `Scene` Resource (following the steps above) to add one. Once the scene is created it is directly available for edit.
-
 Panels {#napkin_panels}
 =======================
 
@@ -147,15 +152,17 @@ All panels showing lists of items that can be filtered by name, type or value fr
 Resources {#napkin_resources}
 -----------------------
 
-Shows all the Resources that are part of your application. Select an item to edit it's properties.
-Every resource is created when the document is loaded. Only entities that have been added to the scene are [instantiated](@ref resources_instances).
+Shows all the resources and entities that are part of your application. Select a resource or component of an entity to edit their default properties. Every resource (under the `Resources` item) is created when the document is loaded. Entities (under the `Entities` item) are not created by default. Only entities that have been added to the scene will be [instantiated](@ref resources_instances).
 
 ![](@ref content/napkin-panel-resources.png)
  
 Scene {#napkin_scene}
 -----------------------
 
-Shows the entities that will be instantiated when the document is loaded. You can add the same entity to a scene multiple times.
+Shows the entities that will be instantiated when the document is loaded. You can add the same entity to the same scene multiple times and override properties on a per instance basis. Components that are marked with a different color have property overrides applied to them.
+
+Note that an empty (`new`) file does not contain a `Scene` resource by default, you must explicitly [create](@ref new_resource) one. The new scene is available directly after creation.
+
 
 ![](@ref content/napkin-panel-scene.png)
 
