@@ -95,8 +95,9 @@ To set the config file as project default:
 Resource Management {#napkin_res_management}
 -----------------------
 
-Every document contains [Resources](@ref resources) and [Entities](@ref scene_overview).<br> 
-A resource is a stand alone building block that is always created and initialized on startup of your application. An entity is a special type of resource, which isn't created by default. Only entities that are part of your [Scene](@ref scene_setup) are instantiated. You can add the same entity to a scene multiple times, each with different settings.
+Every document contains [Resources](@ref resources) and [Entities](@ref scene_overview).
+
+A resource is a stand alone building block that is always created and initialized on startup of your application. An entity is a special type of resource, which isn't created by default. Only entities that are part of your [Scene](@ref scene_setup) are instantiated. You can add the same entity to the same scene multiple times, each with different settings.
 
 ### Create Resource {#new_resource} ###
 - In the Resources panel, `RMB` on `Resources` and choose `Create Resource...`.
