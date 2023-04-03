@@ -11,7 +11,7 @@ Generates the NAP Framework system documentation, available at [docs.nap.tech](h
 
 ## Dependencies
 - [Python (3.8+)](https://www.python.org/downloads/) 
-- [pip](https://pypi.org/project/pip/)
+  - [pip](https://pypi.org/project/pip/)
 - [doxygen](https://doxygen.nl/)
 - [graphviz](https://graphviz.org/)
 - [git](https://git-scm.com/)
