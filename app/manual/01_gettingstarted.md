@@ -1,8 +1,7 @@
 Getting Started {#getting_started}
 =======================
 * [Overview](@ref getting_started_overview)
-* [Create a New Project](@ref create_blank_app)
-* [Add a Module](@ref add_module)
+* [Create a New Application](@ref create_blank_app)
 * [Compile and Run](@ref compile_run)
 * [Add Content](@ref add_content)
     * [Resource](@ref audio_resource)
@@ -18,28 +17,28 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to make a new application that plays an audio file from disk. You can start / stop playback using a button that is rendered to screen. This tutorial assumes you are working from a pre-compiled NAP package, not the NAP source-code.
+In this tutorial we're going to make a new application that renders a rotating textured cube to a window. You can change the rotation speed with a parameter. This tutorial assumes you are working from a pre-compiled NAP package, not the NAP source-code.
 
-Create a New Project {#create_blank_app}
+Create a New Application {#create_blank_app}
 =======================
-To create a new project:
+To create a new application:
 
 - Use a terminal to navigate to the `tools` directory, inside the NAP installation root.
-- Run `create_project.bat NewProject` (Windows) or  `./create_project NewProject` (macOS and Linux)
+- Run `create_app.bat myapp` (Windows) or  `./create_app myapp` (macOS and Linux)
 
-After creation your new project is located at `projects/newproject`. This directory contains the application source-code, scenes, assets and build instructions. The `project.json` file, in the root of the directory, defines how your application is called and which modules it requires:
+After creation your new application is located at `apps/myapp`. This directory contains the application source-code, module, scenes, assets and build instructions. The `app.json` file, in the root of the directory, defines how your application is called and which modules it requires:
 
 ```
 {
     "Type": "nap::ProjectInfo",
     "mID": "ProjectInfo",
-    "Title": "NewProject",
+    "Title": "myapp",
     "Version": "0.1.0",
     "RequiredModules": [
-        "mod_napapp",
-        "mod_napcameracontrol",
-        "mod_napparametergui",
-        "mod_newproject"
+        "napapp",
+        "napcameracontrol",
+        "napparametergui",
+        "napmyapp"
     ],
     "Data": "data/objects.json",
     "ServiceConfig": "",
@@ -47,39 +46,21 @@ After creation your new project is located at `projects/newproject`. This direct
 }
 ```
 
-Add a Module {#add_module}
-=======================
-
-The `RequiredModules` field tells the build system which modules to include for your project. The most important module is `mod_newproject`. This is your custom application module, located inside the `module` directory of your project. By default this module links to `mod_naprender`, `mod_napscene` and `mod_napparameter`. This means your application (and application module) can use of all the building blocks exposed by those modules. What's missing here is audio functionality. We can link in audio by adding `mod_napaudio` to the list of `RequiredModules` of the application module. 
-
-Open `module.json` inside the `module` directory and add `mod_napaudio` to `RequiredModules`:
-
-```
-{
-    "Type": "nap::ModuleInfo", 
-    "mID": "ModuleInfo", 
-    "RequiredModules": [
-        "mod_naprender",
-        "mod_napscene",
-        "mod_napparameter",
-        "mod_napaudio"
-    ], 
-    "WindowsDllSearchPaths": []
-}
-```
-If you add `mod_napaudio` as a `RequiredModule` to your application, instead of your application module, you won't have access to the audio resources in your own module. It is therefore recommended to always link to other modules from your application module and not the application directly.
+The most important module here is `napmyapp`. This is your *application module*, located inside the `myapp/module` directory. This is where you store your application specific `Resources` and `Components`. 
 
 Compile and Run {#compile_run}
 ================
 
-After changing the `module.json` file you need to (re)generate the project by executing the `regenerate` shortcut in the project folder. You can build and run the project using Visual Studio on Windows (in directory `msvc64`), Xcode on macOS (in `xcode`) or make on Linux (in `build`). 
+Open the generated solution and select the `Release` configuration. Compile and run your application. You should see an empty window pop up:
 
-Open the generated solution and select the `Release` configuration. Compile and run your application. You should see an empty window pop up. To learn more about setting up projects, modules and third-party dependencies read the [Project Management](@ref project_management) documentation.
+![](@ref content/gs_new_app.png)
+
+To learn more about setting up applications, modules and third-party dependencies read the [Project Management](@ref project_management) documentation.
 
 Add Content {#add_content}
 ================
 
-The `data` folder within your project folder contains an `objects.json` file. This file describes the general structure of your application and all additional resources that are required. Objects in this file can be split up into three different categories:
+The `data` folder within your application folder contains an `objects.json` file. This file describes the general structure of your application and all additional resources that are required. Objects in this file can be split up into three different categories:
 
 - [Resources](@ref resources): static, often read-only data such as an image, window, 3D mesh etc.
 - [Entities](@ref scene): groups functionality by combining a set of components.
@@ -98,7 +79,7 @@ Result:
 
 ![](@ref content/gs_napkin.png)
 
-If Napkin fails to load the project make sure to [build](@ref compile_run) the project (in `Release` mode) at least once before loading it. This ensures that the custom application module `mod_newproject` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
+If Napkin fails to load the application make sure to [build](@ref compile_run) the project (in `Release` mode) at least once before loading it. This ensures that the custom application module `mod_newproject` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
 To add an audio file:
 
