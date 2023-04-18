@@ -91,7 +91,7 @@ Let's add an [audio file](@ref nap::audio::AudioFileResource) resource. Instead 
 
 - Go to the `tools/napkin` directory
 - Launch the `napkin` executable
-- Click on `File` -> `Open Project`
+- Click on `Project` -> `Open... `
 - Select the `project.json` file
 
 Result:
