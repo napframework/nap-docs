@@ -24,9 +24,9 @@ Create a New Application {#create_blank_app}
 To create a new application:
 
 - Use a terminal to navigate to the `tools` directory, inside the NAP installation root.
-- Run `create_app.bat myapp` (Windows) or  `./create_app myapp` (macOS and Linux)
+- Run `create_app.bat myapp` (Windows) or `./create_app.sh myapp` (macOS and Linux)
 
-After creation your new application is located at `apps/myapp`. This directory contains the application source-code, module, scenes, assets and build instructions. The `app.json` file, in the root of the directory, defines how your application is called and which modules it requires:
+After creation your new application is located at `apps/myapp`. This directory contains your source-code, assets and build instructions. The `app.json` file in the root of the directory defines various project specific settings, such as: the name of your app , which modules to include and what content to load.
 
 ```
 {
@@ -46,7 +46,7 @@ After creation your new application is located at `apps/myapp`. This directory c
 }
 ```
 
-The most important module here is `napmyapp`. This is your *application module*, located inside the `myapp/module` directory. This is where you store your application specific `Resources` and `Components`. 
+The most important module here is `napmyapp`. This is your *application module*, located inside the `myapp/module` directory. This is where you store application specific `Resources` and `Components`. 
 
 Compile and Run {#compile_run}
 ================
@@ -60,102 +60,128 @@ To learn more about setting up applications, modules and third-party dependencie
 Add Content {#add_content}
 ================
 
-The `data` folder within your application folder contains an `objects.json` file. This file describes the general structure of your application and all additional resources that are required. Objects in this file can be split up into three different categories:
+## Launch Napkin
 
-- [Resources](@ref resources): static, often read-only data such as an image, window, 3D mesh etc.
-- [Entities](@ref scene): groups functionality by combining a set of components.
-- [Components](@ref scene): adds specfic logic to an entity, receives an update call every frame.
+We're going to use [Napkin](@ref napkin) to edit application content. 
 
-## Resource {#audio_resource}
+Go to the `tools/napkin` directory and launch `napkin`
 
-Let's add an [audio file](@ref nap::audio::AudioFileResource) resource. Instead of editing JSON files by hand we're going to use [Napkin](@ref napkin):
+### Open Project
 
-- Go to the `tools/napkin` directory
-- Launch the `napkin` executable
-- Click on `File` -> `Open Project`
-- Select the `project.json` file
-
-Result:
+In Napkin click on `Project` -> `Open...` and browse to `apps/myapp`. Select `app.json`
 
 ![](@ref content/gs_napkin.png)
 
-If Napkin fails to load the application make sure to [build](@ref compile_run) the project (in `Release` mode) at least once before loading it. This ensures that the custom application module `mod_newproject` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
+The `app.json` points to an external file that holds the content of your application. By default, application content is stored in `myapp/data/objects.json`. You use Napkin to author this content.
 
-To add an audio file:
+If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `napmyapp` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
-- Right click on the `Resources` item inside the resource panel
-- Select `Create Resource`
+## The Textured Cube
 
-![](@ref content/gs_napkin_create_resource.png)
+Let's begin by adding the resources that define, when combined, a textured cube in NAP.
 
-- Select a `nap::audio::AudioFileResource`
-- Double click on the new resource 
-- Change the name to `AudioFile`
+### Mesh {#cube_resource}
 
-If we save and start the application right now it will fail to initialize because the resource doesn't point to a valid file on disk:
+Start by creating a uniform [box mesh](@ref nap::BoxMesh) at the center of the scene.
 
-- Select the `AudioFile` resource
-- Inside the inspector panel: click on the `folder` icon next to `AudioFilePath`
-- Browse to the file you want to load
+Right-click on the `Resources` item inside the resource panel and select `Create Resource...`. Select the `nap::BoxMesh` and rename it to `CubeMesh`.
 
-The audio file should be sourced from the `data` directory of your project. This allows the application to use relative paths, instead of absolute. Don't have a file on disk? Copy one from the `audioplaybackdemo`.
+### Texture {#cube_texture}
 
-![](@ref content/gs_audio_file.png)
+Now load the [image](@ref nap::ImageFromFile) that we will apply as a texture. Following the steps above: create a `nap::ImageFromFile` resource and rename it to `CubeTexture`. 
 
-## Entity {#audio_entity}
+If we now save the file and start the application it will fail to initialize because the `CubeTexture` doesn't point to a valid image on disk. We must provide it with one.
 
-Continue by adding an entity that will hold the audio components.
+#### Configure Texture
 
-- Right click on the `Entities` item in the resource panel.
-- Select `Create Entity`.
+Download this texture and move it to `myapp/data`. Select the `CubeTexture` in Napkin. Link in the image by clicking on the folder icon next to the `ImagePath` property in the inspector panel.
+
+Note that all assets must be placed in the `data` directory. This allows the application to use relative paths instead of absolute paths.
+
+### Shader {#cube_shader}
+
+Next we create a [shader](@ref nap::ShaderFromFile) program that we use to render the cube. Create a `nap::ShaderFromFile` resource and rename it to `CubeShader`. 
+
+If we now save the file and start the application it will fail to initialize because the shader doesn't point to a valid vertex and fragment shader on disk. We must link them in.
+
+#### Configure Shader
+
+Download the *cube.vert* and *cube.frag* to `myapp/data/shaders`. Select the `CubeShader` in Napkin. Link in the shaders by clicking on the folder icon next to the `VertShader` and `FragShader` properties in the inspector panel.
+
+### Material
+
+Let's add a [material](@ref nap::Material), so we can bind a texture to the shader and give it a color. Create a `nap::Material` resource and rename it to `CubeMaterial`. 
+
+#### Configure Material
+
+Now bind the texture and give it a color. Select the `CubeRenderComponent`. 
+
+##### Set Color
+
+Right-click on the `Uniforms` property in the inspector panel and add a `nap::UniformStruct` to it. Change the `name` property of the struct to *UBO*. Now right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3` to it. Change the `name` property of the new uniform vec3 to *color*.
+
+You just set the (default) color of the cube to white by creating a binding in the material that targets the `UBO.color` uniform in the shader:
+
+```
+// uniform buffer inputs
+uniform UBO
+{
+    vec3 color;   //< Cube color
+} ubo;
+````
+
+#### Bind Texture
+
+Right-click on the `Samplers` property in the inspector panel and add a `nap::Sampler2D`. Change the `name` property of the new sampler to *inTexture*. Now create a link to the texture by clicking on the (rings) icon to the right of the `Texture` property. Select the `CubeTexture` in the popup.
+
+You just set the (default) texture of the cube to `CubeTexture` by creating a binding in the material that targets the `inTexture` sampler in the shader:
+
+```
+// unfiorm sampler inputs 
+uniform sampler2D inTexture;	//< Cube texture
+```
+
+## Create Cube Entity {#audio_entity}
+
+Continue by adding an entity that renders the cube to screen. 
+
+Right click on the `Entities` item in the resource panel and select `Create Entity`. Double click on the new entity and change it's name to `CubeEntity`.
+
+
 
 ![](@ref content/gs_napkin_create_entity.png)
 
-- Double click on the new entity and change its name to `AudioEntity`.
+### Add  Components {#audio_components}
 
-## Components {#audio_components}
+The `CubeEntity` needs 3 components: [Transformcomponent](@ref nap::TransformComponent) to position it, a [RotateComponent](@ref nap::RotateComponent) to rotate it and a [RenderableMeshComponent](@ref nap::RenderableMeshComponent) to render it.
 
-The `AudioEntity` requires 2 components: an [AudioPlaybackComponent](@ref nap::audio::PlaybackComponent) to play back the audio file and an [OutputComponent](@ref nap::audio::OutputComponent) to route the output of the playback component to the audio device.
+Right click on the `CubeEntity` in the resource panel. Select `Add Component...` from the popup meny and select `nap::TransformComponent`. Rename the transform to `CubeTransformComponent`. 
 
-- Right click on the `AudioEntity` 
-- Select `Add Component` from the popup menu
+Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshComponent`. Rename them to `CubeRotateComponent` and `CubeRenderComponent`. 
 
-![](@ref content/gs_napkin_add_component.png)
+The transform places the cube in the center of the scene. That's fine for now. The other 2 components need to be configured.
 
-- Select a nap::audio::PlaybackComponent 
-- Rename it to `PlaybackComponent`
+#### Configure Rotate Component
 
-Do the same for the nap::audio::OutputComponent, rename it to `OutputComponent`. 
-But we're not there yet: we need to tell the audio playback component which file to play and how many audio channels it outputs:
+Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` property to `1.0`. This tells the component to rotate the cube 360* over the Y-axis in 1 second. 
 
-- Select the `PlaybackComponent`
-- Click on the `arrow` icon next to `Buffer`
-- Select the `AudioFile`
+#### Configure Render Component
 
-![](@ref content/gs_napkin_audio_playback.png)
+We need to tell the component which mesh to render using what material. 
 
-Next we instruct the output component how to route the stereo output of the playback component to the audio device. 
+Select the `CubeRenderComponent` in the resource panel. Create a link to the cube mesh by clicking on the (rings) icon to the right of the `Mesh` property. Select the `CubeMesh` in the popup.
 
-- Select the `OutputComponent` 
-- Click on the `arrow` icon next to `Input`
-- Select the `PlaybackComponent`
-
-![](@ref content/gs_napkin_audio_output.png)
+Expand the `MaterialInstance` item in the inspector panel and create a link to the cube material by clicking on the icon to the right of the `Material` property. Select the `CubeMaterial` in the popup.
 
 ## Scene {#content_scene}
 
-To make sure the audio entity is created on startup we have to add it to the scene. 
+What's left on the content side is to add the entity to the scene, otherwise it is not created (instantiated) on startup. 
 
-- Right click on the `Scene` item inside the scene panel
-- Select `Add Entity`.
+Right-click on the `Scene` item in the scene panel, click on `Add Entity...` and select the `CubeEntity`. Save the file `File -> Save` and launch the app from your IDE or using the `AppRunner` in Napkin.
 
-![](@ref content/gs_napkin_add_entity.png)
+You should see the same window popup as before without any notable changes. That's because we did not tell the app to render the cube. NAP created and validated the cube entity and resources but isn't instructed to render it. We have to add some logic to the app that instructs the system to draw it.
 
-- Select the `AudioEntity`
-- Save the file (`File` -> `Save`) 
-- Run the app from your IDE
-
-You should see a blank window and hear the audio file played back on the default audio device. If you don't hear anything make sure to save the file. Otherwise check the log.
+If at this point the application fails to initialize check the ouput of the log. You probably missed a step. If that's the case try to fix it by tracing the error message.
 
 Application {#app_logic}
 ==========================
