@@ -4,9 +4,14 @@ Getting Started {#getting_started}
 * [Create a New Application](@ref create_blank_app)
 * [Compile and Run](@ref compile_run)
 * [Add Content](@ref add_content)
-    * [Resource](@ref audio_resource)
-    * [Entity](@ref audio_entity)
-    * [Component](@ref audio_components)
+    * [Napkin](@ref launch_napkin)
+    * [Cube Resources](@ref cube_resources)
+      * [Mesh](@ref cube_mesh)
+      * [Texture](@ref cube_texture)
+      * [Shader](@ref cube_shader)
+      * [Material](@ref cube_material)
+    * [Cube Entity](@ref cube_entity)
+      * [Cube Components](@ref cube_components)
     * [Scene](@ref content_scene)
 * [Add Logic](@ref app_logic)
     * [Init](@ref app_init)
@@ -17,7 +22,7 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. This tutorial assumes you are working from a pre-compiled NAP package.
+In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. this tutorial assumes you are working from a pre-compiled NAP package.
 
 Create a New Application {#create_blank_app}
 =======================
@@ -58,11 +63,11 @@ Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (U
 Add Content {#add_content}
 ================
 
-## Launch Napkin
+## Napkin {#launch_napkin}
 
 We're going to use [Napkin](@ref napkin) to edit application content. Go to the `tools/napkin` directory and launch `napkin`
 
-### Open Project
+### Open Project {#open_project_napkin}
 
 In Napkin click on `Project > Open...`, browse to `apps/rotatingcube` and select `app.json`
 
@@ -74,11 +79,11 @@ All externally sourced assets (such as images, audio, video, shaders etc.) that 
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
-## Cube Resources
+## Cube Resources {#cube_resources}
 
 Let's begin by adding the resources that define, when combined, a textured cube in NAP.
 
-### Mesh {#cube_resource}
+### Mesh {#cube_mesh}
 
 Start by creating a uniform [box mesh](@ref nap::BoxMesh) at the center of the scene. 
 
@@ -86,11 +91,11 @@ Right-click on the `Resources` item inside the resource panel and select `Create
 
 ### Texture {#cube_texture}
 
-Let's add the [image](@ref nap::ImageFromFile) that we want to apply as a texture. Following the steps above: create a `nap::ImageFromFile` resource and rename it to `CubeTexture`. 
+Let's add the [image](@ref nap::ImageFromFile) that we want to apply as a texture. Following the steps above: create a `nap::ImageFromFile` resource and rename it to `CubeTexture`.
 
 If we now save the file and start the application it will fail to initialize because the `CubeTexture` doesn't point to a valid image on disk. We must provide it with one.
 
-#### Configure Texture
+#### Configure Texture {#configure_cube_texture}
 
 Download this image and move it to `apps/rotatingcube/data`. 
 
@@ -102,23 +107,23 @@ Next we create a [shader](@ref nap::ShaderFromFile) program that we use to rende
 
 If we now save the file and start the application it will fail to initialize because the shader doesn't point to a valid vertex and fragment shader on disk. We must link them in.
 
-#### Configure Shader
+#### Configure Shader {#configure_cube_shader}
 
 Download *cube.vert* and *cube.frag* and move them to `apps/rotatingcube/data/shaders`. 
 
 Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to the `VertShader` and `FragShader` properties in the inspector panel.
 
-### Material
+### Material {#cube_material}
 
 Let's add a [material](@ref nap::Material), so we can bind a texture to the shader and give it a color. Create a `nap::Material` resource, rename it to `CubeMaterial` and select it.
 
-#### Configuration
+#### Configure Material {#configure_cube_material}
 
 Create a link to the cube shader by clicking on the icon to the right of the `Shader` property. Select the `CubeShader` in the popup.
 
 We can now apply the bindings.
 
-##### Bind Color
+##### Bind Color {#bind_cube_color}
 
 Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` of the struct to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3`. Expand the new item and change the `Name` to *color* and the `Value` to `1 1 1` (white).
 
@@ -132,7 +137,7 @@ uniform UBO
 } ubo;
 ~~~
 
-##### Bind Texture
+##### Bind Texture {#bine_cube_texture}
 
 Select the `CubeMaterial`. Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now create a link to the texture by clicking on the (rings) icon to the right of the `Texture` property. Select the `CubeTexture` in the popup.
 
@@ -143,7 +148,7 @@ You just set the (default) texture of the cube to `CubeTexture` by creating a bi
 uniform sampler2D inTexture;	//< Cube texture
 ~~~
 
-## Cube Entity {#audio_entity}
+## Cube Entity {#cube_entity}
 
 Continue by adding an entity that renders the cube to screen. 
 
@@ -153,7 +158,7 @@ Right click on the `Entities` item in the resource panel and select `Create Enti
 
 ![](@ref content/gs_napkin_create_entity.png)
 
-### Cube  Components {#cube_components}
+### Cube Components {#cube_components}
 
 The `CubeEntity` needs 3 components: [Transformcomponent](@ref nap::TransformComponent) to position it, a [RotateComponent](@ref nap::RotateComponent) to rotate it and a [RenderableMeshComponent](@ref nap::RenderableMeshComponent) to render it.
 
@@ -161,11 +166,15 @@ Right click on the `CubeEntity` in the resource panel. Select `Add Component...`
 
 Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshComponent`. Rename them to `CubeRotateComponent` and `CubeRenderComponent`. The transform places the cube in the center of the scene. That's fine for now. The other 2 components need to be configured.
 
+#### Configure Transform Component {#cube_transform_component}
+
+Select the `CubeTransformComponent` in the resource panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4x as large.
+
 #### Configure Rotate Component
 
 Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` property to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
 
-#### Configure Render Component
+#### Configure Render Component {#cube_render_component}
 
 We need to tell the component which mesh to render using what material. 
 
