@@ -3,17 +3,18 @@ Getting Started {#getting_started}
 * [Overview](@ref getting_started_overview)
 * [Create a New Application](@ref create_blank_app)
 * [Compile and Run](@ref compile_run)
-* [Add Content](@ref add_content)
-    * [Napkin](@ref launch_napkin)
-    * [Cube Resources](@ref cube_resources)
-      * [Mesh](@ref cube_mesh)
-      * [Texture](@ref cube_texture)
-      * [Shader](@ref cube_shader)
-      * [Material](@ref cube_material)
-    * [Cube Entity](@ref cube_entity)
-      * [Cube Components](@ref cube_components)
-    * [Scene](@ref content_scene)
-* [Add Logic](@ref app_logic)
+* [Napkin](@ref napkin_editor)
+    * [Launch Napkin](@ref launch_napkin)
+    * [Open Project](@ref open_project_napkin)
+* [Cube Resources](@ref cube_resources)
+    * [Mesh](@ref cube_mesh)
+    * [Texture](@ref cube_texture)
+    * [Shader](@ref cube_shader)
+    * [Material](@ref cube_material)
+* [Cube Entity](@ref cube_entity)
+    * [Cube Components](@ref cube_components)
+* [Scene](@ref content_scene)
+* [Setup Application](@ref app_logic)
     * [Init](@ref app_init)
     * [Update](@ref app_update)
     * [Render](@ref app_render)
@@ -58,7 +59,7 @@ Read the [Project Management](@ref project_management) documentation to learn mo
 Compile and Run {#compile_run}
 ================
 
-Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (Unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`
+Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (Unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`.
 
 *Note that when working from source the `rotatingcube` binary is compiled to the `bin/Release-*` directory in the nap root, not the application root*
 
@@ -66,19 +67,22 @@ Launch the `rotatingcube` executable. You should see the following window:
 
 ![](@ref content/gs_new_app.png)
 
-Add Content {#add_content}
+Napkin {#napkin_editor}
 ================
 
-## Napkin {#launch_napkin}
+We're going to use [Napkin](@ref napkin) to edit application content. 
 
-We're going to use [Napkin](@ref napkin) to edit application content. Go to the `tools/napkin` directory and launch `napkin`. 
+## Launch Napkin {#launch_napkin}
+
+From the NAP project root, browse to the `tools/napkin` directory and launch the `napkin` executable. 
 
 *Note that when working from source you must compile Napkin first. The compiled Napkin binary can be found in the `bin/Release-*/napkin` directory.*
 
+## Open Project {#open_project_napkin}
 
-### Open Project {#open_project_napkin}
-
-In Napkin click on `Project > Open...`, browse to `apps/rotatingcube` and select `app.json`
+- Click on `Project > Open...`
+- Browse to `apps/rotatingcube`
+- Select `app.json`
 
 The `app.json` points to an external file that holds the *content* of your application. By default, application content is stored in `data/objects.json` (relative to the project root). You use Napkin to author *this* content. 
 
@@ -88,57 +92,60 @@ If Napkin fails to load the project make sure to [build](@ref compile_run) the a
 
 ![](@ref content/gs_open_project.gif)
 
-## Cube Resources {#cube_resources}
+Cube Resources {#cube_resources}
+================
 
 Let's begin by adding the resources that define, when combined, a textured cube in NAP.
 
-### Mesh {#cube_mesh}
+## Mesh {#cube_mesh}
 
 Start by creating a uniform [box mesh](@ref nap::BoxMesh) at the center of the scene. 
 
-Right-click on the `Resources` item inside the resource panel and select `Create Resource...`. Select the `nap::BoxMesh` and rename it to `CubeMesh`.
+In the resources panel:
+
+- Right-click on the `Resources` item
+- Select `Create Resource`
+- Select the `nap::BoxMesh`
+- Double click on the new item 
+- Rename it to `CubeMesh`
 
 ![](@ref content/gs_create_cubemesh.gif)
 
-### Texture {#cube_texture}
+## Texture {#cube_texture}
 
 Let's add the [image](@ref nap::ImageFromFile) that we want to apply as a texture. Following the steps above: create a `nap::ImageFromFile` resource and rename it to `CubeTexture`.
 
 If we now save the file and start the application it will fail to initialize because the `CubeTexture` doesn't point to a valid image on disk. We must provide it with one.
 
-#### Configure Texture {#configure_cube_texture}
+### Configure Texture {#configure_cube_texture}
 
-Download this image and move it to `apps/rotatingcube/data`. 
+Download [this image](@ref content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
 
 Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to the `ImagePath` property in the inspector panel. Browse to the texture in the `data` directory and select it.
 
 ![](@ref content/gs_create_texture.gif)
 
-### Shader {#cube_shader}
+## Shader {#cube_shader}
 
 Next we create a [shader](@ref nap::ShaderFromFile) program that we use to render the cube. Create a `nap::ShaderFromFile` resource and rename it to `CubeShader`. 
 
-If we now save the file and start the application it will fail to initialize because the shader doesn't point to a valid vertex and fragment shader on disk. We must link them in.
+### Configure Shader {#configure_cube_shader}
 
-#### Configure Shader {#configure_cube_shader}
-
-Download *cube.vert* and *cube.frag* and move them to `apps/rotatingcube/data/shaders`. 
+Download [cube.vert](@ref content/cube.vert) and [cube.frag](@ref content/cube.frag) and move them to `apps/rotatingcube/data/shaders`. 
 
 Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to the `VertShader` and `FragShader` properties in the inspector panel.
 
 ![](@ref content/gs_create_cubeshader.gif)
 
-### Material {#cube_material}
+## Material {#cube_material}
 
 Let's add a [material](@ref nap::Material), so we can bind a texture to the shader and give it a color. Create a `nap::Material` resource, rename it to `CubeMaterial` and select it.
 
-#### Configure Material {#configure_cube_material}
+### Configure Material {#configure_cube_material}
 
 Create a link to the cube shader by clicking on the icon to the right of the `Shader` property. Select the `CubeShader` in the popup.
 
-We can now apply the bindings.
-
-##### Bind Color {#bind_cube_color}
+#### Bind Color {#bind_cube_color}
 
 Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` of the struct to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3`. Expand the new item and change the `Name` to *color* and the `Value` to `1 1 1` (white).
 
@@ -152,9 +159,7 @@ uniform UBO
 } ubo;
 ~~~
 
-![](@ref content/gs_create_cubematerial.gif)
-
-##### Bind Texture {#bine_cube_texture}
+#### Bind Texture {#bine_cube_texture}
 
 Select the `CubeMaterial`. Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now create a link to the texture by clicking on the (rings) icon to the right of the `Texture` property. Select the `CubeTexture` in the popup.
 
@@ -165,35 +170,47 @@ You just set the (default) texture of the cube to `CubeTexture` by creating a bi
 uniform sampler2D inTexture;	//< Cube texture
 ~~~
 
-## Cube Entity {#cube_entity}
+![](@ref content/gs_create_cubematerial.gif)
+
+Cube Entity {#cube_entity}
+================
 
 Continue by adding an entity that renders the cube to screen. 
 
-Right click on the `Entities` item in the resource panel and select `Create Entity`. Double click on the new entity and change it's name to `CubeEntity`.
+In the resources panel:
+
+- Right click on the `Entities` item
+- Select `Create Entity`
+- Double click on the new entity
+- Rename it to `CubeEntity`
 
 ![](@ref content/gs_create_cubeentity.gif)
 
-### Cube Components {#cube_components}
+## Cube Components {#cube_components}
 
 The `CubeEntity` needs 3 components: [Transformcomponent](@ref nap::TransformComponent) to position it, a [RotateComponent](@ref nap::RotateComponent) to rotate it and a [RenderableMeshComponent](@ref nap::RenderableMeshComponent) to render it.
 
-Right click on the `CubeEntity` in the resource panel. Select `Add Component...` from the popup menu and select `nap::TransformComponent`. Rename the transform to `CubeTransformComponent`. 
+In the resources panel:
+
+- Right click on the `CubeEntity`
+- Select `Add Component...`
+- Select `nap::TransformComponent`
+- Double click on the new component
+- Rename it to `CubeTransformComponent`
 
 Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshComponent`. Rename them to `CubeRotateComponent` and `CubeRenderComponent`. 
 
 ![](@ref content/gs_create_cubecomponents.gif)
 
-The transform places the cube in the center of the scene. That's fine for now. The other 2 components need to be configured.
-
-#### Configure Transform Component {#cube_transform_component}
+### Configure Transform Component {#cube_transform_component}
 
 Select the `CubeTransformComponent` in the resource panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4x as large.
 
-#### Configure Rotate Component
+### Configure Rotate Component
 
 Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` property to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
 
-#### Configure Render Component {#cube_render_component}
+### Configure Render Component {#cube_render_component}
 
 We need to tell the component which mesh to render using what material. 
 
@@ -203,13 +220,18 @@ Expand the `MaterialInstance` item in the inspector panel and create a link to t
 
 ![](@ref content/gs_configure_cubecomponents.gif)
 
-## Scene {#content_scene}
+Scene {#content_scene}
+==========================
 
 What's left on the content side is to add the entity to the scene, otherwise it is not created (instantiated) on startup. 
 
-Right-click on the `Scene` item in the scene panel, click on `Add Entity...` and select the `CubeEntity`. Save the file `File -> Save` and launch the app. 
+In the scene panel:
 
-You should see the same window popup as before without any notable changes. That's because we did not tell the app to render the cube. NAP created and validated the cube entity and resources but has no instructions to render it. We have to add some logic to the app that instructs the system to draw it.
+- Right-click on the `Scene` item
+- Click on `Add Entity...`
+- Select the `CubeEntity`
+
+Save the file `File -> Save` and launch the app. You should see the same window popup as before without any notable changes. That's because we did not tell the app to render the cube. NAP created and validated the cube entity and resources but has no instructions to render it. We have to add some logic to the app that instructs the system to draw it.
 
 If at this point the application fails to initialize check the ouput of the log. You probably missed a step. If that's the case try to fix it by tracing the error message.
 
@@ -270,12 +292,16 @@ with:
 &mCubeEntity->getComponent<RenderableComponentInstance>()
 ~~~
 
-This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering). 
+This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering).
+
+![](@ref content/gs_app_setup.gif)
 
 Package for Distribution {#app_package}
 ==========================
 
 To create a distributable package of your application run `package.bat` (windows) or `./package` (macOS / Linux). Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
+
+*Note that when working from source the application is packaged together with NAP. The `package` script is located in the NAP root.*
 
 
 
