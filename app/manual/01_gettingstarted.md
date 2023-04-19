@@ -80,7 +80,7 @@ We're going to use [Napkin](@ref napkin) to edit application content. Go to the 
 
 In Napkin click on `Project > Open...`, browse to `apps/rotatingcube` and select `app.json`
 
-![](@ref content/gs_napkin.png)
+![](@ref content/gs_open_project.gif)
 
 The `app.json` points to an external file that holds the *content* of your application. By default, application content is stored in `data/objects.json` (relative to the project root). You use Napkin to author *this* content. 
 
