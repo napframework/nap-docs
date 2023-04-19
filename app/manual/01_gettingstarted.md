@@ -80,13 +80,13 @@ We're going to use [Napkin](@ref napkin) to edit application content. Go to the 
 
 In Napkin click on `Project > Open...`, browse to `apps/rotatingcube` and select `app.json`
 
-![](@ref content/gs_open_project.gif)
-
 The `app.json` points to an external file that holds the *content* of your application. By default, application content is stored in `data/objects.json` (relative to the project root). You use Napkin to author *this* content. 
 
 All externally sourced assets (such as images, audio, video, shaders etc.) that your content references must be placed in the `data` directory of your application, in this case `apps/rotatingcube/data`.
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
+
+![](@ref content/gs_open_project.gif)
 
 ## Cube Resources {#cube_resources}
 
@@ -126,6 +126,8 @@ Download *cube.vert* and *cube.frag* and move them to `apps/rotatingcube/data/sh
 
 Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to the `VertShader` and `FragShader` properties in the inspector panel.
 
+![](@ref content/gs_create_cubeshader.gif)
+
 ### Material {#cube_material}
 
 Let's add a [material](@ref nap::Material), so we can bind a texture to the shader and give it a color. Create a `nap::Material` resource, rename it to `CubeMaterial` and select it.
@@ -150,6 +152,8 @@ uniform UBO
 } ubo;
 ~~~
 
+![](@ref content/gs_create_cubematerial.gif)
+
 ##### Bind Texture {#bine_cube_texture}
 
 Select the `CubeMaterial`. Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now create a link to the texture by clicking on the (rings) icon to the right of the `Texture` property. Select the `CubeTexture` in the popup.
@@ -167,9 +171,7 @@ Continue by adding an entity that renders the cube to screen.
 
 Right click on the `Entities` item in the resource panel and select `Create Entity`. Double click on the new entity and change it's name to `CubeEntity`.
 
-
-
-![](@ref content/gs_napkin_create_entity.png)
+![](@ref content/gs_create_cubeentity.gif)
 
 ### Cube Components {#cube_components}
 
@@ -177,7 +179,11 @@ The `CubeEntity` needs 3 components: [Transformcomponent](@ref nap::TransformCom
 
 Right click on the `CubeEntity` in the resource panel. Select `Add Component...` from the popup menu and select `nap::TransformComponent`. Rename the transform to `CubeTransformComponent`. 
 
-Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshComponent`. Rename them to `CubeRotateComponent` and `CubeRenderComponent`. The transform places the cube in the center of the scene. That's fine for now. The other 2 components need to be configured.
+Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshComponent`. Rename them to `CubeRotateComponent` and `CubeRenderComponent`. 
+
+![](@ref content/gs_create_cubecomponents.gif)
+
+The transform places the cube in the center of the scene. That's fine for now. The other 2 components need to be configured.
 
 #### Configure Transform Component {#cube_transform_component}
 
@@ -195,6 +201,8 @@ Select the `CubeRenderComponent` in the resource panel. Create a link to the cub
 
 Expand the `MaterialInstance` item in the inspector panel and create a link to the cube material by clicking on the icon to the right of the `Material` property. Select the `CubeMaterial` in the popup.
 
+![](@ref content/gs_configure_cubecomponents.gif)
+
 ## Scene {#content_scene}
 
 What's left on the content side is to add the entity to the scene, otherwise it is not created (instantiated) on startup. 
@@ -204,6 +212,8 @@ Right-click on the `Scene` item in the scene panel, click on `Add Entity...` and
 You should see the same window popup as before without any notable changes. That's because we did not tell the app to render the cube. NAP created and validated the cube entity and resources but has no instructions to render it. We have to add some logic to the app that instructs the system to draw it.
 
 If at this point the application fails to initialize check the ouput of the log. You probably missed a step. If that's the case try to fix it by tracing the error message.
+
+![](@ref content/gs_add_cube_to_scene.gif)
 
 Application {#app_logic}
 ==========================
