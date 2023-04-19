@@ -98,6 +98,8 @@ Start by creating a uniform [box mesh](@ref nap::BoxMesh) at the center of the s
 
 Right-click on the `Resources` item inside the resource panel and select `Create Resource...`. Select the `nap::BoxMesh` and rename it to `CubeMesh`.
 
+![](@ref content/gs_create_cubemesh.gif)
+
 ### Texture {#cube_texture}
 
 Let's add the [image](@ref nap::ImageFromFile) that we want to apply as a texture. Following the steps above: create a `nap::ImageFromFile` resource and rename it to `CubeTexture`.
@@ -109,6 +111,8 @@ If we now save the file and start the application it will fail to initialize bec
 Download this image and move it to `apps/rotatingcube/data`. 
 
 Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to the `ImagePath` property in the inspector panel. Browse to the texture in the `data` directory and select it.
+
+![](@ref content/gs_create_texture.gif)
 
 ### Shader {#cube_shader}
 
