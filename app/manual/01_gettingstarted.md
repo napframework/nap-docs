@@ -22,7 +22,8 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. this tutorial assumes you are working from a pre-compiled NAP package.
+In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. This tutorial assumes you are working from a pre-compiled NAP package, although pretty much all the instructions also apply when working with NAP from source.
+
 
 Create a New Application {#create_blank_app}
 =======================
@@ -218,6 +219,21 @@ We just created a link to the cube entity. We can use this link to manipulate th
 
 The `update` method is called every frame. The parameter `deltaTime` indicates how many seconds have passed since the last update call. You should perform any app specific logic in here that does not concern rendering.
 
+Let's add a slider that controls the rotation speed of the cube. Add the following include directive to `rotatingcubeapp.cpp`:
+
+~~~{cpp}
+#include <rotatecomponent.h>
+~~~
+
+.. and add the following block of code to the `update` method, right after `processWindowEvents`:
+
+~~~{cpp}
+ImGui::Begin("Cube Controls");
+auto& rotate_component = mCubeEntity->getComponent<nap::RotateComponentInstance>();
+ImGui::SliderFloat("Rotation Speed", &rotate_component.mProperties.mSpeed, 0.0f, 1.0f);
+ImGui::End();
+~~~
+
 ## Rendering {#app_render}
 
 `render` is called after `update`. You use this call to render geometry and UI elements to a window or render target. You have to tell the renderer what you want to render and where to render it to. We want to render our cube instead of the gnomon. To do that replace the following line:
@@ -232,7 +248,7 @@ with:
 &mCubeEntity->getComponent<RenderableComponentInstance>()
 ~~~
 
-This tells the render engine to render the cube instead of the gnomon. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering). 
+This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, through when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering). 
 
 Package for Distribution {#app_package}
 ==========================
