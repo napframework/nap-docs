@@ -22,8 +22,9 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. This tutorial assumes you are working from a pre-compiled NAP package, although pretty much all the instructions also apply when working with NAP from source.
+In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. 
 
+This tutorial assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, with the exception of some paths. Additional information is provided when this is the case.
 
 Create a New Application {#create_blank_app}
 =======================
@@ -57,7 +58,11 @@ Read the [Project Management](@ref project_management) documentation to learn mo
 Compile and Run {#compile_run}
 ================
 
-Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (Unix) to compile the application. Launch the `rotatingcube` executable, located in the `bin/Release-*` directory. You should see the following window:
+Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (Unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`
+
+*Note that when working from source the `rotatingcube` binary is compiled to the `bin/Release-*` directory in the nap root, not the application root*
+
+Launch the `rotatingcube` executable. You should see the following window:
 
 ![](@ref content/gs_new_app.png)
 
@@ -66,7 +71,10 @@ Add Content {#add_content}
 
 ## Napkin {#launch_napkin}
 
-We're going to use [Napkin](@ref napkin) to edit application content. Go to the `tools/napkin` directory and launch `napkin`
+We're going to use [Napkin](@ref napkin) to edit application content. Go to the `tools/napkin` directory and launch `napkin`. 
+
+*Note that when working from source you must compile Napkin first. The compiled Napkin binary can be found in the `bin/Release-*/napkin` directory.*
+
 
 ### Open Project {#open_project_napkin}
 
@@ -248,7 +256,7 @@ with:
 &mCubeEntity->getComponent<RenderableComponentInstance>()
 ~~~
 
-This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, through when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering). 
+This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering). 
 
 Package for Distribution {#app_package}
 ==========================
