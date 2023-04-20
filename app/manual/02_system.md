@@ -12,7 +12,7 @@ System {#system}
 Overview {#system_overview}
 =======================
 
-NAP enables you to connect and exchange data between various types of external hardware in a generic fashion. The system is designed to make it easy to re-use specific parts or components for future projects and keep app specific code local to your project. The underlying system provides you with all the handles to get up and running in no time. But it's important to understand what parts contribute to the overall system architecture. Below you see a dumbed-down schematic of an application built with NAP. This schematic shows some of the key components of the NAP system architecture:
+NAP enables you to connect and exchange data between various types of external hardware in a generic fashion. The system is designed to make it easy to re-use specific parts or components for future projects and keep app specific code local to your project. The underlying system provides you with all the handles to get up ad running in no time. But it's important to understand what parts contribute to the overall system architecture. Below you see a dumbed-down schematic of an application built with NAP. This schematic shows some of the key components of the NAP system architecture:n
 
 ![](@ref content/nap_overview.png)
 

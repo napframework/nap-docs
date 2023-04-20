@@ -18,7 +18,7 @@ Scene Management {#scene}
 Overview {#scene_overview}
 =======================
 
-Modern applications can grow considerably in size when it comes to the amount of data they have to manage and the complex logic they need to support. NAP uses a powerful <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system" target="_blank">entity component system</a> to aid the development process. This system allows you to identify and organize all the essential parts of your application. What separates entities and components from regular resources is that they allow you to group content together in a meaningful way and update specific parts of your app at runtime. All the individual parts in the system can reference and talk to each other in a generic fashion. 
+Modern applications can grow considerably in size when it comes to the amount of data they have to manage and the complex logic they need to support. NAP uses a powerful <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system" target="_blank">entity component system</a> to aid the development process. This system allows you to identify and organize all the essential parts of your application. What separates entities and components from regular resources is that they allow you to group content together in a meaningful way and are dynamic. They are created to perform a specific task at runtime of your application. For example: render your model at a specific location, position the camera or play back audio. All the individual parts in the system can reference and talk to each other in a generic fashion. 
 
 Listed below are the most important objects and their roles within the system:
 
@@ -33,31 +33,27 @@ Listed below are the most important objects and their roles within the system:
 Example {#scene_setup}
 =======================
 
-Consider this example:
+Consider this 'Bicycle' example:
 
 ```
-Scene 
-	Entity "Bike"
-		Component "BikeInput"
-		Component "Transform"
-		Entity "Frame"
-				Component "Transform"
-				Component "RenderableMesh"
-			Entity "Wheel"
-				Component "RenderableMesh"
-				Component "Transform"
-			Entity "Wheel"
-				Component "RenderableMesh"
-				Component "Transform"
+Scene:
+	Entity: "Bicycle"
+		Component: "BikePosition"
+		Component: "BikeInput"
+		Entity: "Frame"
+			Entity: "Wheel"
+				Component: "WheelPosition"
+			Entity: "Wheel"
+				Component: "WheelPosition"
  ```
 
-In this example we have a single scene. This scene contains one 'Bike'. The bike is an entity that has two input components and one 'Frame'. The frame has two 'Wheels'. The bike, frame and wheels are entities. The names of these entities are very descriptive, they allow you to identify the different parts of the bike. 
+In this example we have a single scene. This scene contains exactly one `Bicycle`. Every bicycle has a frame and 2 wheels. The bicycle, frame and wheels are entities. The names of these entities are very descriptive: they allow you to identify the different parts of the bike. Entities can form a hierchy: the `Frame` is a child of the `Bicycle` and the wheels are children of the `Frame`. 
 
-The 'BikeInput' component moves the entire bike in the right direction. Every entity in this scene has a position that is defined by their respective transform component. It's good to know that the position of an entity is always relative to the position of its parent entity. People that work with 3D applications should recognize this pattern. 
+The `BikeInput` component moves the bike in a direction when it receives input (by updating the `BikeTransform`). Every entity in the scene has a position and that position is always relative to the position of its parent. People that work with 3D applications should recognize this pattern. 
 
 In this example the bike has two wheels, one for the front and one for the back. They are both the same 'wheel' but placed differently. Other parts that could vary between wheels are the wheel color or size. What this means is that the same wheel is 'instantiated' twice, but with different properties. You can change these properties for every wheel individually but the template for both wheels is the same 'Wheel' entity. 
 
-You can create this structure yourself or use our editor (Napkin) to do it for you. But the end result in JSON should look something like this:
+You use [Napkin](@ref napkin) to create this entity structure for you. When saved, the end result looks something like this in JSON:
 
 ```
 {
@@ -66,7 +62,7 @@ You can create this structure yourself or use our editor (Napkin) to do it for y
 	"Entities" : 
 	[
 		{
-			"Entity" : "Bike"
+			"Entity" : "Bicycle"
 		}
 	]
 },
@@ -85,7 +81,7 @@ You can create this structure yourself or use our editor (Napkin) to do it for y
 },
 {
 	"Type" : "nap::Entity",
-	"mID": "Bike",
+	"mID": "Bicycle",
 	"Children" :
 	[
 		"Frame"

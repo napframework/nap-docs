@@ -134,7 +134,7 @@ If we now save the file and start the application it will fail to initialize bec
 
 ### Configure Texture {#configure_cube_texture}
 
-Download the [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
+Download [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
 
 Select the `CubeTexture` in the resources panel. Link in the image by clicking on the folder icon next to `ImagePath` in the inspector panel. Browse to the texture in the `data` directory and select it.
 
@@ -328,5 +328,5 @@ Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh
 Next Steps {#next_steps}
 ==========================
 
-We've coverted a lot of ground in this introduction. From here it's good to explore the overall [system architecture](@ref system_overview) and afterwards maybe try and create your own [resources](@ref resources) and [components](@ref scene). Read the project management documentation if you want to know more about modules, how to add them to your project or share them with others.
+We've coverted a lot of ground in this introduction. From here it's good to explore the overall [system architecture](@ref system_overview) and afterwards maybe try and create your own [resources](@ref resources) and [components](@ref scene). Read the [project management](@ref project_management) documentation if you want to know more about modules, how to add them to your project or share them with others.
 
