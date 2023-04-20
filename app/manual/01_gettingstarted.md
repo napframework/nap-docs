@@ -32,7 +32,7 @@ This tutorial assumes you are working from a pre-compiled distributable NAP pack
 Create a New Application {#create_blank_app}
 =======================
 
-Use a terminal to navigate to the `tools` directory inside the NAP root and run  `create_app.bat rotatingcube` (Windows) or `./create_app.sh rotatingcube` (Unix)
+Use a terminal to navigate to the `tools` directory inside the NAP root and run  `create_app.bat rotatingcube` (windows) or `./create_app.sh rotatingcube` (unix)
 
 After creation your new application is located at `apps/rotatingcube`. This directory contains your source-code, assets, solution and build instructions. The `app.json` file in the root of the directory defines various project specific settings, such as: the name of your app , which modules to include and which content to load.
 
@@ -61,7 +61,7 @@ Read the [Project Management](@ref project_management) documentation to learn mo
 Compile and Run {#compile_run}
 ================
 
-Navigate to `apps/rotatingcube` and run `build.bat` (Windows) or `./build.sh` (Unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`.
+Navigate to `apps/rotatingcube` and run `build.bat` (windows) or `./build.sh` (unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`.
 
 *Note that when working from source the `rotatingcube` binary is compiled to the `bin/Release-*` directory in the nap root, not the application root*
 
@@ -301,9 +301,9 @@ This tells the render engine to render the cube instead of the gnomon. The GUI i
 Package for Distribution {#app_package}
 ==========================
 
-To create a distributable package of your application run `package.bat` (windows) or `./package` (macOS / Linux). Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
+Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh` (unix) to create a distributable package of your application. Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
 
-*Note that when working from source the the `package` script is located in the NAP root.*
+*Note that when working from source the the `package` script is located in the NAP root. Your application is packaged together with NAP.*
 
 
 
