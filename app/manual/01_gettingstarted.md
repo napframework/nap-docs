@@ -6,13 +6,13 @@ Getting Started {#getting_started}
 * [Napkin](@ref napkin_editor)
     * [Launch Napkin](@ref launch_napkin)
     * [Open Project](@ref open_project_napkin)
-* [Cube Resources](@ref cube_resources)
+* [Create Cube Resources](@ref cube_resources)
     * [Mesh](@ref cube_mesh)
     * [Texture](@ref cube_texture)
     * [Shader](@ref cube_shader)
     * [Material](@ref cube_material)
-* [Cube Entity](@ref cube_entity)
-    * [Cube Components](@ref cube_components)
+* [Create Cube Entity](@ref cube_entity)
+    * [Create Cube Components](@ref cube_components)
 * [Scene](@ref content_scene)
 * [Setup Application](@ref app_logic)
     * [Init](@ref app_init)
@@ -65,14 +65,14 @@ Navigate to `apps/rotatingcube` and run `build.bat` (windows) or `./build.sh` (u
 
 *Note that when working from source the `rotatingcube` binary is compiled to the `bin/Release-*` directory in the nap root, not the application root*
 
-Launch the `rotatingcube` executable. You should see the following window:
+Launch the `rotatingcube` executable. You should see the following window, which is the application default:
 
 ![](@ref content/gs_new_app.png)
 
 Napkin {#napkin_editor}
 ================
 
-We're going to use [Napkin](@ref napkin) to edit application content. 
+We're going to use [Napkin](@ref napkin) to edit the application content. 
 
 ## Launch Napkin {#launch_napkin}
 
@@ -94,7 +94,7 @@ If Napkin fails to load the project make sure to [build](@ref compile_run) the a
 
 ![](@ref content/gs_open_project.gif)
 
-Cube Resources {#cube_resources}
+Create Cube Resources {#cube_resources}
 ================
 
 Let's begin by adding the resources that define, when combined, a textured cube in NAP.
@@ -121,9 +121,9 @@ If we now save the file and start the application it will fail to initialize bec
 
 ### Configure Texture {#configure_cube_texture}
 
-Download [this image](@ref content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
+Download [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
 
-Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to the `ImagePath` property in the inspector panel. Browse to the texture in the `data` directory and select it.
+Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to `ImagePath` in the inspector panel. Browse to the texture in the `data` directory and select it.
 
 ![](@ref content/gs_create_texture.gif)
 
@@ -133,9 +133,9 @@ Next we create a [shader](@ref nap::ShaderFromFile) program that we use to rende
 
 ### Configure Shader {#configure_cube_shader}
 
-Download [cube.vert](@ref content/cube.vert) and [cube.frag](@ref content/cube.frag) and move them to `apps/rotatingcube/data/shaders`. 
+Download [cube.vert](/content/cube.vert) and [cube.frag](/content/cube.frag) and move them to `apps/rotatingcube/data/shaders`. 
 
-Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to the `VertShader` and `FragShader` properties in the inspector panel.
+Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to `VertShader` and `FragShader` in the inspector panel.
 
 ![](@ref content/gs_create_cubeshader.gif)
 
@@ -174,7 +174,7 @@ uniform sampler2D inTexture;	//< Cube texture
 
 ![](@ref content/gs_create_cubematerial.gif)
 
-Cube Entity {#cube_entity}
+Create Cube Entity {#cube_entity}
 ================
 
 Continue by adding an entity that renders the cube to screen. 
@@ -188,7 +188,7 @@ In the resources panel:
 
 ![](@ref content/gs_create_cubeentity.gif)
 
-## Cube Components {#cube_components}
+## Create Cube Components {#cube_components}
 
 The `CubeEntity` needs 3 components: [Transformcomponent](@ref nap::TransformComponent) to position it, a [RotateComponent](@ref nap::RotateComponent) to rotate it and a [RenderableMeshComponent](@ref nap::RenderableMeshComponent) to render it.
 
@@ -303,7 +303,7 @@ Package for Distribution {#app_package}
 
 Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh` (unix) to create a distributable package of your application. Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
 
-*Note that when working from source the the `package` script is located in the NAP root. Your application is packaged together with NAP.*
+*Note that when working from source the the `package` script is located in the NAP root.*
 
 
 
