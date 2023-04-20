@@ -133,7 +133,7 @@ If we now save the file and start the application it will fail to initialize bec
 
 Download the [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
 
-Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to `ImagePath` in the inspector panel. Browse to the texture in the `data` directory and select it.
+Select the `CubeTexture` in the resources panel. Link in the image by clicking on the folder icon next to `ImagePath` in the inspector panel. Browse to the texture in the `data` directory and select it.
 
 ![](@ref content/gs_create_texture.gif)
 
@@ -145,7 +145,7 @@ Next we create a [shader](@ref nap::ShaderFromFile) program that we use to rende
 
 Download the [cube.vert](/content/cube.vert) and [cube.frag](/content/cube.frag) shader files and move them to `apps/rotatingcube/data/shaders`. 
 
-Select the `CubeShader` in the resource panel. In the inspector panel click on the folder icon next to `VertShader` and select the `cube.vert` shader file. Continue by clicking on the folder icon next to `Fragshader` and select the `cube.frag` shader file.
+Select the `CubeShader` in the resources panel. In the inspector panel click on the folder icon next to `VertShader` and select the `cube.vert` shader file. Continue by clicking on the folder icon next to `Fragshader` and select the `cube.frag` shader file.
 
 ![](@ref content/gs_create_cubeshader.gif)
 
@@ -218,11 +218,11 @@ Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshCompon
 
 ### Configure Transform Component {#cube_transform_component}
 
-Select the `CubeTransformComponent` in the resource panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4 times as large.
+Select the `CubeTransformComponent` in the resources panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4 times as large.
 
 ### Configure Rotate Component
 
-Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
+Select the `CubeRotateComponent` in the resources panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
 
 ### Configure Render Component {#cube_render_component}
 
