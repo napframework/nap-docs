@@ -26,7 +26,7 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. 
+In this tutorial we're going to create a new NAP application that renders a textured cube to a window. The rotation speed of the cube can be controlled with a slider. Instruction videos are provided to guide you through the individual stages. Upon completion you will have a better understanding of working with NAP, hopefully something clicks! It takes about 1 hour to complete.
 
 ![](@ref content/gs_result.gif)
 
@@ -325,5 +325,8 @@ Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh
 
 *Note that when working from source the the `package` script is located in the NAP root.*
 
+Next Steps {#next_steps}
+==========================
 
+We've coverted a lot of ground in this introduction. From here it's good to explore the overall [system architecture](@ref system_overview) and afterwards maybe try and create your own [resources](@ref resources) and [components](@ref scene). Read the project management documentation if you want to know more about modules, how to add them to your project or share them with others.
 
