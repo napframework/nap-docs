@@ -6,6 +6,7 @@ Getting Started {#getting_started}
 * [Napkin](@ref napkin_editor)
     * [Launch Napkin](@ref launch_napkin)
     * [Open Project](@ref open_project_napkin)
+    * [Configure App Runner](@ref configure_app_runner)
 * [Create Cube Resources](@ref cube_resources)
     * [Mesh](@ref cube_mesh)
     * [Texture](@ref cube_texture)
@@ -90,7 +91,7 @@ All externally sourced assets (such as images, audio, video, shaders etc.) that 
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
-## Configure Application Runner {#configure_app_runner}
+## Configure App Runner {#configure_app_runner}
 
 The application runner allows to conveniently start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
 
@@ -130,7 +131,7 @@ If we now save the file and start the application it will fail to initialize bec
 
 ### Configure Texture {#configure_cube_texture}
 
-Download [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
+Download the [cube_texture.jpg](/content/cube_texture.jpg) and move it to `apps/rotatingcube/data`. 
 
 Select the `CubeTexture` in the resource panel. Link in the image by clicking on the folder icon next to `ImagePath` in the inspector panel. Browse to the texture in the `data` directory and select it.
 
@@ -142,9 +143,9 @@ Next we create a [shader](@ref nap::ShaderFromFile) program that we use to rende
 
 ### Configure Shader {#configure_cube_shader}
 
-Download [cube.vert](/content/cube.vert) and [cube.frag](/content/cube.frag) and move them to `apps/rotatingcube/data/shaders`. 
+Download the [cube.vert](/content/cube.vert) and [cube.frag](/content/cube.frag) shader files and move them to `apps/rotatingcube/data/shaders`. 
 
-Select the `CubeShader` in the resource panel. Link in the shaders by clicking on the folder icon next to `VertShader` and `FragShader` in the inspector panel.
+Select the `CubeShader` in the resource panel. In the inspector panel click on the folder icon next to `VertShader` and select the `cube.vert` shader file. Continue by clicking on the folder icon next to `Fragshader` and select the `cube.frag` shader file.
 
 ![](@ref content/gs_create_cubeshader.gif)
 
@@ -154,11 +155,11 @@ Let's add a [material](@ref nap::Material), so we can bind a texture to the shad
 
 ### Configure Material {#configure_cube_material}
 
-Create a link to the cube shader by clicking on the icon to the right of the `Shader` property. Select the `CubeShader` in the popup.
+Start by linking in the shader. Click on the icon next to `Shader` and select the `CubeShader` in the popup. 
 
 #### Bind Color {#bind_cube_color}
 
-Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` of the struct to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3`. Expand the new item and change the `Name` to *color* and the `Value` to `1 1 1` (white).
+Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` of the struct to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3` to it. Expand the new item and change the `Name` to *color* and the `Value` to `1 1 1` (white).
 
 You just set the (default) color of the cube to white by creating a binding in the material that targets the `UBO.color` uniform in the shader:
 
@@ -172,7 +173,7 @@ uniform UBO
 
 #### Bind Texture {#bine_cube_texture}
 
-Select the `CubeMaterial`. Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now create a link to the texture by clicking on the (rings) icon to the right of the `Texture` property. Select the `CubeTexture` in the popup.
+Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now click on the rings icon next to `Texture` and select the `CubeTexture` in the popup.
 
 You just set the (default) texture of the cube to `CubeTexture` by creating a binding in the material that targets the `inTexture` sampler in the shader:
 
@@ -215,19 +216,17 @@ Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshCompon
 
 ### Configure Transform Component {#cube_transform_component}
 
-Select the `CubeTransformComponent` in the resource panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4x as large.
+Select the `CubeTransformComponent` in the resource panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4 times as large.
 
 ### Configure Rotate Component
 
-Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` property to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
+Select the `CubeRotateComponent` in the resource panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
 
 ### Configure Render Component {#cube_render_component}
 
 We need to tell the component which mesh to render using what material. 
 
-Select the `CubeRenderComponent` in the resource panel. Create a link to the cube mesh by clicking on the (rings) icon to the right of the `Mesh` property. Select the `CubeMesh` in the popup.
-
-Expand the `MaterialInstance` item in the inspector panel and create a link to the cube material by clicking on the icon to the right of the `Material` property. Select the `CubeMaterial` in the popup.
+Select the `CubeRenderComponent`. In the inspector panel click on the icon next to `Mesh` and select the `CubeMesh` in the popup. Continue by expanding the `MaterialInstance` item. Click on the icon next to `Material` and select the `CubeMaterial` in the popup.
 
 ![](@ref content/gs_configure_cubecomponents.gif)
 
