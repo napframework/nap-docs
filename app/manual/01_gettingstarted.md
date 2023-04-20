@@ -155,7 +155,9 @@ Let's add a [material](@ref nap::Material), so we can bind a texture to the shad
 
 ### Configure Material {#configure_cube_material}
 
-Start by linking in the shader. Click on the icon next to `Shader` and select the `CubeShader` in the popup. 
+#### Link Shader {#material_link_shader}
+
+In the inspector panel click on the icon next to `Shader` and select the `CubeShader` in the popup. 
 
 #### Bind Color {#bind_cube_color}
 
