@@ -61,13 +61,11 @@ Read the [Project Management](@ref project_management) documentation to learn mo
 Compile and Run {#compile_run}
 ================
 
-Navigate to `apps/rotatingcube` and run `build.bat` (windows) or `./build.sh` (unix) to compile the application. The binaries are stored in the `bin/Release-*` directory of your app, in this case: `apps/rotatingcube/bin/Release-*`.
-
-*Note that when working from source the `rotatingcube` binary is compiled to the `bin/Release-*` directory in the nap root, not the application root*
-
-Launch the `rotatingcube` executable. You should see the following window, which is the application default:
+Navigate to `apps/rotatingcube` and run `build.bat` (windows) or `./build.sh` (unix) to compile the application. The app is compiled to the `bin` directory of your app. Navigate to the `bin/Release-*` folder and launch the `rotatingcube` executable in that directory. You should see the following window:
 
 ![](@ref content/gs_new_app.png)
+
+*Note that when working from source the app is compiled to the `bin` directory in the nap root, not the application root*
 
 Napkin {#napkin_editor}
 ================
@@ -91,6 +89,17 @@ The `app.json` points to an external file that holds the *content* of your appli
 All externally sourced assets (such as images, audio, video, shaders etc.) that your content references must be placed in the `data` directory of your application, in this case `apps/rotatingcube/data`.
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
+
+## Configure Application Runner {#configure_app_runner}
+
+The application runner allows to conveniently start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
+
+In the app runner panel:
+
+- Click on the `...` button
+- Browse to the `apps/rotatingcube/bin/Release-*` directory
+- Select the `rotatingcube` executable
+- Clock on the play button
 
 ![](@ref content/gs_open_project.gif)
 
