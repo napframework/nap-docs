@@ -35,7 +35,7 @@ Create a New Application {#create_blank_app}
 
 Use a terminal to navigate to the `tools` directory inside the NAP root and run  `create_app.bat rotatingcube` (windows) or `./create_app.sh rotatingcube` (unix)
 
-After creation your new application is located at `apps/rotatingcube`. This directory contains your source-code, assets, solution and build instructions. The `app.json` file in the root of the directory defines various project specific settings, such as: the name of your app , which modules to include and which content to load.
+After creation your new application is located at `apps/rotatingcube`. This directory contains your source-code, assets, solution and build instructions. The `app.json` file in the root of the directory defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
 
 ```
 {
@@ -93,7 +93,7 @@ If Napkin fails to load the project make sure to [build](@ref compile_run) the a
 
 ## Configure App Runner {#configure_app_runner}
 
-The application runner allows to conveniently start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
+The `AppRunner` allows you to start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
 
 In the app runner panel:
 
@@ -161,7 +161,7 @@ In the inspector panel click on the icon next to `Shader` and select the `CubeSh
 
 #### Bind Color {#bind_cube_color}
 
-Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` of the struct to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3` to it. Expand the new item and change the `Name` to *color* and the `Value` to `1 1 1` (white).
+Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3` to it. Expand the new item and change the `Name` to *color* and the `Value` to *1 1 1* (white).
 
 You just set the (default) color of the cube to white by creating a binding in the material that targets the `UBO.color` uniform in the shader:
 
@@ -218,11 +218,11 @@ Repeat these steps for the `nap::RotateComponent` and `nap::RenderableMeshCompon
 
 ### Configure Transform Component {#cube_transform_component}
 
-Select the `CubeTransformComponent` in the resources panel and change the `UniformScale` in the inspector panel to 4.0. This makes the box 4 times as large.
+Select the `CubeTransformComponent` in the resources panel and change the `UniformScale` in the inspector panel to *4.0*. This makes the box 4 times as large.
 
 ### Configure Rotate Component
 
-Select the `CubeRotateComponent` in the resources panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` to `0.1`. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
+Select the `CubeRotateComponent` in the resources panel. Expand the `Axis` property in the inspector panel and change it to `0 1 0`. Next change the `Speed` to *0.1*. This tells the component to rotate the cube 360 degrees over the Y-axis in 10 seconds. 
 
 ### Configure Render Component {#cube_render_component}
 
