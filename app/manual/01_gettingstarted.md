@@ -25,6 +25,8 @@ Overview {#getting_started_overview}
 
 In this tutorial we're going to create a new NAP application that renders a rotating textured cube to a window. 
 
+![](@ref content/gs_result.gif)
+
 This tutorial assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, with the exception of some paths. Additional information is provided when this is the case.
 
 Create a New Application {#create_blank_app}
@@ -301,7 +303,7 @@ Package for Distribution {#app_package}
 
 To create a distributable package of your application run `package.bat` (windows) or `./package` (macOS / Linux). Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
 
-*Note that when working from source the application is packaged together with NAP. The `package` script is located in the NAP root.*
+*Note that when working from source the the `package` script is located in the NAP root.*
 
 
 
