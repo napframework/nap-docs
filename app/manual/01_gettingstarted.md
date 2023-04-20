@@ -19,7 +19,9 @@ Getting Started {#getting_started}
     * [Init](@ref app_init)
     * [Update](@ref app_update)
     * [Render](@ref app_render)
+* [Hot Load Changes] (@ref hot_load_changes)
 * [Package for Distribution](@ref app_package)
+* [Next Steps](@ref what_next)
 
 Overview {#getting_started_overview}
 =======================
@@ -75,7 +77,7 @@ We're going to use [Napkin](@ref napkin) to edit the application content.
 
 ## Launch Napkin {#launch_napkin}
 
-From the NAP project root, browse to the `tools/napkin` directory and launch the `napkin` executable. 
+From the NAP root directory browse to the `tools/napkin` and launch the `napkin` executable. 
 
 *Note that when working from source you must compile Napkin first. The compiled Napkin binary can be found in the `bin/Release-*/napkin` directory.*
 
@@ -85,7 +87,7 @@ From the NAP project root, browse to the `tools/napkin` directory and launch the
 - Browse to `apps/rotatingcube`
 - Select `app.json`
 
-The `app.json` points to an external file that holds the *content* of your application. By default, application content is stored in `data/objects.json` (relative to the project root). You use Napkin to author *this* content. 
+The `app.json` points to an external file that holds the *content* of your application. By default, application content is stored in `data/objects.json` (relative to the application root). You use Napkin to author *this* content. 
 
 All externally sourced assets (such as images, audio, video, shaders etc.) that your content references must be placed in the `data` directory of your application, in this case `apps/rotatingcube/data`.
 
@@ -100,7 +102,8 @@ In the app runner panel:
 - Click on the `...` button
 - Browse to the `apps/rotatingcube/bin/Release-*` directory
 - Select the `rotatingcube` executable
-- Clock on the play button
+- Click on the play button to start the app
+- Click on the stop button to stop the app
 
 ![](@ref content/gs_open_project.gif)
 
@@ -307,6 +310,13 @@ with:
 This tells the render engine to render the cube instead of the gnomon. The GUI is drawn last, on top of the rest, when  `mGuiService->draw()` is called. To learn more about rendering with NAP take a look at our [render documentation](@ref rendering).
 
 ![](@ref content/gs_app_setup.gif)
+
+Hot Load Changes {#hot_load_changes}
+==========================
+
+The editor and application share the same content. That content is loaded on startup of your application and monitored for changes by NAP. This means that changes you make in the editor are picked up by the running application in real-time. This system is called hot-reloading and allows you to quickly iterate on changes without having to restart the application. It is a feature we rely on heavily during development and is used by artists and designers to edit configurations on the fly. Experment with this feature by changing some settings in the editor and saving your file whilst the app is running, as demonstrated below:
+
+![](@ref content/gs_hot_reload.gif)
 
 Package for Distribution {#app_package}
 ==========================
