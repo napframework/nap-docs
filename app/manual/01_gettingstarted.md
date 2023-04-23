@@ -327,5 +327,5 @@ Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh
 Next Steps {#next_steps}
 ==========================
 
-We've covered a lot of ground in this introduction. From here it's recommended to study some of the many demos that ship with NAP and continue reading the online manual, beginning with [system architecture](@ref project_management). From there you can try and create your own [resource](@ref resources) or [component](@ref component). Read the [project management](@ref project_management) documentation if you want to know more about modules, how to add them to your project or share them with others.
+We've covered a lot of ground in this introduction. From here it's recommended to study some of the many demos that ship with NAP and continue reading the online manual, beginning with [system architecture](@ref system_overview). From there you can try and create your own [resource](@ref resources) or [component](@ref component). Read the [project management](@ref project_management) documentation if you want to know more about modules, how to add them to your project or share them with others.
 

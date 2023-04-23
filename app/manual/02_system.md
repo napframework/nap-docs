@@ -47,6 +47,7 @@ Following the modular design of NAP: all functionality is split into [modules](@
 - [Component](@ref scene)
 
 The specifics of these objects are discussed in separate sections. Every module gets compiled into a dynamically linkable library (DLL). NAP loads all available modules automatically when your application starts. Each module has the option to expose a [service](@ref nap::Service). A service is a rather abstract concept and can be used in many different ways. Let's look at an example to understand what a service does. The render service manages, among other things, the following:
+
 - It initializes the render system and terminates it on exit.
 - It processes system events such as resizing a window.
 - It provides a high-level render interface for all compatible resources, components and entities.
