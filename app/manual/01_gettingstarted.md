@@ -7,12 +7,12 @@ Getting Started {#getting_started}
     * [Launch Napkin](@ref launch_napkin)
     * [Open Project](@ref open_project_napkin)
     * [Configure App Runner](@ref configure_app_runner)
-* [Create Cube Resources](@ref cube_resources)
+* [Create Resources](@ref cube_resources)
     * [Mesh](@ref cube_mesh)
     * [Texture](@ref cube_texture)
     * [Shader](@ref cube_shader)
     * [Material](@ref cube_material)
-* [Create Cube Entity](@ref cube_entity)
+* [Create Entity](@ref cube_entity)
     * [Create Cube Components](@ref cube_components)
 * [Scene](@ref content_scene)
 * [Setup Application](@ref app_logic)
@@ -26,7 +26,7 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a textured cube to a window. The rotation speed of the cube can be controlled with a slider. Instruction videos are provided to guide you through the individual stages. Upon completion you will have a better understanding of working with NAP, hopefully something clicks! It takes about 1 hour to complete.
+In this tutorial we're going to create a new NAP application that renders a textured cube to a window. The rotation speed of the cube can be controlled with a slider. Instruction videos are provided to guide you through the individual stages. Upon completion you will have a better understanding of working with NAP, hopefully something clicks! It takes about 45 minutes to complete.
 
 ![](@ref content/gs_result.gif)
 
@@ -57,7 +57,7 @@ After creation your new application is located at `apps/rotatingcube`. This dire
 }
 ```
 
-The most important module here is `naprotatingcube`. This is your *application module*, located inside the `apps/rotatingcube/module` directory. This module contains `resources` and `components` that you create specifically for this project. 
+The most important module here is `naprotatingcube`. This is your *application module*, located inside the `apps/rotatingcube/module` directory. This directory contains the source-code of `resources` and `components` specific to your project.
 
 Read the [Project Management](@ref project_management) documentation to learn more about managing NAP applications and modules.
 
@@ -103,7 +103,6 @@ In the app runner panel:
 - Browse to the `apps/rotatingcube/bin/Release-*` directory
 - Select the `rotatingcube` executable
 - Click on the play button to start the app
-- Click on the stop button to stop the app
 
 ![](@ref content/gs_open_project.gif)
 
@@ -178,7 +177,7 @@ uniform UBO
 
 #### Bind Texture {#bine_cube_texture}
 
-Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now click on the rings icon next to `Texture` and select the `CubeTexture` in the popup.
+Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now click on the icon next to `Texture` and select the `CubeTexture` in the popup.
 
 You just set the (default) texture of the cube to `CubeTexture` by creating a binding in the material that targets the `inTexture` sampler in the shader:
 
@@ -323,10 +322,10 @@ Package for Distribution {#app_package}
 
 Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh` (unix) to create a distributable package of your application. Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
 
-*Note that when working from source the the `package` script is located in the NAP root.*
+*Note that when working from source the `package` script is located in the NAP root directory.*
 
 Next Steps {#next_steps}
 ==========================
 
-We've coverted a lot of ground in this introduction. From here it's good to explore the overall [system architecture](@ref system_overview) and afterwards maybe try and create your own [resources](@ref resources) and [components](@ref scene). Read the [project management](@ref project_management) documentation if you want to know more about modules, how to add them to your project or share them with others.
+We've covered a lot of ground in this introduction. From here it's recommended to study some of the many demos that ship with NAP and continue reading the online manual, beginning with [system architecture](@ref project_management). From there you can try and create your own [resource](@ref resources) or [component](@ref component). Read the [project management](@ref project_management) documentation if you want to know more about modules, how to add them to your project or share them with others.
 
