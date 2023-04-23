@@ -57,7 +57,7 @@ After creation your new application is located at `apps/rotatingcube`. This dire
 }
 ```
 
-The most important module here is `naprotatingcube`. This is your *application module*, located inside the `apps/rotatingcube/module` directory. This directory contains the source-code of `resources` and `components` specific to your project.
+The most important module here is `naprotatingcube`. This is your *application module*, located inside the `apps/rotatingcube/module` directory. This directory contains the source-code of `resources` and `components` that are specific to your project.
 
 Read the [Project Management](@ref project_management) documentation to learn more about managing NAP applications and modules.
 
