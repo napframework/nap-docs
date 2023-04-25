@@ -65,203 +65,60 @@ All global render settings are configurable using using the [nap::RenderServiceC
 Example {#render_example}
 =======================
 
-To follow this example it's good to read the high level [system](@ref system) documentation first. This example renders a rotating sphere with a world texture to the first screen. This example is part of the 'HelloWorld' demo. To render a rotating sphere we need a:
+This section explains the function and relationship of the various resources that were used in the `rotatingcube` [example](@ref getting_started_overview). That example renders a rotating cube with a texture to a window:
 
-- [Window](@ref nap::RenderWindow)
-- [Sphere](@ref nap::SphereMesh)
-- [Shader](@ref nap::Shader)
+![](@ref content/gs_result.gif)
+
+The following render related resources are used:
+
+- [Image](@ref nap::ImageFromFile)
+- [Shader](@ref nap::ShaderFromFile)
 - [Material](@ref nap::Material)
-- [Image](@ref nap::Image)
-- [Camera Component](@ref nap::PerspCameraComponent)
+- [Window](@ref nap::RenderWindow)
+- [Mesh](@ref nap::BoxMesh)
 - [Render Component](@ref nap::RenderableMeshComponent)
 - [Transform Component](@ref nap::TransformComponent)
-- [Rotate Component](@ref nap::RotateComponent)
 
-Some parts might look familiar, others are new. The most important new parts are the material, render and rotate component. The rotate component rotates the sphere along the y axis, the render component ties a renderable [mesh](@ref nap::IMesh) to a material. Every material points to a shader. The material is applied to the mesh before being rendered to (in this case) the screen. You will notice that the actual application will contain almost no code, most of the functionality is defined by the various objects and components. The only thing we have to do is tell the renderer to render the sphere using a particular camera.
+The actual application contains almost no code. Almost all of the functionality comes from the resources and components defined in [Napkin](@ref napkin):
 
-But let's begin by defining some of the resources in JSON. Make sure to use [Napkin](@ref napkin) (our JSON editor) to do this for you:
+The `Image` points to a file on disk, which we want to apply as a texture to the cube. NAP loads the image from disk and uploads the pixel data to the GPU on initialization. The image is now a texture on the GPU that can be bound to the shader. The role of the material is to bind this `CubeTexture` to the `inTexture` input of the shader, just before the cube is rendered. Initialization fails if the material can't bind the texture to the shader.
 
-```
-{
-	"Type": "nap::RenderWindow",
-    "mID": "Window0",
-    "Borderless": false,
-    "Resizable": true,
-    "Visible": true,
-    "Title": "Window 1",
-    "Width": 1280,
-    "Height": 720,
-   	"Mode": "Immediate",
-   	"Samples": "Four"
-},
-{
-	"Type": "nap::ImageFromFile",
-	"mID": "WorldTexture",
-	"Usage": "Static",
-	"ImagePath": "world_texture.png",
-	"GenerateLods": true
-},
-{
-	"Type" : "nap::ShaderFromFile",
-	"mID": "WorldShader",
-	"VertShader": "shaders/world.vert",
-	"FragShader": "shaders/world.frag"
-},
-{
-	"Type": "nap::SphereMesh",
-    "mID": "WorldMesh",
-    "Radius": 1.0,
-    "Rings": 50.0,
-    "Sectors": 50.0
-},
-```
+Next we create a simple scene structure that contains the cube and a camera. The [renderable mesh component](@ref nap::RenderableMeshComponent) of the `CubeEntity` binds the mesh to the material and draws it when called by the render service, using the view matrix provided by the `CameraEntity`. Initialization of the component fails if the mesh / material combination is incompatible. The [transform component](@ref nap::TransformComponent) positions the cube at the origin of the scene and the [rotate component](@ref nap::RotateComponent) rotates the cube around the y axis once every 10 seconds.
 
-These resources are rather straight-forward. We tell NAP we want a [render window](@ref nap::RenderWindow), [image](@ref nap::ImageFromFile), [shader](@ref nap::Shader) and [mesh](@ref nap::SphereMesh). The image points to the world texture. This is the texture we want to apply to the sphere. Behind the scenes NAP loads the image from disk and uploads the pixel data to the GPU. This image is now a texture that can be used by shaders as a sampler texture input. In this particular case we want the world shader to use that texture. The world shader exposes a sampler with the name 'inWorldTexture'. But how do we bind the world texture to the shader? As you can see in the example above: the world texture is not referenced anywhere. For that purpose we use a material. Let's add one:
-
-```
-{
-    "Type": "nap::Material",
-    "mID": "WorldMaterial",
-    "Uniforms": [],
-    "Samplers": 
-    [
-        {
-            "Type": "nap::Sampler2D",
-            "mID": "world_input_tex_uniform",
-            "Name": "inWorldTexture",
-            "Texture": "WorldTexture"
-        }
-    ],
-    "Shader": "WorldShader",
-    "BlendMode": "Opaque",
-    "DepthMode": "InheritFromBlendMode"
-},
-```
-
-A [material](@ref nap::Material) serves a very important function. It allows you to apply the same shader to different objects. Often you only need a limited set of shaders to represent a large set of objects. The same shader can be used to render objects that share the same physical properties, such as a window and a wine glass. Creating separate shaders for each individual object is inefficient. In the example above we create a world material that links to a world shader. NAP creates both the shader and material for you. The only thing left to do is link the 'WorldTexture' to the right shader input exposed by the material. 
-
-Every material carries a set of 'Uniforms' and 'Samplers'. Material 'Uniforms' allow you to bind values to specific inputs of a shader. Samplers allow you to bind textures to specific inputs of a shader. This material binds 'WorldTexture' to 'inWorldTexture'. When you apply this material to a mesh (in this case the sphere) the renderer binds the texture to the right input of the shader with, as a result, a sphere that looks like planet earth. NAP validates that the shader exposes a texture input called 'inWorldTexture' and the 'WorldTexture' is loaded and valid. Initialization fails when the world texture can't be loaded or the shader doesn't have an input called 'inWorldTexture'. In both cases an error message is generated.
-
-You now have a material that you can apply to your sphere. But we don't have a scene that represents the objects in space. Without that structure the renderer doesn't know where to place the sphere and what material to apply to the sphere. We therefore create a simple scene structure that holds both the camera and sphere to render:
-
-```
-{
-	"Type" : "nap::Scene",
-	"mID": "Scene",		
-	"Entities" : 
-	[
-		{
-			"Entity" : "World"
-		},
-		{
-			"Entity" : "Camera"
-		}
-	]
-},
-```
-
-And define our 'World':
-
-```
-{
-	"Type" : "nap::Entity",
-	"mID": "World",
-	"Components" : 
-	[
-		{
-			"Type" : "nap::RenderableMeshComponent",
-			"mID": "Renderable Mesh Component",
-			"Mesh" : "WorldMesh",
-			"MaterialInstance" : 
-			{
-				"mID": "WorldMaterialInstance",
-				"Material": "WorldMaterial"
-			}
-		},
-		{
-			"Type" : "nap::TransformComponent",
-			"mID": "Transform Component"
-		},
-		{
-			"Type" : "nap::RotateComponent",
-			"mID": "Rotate Component",
-			"Properties": 
-			{
-				"Axis": 
-				{
-					"x": 0.0,
-					"y": 1.0,
-					"z": 0.0
-				},
-				"Speed": 0.1,
-				"Offset": 2.0
-			}
-		}		
-	]
-},
-```
-
-Before we add the camera it's good to take a closer look at the [renderable mesh component](@ref nap::RenderableMeshComponent). As mentioned before, this component binds both a mesh and material together. When doing so it performs a very important task: it makes sure that the mesh can be rendered to a render target. This component also pushes all the material properties to the GPU before rendering the mesh. The [transform component](@ref nap::TransformComponent) positions the 'World' at the origin of the scene and the [rotate component](@ref nap::RotateComponent) rotates the 'World' around the y axis once every 10 seconds. Last thing to do is add a [camera](@ref nap::PerspCameraComponent), we place it five units back from the origin of the scene to ensure the world is visible:
-
-```
-{
-	"Type" : "nap::Entity",
-	"mID": "Camera",
-	"Components" : 
-	[
-		{
-			"Type" : "nap::PerspCameraComponent",
-			"Properties": 
-			{
-				"FieldOfView": 45.0,
-				"NearClippingPlane" : 1,
-				"FarClippingPlane" : 1000.0
-			}
-		},
-		{
-			"Type" : "nap::TransformComponent",
-			"Properties": 
-			{
-				"Translate": 
-				{
-					"x": 0.0,
-					"y": 0.0,
-					"z": 5.0
-				}			
-			}
-		}
-	]
-}
-```
-
-You're now ready to load this file and fetch the created resources. You need those to render the world later on:
+On initialization of the app we fetch the resources required to render the cube:
 
 ~~~~~~~~~~~~~~~{.cpp}
 bool ExampleApp::init(utility::ErrorState& error)
 {
 	// Retrieve services
 	mRenderService = getCore().getService<nap::RenderService>();
-	mSceneService  = getCore().getService<nap::SceneService>();
-		
-	// Get resource manager
+	mSceneService = getCore().getService<nap::SceneService>();
+
+	// Fetch the resource manager
 	mResourceManager = getCore().getResourceManager();
-        
-	// Extract loaded resources
-	mRenderWindow = mResourceManager->findObject<nap::RenderWindow>("Window0");
 
-	// Find the world and camera entities
-	ObjectPtr<Scene> scene = mResourceManager->findObject<Scene>("Scene");
+	// Find the render window
+	mRenderWindow = mResourceManager->findObject<nap::RenderWindow>("Window");
 
-	mWorldEntity  = scene->findEntity("World");
-	mCameraEntity = scene->findEntity("Camera");
+	// Find the scene that contains our entities and components
+	mScene = mResourceManager->findObject<Scene>("Scene");
+
+	// Find the camera entity
+	mCameraEntity = mScene->findEntity("CameraEntity");
+
+	// Find the cube entity
+	mCubeEntity = mScene->findEntity("CubeEntity");
+
+	// All done!
+	return true;
 }
 ~~~~~~~~~~~~~~~
 
-And in the render call of your application you explicitly tell the renderer to render your 'World' at the origin (defined by it's transform) with the right material:
+In the render call of the app we tell the renderer to draw the cube using the camera:
 
 ~~~~~~~~~~~~~~~{.cpp}
 // Called when the window is going to render
-void ExampleApp::render()
+void rotatingcubeApp::render()
 {
 	// Signal the beginning of a new frame, allowing it to be recorded.
 	mRenderService->beginFrame();
@@ -269,37 +126,36 @@ void ExampleApp::render()
 	// Begin recording the render commands for the main render window
 	if (mRenderService->beginRecording(*mRenderWindow))
 	{
-		// Begin the render pass
+		// Begin render pass
 		mRenderWindow->beginRendering();
 
-		// Find the world and add as an object to render
-		std::vector<nap::RenderableComponentInstance*> components_to_render;
-		nap::RenderableMeshComponentInstance& renderable_world = mWorldEntity->getComponent<nap::RenderableMeshComponentInstance>();
-		components_to_render.emplace_back(&renderable_world);
+		// Get Perspective camera to render with
+		auto& perp_cam = mCameraEntity->getComponent<PerspCameraComponentInstance>();
 
-		// Find the perspective camera
-		nap::PerspCameraComponentInstance& persp_camera = mPerspectiveCamEntity->getComponent<nap::PerspCameraComponentInstance>();
+		// Add Cube
+		std::vector<nap::RenderableComponentInstance*> components_to_render
+		{
+			&mCubeEntity->getComponent<nap::RenderableComponentInstance>()
+		};
 
-		// Render the world with the right camera directly to screen
-		mRenderService->renderObjects(*mRenderWindow, persp_camera, components_to_render);
-		
-		// End the render pass
+		// Render Gnomon
+		mRenderService->renderObjects(*mRenderWindow, perp_cam, components_to_render);
+
+		// Stop render pass
 		mRenderWindow->endRendering();
 
 		// End recording
 		mRenderService->endRecording();
 	}
 
-	// Signal the end of the frame
+	// Proceed to next frame
 	mRenderService->endFrame();
 }
 ~~~~~~~~~~~~~~~
 
-That's it, you should see a rotating textured sphere in the center of your viewport. This example tried to cover the basics of rendering with NAP but as you might have suspected: modern day rendering is a vast and complex subject. NAP's philosophy is to be open; it doesn't render for you. What NAP does best is getting you set up with the building blocks to render complex scenes. This also applies to many other facets of the framework. But in return you get a very open engine that allows you to render most things without having to write thousands of lines of code. 
+This example covers the basics of rendering with NAP, but as you might have suspected: modern day rendering is a vast and complex subject. NAP's philosophy is to be open; it doesn't render for you. What NAP does best is getting you set up with the building blocks to render complex scenes. This also applies to many other facets of the framework. But in return you get a very open engine that allows you to render most things without having to write thousands of lines of code. 
 
-To get a better understanding of rendering with NAP continue reading or play around with a render demo that ships with NAP. This example is part of the 'HelloWorld' demo:
-
-![](@ref content/helloworld.png)
+To get a better understanding of rendering with NAP continue reading or play around with some of the demos that ship with NAP.
 
 Meshes {#meshes}
 =======================
@@ -313,99 +169,13 @@ The underlying resource of all mesh types is the [IMesh](@ref nap::IMesh). The `
 
 The [MeshFromFile](@ref nap::MeshFromFile) loads a mesh from an external file. NAP only supports the FBX file format and automatically converts any .fbx file in to a .mesh file using the FBX converter tool. The result is a heavily compressed binary file. The FBX converter runs automatically after compilation and only converts .fbx files when new. Alternatively you can run the tool from the command line. Type --help for instructions. If an .fbx file contains multiple meshes each mesh is stored into an individual .mesh file.
 
-Here is an example:
-
-```
-{
-	"Type" : "nap::MeshFromFile",
-	"mID": "CarMesh",
-	"Path": "car.mesh"
-}
-```
-
 ###Predefined Shapes {#predefined_shapes}###
 
-A few simple shapes (such as a [plane](@ref nap::PlaneMesh), [sphere](@ref nap::SphereMesh) or [box](@ref nap::BoxMesh)) can be created directly using configurable parameters:
-
-```
-{
-	"Type" : "nap::SphereMesh",
-	"mID": "SphereMesh",
-	"Radius" : 5,
-	"Rings" : 50,
-	"Sectors" : 50
-},
-{
-	"Type" : "nap::PlaneMesh",
-	"mID": "PlaneMesh",
-	"Rows" : 128,
-	"Columns" : 128
-},
-{
-	"Type" : "nap::BoxMesh".
-	"mID" : "BoxMesh",
-    "Size": 
-    {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
-    }
-}
-```
-
-###Mesh Resource {#mesh_resource}###
-
-- The [Mesh](@ref nap::Mesh) resource can be used to explicitly define the contents of a mesh in a JSON file. Below you see an example of a mesh in the shape of a plane. This mesh contains four vertices. The plane has a position and UV attribute. The triangles are formed as a TriangleStrip:
-
-```
-{
-	"Type" : "nap::Mesh",
-	"mID" : "CustomPlaneMesh",
-	"Properties" : {
-		"NumVertices" : 4,
-		"Shapes" : [
-			{
-				"DrawMode" : "TriangleStrip"
-			}
-		],
-		"Attributes" : [
-			{
-				"Type" : "nap::Vec3VertexAttribute",
-				"AttributeID" : "Position",
-				"Data" : [
-					{ "x": -0.5, 	"y": -0.5, "z": 0.0 },
-					{ "x":  0.5, 	"y": -0.5,	"z": 0.0 },
-					{ "x": -0.5, 	"y":  0.5,	"z": 0.0 },
-					{ "x":  0.5, 	"y":  0.5,	"z": 0.0 }
-				]
-			},
-			{
-				"Type" : "nap::Vec3VertexAttribute",
-				"AttributeID" : "UV0",
-				"Data" : [
-					{ "x": 0.0, 	"y": 0.0, 	"z": 0.0 },
-					{ "x": 1.0, 	"y": 0.0,	"z": 0.0 },
-					{ "x": 0.0, 	"y": 1.0,	"z": 0.0 },
-					{ "x": 1.0, 	"y": 1.0,	"z": 0.0 }
-				]
-			}
-		],
-		"Indices" : [
-			0,
-			1,
-			3,
-			0,
-			3,
-			2
-		]
-	}
-}
-
-```
+Simple geometric shapes, inluding a [plane](@ref nap::PlaneMesh), [sphere](@ref nap::SphereMesh), [box](@ref nap::BoxMesh) and [torus](@ref nap::TorusMesh).
 
 ###Custom Mesh C++ {#custom_mesh}###
 
-You can create your own custom or procedural mesh in code. Both the 'dynamicgeo' and 'heightmap' demo show you how to do this. In the following example we define a new mesh. On initialization the instance is created. For the mesh to behave and render correctly we add a set of attributes. In this case 'Position', 'uv', 'id' and 'color'. The mesh contains no actual (initial) vertex data. The vertex data grows / shrinks over time based on the number of active particles in the scene. For a more complete example refer to the 'dynamicgeo' demo.
+You can define your own static or dynamic mesh in code. The `heightmap`, `videomodulation` and `dynamicgeo` demos show you how to approach this. In the following example we define a new dynamic mesh. On initialization the instance is created. For the mesh to behave and render correctly we add a set of attributes. In this case `position`, `uv`, `id` and `color`. The mesh contains no actual (initial) vertex data. The vertex data grows / shrinks over time based on the number of active particles in the scene. For a more complete example refer to the `dynamicgeo` demo.
 
 ~~~~~~~~~~~~~~~{.cpp}
 class ParticleMesh : public IMesh
@@ -436,7 +206,7 @@ public:
 		mMeshInstance->reserveVertices(1000);
 
 		// Add mesh attributes
-		mMeshInstance->getOrCreateAttribute<glm::vec3>(vertexid::position);
+		mMeshInstance->getOrCreateAttribute<glm::vec3>(vertexid::Position);
 		mMeshInstance->getOrCreateAttribute<glm::vec3>(vertexid::getUVName(0));
 		mMeshInstance->getOrCreateAttribute<glm::vec4>(vertexid::getColorName(0));
 		mMeshInstance->getOrCreateAttribute<float>("pid");
