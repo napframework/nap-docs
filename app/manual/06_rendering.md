@@ -304,7 +304,7 @@ There are currently two components that can draw text to screen: [Renderable2DTe
 
 The [Renderable2DTextComponent](@ref nap::Renderable2DTextComponent) has a draw call that can be used to draw text directly at a specific location. The provided coordinates are in screen space (pixels), where 0,0 is the bottom left corner of your screen or back-buffer. Alternatively you can use the [render service](@ref nap::RenderService) to render your 2D text. This is similar to rendering meshes. 3D text is always rendered using the render-service. The component that renders text uses it's own hard coded [shader](@ref nap::FontShader) so you don't have to link in a custom material.
 
-The HelloWorld demo shows you how to set this up.
+The `HelloWorld` demo shows you how to set this up.
 
 Materials and Shaders {#materials}
 =======================
@@ -489,7 +489,7 @@ And corresponding JSON:
 }
 ```
 
-This material binds the color 'white' to the `textColor` uniform input of the shader. This means that all the text rendered with this material will be 'white' unless overridden. The `textColor` uniform value is part of the `UBO` uniform struct. Every uniform value must be a member of a uniform struct and can't be declared independent from a struct inside a shader. Uniform values can be directly overridden in JSON (using a [nap::MaterialInstanceResource](@ref nap::MaterialInstanceResource)) or overridden at run-time using code:
+This material binds the color 'white' to the `textColor` uniform input of the shader. This means that all the text rendered with this material will be 'white' unless overridden. The `textColor` uniform value is part of the `UBO` uniform struct. Every uniform value must be a member of a uniform struct and can't be declared independent from a struct inside a shader. Uniform values can be directly overridden in JSON (using a [nap::MaterialInstanceResource](@ref nap::MaterialInstanceResource)) or overridden at run-time in code:
 
 ~~~~~~~~~~~~~~~{.cpp}
 // Get 'UBO' struct that holds 'textColor'
@@ -676,17 +676,7 @@ void App::update()
 
 ###Image From File {#image_from_file}###
 
-[ImageFromFile](@ref nap::ImageFromFile) allows you to load an image from disk. This object offers the exact same functionality as a native image. You can update your content or read data from the GPU using the same interface. To create an image in JSON:
-
-```
-{
-	"Type" : "nap::ImageFromFile",
-	"mID" : "background",
-	"ImagePath" : "background.jpg",
-	"Usage": "Static",
-	"GenerateLods": true
-}
-```
+[ImageFromFile](@ref nap::ImageFromFile) allows you to load an image from disk. This object offers the exact same functionality as a native image. You can update your content or read data from the GPU using the same interface.
 
 Reading Textures From The GPU {#reading_textures}
 -----------------------
@@ -713,6 +703,7 @@ Texture Sampling {#texture_sampling}
 -----------------------
 
 A sampler [parameters](@ref nap::Sampler) controls how a texture is sampled. These are the parameters that can be specified:
+
 - `MinFilter`: Controls how the texels are blended when the texture is minified.
 - `MaxFilter`: Controls how the texels are blended when the texture is magnified.
 - `MipMapMode`: Controls how texels are blended between mip-maps.
@@ -721,28 +712,7 @@ A sampler [parameters](@ref nap::Sampler) controls how a texture is sampled. The
 - `AnisotropicSamples`: Max number of anisotropic filter samples.
 - `MaxLodLevel`: Max number of lods to use.
 
-A LOD level of 0 prevents the texture from mipmapping, ie: the renderer only chooses the highest (native) texture resolution. This setting has no influence when mip mapping is turned off. You can change the parameters of every 2D texture (image, render texture etc.) in JSON:
-
-```
-{
-    "Samplers": 
-    [
-        {
-            "Type": "nap::Sampler2D",
-            "mID": "tex_input_uniform",
-            "Name": "inTexture",
-            "MinFilter": "Linear",
-            "MaxFilter": "Linear",
-            "MipMapMode": "Linear",
-            "AddressModeVertical": "ClampToEdge",
-            "AddressModeHorizontal": "ClampToEdge",
-            "AnisotropicSamples": "Default",
-            "MaxLodLevel": 1000,
-            "Texture": "WorldTexture"
-        }
-    ]
-}
-```
+A `MaxLodLevel` level of 0 disables mip-mapping and is ignored when mip mapping is turned off. This causes the renderer to only use the highest (native) texture resolution.
 
 Windows {#multi_screen}
 =======================
@@ -858,28 +828,6 @@ NAP supports two camera types:
 - [Orthographic](@ref nap::OrthoCameraComponent)
 - [PerSpective](@ref nap::PerspCameraComponent)
 
-With an orthographic camera the scene is rendered using a flat projection matrix. With an orthographic camera the scene is rendered using a perspective matrix. The render service expects a reference to one of the cameras when rendering a set of objects to a target. You can create as many cameras as you want by adding one as a component to an entity in JSON:
+With an orthographic camera the scene is rendered using a flat projection matrix. With an orthographic camera the scene is rendered using a perspective matrix. The world space location of a camera, provided using a [transform](@ref nap::TransformComponent), is used to compose the view matrix. The camera projection method is used to compose the projection matrix. Both are extracted by the renderer and forwarded to the shader. 
 
-```
-{
-	"Type" : "nap::Entity",
-	"mID": "Camera",
-	"Components" : 
-	[
-		{
-			"Type" : "nap::PerspCameraComponent",
-			"Properties": 
-			{
-				"FieldOfView": 45.0,
-				"NearClippingPlane" : 1,
-				"FarClippingPlane" : 1000.0
-			}
-		},
-		{
-			"Type" : "nap::TransformComponent"
-		}
-	]
-}
-```
-
-Two things define a camera: its location in the world and type. The world space location of a camera is used to compose the view matrix. The camera projection method is used to compose the projection matrix. Both are extracted by the renderer and forwarded to the shader. Every camera therefore needs access to a transform component that is a sibling of the parent entity. For a working example take a look at the multi window demo. This demo renders a set of objects to different windows using a mix of cameras.
+Every camera therefore needs access to a transform component that is a sibling of the parent entity. For a working example take a look at the multi window demo. This demo renders a set of objects to different windows using a mix of cameras.
