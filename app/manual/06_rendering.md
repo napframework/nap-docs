@@ -81,7 +81,7 @@ The following render related resources are used:
 
 The actual application contains almost no code. Almost all of the functionality comes from the resources and components defined in [Napkin](@ref napkin):
 
-The `Image` points to a file on disk, which we want to apply as a texture to the cube. NAP loads the image from disk and uploads the pixel data to the GPU on initialization. The image is now a texture on the GPU that can be bound to the shader. The role of the material is to bind this `CubeTexture` to the `inTexture` input of the shader, just before the cube is rendered. Initialization fails if the material can't bind the texture to the shader.
+The `Image` points to a file on disk, which we want to apply as a texture to the cube. NAP loads the image from disk and uploads the pixel data to the GPU on initialization. The image is now a texture on the GPU that can be bound to the shader. The role of the material is to bind this `CubeTexture` to the `inTexture` input of the cube shader, just before the cube is rendered. Initialization fails if the material can't bind the texture to the shader.
 
 Next we create a simple scene structure that contains the cube and a camera. The [renderable mesh component](@ref nap::RenderableMeshComponent) of the `CubeEntity` binds the mesh to the material and draws it when called by the render service, using the view matrix provided by the `CameraEntity`. Initialization of the component fails if the mesh / material combination is incompatible. The [transform component](@ref nap::TransformComponent) positions the cube at the origin of the scene and the [rotate component](@ref nap::RotateComponent) rotates the cube around the y axis once every 10 seconds.
 
@@ -318,16 +318,21 @@ A [shader](@ref nap::Shader) is a piece of code that is executed on the GPU. You
 
 Multiple materials can reference the same shader. You can change the properties of a material on a global (resource) and instance level. To change the properties of a material on an instance you use a [MaterialInstance](@ref nap::MaterialInstance) object. A material instance is used to override uniform and sampler inputs and change the render state of a material. This makes it possible to create a complex material with default attribute mappings and uniform inputs but override specific settings for a specific object. 
 
-Imagine you have twenty buttons on your screen that all look the same, but when you move your mouse over a button you want it to light up. You can do this by making a single material that is configured to show a normal button and change the unifom 'color' for the button you are hovering over. Changing the color uniform is done by altering the material instance attribute 'color'.
+Imagine you have twenty buttons on your screen that all look the same, but when you move your mouse over a button you want it to light up. You can do this by making a single material that is configured to show a normal button and change the unifom `color` for the button you are hovering over. Changing the color uniform is done by altering the `color` attribute on the material instance.
 
 Vertex Attributes {#vertex_attrs}
 -----------------------
-Meshes can contain any number of vertex attributes. How those attributes correspond to vertex attributes in the shader is defined in the material. It is simply a mapping from a mesh attribute ID ('Position') to a shader attribute ID ('in_Position'). Consider this simple .vert shader:
+Meshes can contain any number of vertex attributes. How those attributes correspond to vertex attributes in the shader is defined in the material. It is simply a mapping from a mesh attribute ID (`Position`) to a shader attribute ID (`in_Position`). Consider this simple .vert shader:
 
 ~~~~~~~~~~~~~~~{.c}
-uniform mat4 projectionMatrix;	//< camera projection matrix
-uniform mat4 viewMatrix;		//< camera view matrix (world space location)
-uniform mat4 modelMatrix;		//< vertex model to world matrix
+#version 450 core
+
+uniform nap
+{
+	mat4 projectionMatrix;
+	mat4 viewMatrix;
+	mat4 modelMatrix;
+} mvp;
 
 in vec3	in_Position;			//< in vertex position object space
 in vec4	in_Color0;				//< in vertex color
@@ -339,7 +344,7 @@ out vec3 pass_Uvs;				//< pass uv to fragment shader
 void main(void)
 {
 	// Calculate vertex position
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(in_Position, 1.0);
+    gl_Position = mvp.projectionMatrix * mvp.viewMatrix * mvp.modelMatrix * vec4(in_Position, 1.0);
 
 	// Pass color and uv's 
 	pass_Color = in_Color;
@@ -347,7 +352,7 @@ void main(void)
 }
 ~~~~~~~~~~~~~~~
 
-This (vertex) shader doesn't do a lot. It transforms the vertex position and passes the vertex color and UV coordinates to the fragment shader. The vertex attributes are called 'in_Position', 'in_Color0' and 'in_UV0'. Next we bind the mesh vertex attributes to the shader vertex inputs using a material. To do that we provide the material with a table that binds the two together:
+This (vertex) shader doesn't do a lot. It transforms the vertex position and passes the vertex color and UV coordinates to the fragment shader. The vertex attributes are called `in_Position`, `in_Color0` and `in_UV0`. Next we bind the mesh vertex attributes to the shader vertex inputs using a material. To do that we provide the material with a table that binds the two together:
 
 ```
 {
