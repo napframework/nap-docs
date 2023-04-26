@@ -16,13 +16,11 @@ Project Management {#project_management}
 
 # Overview {#proj_overview}
 
-This document explains how you can create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project.
+This document explains how you can create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project instead of an application in this document.
 
-All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each project. 
+All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each project. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
-We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented. 
-
-We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
+We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented.
 
 *This document assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
@@ -65,7 +63,7 @@ The most important module here is `napMyFirstApp`. This is your *application mod
 
 Modify the `RequiredModules` property to change the modules your application depends upon. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. These modules are part of the core release and located in `/system_modules`. [Shared modules](@ref module_creation) are stored in `/modules`.
 
-**Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**``
+**Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**
 
 ## Create Shared Module {#module_creation}
 
