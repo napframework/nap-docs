@@ -4,8 +4,8 @@ Project Management {#project_management}
 *	[Overview](@ref proj_overview) 
 *	[Create Project](@ref proj_creation)
 *	[Configure Modules For Project](@ref module_config)
-*	[Create Shared Module](@ref module_creation_linux)
-*   [Create Project Module](@ref project_module_creation_linux)
+*	[Create Shared Module](@ref module_creation)
+*   [Create Project Module](@ref project_module_creation)
 *	[Package Project For Release](@ref package_linux)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Project](@ref custom_cmake_proj)
@@ -63,14 +63,14 @@ Within each project folder you'll find the `app.json` file which defines various
 
 The most important module here is `napMyFirstApp`. This is your *application module*, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project.
 
-Modify the `RequiredModules` property to change the modules your application depends upon. The module names should match the module directory name in `/system_modules` and `/modules`. For example: add *napaudioadvanced* to add audio functionality or *napmidi* to add mini functionality.
+Modify the `RequiredModules` property to change the modules your application depends upon. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. These modules are part of the core release and located in `/system_modules`. [Shared modules](@ref module_creation) are stored in `/modules`.
 
 **Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**``
 
-## Create Shared Module {#module_creation_linux}
+## Create Shared Module {#module_creation}
 
 Follow the steps below to create a shared module named `MyFirstModule`.
-``
+``]()
 1. Open a terminal
 2. Change into your NAP framework directory
 3. Create the module
@@ -83,7 +83,7 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 To include this module in your project add `napMyFirstModule` to the list of [RequiredModules](@ref module_config). 
 
 
-## Create Project Module {#project_module_creation_linux}
+## Create Project Module {#project_module_creation}
 
 Unlike the shared module created in the previous section, a project module is specific to a single project. Working with a project module has the benefit of containing all code related to the project within the project's directory whilst retaining the ability to create components which can be worked on via Napkin and integrated into your project structure.
 
