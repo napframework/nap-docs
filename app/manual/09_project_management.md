@@ -3,7 +3,7 @@ Project Management {#project_management}
 
 *	[Overview](@ref proj_overview) 
 *	[Create Project](@ref proj_creation)
-*	[Configure Modules For Project](@ref module_config)
+*	[Configure Modules](@ref module_config)
 *	[Create Shared Module](@ref module_creation)
 *   [Create Project Module](@ref project_module_creation)
 *	[Package Project For Release](@ref package_linux)
@@ -16,7 +16,7 @@ Project Management {#project_management}
 
 # Overview {#proj_overview}
 
-This document explains how you can create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project instead of an application in this document.
+This document explains how to create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project instead of an application in this document.
 
 All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each project. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
@@ -36,8 +36,6 @@ Follow these steps to create a new project titled `MyFirstApp`.
 ```
 
 The project will be located in `apps/MyFirstApp`. This directory contains your application source-code, assets, makefiles (Linux) or visual studio solution (Windows) and build instructions.
-
-## Configure Modules For Project {#module_config}
 
 Within each project folder you'll find the `app.json` file which defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
 
@@ -59,16 +57,20 @@ Within each project folder you'll find the `app.json` file which defines various
 }
 ```
 
-The most important module here is `napMyFirstApp`. This is your *application module*, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project.
+### The Project Module
 
-Modify the `RequiredModules` property to change the modules your application depends upon. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. These modules are part of the core release and located in `/system_modules`. [Shared modules](@ref module_creation) are stored in `/modules`.
+The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project. This module is created and added by the build system when the project is created. You can omit the creation of this module by appending `--no-module` to `tools/create_app.sh`.
+
+
+## Configure Modules {#module_config}
+
+You can add modules to your project by modifying the `RequiredModules` property in of `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. These modules are part of the core release and located in `/system_modules`. [Shared modules](@ref module_creation) are stored in `/modules`.
 
 **Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**
 
 ## Create Shared Module {#module_creation}
 
 Follow the steps below to create a shared module named `MyFirstModule`.
-``]()
 1. Open a terminal
 2. Change into your NAP framework directory
 3. Create the module
