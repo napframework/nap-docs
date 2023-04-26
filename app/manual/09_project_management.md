@@ -1,25 +1,12 @@
 Project Management {#project_management}
 =======================
 
-*	[Overview](@ref proj_overview)
-*	[Windows](@ref proj_overview_win64)
-	*	[Create Project](@ref proj_creation_win64)
-	*	[Configure Modules For Project](@ref module_config_win64)
-	*	[Create Shared Module](@ref module_creation_win64)
-    *   [Create Project Module](@ref project_module_creation_win64)
-	*	[Package Project For Release](@ref package_win64)
-*	[macOS](@ref proj_overview_macos)
-	*	[Create Project](@ref proj_creation_macos)
-	*	[Configure Modules For Project](@ref module_config_macos)
-	*	[Create Shared Module](@ref module_creation_macos)
-    *   [Create Project Module](@ref project_module_creation_macos)
-	*	[Package Project For Release](@ref package_macos)
-*	[Linux](@ref proj_overview_linux)
-	*	[Create Project](@ref proj_creation_linux)
-	*	[Configure Modules For Project](@ref module_config_linux)
-	*	[Create Shared Module](@ref module_creation_linux)
-    *   [Create Project Module](@ref project_module_creation_linux)
-	*	[Package Project For Release](@ref package_linux)
+*	[Overview](@ref proj_overview) 
+*	[Create Project](@ref proj_creation)
+*	[Configure Modules For Project](@ref module_config)
+*	[Create Shared Module](@ref module_creation_linux)
+*   [Create Project Module](@ref project_module_creation_linux)
+*	[Package Project For Release](@ref package_linux)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Project](@ref custom_cmake_proj)
 	*	[Module](@ref custom_cmake_module)
@@ -29,42 +16,44 @@ Project Management {#project_management}
 
 # Overview {#proj_overview}
 
-NAP leverages a <a href="https://cmake.org/" target="_blank">CMake</a> build system to provide all the basic project management facilities of the framework.  The access points to this system are all within the tools folder in the root of the framework release.  Convenience shortcuts to regenerate the IDE/Unix makefile project and package the NAP project also sit within each project.
+This document explains how you can create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project.
+
+All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each project. 
+
+We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented. 
 
 We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
-# Windows {#proj_overview_win64}
-## Create Project {#proj_creation_win64}
+*This document assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
-Follow the steps below to create a new project titled MyFirstProject.
+## Create Project {#proj_creation}
 
-Note: You're required to provide the project name in PascalCase so that you get proper case in your class definition for the new project.  The pascal case name is also used for the packaged project name.
+Follow these steps to create a new project titled `MyFirstApp`.
 
-1. Open a command prompt
-2. Change into your NAP framework directory
+1. Open a terminal
+2. Browse to the NAP framework directory
 3. Create the project
 ```
-tools\create_project MyFirstProject
+./tools/create_app.sh MyFirstApp
 ```
-4. The NAP project will the created and Visual Studio solution generated.  The Visual Studio solution will be shown in Explorer, located in `projects\myfirstproject`.
 
-## Configure Modules For Project {#module_config_win64}
+The project will be located in `apps/MyFirstApp`. This directory contains your application source-code, assets, makefiles (Linux) or visual studio solution (Windows) and build instructions.
 
-Within each project folder you'll find the `project.json` file which contains (among other things) the list of modules used by the project.
+## Configure Modules For Project {#module_config}
 
-Below is a sample `project.json` from our MyFirstProject (located at `projects\myfirstproject\project.json`):
+Within each project folder you'll find the `app.json` file which defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
 
 ```
 {
     "Type": "nap::ProjectInfo",
     "mID": "ProjectInfo",
-    "Title": "MyFirstProject",
+    "Title": "MyFirstApp",
     "Version": "0.1.0",
     "RequiredModules": [
-        "mod_napapp",
-        "mod_napcameracontrol",
-        "mod_napparametergui",
-        "mod_myfirstproject"
+        "napapp",
+        "napcameracontrol",
+        "napparametergui",
+        "napMyFirstApp"
     ],
     "Data": "data/objects.json",
     "ServiceConfig": "",
@@ -72,212 +61,44 @@ Below is a sample `project.json` from our MyFirstProject (located at `projects\m
 }
 ```
 
-To update this list simply add and remove entries to the `RequiredModules` list in the JSON.  The module names should match the module directory names in `\modules` and `\user_modules`.
+The most important module here is `napMyFirstApp`. This is your *application module*, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project.
 
-Once you've updated your `project.json` run regenerate.bat within the project folder to update the Visual Studio solution.
+Modify the `RequiredModules` property to change the modules your application depends upon. The module names should match the module directory name in `/system_modules` and `/modules`. For example: add *napaudioadvanced* to add audio functionality or *napmidi* to add mini functionality.
 
-## Create Shared Module {#module_creation_win64}
-
-Follow the steps below to create a new module named MyFirstModule.
-1. Open a command prompt
-2. Change into your NAP framework directory
-3. Create the module
-```
-tools\create_module MyFirstModule
-```
-4. The module will the created in `user_modules\myfirstmodule` and a Visual Studio solution generated
-
-While it's possible to open the module Visual Studio solution directly, it's often easier to include the module in a project and work on the module from there as module DLLs are only updated into projects when the project using the module is built.
-
-## Create Project Module {#project_module_creation_win64}
-
-Unlike the shared module created in the previous section, a project module is specific to a single project. Working with a project module has the benefit of containing all code related to the project within the project's directory whilst retaining the ability to create components which can be worked on via Napkin and integrated into your project structure.
-
-Follow the steps below to add a module to project MyFirstProject.
-1. Open a command prompt
-2. Change into your NAP framework directory
-3. Create the module
-```
-tools\create_project_module MyFirstProject
-```
-4. The module will the created in `projects\myfirstproject\module`, added to your `project.json` and the Visual Studio solution for the project updated
-
-Alternatively a project module can included when the project is created by specifying the `--with-module` option into `create_project`
-```
-tools\create_project MyFirstProject --with-module
-```
-	
-## Package Project For Release {#package_win64}
-
-Packaging a project provides an archive containing the project, its data, all required libraries and optionally Napkin.  In the NAP beta release projects are packaged to ZIP archives which when extracted provide for direct access to the project data and JSON, allowing for easy editing once deployed.  Options for creating installers for projects may be explored for a future NAP release.  At this time all packaged projects use release build configuration.
-
-Packaging a project with default settings:
-1. Navigate to your project (normally within `projects`) with Explorer
-2. Run package.bat
-
-By default projects are zipped and contain Napkin.  Projects can be left in uncompressed in a folder by running package.bat from a command prompt and adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package.bat --help`.
-
-Project packaging is also accessible from by command prompt in the NAP root via the command `tools\package_project PROJECT_NAME`.  The same options as above apply.
-
-# macOS {#proj_overview_macos}
-## Create Project {#proj_creation_macos}
-
-Follow the steps below to create a new project titled MyFirstProject.
-
-Note: You're required to provide the project name in PascalCase so that you get proper case in your class definition for the new project.  The pascal case name is also used for the packaged project name.
-
-1. Open a terminal
-2. Change into your NAP framework directory
-3. Create the project
-```
-./tools/create_project MyFirstProject
-```
-4. The NAP project will the created and Xcode project generated.  The Xcode project will be shown in Finder, located in `projects/myfirstproject`.
-
-## Configure Modules For Project {#module_config_macos}
-
-Within each project folder you'll find the `project.json` file which contains (among other things) the list of modules used by the project.
-
-Below is a sample `project.json` from our MyFirstProject (located at `projects/myfirstproject/project.json`):
-
-```
-{
-    "Type": "nap::ProjectInfo",
-    "mID": "ProjectInfo",
-    "Title": "MyFirstProject",
-    "Version": "0.1.0",
-    "RequiredModules": [
-        "mod_napapp",
-        "mod_napcameracontrol",
-        "mod_napparametergui",
-        "mod_myfirstproject"
-    ],
-    "Data": "data/objects.json",
-    "ServiceConfig": "",
-    "PathMapping": "cache/path_mapping.json"
-}
-```
-
-To update this list simply add and remove entries to the `RequiredModules` list in the JSON.  The module names should match the module directory names in `/modules` and `/user_modules`.
-
-Once you've updated your `project.json` run regenerate within the project folder to update the Xcode project.
-
-## Create Shared Module {#module_creation_macos}
-
-Follow the steps below to create a new module named MyFirstModule.
-1. Open a terminal
-2. Change into your NAP framework directory
-3. Create the module
-```
-./tools/create_module MyFirstModule
-```
-4. The module will the created in `user_modules/myfirstmodule` and an Xcode project generated
-
-While it's possible to open the module Xcode project directly, it's often easier to include the module in the project you initially intend to use it with and work on the module from there.
-
-## Create Project Module {#project_module_creation_macos}
-
-Unlike the shared module created in the previous section, a project module is specific to a single project. Working with a project module has the benefit of containing all code related to the project within the project's directory whilst retaining the ability to create components which can be worked on via Napkin and integrated into your project structure.
-
-Follow the steps below to add a module to project MyFirstProject.
-1. Open a command prompt
-2. Change into your NAP framework directory
-3. Create the module
-```
-./tools/create_project_module MyFirstProject
-```
-4. The module will the created in `projects/myfirstproject/module`, added to your `project.json` and the Xcode project for the project updated
-
-Alternatively a project module can included when the project is created by specifying the `--with-module` option into `create_project`
-```
-./tools/create_project MyFirstProject --with-module
-```
-
-## Package Project For Release {#package_macos}
-
-Packaging a project provides an archive containing the project, its data, all required libraries and optionally Napkin.  In the NAP beta release projects are packaged to ZIP archives which when extracted provide for direct access to the project data and JSON, allowing for easy editing once deployed.  Options for creating installers for projects may be explored for a future NAP release.  At this time all packaged projects use release build configuration.
-
-Note that a script `Unquarantine Project.command` is provided with the packaged project.  On systems with <a href="https://en.wikipedia.org/wiki/Gatekeeper_(macOS)" target="_blank">macOS' Gatekeeper</a> enabled (which is turned on by default) this script should be run on the deployment device before launching the project. The script is executed by pressing ctrl-click on `Unquarantine Project.command` in Finder and selecting Open. Any presented permissions dialogs should be approved. In a future release support for application bundles and codesigning will be assessed.
-
-Packaging a project with default settings:
-1. Navigate to your project (normally within `projects`) with Finder
-2. Run package
-
-By default projects are zipped and contain Napkin.  Projects can be left in uncompressed in a folder by running package from a terminal and adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
-
-Project packaging is also accessible from by command prompt in the NAP root via the command `./tools/package_project PROJECT_NAME`.  The same options as above apply.
-
-# Linux {#proj_overview_linux}
-## Create Project {#proj_creation_linux}
-
-Follow these steps to create a new project titled MyFirstProject.
-
-Note: You're required to provide the project name in PascalCase so that you get proper case in your class definition for the new project.  The pascal case name is also used for the packaged project name.
-
-1. Open a terminal
-2. Change into your NAP framework directory
-3. Create the project
-```
-./tools/create_project MyFirstProject
-```
-4. The NAP project will the created and project Unix makefile system generated.  The project will be located in `projects/myfirstproject` and the build system is located in the `build` folder within
-
-## Configure Modules For Project {#module_config_linux}
-
-Within each project folder you'll find the `project.json` file which contains (among other things) the list of modules used by the project.
-
-Below is a sample `project.json` from our MyFirstProject (located at `projects/myfirstproject/project.json`):
-
-```
-{
-    "Type": "nap::ProjectInfo",
-    "mID": "ProjectInfo",
-    "Title": "MyFirstProject",
-    "Version": "0.1.0",
-    "RequiredModules": [
-        "mod_napapp",
-        "mod_napcameracontrol",
-        "mod_napparametergui",
-        "mod_myfirstproject"
-    ],
-    "Data": "data/objects.json",
-    "ServiceConfig": "",
-    "PathMapping": "cache/path_mapping.json"
-}
-```
-
-To update this list simply add and remove entries to the `modules` list in the JSON.  The module names should match the module directory names in `/modules` and `/user_modules`.
-
-Changes to your `project.json` will be automatically pulled in when you next build the project.
+**Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**``
 
 ## Create Shared Module {#module_creation_linux}
 
-Follow the steps below to create a new module named MyFirstModule.
+Follow the steps below to create a shared module named `MyFirstModule`.
+``
 1. Open a terminal
 2. Change into your NAP framework directory
 3. Create the module
 ```
 ./tools/create_module MyFirstModule
 ```
-4. The module will the created in `user_modules/myfirstmodule` and a Unix makefile system generated
+
+The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* project specific and can be included in every NAP application.
+
+To include this module in your project add `napMyFirstModule` to the list of [RequiredModules](@ref module_config). 
+
 
 ## Create Project Module {#project_module_creation_linux}
 
 Unlike the shared module created in the previous section, a project module is specific to a single project. Working with a project module has the benefit of containing all code related to the project within the project's directory whilst retaining the ability to create components which can be worked on via Napkin and integrated into your project structure.
 
-Follow the steps below to add a module to project MyFirstProject.
+**Note that by default the project module is always created and included when you [create a new project](@ref proj_creation), unless explicitly omitted using the `--no-module` during project creation.**
+
+
+Follow the steps below to add a project module to `MyFirstApp`.
 1. Open a command prompt
 2. Change into your NAP framework directory
 3. Create the module
 ```
 ./tools/create_project_module MyFirstProject
 ```
-4. The module will the created in `projects/myfirstproject/module`, added to your `project.json` and the Unix makefile system for the project updated
 
-Alternatively a project module can included when the project is created by specifying the `--with-module` option into `create_project`
-```
-./tools/create_project MyFirstProject --with-module
-```
+The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
 
 ## Package Project For Release {#package_linux}
 

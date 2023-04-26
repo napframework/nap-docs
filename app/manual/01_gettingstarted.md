@@ -19,7 +19,7 @@ Getting Started {#getting_started}
     * [Init](@ref app_init)
     * [Update](@ref app_update)
     * [Render](@ref app_render)
-* [Hot Load Changes] (@ref hot_load_changes)
+* [Hot Load Changes](@ref hot_load_changes)
 * [Package for Distribution](@ref app_package)
 * [Next Steps](@ref what_next)
 
@@ -30,7 +30,7 @@ In this tutorial we're going to create a new NAP application that renders a text
 
 ![](@ref content/gs_result.gif)
 
-This tutorial assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, with the exception of some paths. Additional information is provided when this is the case.
+*This tutorial assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
 Create a New Application {#create_blank_app}
 =======================
