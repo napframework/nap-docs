@@ -431,7 +431,9 @@ Color2 			| in_Color2			|
 Uniforms {#material_uniforms}
 -----------------------
 
-Uniforms are shader input 'values' that can be set using the material interface. Every material stores a value for each uniform in the shader. It is allowed to have more uniforms in the material than the shader. This is similar to vertex attributes with one major exception: not every uniform in the shader needs to be present in the material. If there is no matching uniform, a default uniform will be created internally. Every uniform can be accessed by client code and changed at runtime through the material instance interface. Consider the following *font.frag* shader example:
+Uniforms are shader input 'values' that can be set in Napkin or at runtime using the material interface. Every material stores a value for each uniform in the shader. If there is no matching uniform, a default uniform will be created internally.
+
+Consider the following *font.frag* shader example:
 
 ```
 #version 450 core
@@ -501,12 +503,12 @@ text_color->setValue({1.0f, 0.0f, 0.0f});
 
 The snippet above overrides the default text color from white to red at run-time. 
 
-Note that uniform value (and sampler) names must be unique accross all shader stages. This means that for this example the `UBO.textColor` uniform can't be declared in both the '.frag' and '.vert' part of the shader. Doing this will lead to unexpected results. Initialization of the material will fail when you try to bind a value to the wrong type of input.
+It is allowed to have more uniforms in the material than the shader. This is similar to vertex attributes with one major exception: not every uniform in the shader needs to be present in the material. Uniform value (and sampler) names must be unique accross all shader stages. This means that for this example the `UBO.textColor` uniform can't be declared in both the '.frag' and '.vert' part of the shader. Doing this will lead to unexpected results. Initialization of the material will fail when you try to bind a value to the wrong type of input.
 
 Samplers {#material_samplers}
 -----------------------
 
-A sampler binds a texture to a shader input. They are declared independent from uniforms in the shader and don't have to be part of a uniform struct. Consider the following *.frag* example:
+A sampler binds one or multiple textures to a shader input. They are declared independent of uniforms in the shader and don't have to be part of a uniform struct. Consider the following *.frag* example:
 
 ```
 #version 450 core
