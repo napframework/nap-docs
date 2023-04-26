@@ -17,11 +17,12 @@ Rendering {#rendering}
 *	[Materials and Shaders](@ref materials)
 	*	[Vertex Attributes](@ref vertex_attrs)
 	*	[Default Vertex Attributes](@ref default_attrs)
-	*	[Uniforms](@ref uniforms)
-	*	[Samplers](@ref samplers)
-	*	[Color Blending](@ref blending)
-	*	[Depth](@ref depth)
-	*	[Rendering Meshes](@ref renderwithmaterials)
+	*	[Uniforms](@ref material_uniforms)
+	*	[Samplers](@ref material_samplers)
+    *   [Buffers](@ref material_buffers) 
+    *	[Color Blending](@ref blending)
+    *	[Depth](@ref depth)
+    *	[Rendering Meshes](@ref renderwithmaterials)
 *	[Textures](@ref textures)
 	*	[Creating Textures](@ref creating_textures)
 		*	[GPU Textures](@ref gpu_textures)
@@ -427,10 +428,10 @@ Color1 			| in_Color1			|
 Color2 			| in_Color2			|
 Color2 			| in_Color2			|
 
-Uniforms {#uniforms}
+Uniforms {#material_uniforms}
 -----------------------
 
-Uniforms are shader input 'values' that can be set using the material interface. Every material stores a value for each uniform in the shader. It is allowed to have more uniforms in the material than the shader. This is similar to vertex attributes with one major exception: not every uniform in the shader needs to be present in the material. If there is no matching uniform, a default uniform will be created internally. Every uniform can be accessed by client code and changed at runtime through the material instance interface. Consider the following `font.frag` shader example:
+Uniforms are shader input 'values' that can be set using the material interface. Every material stores a value for each uniform in the shader. It is allowed to have more uniforms in the material than the shader. This is similar to vertex attributes with one major exception: not every uniform in the shader needs to be present in the material. If there is no matching uniform, a default uniform will be created internally. Every uniform can be accessed by client code and changed at runtime through the material instance interface. Consider the following *font.frag* shader example:
 
 ```
 #version 450 core
@@ -502,10 +503,10 @@ The snippet above overrides the default text color from white to red at run-time
 
 Note that uniform value (and sampler) names must be unique accross all shader stages. This means that for this example the `UBO.textColor` uniform can't be declared in both the '.frag' and '.vert' part of the shader. Doing this will lead to unexpected results. Initialization of the material will fail when you try to bind a value to the wrong type of input.
 
-Samplers {#samplers}
+Samplers {#material_samplers}
 -----------------------
 
-A sampler binds a texture to a shader input. They are declared independent from uniforms in the shader and don't have to be part of a uniform struct. Consider the following .frag example:
+A sampler binds a texture to a shader input. They are declared independent from uniforms in the shader and don't have to be part of a uniform struct. Consider the following *.frag* example:
 
 ```
 #version 450 core
@@ -535,7 +536,6 @@ And the following JSON:
 {
 	"Type": "nap::Material",
 	"mID": "WorldMaterial",
-	"Uniforms": [],
 	"Samplers": [
 	    {
 	        "Type": "nap::Sampler2D",
@@ -557,6 +557,49 @@ This material binds the `WorldTexture` resource to the `inTexture` sampler of th
 	// Update texture
 	sampler->setTexture(newTexture);
 ~~~~~~~~~~~~~~~
+
+Buffers {#material_buffers}
+-----------------------
+A material buffer binds a [GPUBuffer](@ref nap::GPUBuffer) to a shader input. Buffers are 'large' data containers that can be read *and written* to in a shader. The GPU buffer is a stand-alone resource that you declare in Napkin (similar to a 2D Texture) that can be written to and doesn't impose a layout. They are considered to be more flexible, low level, data structures that you can use for all sorts of purposes in your render and compute pipeline.
+
+There are various types of buffers, including simple [numeric buffers](@ref nap::GPUBufferNumeric), [vertex buffers](@ref nap::VertexBuffer), [index buffers](@ref nap::IndexBuffer) and [nested buffers](@ref nap::StructBuffer). The type of buffer, in combination with how it is configured, defines how it can be used in your application. You can, for example, use a [compute shader](@ref nap::ComputeShader) to update the contents of a vertex buffer, which is bound to the position attribute of your particle system when rendered. 
+
+Consider the following *.comp* example from the `computeparticles` demo:
+
+```
+writeonly buffer VertexBuffer
+{
+    vec4 vertices[400000];
+};
+
+```
+And the following JSON to bind a GPU buffer to it:
+```
+{
+    "Type": "nap::VertexBufferVec4",
+    "mID": "ParticleVertexBuffer",
+    "Usage": "Static",
+    "Count": 400000,
+    "Clear": false,
+    "FillPolicy": ""
+},
+{
+    "Type": "nap::ComputeMaterial",
+    "mID": "ComputeMaterial",
+    "Buffers": [
+        {
+            "Type": "nap::BufferBindingVec4",
+            "mID": "BufferBindingVec4_6c36afa1",
+            "Name": "VertexBuffer",
+            "Buffer": "ParticleVertexBuffer"
+        }
+    ],
+    "Shader": "ComputeShader"
+    ...
+}
+ ```
+
+You can use a [fill policy](@ref nap::FillPolicy) to initialize the content of a GPU buffer. Without a fill policy the content isn't initialized. The `computeflocking` and `computeparticles` demos show you how to create, initialize and bind GPU buffers.
 
 Color Blending {#blending}
 -----------------------
