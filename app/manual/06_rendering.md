@@ -31,7 +31,7 @@ Rendering {#rendering}
 	*	[Texture Sampling](@ref texture_sampling)
 *	[Windows](@ref multi_screen)
 *	[Offscreen Rendering](@ref offscreen_rendering)
-*	[Cameras](@ref cameras)
+  *	[Cameras](@ref cameras)
 
 Introduction {#render_intro}
 =======================
@@ -79,9 +79,9 @@ The following render related resources are used:
 - [Render Component](@ref nap::RenderableMeshComponent)
 - [Transform Component](@ref nap::TransformComponent)
 
-The actual application contains almost no code. Almost all of the functionality comes from the resources and components defined in [Napkin](@ref napkin):
+The actual application contains almost no code. Almost all the functionality comes from the resources and components defined in [Napkin](@ref napkin):
 
-The `Image` points to a file on disk, which we want to apply as a texture to the cube. NAP loads the image from disk and uploads the pixel data to the GPU on initialization. The image is now a texture on the GPU that can be bound to the shader. The role of the material is to bind this `CubeTexture` to the `inTexture` input of the cube shader, just before the cube is rendered. Initialization fails if the material can't bind the texture to the shader.
+The `Image` points to a file on disk, which we want to apply as a texture to the cube. NAP loads the image from disk and uploads the pixel data to the GPU on initialization. The image is now a texture on the GPU that can be bound to the shader. The role of the material is to [bind](@ref bind_cube_texture) this `CubeTexture` to the `inTexture` input of the cube shader, just before the cube is rendered. Initialization fails if the material can't bind the texture to the shader because the input is missing.
 
 Next we create a simple scene structure that contains the cube and a camera. The [renderable mesh component](@ref nap::RenderableMeshComponent) of the `CubeEntity` binds the mesh to the material and draws it when called by the render service, using the view matrix provided by the `CameraEntity`. Initialization of the component fails if the mesh / material combination is incompatible. The [transform component](@ref nap::TransformComponent) positions the cube at the origin of the scene and the [rotate component](@ref nap::RotateComponent) rotates the cube around the y axis once every 10 seconds.
 
@@ -481,11 +481,7 @@ And corresponding JSON:
             ]
         }
     ],
-    "Samplers": [],
-    "Shader": "FontShader",
-    "VertexAttributeBindings": [],
-    "BlendMode": "AlphaBlend",
-    "DepthMode": "InheritFromBlendMode"
+    ...
 }
 ```
 
@@ -547,14 +543,11 @@ And the following JSON:
 	        "Name": "inWorldTexture"
 	    }
 	],
-	"Shader": "WorldShader",
-	"VertexAttributeBindings": [],
-	"BlendMode": "Opaque",
-	"DepthMode": "InheritFromBlendMode"
+	...
 }
 ```
 
-This material binds the `WorldTexture` resource to the `inTexture` sampler of the shader. All objects rendered with this material will use this texture as input unless overridden. Samplers can be directly overridden in JSON (using a [nap::MaterialInstanceResource](@ref nap::MaterialInstanceResource)) or overridden at run-time using code:
+This material binds the `WorldTexture` resource to the `inTexture` sampler of the shader. All objects rendered with this material will use this texture as input unless overridden. Samplers can be overridden using Napkin (using a [nap::MaterialInstanceResource](@ref nap::MaterialInstanceResource)) or overridden at run-time in code:
 
 ~~~~~~~~~~~~~~~{.cpp}
 	// Get or create sampler override
@@ -626,32 +619,9 @@ You can also use a more low-level interface to upload data directly into your te
 
 ###GPU Textures {#gpu_textures}###
 
-The [RenderTexture](@ref nap::RenderTexture2D) can be used to declare a texture on the GPU in JSON. Every GPU texture can be attached to a [render target](@ref nap::RenderTarget). The render target is used by the render service to draw a set of objects directly into the attached texture. This type of texture exposes a set of attributes that can be changed / authored in JSON. The following example creates a color texture on the GPU and attaches it to a render target:
+The [RenderTexture](@ref nap::RenderTexture2D) creates a 2D texture on the GPU that *can* be attached to a [render target](@ref nap::RenderTarget). You use the render target to draw a set of objects to a texture instead of a window. The various properties of the texture and render target can be edited in Napkin. 
 
-```
-{
-	"Type" : "nap::RenderTexture2D",
-	"mID" : "ColorTexture",
-	"Usage": "Static",
-	"Width" : 1920,
-	"Height" : 1080,
-	"Format" : "RGBA8"
-},
-{
-	"Type": "nap::RenderTarget",
-    "mID": "RenderTarget",
-    "mColorTexture": "ColorTexture",
-    "mClearColor": 
-    {
-    	"x": 1.0,
-    	"y": 0.0,
-        "z": 0.0,
-        "w": 1.0
-	}
-},
-```
-
-Note that the `Usage` of the texture is set to `Static`. This is important because we never read or write from or to the texture using the CPU. Only the GPU uses the texture as a target for the render operation. 
+Set the `Usage` of the texture to `Static` when you want to use it in combination with a render target. This is important because we never read or write from or to the texture using the CPU. Only the GPU uses the texture as a target for the render operation.
 
 ###Images {#images}###
 
@@ -683,19 +653,19 @@ Reading Textures From The GPU {#reading_textures}
 
 Textures contain the output of a GPU rendering step when they are assigned to a render target. You can read back the result from a texture on the GPU to the CPU using the 2D texture or image interface. The following functions allow you to transfer the rendered texture back from the GPU to the CPU:
 
-- nap::Texture2D::asyncGetData(Bitmap& bitmap);
-- nap::Image::asyncGetData();
+- [nap::Texture2D::asyncGetData(Bitmap& bitmap)](@ref nap::Texture2D::asyncGetData)
+- [nap::Image::asyncGetData()](@ref nap::Image::asyncGetData)
 
-You can see that the 2D texture interface requires you to pass in external storage in the form of a bitmap. The image interface will transfer the image back into its internal bitmap. The asyncGetData() function will not stall the CPU and queues the copy operation on the GPU. After the copy is executed by the GPU the data is automatically transferred.
+You can see that the 2D texture interface requires you to pass in external storage in the form of a bitmap. The image interface will transfer the image back into its internal bitmap. The asyncGetData() function will not stall the CPU because it queues the copy operation on the GPU. After the copy is executed by the GPU the data is automatically transferred. Note that you can only schedule a download during rendering, in between `beginFrame()` and `endFrame()`.
 
 Texture Usage {#texture_usage}
 -----------------------
 
 The texture `Usage` flag allows you to specify how the texture is going to be used.
 
-- Static: The texture does not change after initial upload.
-- DynamicRead: Texture is frequently read from GPU to CPU.
-- DynamicWrite: Texture is frequently updated from CPU to GPU.
+- `Static`: The texture does not change after initial upload.
+- `DynamicRead`: Texture is frequently read from GPU to CPU.
+- `DynamicWrite`: Texture is frequently updated from CPU to GPU.
 
 It's important to choose the right setting based on your needs. It is for example not allowed to update `Static` or `DynamicRead` textures after the initial upload from the CPU because the staging buffer is deleted after upload. Doing so will result in render artifacts (depending on the driver) or potentially a system crash. On the other hand: `DynamicWrite` allocates additional resources on the GPU and should therefore only be used if you are going to write to the texture more than once from the CPU. Note that it is perfectly safe to set the usage to `Static` when frequently writing to it on the GPU only, for example when using it as a render target.
 
@@ -765,34 +735,9 @@ void MultiWindowApp::render()
 Offscreen Rendering {#offscreen_rendering}
 =======================
 
-Often you want to render a selection of objects to a texture instead of a screen. But you can't render to a texture directly, you need a [render target](@ref nap::RenderTarget) to do that for you. Every render target requires a link to a color texture. The result of the render step is stored in the texture. You can declare a render target in JSON just like any other resource:
+Often you want to render a selection of objects to a texture instead of a screen. But you can't render to a texture directly, you need a [render target](@ref nap::RenderTarget) to do that for you. Every render target requires a link to a [render texture](@ref nap::RenderTexture2D). The result of the render step is stored in the texture. 
 
-```
-{
-    "Type": "nap::RenderTexture2D",
-    "mID": "OutputColorTexture",
-    "Usage": "Static",
-    "Width": 1920,
-    "Height": 1080,
-	"Format": "RGBA8"
-},
-{
-	"Type": "nap::RenderTarget",
-    "mID": "VideoRenderTarget",
-    "SampleShading": true,
-    "Samples": "Four",
-    "ClearColor": 
-    {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 0.0,
-    	"w": 1.0
-    },
-   	"ColorTexture": "OutputColorTexture"
-}
-```
-
-In this example we create a color texture and a render target. The render target links to the color texture. The only thing left to do is locate the target in your application and give it to the render service together with a selection of components to render. All headless (non window) render operations need to be executed within a beginHeadlessRecording() and endHeadlessRecording() block:
+Declare and set up the render target in Napkin. Next, in your application, locate the target and render your selection of items to it. This must be done in between `beginHeadlessRecording` and `endHeadlessRecording`: 
 
 ~~~~~~~~~~~~~~~{.cpp}
 
@@ -818,7 +763,7 @@ void VideoModulationApp::render()
 }
 ~~~~~~~~~~~~~~~
 
-Alternatively you can use the [RenderToTextureComponent](@ref nap::RenderToTextureComponent). This component allows you to render to a texture directly in screen space, without the need to define a render target or mesh, and can be used to apply a 'post process' render step. The video modulation demo uses this component to convert the output of a video player into a greyscale texture.
+All headless (non window) render operations need to be executed within the headless recording block. Alternatively you can use the [RenderToTextureComponent](@ref nap::RenderToTextureComponent). This component allows you to render to a texture directly in screen space, without the need to define a render target or mesh, and can be used to apply a 'post process' render step. The video modulation demo uses this component to convert the output of a video player into a greyscale texture.
 
 Cameras {#cameras}
 =======================

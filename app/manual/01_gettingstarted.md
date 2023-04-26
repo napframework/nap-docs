@@ -175,7 +175,7 @@ uniform UBO
 } ubo;
 ~~~
 
-#### Bind Texture {#bine_cube_texture}
+#### Bind Texture {#bind_cube_texture}
 
 Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now click on the icon next to `Texture` and select the `CubeTexture` in the popup.
 
