@@ -4,7 +4,7 @@ Project Management {#project_management}
 *	[Overview](@ref proj_overview) 
 *	[Create Application](@ref app_creation)
     *   [The Application Module](@ref app_module)
-    *   [Configure Modules](@ref module_config)
+    *   [Configure Application Modules](@ref module_config)
     *   [Create Application Module](@ref app_module_creation)
 *	[Create User Module](@ref module_creation)
     * [Share Your Module](@ref share_module) 
@@ -64,7 +64,7 @@ Within each application folder you'll find the `app.json` file which defines var
 The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
 
-## Configure Modules {#module_config}
+## Configure Application Modules {#module_config}
 
 You can add external modules to your application by modifying the `RequiredModules` property in `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
@@ -75,12 +75,12 @@ You can add external modules to your application by modifying the `RequiredModul
 
 ## Create Application Module {#app_module_creation}
 
+**Note that (by default) the application module is created and included for you when you [create a new application](@ref app_creation), unless explicitly omitted with the `--no-module` flag on app creation.**
+
 Unlike a [user module](@ref module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
 
-**Note that by default the application module is always created and included when you [create a new application](@ref share_module), unless explicitly omitted using the `--no-module` during app creation.**
 
-
-Follow the steps below to add an application module to `MyFirstApp`.
+Follow the steps below to add an application module to `MyFirstApp`:
 1. Open a command prompt
 2. Change into your NAP framework directory
 3. Create the module
@@ -109,7 +109,7 @@ To include this module in your application add `napMyFirstModule` to the list of
 
 ## Share Your Module {#share_module}
 
-You can share your module with others on [modules.nap.tech](https://github.com/napframework/nap-modules). A typical module has the following content, which will be included when the module is shared:
+You can share your module with others on [modules.nap.tech](https://modules.nap.tech). A typical module has the following content, which will be included when the module is shared:
 
 | Content                 | Directory  | Required |
 |:------------------------|------------|----------|
