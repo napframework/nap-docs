@@ -119,7 +119,7 @@ You can share your module with others on [modules.nap.tech](https://modules.nap.
 
 ### Prepare
 
-Run `./tools/prepare_module_to_share.sh` with as the input argument the module you want to share, for example:
+Run `tools/prepare_module_to_share` with as the input argument the module you want to share, for example:
 
 ```
 cd tools
