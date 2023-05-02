@@ -6,7 +6,8 @@ Project Management {#project_management}
     *   [The Application Module](@ref app_module)
     *   [Configure Modules](@ref module_config)
     *   [Create Application Module](@ref app_module_creation)
-*	[Create Shared Module](@ref shared_module_creation)
+*	[Create User Module](@ref module_creation)
+    * [Share Your Module](@ref share_module) 
 *	[Package Application](@ref package_app)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Project](@ref custom_cmake_proj)
@@ -74,13 +75,13 @@ You can add external modules to your application by modifying the `RequiredModul
 
 ## Create Application Module {#app_module_creation}
 
-**Unlike a [shared module](@ref module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
+Unlike a [user module](@ref module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
 
-**Note that by default the application module is always created and included when you [create a new application](@ref proj_creation), unless explicitly omitted using the `--no-module` during app creation.**
+**Note that by default the application module is always created and included when you [create a new application](@ref share_module), unless explicitly omitted using the `--no-module` during app creation.**
 
 
 Follow the steps below to add an application module to `MyFirstApp`.
-1. Open a command prompt**
+1. Open a command prompt
 2. Change into your NAP framework directory
 3. Create the module
 ```
@@ -89,9 +90,12 @@ Follow the steps below to add an application module to `MyFirstApp`.
 
 The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
 
-# Create Shared Module {#shared_module_creation}
+# Create User Module {#module_creation}
 
-Follow the steps below to create a shared module named `MyFirstModule`.
+A user module contains more generic (not app related) resources and components that can be added to your application and [shared](@ref share_module) with others.
+
+Follow the steps below to create a new module named `MyFirstModule`:
+
 1. Open a terminal
 2. Change into your NAP framework directory
 3. Create the module
@@ -99,11 +103,40 @@ Follow the steps below to create a shared module named `MyFirstModule`.
 ./tools/create_module MyFirstModule
 ```
 
-The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* specific to an application and can be included in every NAP application.
+The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* app specific and can be added to every NAP application.
 
 To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref module_config).
 
-# Package Project For Release {#package_app}
+## Share Your Module {#share_module}
+
+You can share your module with others on [modules.nap.tech](https://github.com/napframework/nap-modules). A typical module has the following content, which will be included when the module is shared:
+
+| Content                 | Directory  | Required |
+|:------------------------|------------|----------|
+| source code             | src        | yes      |
+| thirdparty dependencies | thirdparty | no       |
+| demo application        | demo       | no       |
+
+### Prepare
+
+Run `./tools/prepare_module_to_share.sh` with as the input argument the module you want to share, for example:
+
+```
+cd tools
+./prepare_module_to_share.sh MyFirstModule
+```
+
+This prepares a **copy** of the `MyFirstModule` module that is optimized for sharing. The copy of the module is moved next to the nap root. Add the --help flag for more information about the available options.
+
+### Upload
+
+Upload the contents of your module to a service of your liking, for example [Github](https://github.com) or [Gitlab](https://gitlab.com).
+
+### Share
+
+Share your module on [modules.nap.tech](https://github.com/napframework/nap-modules) by following the [registration procedure](https://github.com/napframework/nap-modules#register-your-module) in the readme.
+
+# Package Application For Release {#package_app}
 
 Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
 
