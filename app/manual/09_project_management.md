@@ -5,7 +5,6 @@ Project Management {#project_management}
 *	[Create Application](@ref app_creation)
     *   [The Application Module](@ref app_module)
     *   [Configure Application Modules](@ref module_config)
-    *   [Create Application Module](@ref app_module_creation)
 *	[Create User Module](@ref module_creation)
     * [Share Your Module](@ref share_module) 
 *	[Package Application](@ref package_app)
