@@ -2,9 +2,9 @@ Project Management {#project_management}
 =======================
 
 *	[Overview](@ref proj_overview) 
-  *	[Create Application](@ref app_creation)
+*	[Create Application](@ref app_creation)
     *   [The Application Module](@ref app_module)
-    *	[Configure Modules](@ref module_config)
+    *   [Configure Modules](@ref module_config)
     *   [Create Application Module](@ref app_module_creation)
 *	[Create Shared Module](@ref shared_module_creation)
 *	[Package Application](@ref package_app)
@@ -25,7 +25,7 @@ We will use the *unix* shell syntax in this document, for convenience and readab
 
 *This document assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
-## Create Application {#app_creation}
+# Create Application {#app_creation}
 
 Follow these steps to create a new application titled `MyFirstApp`.
 
@@ -58,12 +58,12 @@ Within each application folder you'll find the `app.json` file which defines var
 }
 ```
 
-### The Application Module {#app_module}
+## The Application Module {#app_module}
 
 The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
 
-### Configure Modules {#module_config}
+## Configure Modules {#module_config}
 
 You can add external modules to your application by modifying the `RequiredModules` property in `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
@@ -72,7 +72,7 @@ You can add external modules to your application by modifying the `RequiredModul
 
 **Run `./regenerate.sh` inside your application folder to update the solution. Always run this script after making changes to `app.json`.**
 
-### Create Application Module {#app_module_creation}
+## Create Application Module {#app_module_creation}
 
 **Unlike a [shared module](@ref module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
 
@@ -89,7 +89,7 @@ Follow the steps below to add an application module to `MyFirstApp`.
 
 The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
 
-## Create Shared Module {#shared_module_creation}
+# Create Shared Module {#shared_module_creation}
 
 Follow the steps below to create a shared module named `MyFirstModule`.
 1. Open a terminal
@@ -103,7 +103,7 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 
 To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref module_config).
 
-## Package Project For Release {#package_app}
+# Package Project For Release {#package_app}
 
 Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
 
