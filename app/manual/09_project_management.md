@@ -2,7 +2,8 @@ Project Management {#project_management}
 =======================
 
 *	[Overview](@ref proj_overview) 
-*	[Create Project](@ref proj_creation)
+  *	[Create Project](@ref proj_creation)
+    *   [The Project Module](@ref proj_module)
 *	[Configure Modules](@ref module_config)
 *	[Create Shared Module](@ref module_creation)
 *   [Create Project Module](@ref project_module_creation)
@@ -57,14 +58,17 @@ Within each project folder you'll find the `app.json` file which defines various
 }
 ```
 
-### The Project Module
+### The Project Module {#proj_module}
 
-The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project. This module is created and added by the build system when the project is created. You can omit the creation of this module by appending `--no-module` to `tools/create_app.sh`.
+The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your project. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your project. This module is created and added by the build system when the project is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
 
 ## Configure Modules {#module_config}
 
-You can add modules to your project by modifying the `RequiredModules` property in of `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. These modules are part of the core release and located in `/system_modules`. [Shared modules](@ref module_creation) are stored in `/modules`.
+You can add external modules to your project by modifying the `RequiredModules` property in `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality to your project or *napmidi* to add mini functionality to your project. 
+
+- The `/system_modules` directory contains modules distributed with NAP. 
+- The `/modules` directory contains user installed modules.
 
 **Run `./regenerate.sh` inside your project folder to update the solution. Always run this script after making changes to `app.json`.**
 
@@ -102,25 +106,34 @@ The module will be created in `apps/MyFirstApp/module` and added to your `app.js
 
 ## Package Project For Release {#package_linux}
 
-Packaging a project provides an archive containing the project, its data, all required libraries and optionally Napkin.  In the NAP beta release projects are packaged to XZipped tarballs which when extracted provide for direct access to the project data and JSON, allowing for easy editing once deployed.  Options for creating installers for projects may be explored for a future NAP release.  At this time all packaged projects use release build configuration.
+Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
+
+- Project Executable 
+- Assets
+- Shared Libraries
+    - System Modules
+    - User Modules
+    - Third Party
+- Napkin (optional).
+- Licenses
+
+The package is archived to a `.zip` on Windows and `tar.xz` on Linux. The package does not include system libraries such as the `Visual C++ redistributable`. Options for creating installers for projects may be explored for a future NAP release. 
 
 Packaging a project with default settings:
 1. Navigate to your project
 ```
-cd projects/myfirstproject
+cd apps/MyFirstApp
 ```
 2. Run package
 ```
-./package
+sh ./package
 ```
 
-By default projects are compressed and contain Napkin.  Projects can be left uncompressed in a folder by adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
-
-Project packaging is also accessible from by command prompt in the NAP root via the command `./tools/package_project PROJECT_NAME`.  The same options as above apply.
+By default, projects are compressed and contain Napkin.  Projects can be left uncompressed by adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
 
 # Custom CMake {#custom_cmake}
 
-For the NAP beta release we've focused on providing a streamlined environment for people to start making projects and modules against the framework along with of course some testing out of the demos.  However we've also provided some extensibility in the <a href="https://cmake.org/" target="_blank">CMake</a> system for people who would like to take things a little further.
+We've focused on providing a streamlined environment for people to start making projects and modules against the framework along with trying out some demos. However, we've also provided some extensibility in the <a href="https://cmake.org/" target="_blank">CMake</a> system for people who would like to take things a little further.
 
 CMake itself is vast and complex system and far beyond the scope of this document but we look forward to hearing from you and getting feedback on limitations reached with the current hooks we've provided for custom CMake logic.
 

@@ -416,7 +416,7 @@ The following table shows the default mesh to shader vertex bindings:
 Mesh 			| Shader 			|
 :-------------: | :-------------:	|
 Position 		| in_Position		|
-Normal 			| in_Normal			|
+Normal 			| in_Normals		|
 Tangent 		| in_Tangent 		|
 Bitangent 		| in_Bitangent		|
 UV0 			| in_UV0			|
