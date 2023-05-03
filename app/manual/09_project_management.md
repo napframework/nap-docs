@@ -133,7 +133,7 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 
 ### Include {#user_module_include}
 
-To add this module to a NAP application or module add `napMyFirstModule` to the list of [RequiredModules](@ref app_config_modules).
+Add `napMyFirstModule` to the list of [RequiredModules](@ref app_config_modules) of your app or module to include it in your project.
 
 ## Configure User Module {#user_module_config}
 
