@@ -15,7 +15,6 @@ Project Management {#project_management}
 	*	[Project](@ref custom_cmake_proj)
 	*	[Module](@ref custom_cmake_module)
 	*	[Third Party Dependencies](@ref custom_cmake_thirdparty)
-		*	[macOS RPATH Management](@ref macos_thirdparty_library_rpath)
 *	[Path Mapping System](@ref path_mapping)
 
 # Introduction {#project_intro}
@@ -64,6 +63,8 @@ Within each application folder you'll find the `app.json` file which defines var
     "PathMapping": "cache/path_mapping.json"
 }
 ```
+
+*Note that when working with NAP from source your new application is added to the overall solution in `solution_info.json`, which includes your app as a target for the build system. When you delete your application you must (manually) remove the application and application module from `solution_info.json`, otherwise the build system will fail to generate the solution.*
 
 ## The Application Module {#app_module}
 
@@ -123,6 +124,8 @@ Follow the steps below to add an application module to `MyFirstApp`:
 
 The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
 
+*Note that when working with NAP from source your new module is added to the overall solution in `solution_info.json`, which includes your module as a target for the build system. When you delete your module you must (manually) remove the module from `solution_info.json`, otherwise the build system will fail to generate the solution.*
+
 # User Module {#user_module}
 
 A user module contains more generic (not app related) resources and components that can be added to your NAP application. User modules are created, maintained and shared by other NAP users, independent of NAP Framework.
@@ -144,11 +147,11 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 
 To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
 
-## Install User Module {#user_module_install}
+## Install User Module {#user_module_installation}
 
 User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
 
-### From ZIP
+### From ZIP {#user_module_installation_zip}
 
 [Download](https://modules.nap.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
 
@@ -160,7 +163,7 @@ User modules are created, maintained and shared by other NAP users, independent 
 ./tools/install_module.sh ~/Downloads/napdatabase-main.zip
 ```
 
-### From Repository
+### From Repository {#user_module_installation_repo}
 
 Clone the repository and set up the module in the nap `modules` directory:
 
@@ -376,7 +379,7 @@ lib/libmpg123.0.dylib:
 /Users/username/mpg123-1.25.6/install/osx/lib/libmpg123.0.dylib
 ```
 
-If that install name were allowed to remain this way any library linked against libout123.0.dylib would look for it at the path shown above. What we want to end up with instead is having our library found in its relative position within the NAP framework directory.
+If that install name were allowed to remain this way any library linked against libmpg123.0.dylib would look for it at the path shown above. What we want to end up with instead is having our library found in its relative position within the NAP framework directory.
 
 To achieve that let's update the library's install name, prefixing it with `@rpath`:
 ```
