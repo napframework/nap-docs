@@ -1,13 +1,15 @@
 Project Management {#project_management}
 =======================
 
-*	[Overview](@ref proj_overview) 
-*	[Create Application](@ref app_creation)
+*	[Introduction](@ref project_intro)
+*	[Application](@ref app)
+    *	[Create Application](@ref app_creation)
     *   [The Application Module](@ref app_module)
-    *   [Configure Application Modules](@ref module_config)
-*	[Create User Module](@ref module_creation)
-    * [Share Your Module](@ref share_module) 
-*	[Package Application](@ref package_app)
+    *   [Module Configuration](@ref app_module_config)
+    *	[Package Application](@ref app_package)
+*   [User Module](@ref user_module) 
+    *	[Create User Module](@ref user_module_creation)
+    *   [Share Your Module](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Project](@ref custom_cmake_proj)
 	*	[Module](@ref custom_cmake_module)
@@ -15,17 +17,17 @@ Project Management {#project_management}
 		*	[macOS RPATH Management](@ref macos_thirdparty_library_rpath)
 *	[Path Mapping System](@ref path_mapping)
 
-# Overview {#proj_overview}
+# Introduction {#project_intro}
 
-This document explains how to create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. That's why we refer to it as a project instead of an application in this document.
-
-All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
+This document explains how to create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
 We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented.
 
 *This document assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
-# Create Application {#app_creation}
+# Application {#app}
+
+## Create Application {#app_creation}
 
 Follow these steps to create a new application titled `MyFirstApp`.
 
@@ -63,7 +65,7 @@ Within each application folder you'll find the `app.json` file which defines var
 The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
 
-## Configure Application Modules {#module_config}
+## Module Configuration {#app_module_config}
 
 You can add external modules to your application by modifying the `RequiredModules` property in `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
@@ -72,11 +74,38 @@ You can add external modules to your application by modifying the `RequiredModul
 
 **Run `./regenerate.sh` inside your application folder to update the solution. Always run this script after making changes to `app.json`.**
 
+## Package Application For Release {#app_package}
+
+Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
+
+- Project Executable 
+- Assets
+- Shared Libraries
+    - System Modules
+    - User Modules
+    - Third Party
+- Napkin (optional).
+- Licenses
+
+The package is archived to a `.zip` on Windows and `tar.xz` on Linux. The package does not include system libraries such as the `Visual C++ redistributable`. Options for creating installers for projects may be explored for a future NAP release. 
+
+Packaging an application with default settings:
+1. Navigate to your application
+```
+cd apps/MyFirstApp
+```
+2. Run package
+```
+sh ./package.sh
+```
+
+By default, projects are compressed and contain Napkin.  Projects can be left uncompressed by adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
+
 ## Create Application Module {#app_module_creation}
 
 **Note that (by default) the application module is created and included for you when you [create a new application](@ref app_creation), unless explicitly omitted with the `--no-module` flag on app creation.**
 
-Unlike a [user module](@ref module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
+Unlike a [user module](@ref user_module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
 
 
 Follow the steps below to add an application module to `MyFirstApp`:
@@ -89,9 +118,11 @@ Follow the steps below to add an application module to `MyFirstApp`:
 
 The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
 
-# Create User Module {#module_creation}
+# User Module {#user_module}
 
-A user module contains more generic (not app related) resources and components that can be added to your application and [shared](@ref share_module) with others.
+A user module contains more generic (not app related) resources and components that can be added to your application and [shared](@ref user_module_sharing) with others.
+
+## Create User Module {#module_creation}
 
 Follow the steps below to create a new module named `MyFirstModule`:
 
@@ -104,9 +135,9 @@ Follow the steps below to create a new module named `MyFirstModule`:
 
 The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* app specific and can be added to every NAP application.
 
-To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref module_config).
+To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
 
-## Share Your Module {#share_module}
+## Share Your Module {#user_module_sharing}
 
 You can share your module with others on [modules.nap.tech](https://modules.nap.tech). A typical module has the following content, which will be included when the module is shared:
 
@@ -134,33 +165,6 @@ Upload the contents of your module to a service of your liking, for example [Git
 ### Share
 
 Share your module on [modules.nap.tech](https://github.com/napframework/nap-modules) by following the [registration procedure](https://github.com/napframework/nap-modules#register-your-module) in the readme.
-
-# Package Application For Release {#package_app}
-
-Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
-
-- Project Executable 
-- Assets
-- Shared Libraries
-    - System Modules
-    - User Modules
-    - Third Party
-- Napkin (optional).
-- Licenses
-
-The package is archived to a `.zip` on Windows and `tar.xz` on Linux. The package does not include system libraries such as the `Visual C++ redistributable`. Options for creating installers for projects may be explored for a future NAP release. 
-
-Packaging an application with default settings:
-1. Navigate to your application
-```
-cd apps/MyFirstApp
-```
-2. Run package
-```
-sh ./package
-```
-
-By default, projects are compressed and contain Napkin.  Projects can be left uncompressed by adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
 
 # Custom CMake {#custom_cmake}
 
