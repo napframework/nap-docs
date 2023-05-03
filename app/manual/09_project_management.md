@@ -8,11 +8,11 @@ Project Management {#project_management}
         *    [Modules](@ref app_config_modules)
     *	[Package](@ref app_package)
 *   [User Module](@ref user_module) 
+    *   [Install](@ref user_module_installation)
     *	[Create](@ref user_module_creation)
     *   [Configure](@ref user_module_config)
         *   [Modules](@ref user_module_config_modules) 
         *   [Library Search Paths](@ref user_module_config_search_paths)
-    *   [Install](@ref user_module_installation)
     *   [Share](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Application](@ref custom_cmake_app)
@@ -118,6 +118,37 @@ A user module contains more generic (not app related) resources and components t
 
 A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
 
+## Install User Module {#user_module_installation}
+
+User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
+
+### From ZIP {#user_module_installation_zip}
+
+[Download](https://modules.nap.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
+
+1. Open a terminal
+2. Change into your NAP framework directory
+3. Install the module
+```
+./tools/install_module.sh ~/Downloads/napdatabase-main.zip
+```
+
+### From Repository {#user_module_installation_repo}
+
+Clone the repository and set up the module in the nap `modules` directory:
+
+1. Open a terminal
+2. Change into your NAP modules directory
+3. Clone the repository
+```
+cd modules
+clone https://github.com/naivisoftware/napdatabase.git
+```
+4. Set it up
+```
+./../tools/setup_module.sh napdatabase
+```
+
 ## Create User Module {#user_module_creation}
 
 Follow the steps below to create a new module named `MyFirstModule`:
@@ -177,37 +208,6 @@ You can tell the system where to attempt to find the li**brary by modifying the 
 This entry tells NAP to look for the `freetype.dll` (on which *napfont* depends) in the above-mentioned directories, both relative to the NAP root. Depending on the current build configuration the system will load either the Debug or Release version.
 
 *Note that in a future version of NAP the `WindowsDllSearchPaths` property will be deprecated and replaced by the `Windows` element of [LibrarySearchPaths](@ref user_module_config_search_paths)*
-
-## Install User Module {#user_module_installation}
-
-User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
-
-### From ZIP {#user_module_installation_zip}
-
-[Download](https://modules.nap.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
-
-1. Open a terminal
-2. Change into your NAP framework directory
-3. Install the module
-```
-./tools/install_module.sh ~/Downloads/napdatabase-main.zip
-```
-
-### From Repository {#user_module_installation_repo}
-
-Clone the repository and set up the module in the nap `modules` directory:
-
-1. Open a terminal
-2. Change into your NAP modules directory
-3. Clone the repository
-```
-cd modules
-clone https://github.com/naivisoftware/napdatabase.git
-```
-4. Set it up
-```
-./../tools/setup_module.sh napdatabase
-```
 
 ## Share Your Module {#user_module_sharing}
 
