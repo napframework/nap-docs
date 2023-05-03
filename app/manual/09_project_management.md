@@ -3,17 +3,17 @@ Project Management {#project_management}
 
 *	[Introduction](@ref project_intro)
 *	[Application](@ref app)
-    *	[Create Application](@ref app_creation)
-    *   [The Application Module](@ref app_module)
-    *   [Module Configuration](@ref app_module_config)
-    *	[Package Application](@ref app_package)
+    *	[Create](@ref app_creation) 
+    *   [Configure](@ref app_module_config)
+    *	[Package](@ref app_package)
 *   [User Module](@ref user_module) 
-    *	[Create User Module](@ref user_module_creation)
-    *   [Install User Module](@ref user_module_installation)
-    *   [Share Your Module](@ref user_module_sharing)
+    *	[Create](@ref user_module_creation)
+    *   [Configure](@ref user_module_config)
+    *   [Install](@ref user_module_installation)
+    *   [Share](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
-	*	[Project](@ref custom_cmake_proj)
-	*	[Module](@ref custom_cmake_module)
+	*	[Application](@ref custom_cmake_app)
+	*	[User Module](@ref custom_cmake_user_module)
 	*	[Third Party Dependencies](@ref custom_cmake_thirdparty)
 *	[Path Mapping System](@ref path_mapping)
 
@@ -66,19 +66,21 @@ Within each application folder you'll find the `app.json` file which defines var
 
 *Note that when working with NAP from source your new application is added to the overall solution in `solution_info.json`, which includes your app as a target for the build system. When you delete your application you must (manually) remove the application and application module from `solution_info.json`, otherwise the build system will fail to generate the solution.*
 
-## The Application Module {#app_module}
+### The Application Module {#app_module}
 
 The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
 
-## Module Configuration {#app_module_config}
+## Application Configuration {#app_module_config}
 
-You can add external modules to your application by modifying the `RequiredModules` property in `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
+You can add external modules to your application by modifying the `RequiredModules` property in  `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
 - The `/system_modules` directory contains modules distributed with NAP. 
-- The `/modules` directory contains user installed modules.
+- The `/modules` directory contains [user modules](@ref module_creation).
 
-**Run `./regenerate.sh` inside your application folder to update the solution. Always run this script after making changes to `app.json`.**
+**If you want your [application module](@ref app_module) to have access to the resources and components of an external module you must modify the `RequiredModules` property in `module/module.json` instead of `app.json`.**
+
+**Run `./regenerate.sh` inside your application folder to update the solution. Always run this script after making changes to `app.json` or `module.json`**
 
 ## Package Application For Release {#app_package}
 
@@ -219,7 +221,7 @@ CMake itself is vast and complex system and far beyond the scope of this documen
 
 Included below is information on how to add custom CMake logic to your projects and modules, a preview into the world of including third party dependencies cross platform through to packaging with projects, plus a little something extra for those who need even more flexibility.
 
-## Project {#custom_cmake_proj}
+## Application {#custom_cmake_app}
 
 Those looking to add extra CMake logic at the project level are able to via a hook provided with a `project_extra.cmake` file in the project root directory.
 
