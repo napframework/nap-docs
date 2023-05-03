@@ -5,7 +5,7 @@ Project Management {#project_management}
 *	[Application](@ref app)
     *	[Create](@ref app_creation) 
     *   [Configure](@ref app_config)
-        *    [Modules](@ref app_config_modules)
+        *    [Modules](@ref app_module_config)
     *	[Package](@ref app_package)
 *   [User Module](@ref user_module) 
     *	[Create](@ref user_module_creation)
