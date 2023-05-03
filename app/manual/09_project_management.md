@@ -155,6 +155,39 @@ You can add dependencies to your module by modifying the `RequiredModules` prope
 
 **Run `./regenerate.sh` inside your application folder to update the solution if your application uses the configured module. Always run this script after making changes to `app.json` or `module.json`**
 
+### Library Search Paths {#user_module_search_paths}
+
+A target that links to a NAP module, that depends on a third-party dynamic library, must know where to find it. To avoid having to edit [run time search paths](https://en.wikipedia.org/wiki/Rpath) manually (as was the case in the past) `LibrarySearchPaths` can be provided in `module.json`.`
+```
+"LibrarySearchPaths": {
+    "Linux": [
+        "{ROOT}/system_modules/napfont/thirdparty/freetype/linux/{BUILD_ARCH}/lib"
+    ],
+    "macOS": [
+        "{ROOT}/system_modules/napfont/thirdparty/freetype/macos/{BUILD_ARCH}/lib"
+    ]
+}
+```
+This tells the build system to add the (above-mentioned) paths as rpaths to any target that includes the NAP module, based on the build configuration and NAP root directory. 
+
+*Note that the `Windows` element of `LibrarySearchPaths` is currently not used. It will however, in a future version of NAP, replace the deprecated [WindowsDllSearchPaths](@ref user_module_dll_search). It is therefore recommended to already provide it.* 
+
+### Windows DLL Search Paths {#user_module_dll_search}
+
+This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it, relative to your module. Otherwis**e, Napkin won't be able to open the project because it cannot load the dependency. You can tell the system where to attempt to find the library by modifying the `WindowsDllSearchPaths` property in `module.json`.
+
+Take as an example the `module.json` of *napfont* in `system_modules`:
+```
+"WindowsDllSearchPaths": [
+    "{ROOT}/system_modules/napfont/thirdparty/freetype/msvc/{BUILD_ARCH}/lib/Release",
+    "{ROOT}/system_modules/napfont/thirdparty/freetype/msvc/{BUILD_ARCH}/lib/Debug"
+],
+```
+
+This entry tells NAP to look for the `freetype.dll` (on which *napfont* depends) in the above-mentioned directories, both relative to the NAP root. Depending on the current build configuration the system will load either the Debug or Release version.
+
+*Note that in a future version of NAP the `WindowsDllSearchPaths` property will be deprecated and replaced by the `Windows` element of `LibrarySearchPaths`*
+
 ## Install User Module {#user_module_installation}
 
 User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
