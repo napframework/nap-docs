@@ -9,6 +9,7 @@ Project Management {#project_management}
     *	[Package Application](@ref app_package)
 *   [User Module](@ref user_module) 
     *	[Create User Module](@ref user_module_creation)
+    *   [Install User Module](@ref user_module_installation)
     *   [Share Your Module](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Project](@ref custom_cmake_proj)
@@ -19,13 +20,17 @@ Project Management {#project_management}
 
 # Introduction {#project_intro}
 
-This document explains how to create, maintain and share a NAP project or module. Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
+This document explains how to create, configure and share a NAP application or module. 
+
+Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
 We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented.
 
 *This document assumes you are working from a pre-compiled distributable NAP package. However, some people prefer working with NAP directly from source. Fortunately most instructions in this document are the same for both contexts, except some paths. Additional information is provided when this is the case.*
 
 # Application {#app}
+
+A NAP application is a pre-compiled program, made using NAP Framework, that runs stand-alone on a client machine.
 
 ## Create Application {#app_creation}
 
@@ -120,7 +125,9 @@ The module will be created in `apps/MyFirstApp/module` and added to your `app.js
 
 # User Module {#user_module}
 
-A user module contains more generic (not app related) resources and components that can be added to your application and [shared](@ref user_module_sharing) with others.
+A user module contains more generic (not app related) resources and components that can be added to your NAP application. User modules are created, maintained and shared by other NAP users, independent of NAP Framework.
+
+A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
 
 ## Create User Module {#module_creation}
 
@@ -130,12 +137,47 @@ Follow the steps below to create a new module named `MyFirstModule`:
 2. Change into your NAP framework directory
 3. Create the module
 ```
-./tools/create_module MyFirstModule
+./tools/create_module.sh MyFirstModule
 ```
 
 The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* app specific and can be added to every NAP application.
 
 To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
+
+## Install User Module {#user_module_install}
+
+User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
+
+### From ZIP
+
+[Download](https://modules.nap.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
+
+1. Open a terminal
+2. Change into your NAP framework directory
+3. Install the module
+
+```
+./tools/install_module.sh ~/Downloads/napdatabase-main.zip
+```
+
+### From Repository
+
+Clone the repository and set up the module in the nap `modules` directory:
+
+1. Open a terminal
+2. Change into your NAP modules directory
+3. Clone the repository
+
+```
+cd modules
+clone https://github.com/naivisoftware/napdatabase.git
+```
+
+4. Set it up
+
+```
+./../tools/setup_module.sh napdatabase
+```
 
 ## Share Your Module {#user_module_sharing}
 
