@@ -134,7 +134,7 @@ A user module contains more generic (not app related) resources and components t
 
 A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
 
-## Create User Module {#module_creation}
+## Create User Module {#user_module_creation}
 
 Follow the steps below to create a new module named `MyFirstModule`:
 
@@ -149,6 +149,12 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 
 To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
 
+## User Module Configuration {#user_module_config}
+
+You can add dependencies to your module by modifying the `RequiredModules` property in  `module.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application.
+
+**Run `./regenerate.sh` inside your application folder to update the solution if your application uses the configured module. Always run this script after making changes to `app.json` or `module.json`**
+
 ## Install User Module {#user_module_installation}
 
 User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
@@ -160,7 +166,6 @@ User modules are created, maintained and shared by other NAP users, independent 
 1. Open a terminal
 2. Change into your NAP framework directory
 3. Install the module
-
 ```
 ./tools/install_module.sh ~/Downloads/napdatabase-main.zip
 ```
@@ -172,14 +177,11 @@ Clone the repository and set up the module in the nap `modules` directory:
 1. Open a terminal
 2. Change into your NAP modules directory
 3. Clone the repository
-
 ```
 cd modules
 clone https://github.com/naivisoftware/napdatabase.git
 ```
-
 4. Set it up
-
 ```
 ./../tools/setup_module.sh napdatabase
 ```
