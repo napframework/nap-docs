@@ -147,7 +147,7 @@ You can add dependencies to your module by modifying the `RequiredModules` prope
 
 ### Library Search Paths {#user_module_config_search_paths}
 
-A target that links to a NAP module, that depends on a third-party dynamic library, must know where to find it. To avoid having to edit [run time search paths](https://en.wikipedia.org/wiki/Rpath) manually (as was the case in the past) `LibrarySearchPaths` can be provided in `module.json`.`
+A target that links to a NAP module, that depends on a third-party dynamic library, must know where to find it. Modify the `LibrarySearchPaths` property in `module.json` to add library search paths to any target (executable or module) that includes your module: 
 ```
 "LibrarySearchPaths": {
     "Linux": [
@@ -158,7 +158,7 @@ A target that links to a NAP module, that depends on a third-party dynamic libra
     ]
 }
 ```
-This tells the build system to add the (above-mentioned) paths as rpaths to any target that includes the NAP module, based on the build configuration and NAP root directory. 
+This tells the build system to add the (above-mentioned) paths as [rpaths](https://en.wikipedia.org/wiki/Rpath) to any target that includes the *napfont* system module, based on the build configuration and NAP root directory. 
 
 *Note that the `Windows` element of `LibrarySearchPaths` is currently not used. It will however, in a future version of NAP, replace the deprecated [WindowsDllSearchPaths](@ref user_module_dll_search). It is therefore recommended to already provide it.* 
 
