@@ -114,13 +114,11 @@ By default, projects are compressed and contain Napkin.  Projects can be left un
 
 # User Module {#user_module}
 
-A user module contains more generic (not app related) resources and components that can be added to your NAP application. User modules are created, maintained and shared by other NAP users, independent of NAP Framework.
-
-A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
+A user module contains more generic (not app related) resources and components that can be added to your NAP application.
 
 ## Install User Module {#user_module_installation}
 
-User modules are created, maintained and shared by other NAP users, independent of NAP Framework. A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech).
+A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech). These modules are created, maintained and shared by NAP users, independent of NAP Framework. 
 
 ### From ZIP {#user_module_installation_zip}
 
