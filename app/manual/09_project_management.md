@@ -4,11 +4,14 @@ Project Management {#project_management}
 *	[Introduction](@ref project_intro)
 *	[Application](@ref app)
     *	[Create](@ref app_creation) 
-    *   [Configure](@ref app_module_config)
+    *   [Configure](@ref app_config)
+        *    [Modules](@ref app_config_modules)
     *	[Package](@ref app_package)
 *   [User Module](@ref user_module) 
     *	[Create](@ref user_module_creation)
     *   [Configure](@ref user_module_config)
+        *   [Modules](@ref user_module_config_modules) 
+        *   [Library Search Paths](@ref user_module_config_search_paths)
     *   [Install](@ref user_module_installation)
     *   [Share](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
@@ -44,8 +47,9 @@ Follow these steps to create a new application titled `MyFirstApp`.
 
 The application will be located in `apps/MyFirstApp`. This directory contains your application source-code, assets, makefiles (Linux) or visual studio solution (Windows) and build instructions.
 
-Within each application folder you'll find the `app.json` file which defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
+## Configure Application {#app_config}
 
+Within each application folder you'll find the `app.json` file which defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
 ```
 {
     "Type": "nap::ProjectInfo",
@@ -68,10 +72,9 @@ Within each application folder you'll find the `app.json` file which defines var
 
 ### The Application Module {#app_module}
 
-The most important module here is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
+The most important module is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
-
-## Application Configuration {#app_module_config}
+### External Modules {#app_module_config}
 
 You can add external modules to your application by modifying the `RequiredModules` property in  `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
@@ -109,25 +112,6 @@ sh ./package.sh
 
 By default, projects are compressed and contain Napkin.  Projects can be left uncompressed by adding the option `--no-zip`.  Napkin can be left out via `--no-napkin`.  Excluding Napkin can save a considerable amount of space if you don't intend on using it.  Other minor options and shorthand versions of the options above can be viewed by running `package --help`.
 
-## Create Application Module {#app_module_creation}
-
-**Note that (by default) the application module is created and included for you when you [create a new application](@ref app_creation), unless explicitly omitted with the `--no-module` flag on app creation.**
-
-Unlike a [user module](@ref user_module_creation), an application module is specific to a single app. Working with an application module has the benefit of containing all code related to the app within the app's directory.
-
-
-Follow the steps below to add an application module to `MyFirstApp`:
-1. Open a command prompt
-2. Change into your NAP framework directory
-3. Create the module
-```
-./tools/create_app_module.sh MyFirstApp
-```
-
-The module will be created in `apps/MyFirstApp/module` and added to your `app.json`.
-
-*Note that when working with NAP from source your new module is added to the overall solution in `solution_info.json`, which includes your module as a target for the build system. When you delete your module you must (manually) remove the module from `solution_info.json`, otherwise the build system will fail to generate the solution.*
-
 # User Module {#user_module}
 
 A user module contains more generic (not app related) resources and components that can be added to your NAP application. User modules are created, maintained and shared by other NAP users, independent of NAP Framework.
@@ -147,15 +131,21 @@ Follow the steps below to create a new module named `MyFirstModule`:
 
 The module will be created in `modules/napMyFirstModule`. This directory contains your module source-code, assets and build instructions. This module is *not* app specific and can be added to every NAP application.
 
-To include this module in your application add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
+### Include {#user_module_include}
 
-## User Module Configuration {#user_module_config}
+To add this module to a NAP application or module add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
+
+## Configure User Module {#user_module_config}
+
+Within each module folder you'll find the `module.json` file. This file defines various module specific settings, such as which modules it depends upon and which third-party library search paths to use.
+
+### Module Dependencies {#user_module_config_modules}[
 
 You can add dependencies to your module by modifying the `RequiredModules` property in  `module.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application.
+]()
+**Run `./regenerate.sh` inside your application folder to update the solution if your application uses the configured module](). Always run this script after making changes to `app.json` or `module.json`**
 
-**Run `./regenerate.sh` inside your application folder to update the solution if your application uses the configured module. Always run this script after making changes to `app.json` or `module.json`**
-
-### Library Search Paths {#user_module_search_paths}
+### Library Search Paths {#user_module_config_search_paths}
 
 A target that links to a NAP module, that depends on a third-party dynamic library, must know where to find it. To avoid having to edit [run time search paths](https://en.wikipedia.org/wiki/Rpath) manually (as was the case in the past) `LibrarySearchPaths` can be provided in `module.json`.`
 ```
@@ -172,7 +162,7 @@ This tells the build system to add the (above-mentioned) paths as rpaths to any 
 
 *Note that the `Windows` element of `LibrarySearchPaths` is currently not used. It will however, in a future version of NAP, replace the deprecated [WindowsDllSearchPaths](@ref user_module_dll_search). It is therefore recommended to already provide it.* 
 
-### Windows DLL Search Paths {#user_module_dll_search}
+### Windows DLL Search Paths {#user_module_config_dll_search}
 
 This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it. Otherwise, Napkin won't be able to open the project because it cannot load the third-party library requested by your module.
 
