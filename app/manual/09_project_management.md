@@ -174,7 +174,7 @@ This tells the build system to add the (above-mentioned) paths as rpaths to any 
 
 ### Windows DLL Search Paths {#user_module_dll_search}
 
-This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it, relative to your module. Otherwis**e, Napkin won't be able to open the project because it cannot load the dependency. You can tell the system where to attempt to find the library by modifying the `WindowsDllSearchPaths` property in `module.json`.
+This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it, relative to your module. Otherwise, Napkin won't be able to open the project because it cannot load the dependency. You can tell the system where to attempt to find the library by modifying the `WindowsDllSearchPaths` property in `module.json`.
 
 Take as an example the `module.json` of *napfont* in `system_modules`:
 ```
