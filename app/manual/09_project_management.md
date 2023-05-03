@@ -5,7 +5,7 @@ Project Management {#project_management}
 *	[Application](@ref app)
     *	[Create](@ref app_creation) 
     *   [Configure](@ref app_config)
-        *    [Modules](@ref app_module_config)
+        *    [Modules](@ref app_config_modules)
     *	[Package](@ref app_package)
 *   [User Module](@ref user_module) 
     *	[Create](@ref user_module_creation)
@@ -74,12 +74,12 @@ Within each application folder you'll find the `app.json` file which defines var
 
 The most important module is `napMyFirstApp`. This is your **application module**, located in the `module` directory of your app. This directory contains the [resources](@ref resources) and [components](@ref component_ov) that are specific to your application. This module is created and added by the build system when the app is created. You can omit the creation of the application module by appending `--no-module` to `tools/create_app.sh`.
 
-### External Modules {#app_module_config}
+### External Modules {#app_config_modules}
 
 You can add external modules to your application by modifying the `RequiredModules` property in  `app.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application. 
 
 - The `/system_modules` directory contains modules distributed with NAP. 
-- The `/modules` directory contains [user modules](@ref module_creation).
+- The `/modules` directory contains [user modules](@ref user_module_creation).
 
 **If you want your [application module](@ref app_module) to have access to the resources and components of an external module you must modify the `RequiredModules` property in `module/module.json` instead of `app.json`.**
 
@@ -133,16 +133,16 @@ The module will be created in `modules/napMyFirstModule`. This directory contain
 
 ### Include {#user_module_include}
 
-To add this module to a NAP application or module add `napMyFirstModule` to the list of [RequiredModules](@ref app_module_config).
+To add this module to a NAP application or module add `napMyFirstModule` to the list of [RequiredModules](@ref app_config_modules).
 
 ## Configure User Module {#user_module_config}
 
 Within each module folder you'll find the `module.json` file. This file defines various module specific settings, such as which modules it depends upon and which third-party library search paths to use.
 
-### Module Dependencies {#user_module_config_modules}[
+### External Modules {#user_module_config_modules}
 
 You can add dependencies to your module by modifying the `RequiredModules` property in  `module.json`. The module name should match the module directory name in `/system_modules` or `/modules`. For example: add *napaudio* to add audio functionality or *napmidi* to add mini functionality to your application.
-]()
+
 **Run `./regenerate.sh` inside your application folder to update the solution if your application uses the configured module](). Always run this script after making changes to `app.json` or `module.json`**
 
 ### Library Search Paths {#user_module_config_search_paths}
@@ -160,13 +160,13 @@ A target that links to a NAP module, that depends on a third-party dynamic libra
 ```
 This tells the build system to add the (above-mentioned) paths as [rpaths](https://en.wikipedia.org/wiki/Rpath) to any target that includes the *napfont* system module, based on the build configuration and NAP root directory. 
 
-*Note that the `Windows` element of `LibrarySearchPaths` is currently not used. It will however, in a future version of NAP, replace the deprecated [WindowsDllSearchPaths](@ref user_module_dll_search). It is therefore recommended to already provide it.* 
+*Note that the `Windows` element of `LibrarySearchPaths` is currently not used. It will however, in a future version of NAP, replace the deprecated [WindowsDllSearchPaths](@ref user_module_config_dll_search). It is therefore recommended to already provide it.* 
 
 ### Windows DLL Search Paths {#user_module_config_dll_search}
 
 This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it. Otherwise, Napkin won't be able to open the project because it cannot load the third-party library requested by your module.
 
-You can tell the system where to attempt to find the library by modifying the `WindowsDllSearchPaths` property in `module.json`. Take as an example the `module.json` of *napfont* in `system_modules`:
+You can tell the system where to attempt to find the li**brary by modifying the `WindowsDllSearchPaths` property in `module.json`. Take as an example the `module.json` of *napfont* in `system_modules`:
 ```
 "WindowsDllSearchPaths": [
     "{ROOT}/system_modules/napfont/thirdparty/freetype/msvc/{BUILD_ARCH}/lib/Release",
@@ -176,7 +176,7 @@ You can tell the system where to attempt to find the library by modifying the `W
 
 This entry tells NAP to look for the `freetype.dll` (on which *napfont* depends) in the above-mentioned directories, both relative to the NAP root. Depending on the current build configuration the system will load either the Debug or Release version.
 
-*Note that in a future version of NAP the `WindowsDllSearchPaths` property will be deprecated and replaced by the `Windows` element of `LibrarySearchPaths`*
+*Note that in a future version of NAP the `WindowsDllSearchPaths` property will be deprecated and replaced by the `Windows` element of [LibrarySearchPaths](@ref user_module_config_search_paths)*
 
 ## Install User Module {#user_module_installation}
 
