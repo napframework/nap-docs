@@ -366,7 +366,7 @@ if(UNIX)
     install(FILES $<TARGET_FILE:libfoo> DESTINATION lib)
 endif()
 ``` 
-On Windows the previously defined `add_custom_command` already takes care of that. Note that the application won't run if you forget to install the library because `libfoo` will be missing from the distributable app package.
+On Windows the previously defined `add_custom_command` already takes care of that. Note that the packaged application won't run if you forget to install the `libfoo` library during packaging.
 
 ### macOS RPATH Management {#macos_thirdparty_library_rpath}
 
