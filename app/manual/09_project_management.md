@@ -272,12 +272,12 @@ You can add additional CMake logic at the user module level by providing an `mod
 
 This section explains how to add a third-party dependency to your module using the [module_extra.cmake](@ref custom_cmake_module) file. The same steps apply when adding a third-party dependency directly to your application, substituting `module_extra.cmake` with `app_extra.cmake`. We're going to use [CMake modules](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Modules.html) for this. Although other options are available, this is the preferred method.
 
-Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirstModule`. All third-party dependencies are stored in the `thirdparty` directory directly under the project (module or app) root, in this case:
+Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirstModule`. All third-party dependencies are stored in the `thirdparty` directory under the project (module or app) root, in this case:
 ```
 napMyFirstModule/thirdparty/libfoo
 ```
 
-The first step for including `libfoo` will be to make (or import) a `CMake module file`. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch.
+The first step for including `libfoo` will be to create (or import) a [find package](https://github.com/rpavlik/cmake-modules/blob/main/module-docs/Example-FindMyPackage.cmake) file. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch.
 
 Create a `cmake_find_modules` directory inside the `thirdparty` directory:
 ```
@@ -329,7 +329,7 @@ if(WIN32)
 endif()
 ```
 
-It's time to add `libfoo` to `napMyFirstModule`. Create a file called `module_extra.cmake` in the root of the module directory (if it doesn't exist already) and add the following content:
+Now it's time to add `libfoo` to `napMyFirstModule`. Create a file called `module_extra.cmake` in the root of the module directory (if it doesn't exist already) and add the following content:
 
 ```
 # Find the package
@@ -355,15 +355,16 @@ if(WIN32)
 endif()
 ```
 
-So what did we do here? [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) locates and imports the `libfoo` library into our project. We then include it with `target_include_directories` and link to it with `target_link_libraries`. Finally, to ensure the program runs on Windows we copy the DLL to the build output directory using a [custom build command](https://cmake.org/cmake/help/latest/command/add_custom_command.html).
+So what did we do here? [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) locates and imports the `libfoo` library into our project. We then include it with `target_include_directories` and link to it with `target_link_libraries`. Finally, to ensure the program runs on Windows, we copy the DLL to the build output directory using a [custom build command](https://cmake.org/cmake/help/latest/command/add_custom_command.html).
 
-The last consideration is to ensure the third party shared library is installed in the packaged application. Due to the fact that we've already copied the DLL to the project bin directory on Windows we've already completed that step there. However, if you're supporting macOS and Linux you need to add this as a step using CMake's [install](https://cmake.org/cmake/help/latest/command/install.html) command.  In that case append the following to `module_extra.cmake`, noting that we're installing the library into the `lib` directory within the package:
+Note that on Unix based systems you must install the `libfoo` library into the `lib` directory when your application is packaged. To do that append the following to `module_extra.cmake` :
 ```
 if(UNIX)
-    # Install libfoo into lib directory in packaged project on macOS and Linux
-    install(FILES $<TARGET_FILE:foo> DESTINATION lib)
+    # Install libfoo into lib directory in packaged application on macOS and Linux
+    install(FILES $<TARGET_FILE:libfoo> DESTINATION lib)
 endif()
-```
+``` 
+On Windows the previously defined `add_custom_command` already takes care of that. Failure to do so will prevent your app from running because `libfoo` third-party dependency is missing.
 
 ### macOS RPATH Management {#macos_thirdparty_library_rpath}
 
@@ -392,7 +393,7 @@ lib/libmpg123.0.dylib:
 
 Anything using our library with the updated install name (in this case mpg123) would then need to be rebuilt to pull in the changed path.
 
-One risk with RPATH management and third party libraries is in the case where you're integrating a library that you also have installed on your system via eg. Homebrew or MacPorts. In this case it's possible to unknowningly be building and running against the system-level third party library. There are a number of ways to detect this, one of which is while running your project using `lsof` in a terminal and grepping the output to ensure that the correct instance of your library is being used. If this issue goes unresolved you're likely to run into problems when the project or module is used on a another system.
+One risk with RPATH management and third party libraries is in the case where you're integrating a library that you also have installed on your system via eg. Homebrew or MacPorts. In this case it's possible to unknowningly be building and running against the system-level third party library. There are a number of ways to detect this, one of which is while running your project using `lsof` in a terminal and grepping the output to ensure that the correct instance of your library is being used. If this issue goes unresolved you're likely to run into problems when the project or module is used on another system.
 
 # Path Mapping System {#path_mapping}
 
