@@ -277,7 +277,8 @@ Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirs
 napMyFirstModule/thirdparty/libfoo
 ```
 
-The first step for including `libfoo` will be to create (or import) a [find package](https://github.com/rpavlik/cmake-modules/blob/main/module-docs/Example-FindMyPackage.cmake) file. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch.
+
+The first step for including `libfoo` will be to create (or import) a [find package](https://github.com/rpavlik/cmake-modules/blob/main/module-docs/Example-FindMyPackage.cmake) file. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch. For brevity and simplicity I limited this example to Windows, but it can easily be extended to work for other systems. 
 
 Create a `cmake_find_modules` directory inside the `thirdparty` directory:
 ```
@@ -291,7 +292,7 @@ include(${NAP_ROOT}/cmake/targetarch.cmake)
 target_architecture(ARCH)
 
 # Define libfoo directory
-# Note: it's better to use find_path() instead of defining it directly. 
+# Note: it's better to use find_path() instead of defining it like this. 
 set(FOO_DIR ${NAP_ROOT}/modules/napMyFirstModule/thirdparty/libfoo)
 
 # Setup paths using library directory
@@ -355,7 +356,7 @@ if(WIN32)
 endif()
 ```
 
-So what did we do here? [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) locates and imports the `libfoo` library into our project. We then include it with `target_include_directories` and link to it with `target_link_libraries`. Finally, to ensure the program runs on Windows, we copy the DLL to the build output directory using a [custom build command](https://cmake.org/cmake/help/latest/command/add_custom_command.html).
+So what did we do here? [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) locates and imports the `libfoo` library into our project. We then include it with [target_include_directories](https://cmake.org/cmake/help/latest/command/target_include_directories.html) and link to it with [target_link_libraries](https://cmake.org/cmake/help/latest/command/target_link_libraries.html). Finally, to ensure the program runs on Windows, we copy the DLL to the build output directory using a [custom build command](https://cmake.org/cmake/help/latest/command/add_custom_command.html).
 
 Note that on Unix based systems you must install the `libfoo` library into the `lib` directory when your application is packaged. To do that append the following to `module_extra.cmake` :
 ```
@@ -364,11 +365,11 @@ if(UNIX)
     install(FILES $<TARGET_FILE:libfoo> DESTINATION lib)
 endif()
 ``` 
-On Windows the previously defined `add_custom_command` already takes care of that. Failure to do so will prevent your app from running because `libfoo` third-party dependency is missing.
+On Windows the previously defined `add_custom_command` already takes care of that. Note that the application won't run if you forget to install the library because `libfoo` will be missing from the distributable app package.
 
 ### macOS RPATH Management {#macos_thirdparty_library_rpath}
 
-One thing to keep an eye out for on macOS is the install name of the third party libraries that you're attempting to integrate.
+_One thing to keep an eye out for on macOS is the install name of the third party libraries that you're attempting to integrate.
 
 The install name of a shared library can be viewed in macOS using the command `otool -D`. See this example, showing mpg123:
 ```
@@ -393,12 +394,12 @@ lib/libmpg123.0.dylib:
 
 Anything using our library with the updated install name (in this case mpg123) would then need to be rebuilt to pull in the changed path.
 
-One risk with RPATH management and third party libraries is in the case where you're integrating a library that you also have installed on your system via eg. Homebrew or MacPorts. In this case it's possible to unknowningly be building and running against the system-level third party library. There are a number of ways to detect this, one of which is while running your project using `lsof` in a terminal and grepping the output to ensure that the correct instance of your library is being used. If this issue goes unresolved you're likely to run into problems when the project or module is used on another system.
+One risk with RPATH management and third party libraries is in the case where you're integrating a library that you also have installed on your system via (for example) Homebrew or MacPorts. In this case it's possible to unknowingly be building and running against the system-level third party library. There are a number of ways to detect this, one of which is while running your project using `lsof` in a terminal and grepping the output to ensure that the correct instance of your library is being used. If this issue goes unresolved you're likely to run into problems when the project or module is used on another system.
 
 # Path Mapping System {#path_mapping}
 
-NAP uses a path mapping system based on simple JSON files to manage the directory relationships between the project binaries, Napkin and modules in the different arrangements of working against a Framework Release, from a Packaged App, or even against Source. The path mapping for the platform and context you're using will be deployed by the build system to `cache/path_mapping.json` relative to both the project directory and the project binary output.
+NAP uses a path mapping system based on simple JSON files to manage the directory relationships between the project binaries, Napkin and modules in the different arrangements of working against a Framework Release, from a packaged app, or even against source. The path mapping for the platform and context you're using will be deployed by the build system to `cache/path_mapping.json` relative to both the project directory and the project binary output.
 
 In the very large majority of cases NAP will manage these paths for you and you won't need to pay attention to this system. There is however a provision for custom project-specific path mappings which get pulled in from the directory `config/custom_path_mappings` within the project directory, containing content similar to `tools/platform/path_mappings` in the Framework Release. Only the platforms and contexts you want to modify should be defined. NAP will locate these custom mappings and deploy them as expected. 
 
-Custom path mappings are fairly beta at this stage and if you end up finding a need for them we would be interested in hearing from you, feel free to get in touch on the forum.
+*Custom path mappings are fairly beta at this stage. If you end up finding a need for them, we would be interested in hearing from you*
