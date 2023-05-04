@@ -272,11 +272,12 @@ You can add additional CMake logic at the user module level by providing an `mod
 
 This section explains how to add a third-party dependency to your module using the [module_extra.cmake](@ref custom_cmake_module) file. The same steps apply when adding a third-party dependency directly to your application, substituting `module_extra.cmake` with `app_extra.cmake`. We're going to use [CMake modules](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Modules.html) for this. Although other options are available, this is the preferred method.
 
+**Note that these instructions are by no means complete - they only scratch the surface of what's possible. Actual and better implementations can be found on [modules.nap.tech](https://modules.nap.tech), where many of the shared modules have a third-party dependency.**
+
 Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirstModule`. All third-party dependencies are stored in the `thirdparty` directory under the project (module or app) root, in this case:
 ```
 napMyFirstModule/thirdparty/libfoo
 ```
-
 
 The first step for including `libfoo` will be to create (or import) a [find package](https://github.com/rpavlik/cmake-modules/blob/main/module-docs/Example-FindMyPackage.cmake) file. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch. For brevity and simplicity I limited this example to Windows, but it can easily be extended to work for other systems. 
 
