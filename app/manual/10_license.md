@@ -378,7 +378,6 @@ The Software is designed to let you work with the following libraries (hereinaft
 	- assimp: http://assimp.sourceforge.net/main_license.html
 	- ffmpeg: https://www.ffmpeg.org/legal.html
 	- freeimage: http://freeimage.sourceforge.net/license.html
-	- etherdream: https://github.com/tgreiser/etherdream/blob/master/LICENSE
 	- libartnet: https://github.com/OpenLightingProject/libartnet
 	- mpg123: https://github.com/dominictarr/mpg123/blob/master/LICENSE
 	- nanosvg: https://github.com/memononen/nanosvg/blob/master/LICENSE.txt
@@ -390,15 +389,11 @@ The Software is designed to let you work with the following libraries (hereinaft
 	- rtmidi: https://github.com/thestk/rtmidi
 	- rttr: http://www.rttr.org/license
 	- sdl2: https://www.libsdl.org/license.php
-	- yoctopuce: https://www.yoctopuce.com/EN/cg.php
 	- moodycamel: https://github.com/cameron314/concurrentqueue
 	- websocketpp: https://github.com/zaphoyd/websocketpp
 	- serial: https://github.com/wjwwood/serial
 	- freetype: https://www.freetype.org/
 	- asio: https://think-async.com/Asio/
-	- sqlite: https://www.sqlite.org/index.html
-	- soem: https://github.com/OpenEtherCATsociety/SOEM
-	- opencv: https://opencv.org/license
 	- glslang: https://github.com/KhronosGroup/glslang/blob/master/LICENSE.txt
 	- SPIRV-Reflect: https://github.com/KhronosGroup/SPIRV-Reflect/blob/master/LICENSE
 	

@@ -243,7 +243,7 @@ Included below is information on how to add custom CMake logic to your projects 
 
 ## Application {#custom_cmake_app}
 
-You can add additional CMake logic at the application level by providing an `app_extra.cmake` file in the root of the application directory. If `app_extra.cmake` exists it will be included into the project template when the solution is regenerated.  
+You can add additional CMake logic at the application level by providing an `app_extra.cmake` file in the root of the application directory. If `app_extra.cmake` exists its content will be included into the application template when the solution is regenerated.  
 
 Within `app_extra.cmake` `${PROJECT_NAME}` can be used as in any standard CMake project and `${NAP_ROOT}` points to the root of the NAP installation. Below is an example of a simple `app_extra.cmake` with an added include path:
 ```
@@ -258,7 +258,7 @@ In rare cases it might be desirable to execute extra logic before the target is 
 
 ### Installation Rules
 
-When an application is packaged the entire `data` directory from the app is included, alongside the core libraries, the modules and their third party dependencies.  If you need to include anything extra into the packaged project do so using CMake's <a href="https://cmake.org/cmake/help/v3.6/command/install.html" target="_blank">install</a> command.  Below is an example `app_extra.json` that install an extra file `example.txt` from the application root into the packaged application.
+When an application is packaged the entire `data` directory from the app is included, alongside the core libraries, the modules and their third party dependencies.  If you need to include anything extra into the packaged project do so using CMake's [install](https://cmake.org/cmake/help/latest/command/install.html) command.  Below is an example `app_extra.json` that install an extra file `example.txt` from the application root into the packaged application.
 
 ```
 install(FILES ${CMAKE_CURRENT_LIST_DIR}/example.txt DESTINATION .)
@@ -266,38 +266,40 @@ install(FILES ${CMAKE_CURRENT_LIST_DIR}/example.txt DESTINATION .)
 
 ## Module {#custom_cmake_module}
 
-You can add additional CMake logic at the user module level by providing an `module_extra.cmake` file in the root of the module directory. If `module_extra.cmake` exists it will be included into the module template when the solution is regenerated.  
-
-The same limitations and approaches apply to `module_extra.cmake` as [app_extra.cmake](@ref custom_cmake_app): `${PROJECT_NAME}` identifies the module target, `${NAP_ROOT}` points to the root of the NAP installation and `CMakeLists.txt` shouldn't be overwritten or edited.
+You can add additional CMake logic at the user module level by providing an `module_extra.cmake` file in the root of the module directory, similar to [app_extra.cmake](@ref custom_cmake_app). If `module_extra.cmake` exists its content will be included into the module template when the solution is regenerated.
 
 ## Third Party Dependencies {#custom_cmake_thirdparty}
 
-The focus here will be on including a new thirdparty dependency into a module but the same steps apply for including it instead directly into a project, substituting `module_extra.cmake` with `project_extra.cmake`.
+This section explains how to add a third-party dependency to your module using the [module_extra.cmake](@ref custom_cmake_module) file. The same steps apply when adding a third-party dependency directly to your application, substituting `module_extra.cmake` with `app_extra.cmake`. We're going to use [CMake modules](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Modules.html) for this. Although other options are available, this is the preferred method.
 
-The steps provided create a CMake module for the third party library, which we bring in as an import library.  There are other ways to implement this with CMake but we'll here be focused on an import library approach using a CMake module.
-
-Let's work on with an imaginary libfoo that we want to bring into our user module mod_myfirstmodule.  We're going to keep the thirdparty library sitting alongside the module, but this is of course up to you.  Let's envisage that we have libfoo prebuilt for all three platforms as a shared library.
-
-The first step for including a new third party library will be to make (or import) a CMake module file.  Many third party libraries will come with a CMake module ready for your use.  Below we're going to create a simple one from scratch.
-
-Within the `cmake` directory in the NAP root create a CMake module file `Findfoo.cmake` with the following:
-
+Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirstModule`. All third-party dependencies are stored in the `thirdparty` directory directly under the project (module or app) root, in this case:
 ```
-# Setup our fictional library paths
-set(FOO_DIR ${NAP_ROOT}/user_modules/mod_myfirstmodule/thirdparty/libfoo)
-set(FOO_INCLUDE_DIRECTORIES ${FOO_DIR}/include)
-if (WIN32)
-    set(FOO_LIBS_DIR ${FOO_DIR}/msvc/bin)
+napMyFirstModule/thirdparty/libfoo
+```
+
+The first step for including `libfoo` will be to make (or import) a `CMake module file`. This file defines and exposes all the pieces of information you need to include the `libfoo` in your project. Many third party libraries will come with one ready for you to use, but we're going to create a simple one from scratch.
+
+Create a `cmake_find_modules` directory inside the `thirdparty` directory:
+```
+napMyFirstModule/thirdparty/cmake_find_modules
+```
+
+Within the directory create a file called `Findfoo.cmake` and add the following content:
+```
+# Allows us to change lookup based on system architecture
+include(${NAP_ROOT}/cmake/targetarch.cmake)
+target_architecture(ARCH)
+
+# Define libfoo directory
+# Note: it's better to use find_path() instead of defining it directly. 
+set(FOO_DIR ${NAP_ROOT}/modules/napMyFirstModule/thirdparty/libfoo)
+
+# Setup paths using library directory
+if(WIN32)
+    set(FOO_INCLUDE_DIRECTORIES ${FOO_DIR}/msvc/${ARCH}/include/libfoo.h)
+    set(FOO_LIBS_DIR ${FOO_DIR}/msvc/${ARCH}/bin)
     set(FOO_LIBS ${FOO_LIBS_DIR}/libfoo.lib)
     set(FOO_LIBS_DLL ${FOO_LIBS_DIR}/libfoo.dll)
-elseif(APPLE)
-    set(FOO_LIBS_DIR ${FOO_DIR}/macos/bin)
-    set(FOO_LIBS ${FOO_LIBS_DIR}/libfoo.dylib)
-    set(FOO_LIBS_DLL ${FOO_LIBS})
-else()
-    set(FOO_LIBS_DIR ${FOO_DIR}/linux/bin)
-    set(FOO_LIBS ${FOO_LIBS_DIR}/libfoo.so)
-    set(FOO_LIBS_DLL ${FOO_LIBS})
 endif()
 
 # Hide from CMake GUI
@@ -309,7 +311,7 @@ include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(foo REQUIRED_VARS FOO_DIR FOO_LIBS FOO_INCLUDE_DIRECTORIES)
 
 # Setup our shared import library
-add_library(foo SHARED IMPORTED)
+add_library(libfoo SHARED IMPORTED)
 
 # Set shared library and include directory on our import library
 set_target_properties(foo PROPERTIES
@@ -327,71 +329,40 @@ if(WIN32)
 endif()
 ```
 
-Now let's add libfoo into our user module.
-
-Create a file named `module_extra.cmake` in the root of your module directory containing the following:
+It's time to add `libfoo` to `napMyFirstModule`. Create a file called `module_extra.cmake` in the root of the module directory (if it doesn't exist already) and add the following content:
 
 ```
-if(NOT TARGET foo)
-    find_package(foo REQUIRED)
+# Find the package
+if(NOT TARGET libfoo)
+    find_package(libfoo REQUIRED)
 endif()
-set(MODULE_NAME_EXTRA_LIBS foo)
 
-add_include_to_interface_target(mod_fooworker ${FOO_INCLUDE_DIRECTORIES})
-```
+# Add foo includes
+target_include_directories(${PROJECT_NAME} PRIVATE ${FOO_INCLUDE_DIRECTORIES})
 
-CMake's <a href="https://cmake.org/cmake/help/v3.6/command/find_package.html" target="_blank">find_package</a> has been used to locate the module, populating `MODULE_NAME_EXTRA_LIBS` will link libfoo to the module and `add_include_to_interface_target` adds the include directory. The first parameter to `add_include_to_interface_target` should be the name of your module.
+# Link in foo libraries
+target_link_libraries(${PROJECT_NAME} PRIVATE libfoo)
 
-At this stage the library is now available to include and link on all platforms however if we attempt to run a project using the module on Windows the DLL won't be found.
-
-Let's use a post-build command via <a href="https://cmake.org/cmake/help/v3.6/command/add_custom_command.html" target="_blank">add_custom_command</a> to copy the third party DLL into the project directory by adding the following into the `module_extra.cmake`:
-
-```
 if(WIN32)
     # Add post-build step to copy libfoo to bin on Windows
     add_custom_command(TARGET ${PROJECT_NAME}
                        POST_BUILD
                        COMMAND ${CMAKE_COMMAND} 
                                -E copy
-                               $<TARGET_FILE:foo>
+                               $<TARGET_FILE:libfoo>
                                $<TARGET_FILE_DIR:${PROJECT_NAME}> 
                        )
 endif()
 ```
 
-Your module with its libfoo third party dependency will now build and run on all three platforms.
+So what did we do here? [find_package](https://cmake.org/cmake/help/latest/command/find_package.html) locates and imports the `libfoo` library into our project. We then include it with `target_include_directories` and link to it with `target_link_libraries`. Finally, to ensure the program runs on Windows we copy the DLL to the build output directory using a [custom build command](https://cmake.org/cmake/help/latest/command/add_custom_command.html).
 
-The last consideration is to ensure the third party shared library is include in the packaged project.  Due to the fact that we've already copied the DLL into the project bin directory on Windows we have already completed that step there.  However on macOS and Linux we need to add this as a step using CMake's <a href="https://cmake.org/cmake/help/v3.6/command/install.html" target="_blank">install</a> command.  Add the following to your `module_extra.cmake`, noting that we're installing the library into the `lib` directory within the package:
+The last consideration is to ensure the third party shared library is installed in the packaged application. Due to the fact that we've already copied the DLL to the project bin directory on Windows we've already completed that step there. However, if you're supporting macOS and Linux you need to add this as a step using CMake's [install](https://cmake.org/cmake/help/latest/command/install.html) command.  In that case append the following to `module_extra.cmake`, noting that we're installing the library into the `lib` directory within the package:
 ```
 if(UNIX)
     # Install libfoo into lib directory in packaged project on macOS and Linux
     install(FILES $<TARGET_FILE:foo> DESTINATION lib)
 endif()
-```
-
-In the end with a minor simplification your `module_extra.cmake` should look like this:
-```
-if(NOT TARGET foo)
-    find_package(foo REQUIRED)
-endif()
-set(MODULE_NAME_EXTRA_LIBS foo)
-
-add_include_to_interface_target(mod_fooworker ${FOO_INCLUDE_DIRECTORIES})
-
-if(WIN32)
-    # Add post-build step to copy libfoo to bin on Windows
-    add_custom_command(TARGET ${PROJECT_NAME}
-                       POST_BUILD
-                       COMMAND ${CMAKE_COMMAND} 
-                               -E copy
-                               $<TARGET_FILE:foo>
-                               $<TARGET_FILE_DIR:${PROJECT_NAME}> 
-                       )
-elseif(UNIX)
-    # Install libfoo into the lib directory of packaged projects on macOS and Linux
-    install(FILES $<TARGET_FILE:foo> DESTINATION lib)
-endif()
-
 ```
 
 ### macOS RPATH Management {#macos_thirdparty_library_rpath}

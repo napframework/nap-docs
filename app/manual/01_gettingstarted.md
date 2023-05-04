@@ -21,7 +21,7 @@ Getting Started {#getting_started}
     * [Render](@ref app_render)
 * [Hot Load Changes](@ref hot_load_changes)
 * [Package for Distribution](@ref app_package)
-* [Next Steps](@ref what_next)
+* [Next Steps](@ref next_steps)
 
 Overview {#getting_started_overview}
 =======================
