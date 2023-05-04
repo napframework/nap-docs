@@ -35,7 +35,17 @@ In this tutorial we're going to create a new NAP application that renders a text
 Create a New Application {#create_blank_app}
 =======================
 
-Use a terminal to navigate to the `tools` directory inside the NAP root and run  `create_app.bat rotatingcube` (windows) or `./create_app.sh rotatingcube` (unix)
+Use a terminal to navigate to the `tools` directory inside the NAP root directory. Run the `create_app` script with as the first argument the name of your application: 
+
+- Windows
+```
+create_app.bat rotatingcube
+```
+
+- Unix
+```
+./create_app.sh rotatingcube
+```
 
 After creation your new application is located at `apps/rotatingcube`. This directory contains your source-code, assets, solution and build instructions. The `app.json` file in the root of the directory defines various project specific settings, such as: the name of your app , which modules to include and which content to load:
 
@@ -64,7 +74,19 @@ Read the [Project Management](@ref project_management) documentation to learn mo
 Compile and Run {#compile_run}
 ================
 
-Navigate to `apps/rotatingcube` and run `build.bat` (windows) or `./build.sh` (unix) to compile the application. The app is compiled to the `bin` directory of your app. Navigate to the `bin/Release-*` folder and launch the `rotatingcube` executable in that directory. You should see the following window:
+Navigate to `apps/rotatingcube` and run the build `script` to compile the application:
+
+- Windows
+```
+build.bat
+```
+
+- Unix
+```
+./build.sh
+```
+
+The app is compiled to the `bin` directory of your app. Navigate to the `bin/Release-*` folder and launch the `rotatingcube` executable in that directory. You should see the following window:
 
 ![](@ref content/gs_new_app.png)
 
