@@ -21,7 +21,7 @@ Project Management {#project_management}
 
 This document explains how to create, configure and share a NAP application or module. 
 
-Although a typical NAP project is an application, it doesn't have to be: it can also be a service or library. All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
+All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
 
 We will use the *unix* shell syntax in this document, for convenience and readability. If you're on Windows and using the prompt, simply replace `./*.sh` with `*.bat`. Any exception to this rule will be clearly documented.
 
@@ -370,7 +370,7 @@ On Windows the previously defined `add_custom_command` already takes care of tha
 
 ### macOS RPATH Management {#macos_thirdparty_library_rpath}
 
-_One thing to keep an eye out for on macOS is the install name of the third party libraries that you're attempting to integrate.
+One thing to keep an eye out for on macOS is the install name of the third party libraries that you're attempting to integrate.
 
 The install name of a shared library can be viewed in macOS using the command `otool -D`. See this example, showing mpg123:
 ```
