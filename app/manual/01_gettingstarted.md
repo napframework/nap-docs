@@ -35,7 +35,7 @@ In this tutorial we're going to create a new NAP application that renders a text
 Create a New Application {#create_blank_app}
 =======================
 
-Use a terminal to navigate to the `tools` directory inside the NAP root directory. Run the `create_app` script with as the first argument the name of your application: 
+Use a terminal to navigate to the `tools` directory inside the NAP root directory. Run the `create_app` script with `rotatingcube` as the first argument, the name of your application:
 
 - Windows
 ```
@@ -342,7 +342,19 @@ The editor and application share the same content. That content is loaded on sta
 Package for Distribution {#app_package}
 ==========================
 
-Navigate to `apps/rotatingcube` and run `package.bat` (windows) or `./package.sh` (unix) to create a distributable package of your application. Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
+Navigate to `apps/rotatingcube` and run:
+
+- Windows
+```
+package.bat
+```
+
+- Unix
+```
+./package.sh
+```
+
+This creates a distributable package of your application. Append `--help` for additional information. By default the application including Napkin and all assets is packaged for you.
 
 *Note that when working from source the `package` script is located in the NAP root directory.*
 
