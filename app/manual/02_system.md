@@ -18,14 +18,14 @@ NAP enables you to connect and exchange data between various types of external h
 
 Let's start reading the graph top to bottom, left to right. At the top we see `app.json`. This file contains project specific settings and is loaded by both your application and [Napkin](@ref napkin) on initialization. Every `app.json` points to an `object.json` file, which defines the content of your application. You use Napkin to edit this content - your application loads this content.
 
-The [application runner](@ref nap::AppRunner) runs a [NAP app](@ref nap::App) until you tell it to quit. Applications are the entry point for project specific code. This is where you define what parts of your application:
+The [application runner](@ref nap::AppRunner) runs `My NAP App` until you tell it to quit. Your [NAP App](@ref nap::App) gives you high level programmatic control over what:
 
-- Receive an update call 
-- Are rendered
-- Receive messages
+- To render
+- To forward
+- To update
 
 [Core](@ref nap::Core) is the heart of every NAP application and manages (among other things) modules. Core is also the gateway to the [ResourceManager](@ref nap::ResourceManager). Every NAP application requires a Core object. That's the reason you explicitly create one and give it to the [AppRunner](@ref nap::AppRunner) that runs your application. When creating Core you also create a ResourceManager. The resource manager does a lot of things but most importantly: it makes your life easy. It creates all the objects that are associated with your application, initializes them in the right order and keeps track of any content changes. When a change is detected, the resource manager automatically patches the system without having to re-compile your application. The initialization call of your application is the perfect place to load the file and check for content errors.
-
+]()
 Modules are libraries that expose building blocks. You can use these building blocks to construct your application. Most modules expose specific building blocks, for example. The MIDI module exposes MIDI receiving and sending objects, a generic interface to create and extract MIDI events and a service that deals with the MIDI library. Core loads all available modules automatically and initializes them in the right order. After a module is loaded all the building blocks are registered and the module can be initialized. You, as a user, don't have to do anything.
 
 The diagram has four resources from three different modules:
