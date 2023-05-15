@@ -18,7 +18,7 @@ Scene Management {#scene}
 Overview {#scene_overview}
 =======================
 
-Modern applications can grow considerably in size when it comes to the amount of data they have to manage and the complex logic they need to support. NAP uses a powerful <a href="https://en.wikipedia.org/wiki/Entity%E2%80%93component%E2%80%93system" target="_blank">entity component system</a> to aid the development process. This system allows you to identify and organize all the essential parts of your application. What separates entities and components from regular resources is that they allow you to group content together in a meaningful way and are dynamic. They are created to perform a specific task at runtime of your application. For example: render your model at a specific location, position the camera or play back audio. All the individual parts in the system can reference and talk to each other in a generic fashion. 
+Modern applications can grow considerably in size when it comes to the amount of data they have to manage and the complex logic they need to support. NAP uses a powerful [entity component system](https://en.wikipedia.org/wiki/Entity_component_system) to aid the development process. This system allows you to identify and organize all the essential parts of your application. What separates entities and components from regular resources is that they allow you to group content together in a meaningful way and are dynamic. They are created to perform a specific task at runtime of your application. For example: render your model at a specific location, position the camera or play back audio. All the individual parts in the system can reference and talk to each other in a generic fashion. 
 
 Listed below are the most important objects and their roles within the system:
 
@@ -94,9 +94,9 @@ To make things a bit easier to read we have removed the components.
 Resources vs Instances {#resources_instances}
 =======================
 
-We briefly touched upon the difference between resources and instances in the example above. Resources are 'simple' data containers that can be authored in JSON. Resources are rather static and often remain in their original state. An instance is never part of a JSON file. An instance only exists inside the running application. NAP creates these instances for you. An [Entity](@ref nap::Entity) declared in JSON is such a resource that has a [runtime counterpart](@ref nap::EntityInstance) that is updated by NAP every frame. 
+We briefly touched upon the difference between resources and instances in the example above. Resources are 'simple' data containers that can be authored in Napkin. Resources are rather static and often remain in their original state. An instance, on the other hand, is never part of a data file. An instance only exists inside the running application and is created by NAP. An [Entity](@ref nap::Entity) is such a resource. It has a [runtime counterpart](@ref nap::EntityInstance) that is updated by NAP every frame. 
 
-The position of the bike (in the example above) changes as it moves through the world. The initial position of the bike is declared in JSON but the runtime position changes each frame. When there are multiple bikes in the scene, each bike has its own position. As a programmer you want to change the position of each bike programmatically, ie. set it based on a set of conditions. When you do that you modify the run-time state of a bike, not the resource that was used to create 'an instance of' the bike.
+The position of the bike (in the example above) changes as it moves through the world. The initial position of the bike is declared in Napkin but the runtime position changes each frame. When there are multiple bikes in the scene, each bike has its own position. As a programmer you want to change the position of each bike programmatically, ie: set it based on a set of conditions. When you do that you modify the run-time state of a bike, not the resource that was used to create 'an instance of' the bike.
 
 To summarize:
 - Resources contain static, shared, read-only data
@@ -107,12 +107,12 @@ Both the Entity and Component have a resource and instance counterpart. NAP omit
 - An [Entity](@ref nap::Entity) becomes an [EntityInstance](@ref nap::EntityInstance)
 - A [Component](@ref nap::Component) becomes a [ComponentInstance](@ref nap::ComponentInstance)
 
-The resources are defined in JSON. When a resources is created (instantiated) NAP creates an instance of the resource behind the scenes and adds that to the scene hierarchy. In your application scenes contain entity instances which in turn hold component instances. This structure mirrors the structure in JSON. Just remember that at run-time, in your application, you work with instances of entities and components.
+Similar to regular resources, an entity (resource) is created in the `Resources` panel in Napkin. The entity is instantiated by NAP when it is added to the `Scene`. You can add the same entity multiple times to the same scene, with varying component properties. For every entity that is added to the scene NAP creates an instance. At run-time, in your application, you work with instances of entities and components.
 
 Components {#component_ov}
 =======================
 
-A scene is a container for entities and an entity is a container for components. Scenes and entities do not execute any behavior by themselves. They allow you to group and organize your objects. Components are used to add functionality to an entity, ie. defining its behavior. It is the component that receives an [init()](@ref nap::ComponentInstance::init) and [update()](@ref nap::ComponentInstance::update) call. Any programmable behavior is therefore executed in the component.
+A scene contains entities. An entity has components. Scenes and entities do not execute any behavior by themselves. They allow you to group and organize your objects. Components are used to add functionality to an entity, ie: defining its behavior. It is the component that receives an [init()](@ref nap::ComponentInstance::init) and [update()](@ref nap::ComponentInstance::update) call. Any programmable behavior is therefore executed in the component.
 
 NAP offers a number of components off the shelf such as the [TransformComponent](@ref nap::TransformComponent) and [RenderableMeshComponent](@ref nap::RenderableMeshComponent). These can be used to build hierarchies of visual objects. There are however many more components that ship with NAP. Most modules expose their own components, including: input, OSC, midi and audio components.
 
@@ -121,7 +121,7 @@ You probably want to create new components for specific tasks. The video modulat
 Creating Components {#creating_components}
 -----------------------
 
-Every component is a resource. Everything you know about [resources](@ref resources) also applies to components. But the component has, as mentioned before, a run time counter part in the form of an instance. To make a new component you have to create (and register) both sides: the resource and instance. The video modulation demo makes use of custom components. Refer to that code for a good working example. 
+A component is a regular resource that you author in Napkin. Therefore, everything you know about [resources](@ref resources) also applies to components. But the component has, as mentioned before, a run time counterpart in the form of an instance. To make a new component you have to create (and register) both sides: the resource and instance. The video modulation demo makes use of custom components. Refer to that code for a good working example. 
 
 ### The Resource {#component_resource} ###
 
@@ -157,7 +157,7 @@ Here we create a perspective camera with a field of view property. Some concepts
 - The `DECLARE_COMPONENT` macro tells the system which instance of this component to create
 - [getDependentComponents()](@ref nap::Component::getDependentComponents) tells the system that this component depends on a transform 
 
-If your component depends on another component you can `hint` at it. In the example above the perspective camera needs a transform to position itself in the world. NAP will make sure that if a transform is available it is initialized before the camera is initialized. Subsequently: initialization of the camera fails if the transform is not available. In JSON we can extend the scene with an entity that holds both the new component and a transform component 
+If your component depends on another component you can `hint` at it. In the example above the perspective camera needs a transform to position itself in the world. NAP will make sure that if a transform is available it is initialized before the camera is initialized. Subsequently: initialization of the camera fails if the transform is not available. We can extend the scene with an entity that holds both the new component and a transform component:
 
 ```
 {
@@ -190,7 +190,7 @@ If your component depends on another component you can `hint` at it. In the exam
 
 ### The Instance {#component_instance} ###
 
-When calling [loadFile()](@ref nap::ResourceManager::loadFile()) the perspective camera component is created as part of the 'CameraEntity'. NAP will now attempt to to create the run time counterpart (instance) of the PerspCameraComponent: a PerspCameraComponentInstance. To create the instance part of a new component derive your class from [ComponentInstance](@ref nap::ComponentInstance):
+When calling [loadFile()](@ref nap::ResourceManager::loadFile()) the perspective camera component is created as part of the 'CameraEntity'. NAP will now attempt to create the run time counterpart (instance) of the `PerspCameraComponent`: a `PerspCameraComponentInstance`. To create the instance part of a new component derive your class from [ComponentInstance](@ref nap::ComponentInstance):
 
 ~~~~~~~~~~~~~~~{.cpp}
 class NAPAPI PerspCameraComponentInstance : public ComponentInstance
@@ -220,19 +220,19 @@ RTTI_BEGIN_CLASS_NO_DEFAULT_CONSTRUCTOR(nap::PerspCameraComponentInstance)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~
 
-The instance part of the component is created when the file is loaded and the system encounters a 'PerspCameraComponent' resource. The instance is constructed using the registered constructor and is given the component (resource) that created it and the entity (instance) it belongs to. When the instance is initialized you know that the transform is available and everything up to that point went well. You can now safely locate the transform component and use it to (for example) compute the camera position in world space. 
+The instance part of the component is created when the file is loaded and the system encounters a `PerspCameraComponent` resource. The instance is constructed using the registered constructor and is given the component (resource) that created it and the entity (instance) it belongs to. When the instance is initialized you know that the transform is available and everything up to that point went well. You can now safely locate the transform component and use it to (for example) compute the camera position in world space. 
 
 The [update()](@ref nap::ComponentInstance::update) function can be overridden to add per-frame functionality to your instance. The system calls the `update` function together with a time stamp for you. The camera instance in the example above doesn't need it but other components do, for example: a component that blends two lines over time.
 
 Creating Links {#scene_linking}
 =======================
 
-You already know how to [create a link](@ref pointing) to a resource. But you can't use this type of link to point to components and entities. After all: there could be multiple instances of the same entity or component in your scene. When you want to point to a component you use the [ComponentPtr](@ref nap::ComponentPtr). When you want to point to an entity you use the [EntityPtr](@ref nap::EntityPtr). Pointing to components and entities in JSON is almost the same as pointing to stand-alone resources with one exception: you can use absolute or relative paths. It is recommended to use our editor (Napkin) to create links between objects in the scene for you. 
+You already know how to [create a link](@ref pointing) to a resource. But you can't use this type of link to point to components and entities. After all: there could be multiple instances of the same entity or component in your scene. When you want to point to a component you use the [ComponentPtr](@ref nap::ComponentPtr). When you want to point to an entity you use the [EntityPtr](@ref nap::EntityPtr). Pointing to components and entities is almost the same as pointing to stand-alone resources with one exception: you can use absolute or relative paths. It is recommended to use our editor (Napkin) to create links between objects in the scene for you. 
 
 To Components {#component_link}
 -----------------------
 
-The [ComponentPtr](@ref nap::ComponentPtr) allows you to point (create a link) to another component in the scene. It works almost the same as the ObjectPtr but needs a bit of extra information to work. Let's look at the resource part of a component first:
+The [ComponentPtr](@ref nap::ComponentPtr) allows you to point (create a link) to another component in the scene. It works almost the same as [pointing to resources](@ref pointing) but needs a bit of extra information to work. Let's look at the resource part of a component first:
 
 ~~~~~~~~~~~~~~~{.cpp}
 class LineBlendComponent : public Component
@@ -264,7 +264,7 @@ RTTI_BEGIN_CLASS(nap::LineBlendComponent)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~  
 
-When NAP encounters this component in JSON it tries to resolve both links for you. Both selection components are created before the blend component is created and set as links on the instance part of the blend component. But the system needs to know where to store the result of this operation. The instance part of the component exposes two members that (after serialization) link to the correct runtime version of the newly created selection components:
+When NAP encounters this component it tries to resolve both links for you. Both selection components are created before the blend component is created and set as links on the instance part of the blend component. But the system needs to know where to store the result of this operation. The instance part of the component exposes two members that (after serialization) link to the correct runtime version of the newly created selection components:
 
 ~~~~~~~~~~~~~~~{.cpp}
 class LineBlendComponentInstance : public ComponentInstance
@@ -287,8 +287,7 @@ RTTI_BEGIN_CLASS_NO_DEFAULT_CONSTRUCTOR(nap::LineBlendComponentInstance)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~
 
-You can now author the links in JSON:
-
+You can now create the links in Napkin, with as a possible result in JSON:
 ```
 {
 	"Type" : "nap::Entity",
@@ -324,7 +323,7 @@ You can now author the links in JSON:
 }
 ```
 
-Notice how we use a relative path? We tell the system to look for the selection component on the same entity. You can also walk further up or or down the tree to create links to other components. More on that in a later section. If there is only one component called 'LineSelectionOne' you can also link to it directly by name without specifying a relative path. In this case that would be "LineSelectorOne". Always give your component an identifier if you want to link to them.
+Notice how we use a relative path? We tell the system to look for the selection component on the same entity. You can also walk further up or down the tree to create links to other components. More on that in a later section.
 
 ### Array of Components {#multiple_component_link} ###
 
@@ -354,7 +353,7 @@ RTTI_BEGIN_CLASS(nap::LineBlendComponent)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~  
 
-The instance part of the 'LineBlendComponent' also requires an array, but instead of holding a list of resources it holds a list of instances. The system automatically resolves the links for you. After initialization you are able to access the individual components immediately in your application:
+The instance part of the 'LineBlendComponent' also requires an array, but instead of holding a list of resources it holds a list of instances. The system automatically resolves the links for you. After initialization, you are able to access the individual components immediately in your application:
 
 ~~~~~~~~~~~~~~~{.cpp}
 class LineBlendComponentInstance : public ComponentInstance
@@ -368,8 +367,7 @@ public:
 }
 ~~~~~~~~~~~~~~~
 
-You can now add both links to the same array in JSON:
-
+After that you can add the links in Napkin, with as a possible result in JSON:
 ```
 {
 	"Type" : "nap::Entity",
@@ -436,7 +434,7 @@ RTTI_BEGIN_CLASS_NO_DEFAULT_CONSTRUCTOR(nap::CameraControllerInstance)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~
 
-You can now edit the link in JSON. This works the same as authoring links to components. See example above.
+You can now edit the link in Napkin. This works the same as authoring links to components. See example above.
 
 ### Array of Entities {#multiple_entity_link} ###
 
@@ -445,37 +443,6 @@ Instead of linking to a single entity it is possible to link to multiple entitie
 Instance Properties {#instance_props_scene}
 =======================
 
-Properties that are associated with a single instance of a component are called [instance properties](@ref nap::InstancePropertyValue). Instance properties are applied on top of the default (shared) properties of a component and override the default value. This is very useful when you want to `spawn` the same entity multiple times with slightly different values, for example: the color of your 3D model. 
+Instance properties override the default property value of a component. They are applied on top of the default (shared) value. This allows you to `spawn` the same entity with slightly different settings each time. For example: a different color, start position, acceleration speed etc. 
 
-Declaring instance properties in JSON is (although possible) rather difficult. Use [Napkin](@ref in_prop_override) instead. The example below applies a unique z scale value to a transform component in the scene. In JSON you need to know the full path to the component, together with the property to edit on that component.
-
-```
-{
-	"Type": "nap::Scene",
-		"mID" : "Scene",
-		"Entities" : [
-	{
-		"Entity": "Plane",
-			"InstanceProperties" : [
-		{
-			"TargetComponent": "./nap::TransformComponent",
-				"TargetAttributes" : [
-			{
-				"Path": "Properties/Scale/z",
-					"Value" : {
-					"Type": "nap::FloatInstancePropertyValue",
-						"mID" : "instanceProp_float_dfdf2093",
-						"Value" : 2.0
-				}
-			}
-				]
-		}
-			]
-	},
-	{
-		"Entity": "Camera",
-		"InstanceProperties" : []
-	}
-		]
-},
-```
+Napkin can [create](@ref in_prop_override) component property overrides for you.
