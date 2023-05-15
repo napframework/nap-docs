@@ -18,7 +18,6 @@ Project Management {#project_management}
         *   [Library Search Paths](@ref user_module_config_search_paths)
         *   [DLL Search Paths](@ref user_module_config_dll_search)
     *   [Share](@ref user_module_sharing)
-        *	[Prepare For Sharing](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)`
 	*	[Application](@ref custom_cmake_app)
         *   [Installation Rules](@ref custom_cmake_app_installation) 
@@ -28,7 +27,7 @@ Project Management {#project_management}
 *	[Path Mapping System](@ref path_mapping)
 
 # Introduction {#project_intro}
-`
+
 This document explains how to create, configure and share a NAP application or module. 
 
 All project management utilities reside in the `tools` directory under the NAP root. Convenience shortcuts to regenerate the solution and package the application also sit within each app. We'll go over the basic tasks here and then cover some more advanced topics in the [Custom CMake](@ref custom_cmake) section for those who want to take things further.
