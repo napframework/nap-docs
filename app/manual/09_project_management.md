@@ -235,11 +235,7 @@ Share your module on [modules.nap.tech](https://github.com/napframework/nap-modu
 
 # Custom CMake {#custom_cmake}
 
-We've focused on providing a streamlined build environment for people to start making projects and modules, along with trying out some demos. However, we've also provided some extensibility in the <a href="https://cmake.org/" target="_blank">CMake</a> system for people who would like to take things a little further.
-
-CMake itself is vast and complex system and far beyond the scope of this document but we look forward to hearing from you and getting feedback on limitations reached with the current hooks we've provided for custom CMake logic.
-
-Included below is information on how to add custom CMake logic to your projects and modules, a preview into the world of including third party dependencies cross platform through to packaging with projects, plus a little something extra for those who need even more flexibility.
+We've focused on providing a streamlined build environment for people to start making applications and modules, together with trying out some demos. But sometimes that's not enough: you need to add your own build logic. For that purpose we've provided some hooks in the build system. You can use these hooks to add custom [CMake](https://cmake.org) logic to your project and include / package third-party library dependencies.
 
 ## Application {#custom_cmake_app}
 
