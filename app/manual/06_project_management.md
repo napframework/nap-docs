@@ -18,7 +18,7 @@ Project Management {#project_management}
         *   [Library Search Paths](@ref user_module_config_search_paths)
         *   [DLL Search Paths](@ref user_module_config_dll_search)
     *   [Share](@ref user_module_sharing)
-*	[Custom CMake](@ref custom_cmake)`
+*	[Custom CMake](@ref custom_cmake)
 	*	[Application](@ref custom_cmake_app)
         *   [Installation Rules](@ref custom_cmake_app_installation) 
 	*	[User Module](@ref custom_cmake_user_module)
@@ -269,7 +269,7 @@ When an application is packaged the entire `data` directory from the app is incl
 install(FILES ${CMAKE_CURRENT_LIST_DIR}/example.txt DESTINATION .)
 ```
 
-## Module {#custom_cmake_module}
+## Module {#custom_cmake_user_module}
 
 You can add additional CMake logic at the user module level by providing an `module_extra.cmake` file in the root of the module directory, similar to [app_extra.cmake](@ref custom_cmake_app). If `module_extra.cmake` exists its content will be included into the module template when the solution is regenerated.
 
