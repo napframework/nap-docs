@@ -115,15 +115,12 @@ All externally sourced assets (such as images, audio, video, shaders etc.) that 
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
-## Configure App Runner {#configure_app_runner}
+## Launch App {#configure_app_runner}
 
 The `AppRunner` allows you to start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
 
 In the app runner panel:
 
-- Click on the `...` button
-- Browse to the `apps/rotatingcube/bin/Release-*` directory
-- Select the `rotatingcube` executable
 - Click on the play button to start the app
 
 ![](@ref content/gs_open_project.gif)
