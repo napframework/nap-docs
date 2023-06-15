@@ -26,7 +26,7 @@ Getting Started {#getting_started}
 Overview {#getting_started_overview}
 =======================
 
-In this tutorial we're going to create a new NAP application that renders a textured cube to a window. The rotation speed of the cube can be controlled with a slider. Instruction videos are provided to guide you through the individual stages. Upon completion you will have a better understanding of working with NAP, hopefully something clicks! It takes about 45 minutes to complete.
+In this tutorial we're going to create a new NAP application that renders a textured cube to a window. The rotation speed of the cube can be controlled with a slider. Instruction videos are provided to guide you through the individual stages. Upon completion you will have a better understanding of working with NAP, hopefully something clicks! It takes about 45 minutes to complete. Open the `rotatingtexcube` demo for inspiration if you get stuck.
 
 ![](@ref content/gs_result.gif)
 
@@ -266,7 +266,7 @@ In the scene panel:
 
 Save the file `File -> Save` and launch the app. You should see the same window popup as before without any notable changes. That's because we did not tell the app to render the cube. NAP created and validated the cube entity and resources but has no instructions to render it. We have to add some logic to the app that instructs the system to draw it.
 
-If at this point the application fails to initialize check the ouput of the log. You probably missed a step. If that's the case try to fix it by tracing the error message.
+If at this point the application fails to initialize check the ouput of the log. You probably missed a step. If that's the case try to fix it by tracing the error message. You can look at the `rotatingtexcube` demo for additional guidance.
 
 ![](@ref content/gs_add_cube_to_scene.gif)
 
