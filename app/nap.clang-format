@@ -911,33 +911,15 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is
 # run.
 
-EXCLUDE                = $(NAP_WORKING_DIR)/napkin \
-                         $(NAP_WORKING_DIR)/modules\napawesomium \
-                         $(NAP_WORKING_DIR)/modules\napfsm \
-                         $(NAP_WORKING_DIR)/modules\napgui \
-                         $(NAP_WORKING_DIR)/modules\napjsonserializer \
-                         $(NAP_WORKING_DIR)/modules\napof \
-                         $(NAP_WORKING_DIR)/modules\napsandbox \
-                         $(NAP_WORKING_DIR)/modules\napscriptserver \
-                         $(NAP_WORKING_DIR)/modules\network \
-                         $(NAP_WORKING_DIR)/modules\sfml \
-                         $(NAP_WORKING_DIR)/modules/napmath/src/easing.h \
-                         $(NAP_WORKING_DIR)/unittests \
-                         $(NAP_WORKING_DIR)/apps \
+EXCLUDE                = $(NAP_WORKING_DIR)/apps \
                          $(NAP_WORKING_DIR)/test \
-                         $(NAP_WORKING_DIR)/unittests \
-                         $(NAP_WORKING_DIR)/modules/napimgui/src/imgui \
                          $(NAP_WORKING_DIR)/core/src/nap/blockingconcurrentqueue.h \
                          $(NAP_WORKING_DIR)/core/src/nap/concurrentqueue.h \
-                         $(NAP_WORKING_DIR)/napkin \
-                         $(NAP_WORKING_DIR)/codeblocks \
                          $(NAP_WORKING_DIR)/tools \
                          $(NAP_WORKING_DIR)/lib \
                          $(NAP_WORKING_DIR)/make \
                          $(NAP_WORKING_DIR)/vstemplates \
                          $(NAP_WORKING_DIR)/core/src/nap/linux/FileWatcher \
-                         $(NAP_WORKING_DIR)/modules/napmath/src/psblendmodes.cpp \
-                         $(NAP_WORKING_DIR)/modules/napmath/src/psblendmodes.h \
                          $(NAP_WORKING_DIR)/readme.md \
                          $(NAP_WORKING_DIR)/demos \
                          $(NAP_WORKING_DIR)/ide_templates/visual_studio_templates \
@@ -956,12 +938,15 @@ EXCLUDE                = $(NAP_WORKING_DIR)/napkin \
                          $(NAP_WORKING_DIR)/packaging_build \
                          $(NAP_WORKING_DIR)/packaging_lib \
                          $(NAP_WORKING_DIR)/packaging_staging \
-                         $(NAP_WORKING_DIR)/modules/naprender/src/vk_mem_alloc.cpp \
-                         $(NAP_WORKING_DIR)/modules/naprender/src/vk_mem_alloc.h \
                          $(NAP_WORKING_DIR)/license.md \
                          $(NAP_WORKING_DIR)/for_source_readme-what_is_where.md \
-                         $(NAP_WORKING_DIR)/packaging_staging \
-                         $(NAP_WORKING_DIR)/styleguide
+                         $(NAP_WORKING_DIR)/styleguide \
+                         $(NAP_WORKING_DIR)/thirdparty \
+                         $(NAP_WORKING_DIR)/system_modules/naprender/dist \
+                         $(NAP_WORKING_DIR)/system_modules/napimgui/src/imgui \
+                         $(NAP_WORKING_DIR)/system_modules/naprender/src/vk_mem_alloc.h \
+                         $(NAP_WORKING_DIR)/system_modules/naprender/src/vk_mem_alloc.cpp
+
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
@@ -977,7 +962,7 @@ EXCLUDE_SYMLINKS       = YES
 # Note that the wildcards are matched against the file with absolute path, so to
 # exclude all test directories for example use the pattern */test/*
 
-EXCLUDE_PATTERNS       =
+EXCLUDE_PATTERNS       = */thirdparty/*
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
