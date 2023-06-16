@@ -6,7 +6,7 @@ Getting Started {#getting_started}
 * [Napkin](@ref napkin_editor)
     * [Launch Napkin](@ref launch_napkin)
     * [Open Project](@ref open_project_napkin)
-    * [Configure App Runner](@ref configure_app_runner)
+    * [Launch App](@ref launch_app_napkin)
 * [Create Cube Resources](@ref cube_resources)
     * [Mesh](@ref cube_mesh)
     * [Texture](@ref cube_texture)
@@ -115,13 +115,9 @@ All externally sourced assets (such as images, audio, video, shaders etc.) that 
 
 If Napkin fails to load the project make sure to [build](@ref compile_run) the application (in `Release` mode) at least once before loading it. This ensures that the custom application module `naprotatingcube` is compiled for you. The editor can then load and inspect it. All other modules (render, audio etc.) are pre-compiled and should work out of the box.
 
-## Launch App {#configure_app_runner}
+## Launch App {#launch_app_napkin}
 
-The `AppRunner` allows you to start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application.
-
-In the app runner panel:
-
-- Click on the play button to start the app
+The `AppRunner` allows you to start / stop the application you are working on. This is very useful when you are editing application content and frequently have to re-launch the application. Click on the `play` button in the app runner panel to launch the app.
 
 ![](@ref content/gs_open_project.gif)
 
