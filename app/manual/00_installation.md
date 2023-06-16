@@ -13,6 +13,7 @@ Installation {#install}
 *	[Linux](@ref linux) 
 	*	[Desktop](@ref linux_desktop)
 	*	[Raspberry Pi](@ref linux_pi)
+		*	[Kernel Selection](@ref kernel_selection)
 		*	[Install the Vulkan Driver](@ref install_vulkan_driver)
 	*	[Setup Your Build Environment](@ref setup_build_env_linux)
 		*	[Manual Dependency Installation](@ref setup_manual_linux)
@@ -20,7 +21,7 @@ Installation {#install}
 
 # Overview {#build_env_overview}
 
-Installing the NAP release involves extracting the archive and running our script to guide you through dependency installation. Projects reside within the framework folder structure, and as such we recommend extracting the release into a user directory instead of a system directory.  For example on Windows something like `My Documents` is a more suitable location than C:\\Program Files.
+Installing the NAP release involves extracting the archive and running our script to guide you through dependency installation. Projects reside within the framework folder structure, and as such we recommend extracting the release into a user directory instead of a system directory. For example on Windows something like `My Documents` is a more suitable location than `C:\\Program Files.`
 
 The prerequisites installation script is called `check_build_environment` and can be found in the tools directory within the release.  The script attempts to verify that your build environment is ready for NAP and is designed to be re-run until all checks are successfully passed.
 
@@ -88,7 +89,11 @@ NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04` on `x86-64` machines using
 
 ## Raspberry Pi {#linux_pi}
 
-Only the `Raspberry Pi 4` running `Raspbian Bullseye (v11, armhf)` is 'fully' supported. Targets that make use of the Vulkan render module 'might' run on older Raspberry Pi models, but without hardware acceleration. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4. 
+Only the `Raspberry Pi 4` running `Raspbian Bullseye (v11, armhf)` is 'fully' supported. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4. 
+
+### Select Kernel {#kernel_selection}
+
+Add `arm_64bit=0` to `boot/config.txt` to ensure the 32 bit kernel is loaded. The 64 bit kernel is not yet supported.
 
 ### Install the Vulkan Driver {#install_vulkan_driver}
 

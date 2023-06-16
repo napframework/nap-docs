@@ -100,7 +100,7 @@ Every document contains [Resources](@ref resources) and [Entities](@ref scene_ov
 A resource is a stand alone building block that is always created and initialized on startup of your application. An entity is a special type of resource, which isn't created by default. Only entities that are part of your [Scene](@ref scene_setup) are instantiated. You can add the same entity to the same scene multiple times, each with different settings.
 
 ### Create Resource {#new_resource} ###
-- In the Resources panel, `RMB` on `Resources` and choose `Create Resource...`.
+- In the resources panel, `RMB` on `Resources` and choose `Create Resource...`.
 - Select a resource from the list of available resources.
 - Double `LMB` on the newly created resource to change it's name.
 - Select the newly created resource to edit it's properties.
@@ -110,14 +110,14 @@ A resource is a stand alone building block that is always created and initialize
 - Edit it's properties in the Inspector panel.
 
 ### Create Group {#new_group}
-- In the Resources panel, `RMB` on `Resources` and choose `Create Group...`.
+- In the resources panel, `RMB` on `Resources` and choose `Create Group...`.
 - Select a group type from the list of available groups.
 - Double `LMB` on the newly created group to change it's name.
 - `RMB` on the group to add new or existing resources.
 - `RMB` on the group and select `Create Group` to create a sub group.
  
 ### Create Entity {#new_entity} ###
-- In the Resources panel, `RMB` on `Entities` and choose `Create Entity`.<br>
+- In the resources panel, `RMB` on `Entities` and choose `Create Entity`.<br>
 - Double `LMB` on the newly created entity to change it's name.<br> 
 - You can delete the Entity by using `RMB` and choosing `Delete`.<br>
 
@@ -192,7 +192,7 @@ The  Curve panel allows for visual editing of a function curve.
 
 ![](@ref content/napkin-panel-curve.png)
 
-- Select a FloatFCurve resource in the resource panel.
+- Select a FloatFCurve resource in the resources panel.
 - Open the Curve panel and start editing.
 
 Controls:
@@ -243,7 +243,7 @@ Shows all component instance property overrides.
 
 ![](@ref content/napkin-panel-instance-props.png)
 
-Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resource panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
+Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resources panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
 
 Modules {#napkin_modules}
 -----------------------

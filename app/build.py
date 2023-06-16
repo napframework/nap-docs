@@ -132,9 +132,13 @@ if __name__ == '__main__':
     # and NAP_VERSION_MAJOR (eg. 0.1) accessible in doxygen manual like $(NAP_VERSION_FULL), $(NAP_VERSION_MAJOR)
     populate_env_vars()
 
-    # delete build output
+    # delete build dir
     if os.path.exists(get_build_dir()):
         shutil.rmtree(get_build_dir())
+
+    # delete output dir
+    if os.path.exists(get_docs_dir()):
+        shutil.rmtree(get_docs_dir())
 
     # generate docs
     call(get_working_dir(), "doxygen {0}".format(get_doxygen_config_file()))

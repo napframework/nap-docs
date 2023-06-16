@@ -12,29 +12,31 @@ System {#system}
 Overview {#system_overview}
 =======================
 
-NAP enables you to connect and exchange data between various types of external hardware in a generic fashion. The system is designed to make it easy to re-use specific parts or components for future projects and keep app specific code local to your project. The underlying system provides you with all the handles to get up and running in no time. But it's important to understand what parts contribute to the overall system architecture. Below you see a dumbed-down schematic of an application built with NAP. This schematic shows some of the key components of the NAP system architecture:
+NAP enables you to connect and exchange data between various types of external hardware in a generic fashion. The system is designed to make it easy to re-use specific parts or components for future projects and keep app specific code local to your project. The underlying system provides you with all the handles to get up ad running in no time. But it's important to understand what parts contribute to the overall system architecture. Below you see a dumbed-down schematic of an application built with NAP. This schematic shows some of the key components of the NAP system architecture:
 
 ![](@ref content/nap_overview.png)
 
-Let's start reading the graph left to right. Starting from the left we see an application runner that combines three objects, of which two are important: The Application and Core. Applications are the entry point for project specific code. This is where you define what parts of your application..
-- Receive an update call 
-- Are rendered
-- Receive messages
-- Etc.
+Let's start reading the graph top to bottom, left to right. At the top we see `app.json`. This file contains project specific settings and is loaded by both your application and [Napkin](@ref napkin) on initialization. Every `app.json` points to an `object.json` file, which defines the content of your application. You use Napkin to edit this content - your application loads this content.
+
+The [application runner](@ref nap::AppRunner) runs `My NAP App` until you tell it to quit. Your [NAP App](@ref nap::App) gives you high level programmatic control over what:
+
+- To render
+- To forward
+- To update
 
 [Core](@ref nap::Core) is the heart of every NAP application and manages (among other things) modules. Core is also the gateway to the [ResourceManager](@ref nap::ResourceManager). Every NAP application requires a Core object. That's the reason you explicitly create one and give it to the [AppRunner](@ref nap::AppRunner) that runs your application. When creating Core you also create a ResourceManager. The resource manager does a lot of things but most importantly: it makes your life easy. It creates all the objects that are associated with your application, initializes them in the right order and keeps track of any content changes. When a change is detected, the resource manager automatically patches the system without having to re-compile your application. The initialization call of your application is the perfect place to load the file and check for content errors.
-
-Modules are libraries that expose building blocks. You can use these building blocks to construct your application. Most modules expose specific building blocks, for example. The OSC module exposes OSC receiving and sending objects, a generic interface to create and extract OSC events and a service that deals with the OSC library and network. Core loads all available modules automatically and initializes them in the right order. After a module is loaded all the building blocks are registered and the module can be initialized. You, as a user, don't have to do anything.
+]()
+Modules are libraries that expose building blocks. You can use these building blocks to construct your application. Most modules expose specific building blocks, for example. The MIDI module exposes MIDI receiving and sending objects, a generic interface to create and extract MIDI events and a service that deals with the MIDI library. Core loads all available modules automatically and initializes them in the right order. After a module is loaded all the building blocks are registered and the module can be initialized. You, as a user, don't have to do anything.
 
 The diagram has four resources from three different modules:
-- One [OSCReceiver](@ref nap::OSCReceiver) from the OSC Module
 - Two [Windows](@ref nap::RenderWindow) from the Render Module
-- One [MidiSender](@ref nap::MidiOutputPort) from the Midi Module
+- One [Serial Port](@ref nap::SerialPort) from the Serial Module
+- One [Midi Port](@ref nap::MidiInputPort) from the Midi Module
 
-After initializing core (and therefore all modules) the building blocks can be created by the ResourceManager. We add the building blocks as individual resources to our JSON file and tell the ResourceManager to load the file and voila: 
-- You now have an OSC receiver that already opened it's port and is listening to messages
-- Your two windows are visible on screen
-- You are ready to send some midi notes over the just opened port
+After initializing core (and therefore all modules) the building blocks can be created by the resource manager. We add the building blocks as individual resources to our JSON file and tell the resource manager to load the file and voila: 
+- You have a midi port that is open and listening for midi messages
+- Two windows are visible on screen
+- The serial port is ready to communicate with your microcontroller 
 
 You might notice that working this way saves you from typing many lines of code. You don't have to declare objects in C++ or have to worry about the right order of initialization. You can directly access the resources and start building what you had in mind.
 
@@ -47,6 +49,7 @@ Following the modular design of NAP: all functionality is split into [modules](@
 - [Component](@ref scene)
 
 The specifics of these objects are discussed in separate sections. Every module gets compiled into a dynamically linkable library (DLL). NAP loads all available modules automatically when your application starts. Each module has the option to expose a [service](@ref nap::Service). A service is a rather abstract concept and can be used in many different ways. Let's look at an example to understand what a service does. The render service manages, among other things, the following:
+
 - It initializes the render system and terminates it on exit.
 - It processes system events such as resizing a window.
 - It provides a high-level render interface for all compatible resources, components and entities.
