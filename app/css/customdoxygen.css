@@ -35,7 +35,7 @@ table.directory, #nav-tree,#nav-tree .label {
 @supports (font-variation-settings: normal) {
 body, table, div, p, dl,
 table.directory, #nav-tree,#nav-tree .label {
-    font: 400 97em/1.45em 'Manrope VF',sans-serif;
+    font: 400 0.97em/1.45em 'Manrope VF',sans-serif;
   }
 }
 
