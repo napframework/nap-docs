@@ -276,7 +276,7 @@ Close Napkin and open the `rotatingcubeapp.h` file located inside the `apps/rota
 The init method is used to initialize important parts of your application and store references to resources. For this example we need access to the `CubeEntity`. Add the following line of code to your application class declaration, right after `mGnomonEntity` in `rotatingcubeapp.h`:
 
 ~~~{cpp}
-ObjectPtr<EntityInstance>   mCubeEntity = nullptr;         ///< Pointer to the entity that plays back music
+ObjectPtr<EntityInstance>   mCubeEntity = nullptr;         ///< Pointer to our cube entity
 ~~~
 
 And add the following line of code to the end of the `::init()` method of your application in `rotatingcubeapp.cpp`:

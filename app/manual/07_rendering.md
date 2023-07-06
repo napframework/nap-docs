@@ -8,8 +8,8 @@ Rendering {#rendering}
 *	[Meshes](@ref meshes)
 	*	[Creating Meshes](@ref creating_meshes)
 		* [Mesh From File](@ref mesh_from_file)
+		* [Geometry From File](@ref geometry_from_file)
 		* [Predefined Shapes](@ref predefined_shapes)
-		* [Mesh Resource](@ref mesh_resource)
 		* [Custom Mesh C++](@ref custom_mesh)
 	*	[Mesh Format](@ref mesh_format)
 	*	[Mesh Usage](@ref mesh_usage)
@@ -166,15 +166,19 @@ Creating Meshes {#creating_meshes}
 
 The underlying resource of all mesh types is the [IMesh](@ref nap::IMesh). The `IMesh` does only one thing: provide the renderer with a [mesh instance](@ref nap::MeshInstance). The mesh instance contains the actual data that is drawn. The following resources create a mesh instance:
 
-###Mesh From File {#mesh_from_file}###
+###Mesh From File {#mesh_from_file}
 
-The [MeshFromFile](@ref nap::MeshFromFile) loads a mesh from an external file. NAP only supports the FBX file format and automatically converts any .fbx file in to a .mesh file using the FBX converter tool. The result is a heavily compressed binary file. The FBX converter runs automatically after compilation and only converts .fbx files when new. Alternatively you can run the tool from the command line. Type --help for instructions. If an .fbx file contains multiple meshes each mesh is stored into an individual .mesh file.
+The [MeshFromFile](@ref nap::MeshFromFile) loads a mesh from an external file. Mesh from file only supports the FBX file format and automatically converts any .fbx file in to a .mesh file using the FBX converter tool. The result is a heavily compressed binary file. The FBX converter runs automatically after compilation and only converts .fbx files when new. Alternatively you can run the tool from the command line. Type --help for instructions. If an .fbx file contains multiple meshes each mesh is stored into an individual .mesh file.
 
-###Predefined Shapes {#predefined_shapes}###
+###Geometry From File  {#geometry_from_file}
+
+The [GeometryFromFile](@ref nap::GeometryFromFile) imports 3D Geometry from an external file and converts the individual meshes into a single [mesh instance](@ref mesh_format). Every imported mesh becomes a shape, vertex attributes are shared. Many 3D geometry file formats are supported, including '.obj', '.fbx' etc.
+
+###Predefined Shapes {#predefined_shapes}
 
 Simple geometric shapes, inluding a [plane](@ref nap::PlaneMesh), [sphere](@ref nap::SphereMesh), [box](@ref nap::BoxMesh) and [torus](@ref nap::TorusMesh).
 
-###Custom Mesh C++ {#custom_mesh}###
+###Custom Mesh C++ {#custom_mesh}
 
 You can define your own static or dynamic mesh in code. The `heightmap`, `videomodulation` and `dynamicgeo` demos show you how to approach this. In the following example we define a new dynamic mesh. On initialization the instance is created. For the mesh to behave and render correctly we add a set of attributes. In this case `position`, `uv`, `id` and `color`. The mesh contains no actual (initial) vertex data. The vertex data grows / shrinks over time based on the number of active particles in the scene. For a more complete example refer to the `dynamicgeo` demo.
 
