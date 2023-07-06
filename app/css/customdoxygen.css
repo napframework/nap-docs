@@ -1,14 +1,9 @@
  /* The standard CSS for doxygen 1.8.4 */
-
  @font-face {
-    font-family: 'manrope', sans-serif;
-    src: url('Manrope-Regular.ttf') format('truetype');
-}
-
- @font-face {
-  font-family: 'Manrope VF';
+  font-family: 'manrope';
   src: url('Manrope.woff2') format('woff2 supports variations'),
-       url('Manrope.woff2') format('woff2-variations');
+       url('Manrope.woff2') format('woff2-variations'),
+	   url('Manrope-Regular.ttf') format('truetype');
   font-weight: 200 800;
 }
 
@@ -27,16 +22,9 @@ body{
 
 body, table, div, p, dl,
 table.directory, #nav-tree,#nav-tree .label {
-	font: 400 0.965em/1.5em 'manrope',sans-serif;
+	font: 500 0.965em/1.5em 'manrope',sans-serif;
 	color: #CDCDC3;
 	letter-spacing: 0.01em;
-}
-
-@supports (font-variation-settings: normal) {
-body, table, div, p, dl,
-table.directory, #nav-tree,#nav-tree .label {
-    font: 400 0.97em/1.45em 'Manrope VF',sans-serif;
-  }
 }
 
 table.classindex {
