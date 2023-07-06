@@ -163,6 +163,10 @@ if __name__ == '__main__':
     copy_file("{0}/css/Inconsolata-Medium.ttf".format(get_working_dir()),
               "{0}/Inconsolata-Medium.ttf".format(get_output_dir()))
 
+    # copy variable font
+    copy_file("{0}/css/Manrope.woff2".format(get_working_dir()),
+              "{0}/Manrope.woff2e".format(get_output_dir()))
+
     # copy html contents of build step to docs
     print("move:{0} -> {1}".format(get_output_dir(), get_docs_dir()))
     shutil.move(get_output_dir(), get_docs_dir())

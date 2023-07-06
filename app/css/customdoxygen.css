@@ -1,8 +1,15 @@
  /* The standard CSS for doxygen 1.8.4 */
 
-@font-face {
-    font-family: 'manrope';
+ @font-face {
+    font-family: 'manrope', sans-serif;
     src: url('Manrope-Regular.ttf') format('truetype');
+}
+
+ @font-face {
+  font-family: 'Manrope VF';
+  src: url('Manrope.woff2') format('woff2 supports variations'),
+       url('Manrope.woff2') format('woff2-variations');
+  font-weight: 200 800;
 }
 
 @font-face {
@@ -23,6 +30,13 @@ table.directory, #nav-tree,#nav-tree .label {
 	font: 400 0.965em/1.5em 'manrope',sans-serif;
 	color: #CDCDC3;
 	letter-spacing: 0.01em;
+}
+
+@supports (font-variation-settings: normal) {
+body, table, div, p, dl,
+table.directory, #nav-tree,#nav-tree .label {
+    font: 400 0.975em/1.48em 'Manrope VF',sans-serif;
+  }
 }
 
 table.classindex {
@@ -1127,7 +1141,7 @@ div.toc {
 }
 div.toc li {
   background: url("bdwn.png") no-repeat scroll 0 5px transparent;
-  font-family: 10px/1.2 'manrope', sans-serif;
+  font-family: 'manrope', sans-serif;
   margin-top: 5px;
   padding-left: 10px;
   padding-top: 2px;
@@ -1255,7 +1269,7 @@ div.toc li.level4 {
 	color: #CDCDC3;
 	text-shadow:none;/*: none;*/
 	text-decoration: underline;
-	text-decoration-style: none;
+	text-decoration-line: none;
 }
 .navpath li.navelem a:hover {
 	background-image: none;
@@ -1386,7 +1400,7 @@ background-image: none;
 a.SRScope {
     display: block;
     color: #fff; 
-    font-family: 20pt 'manrope', sans-serif;
+    font-family: 'manrope', sans-serif;
     text-decoration: none;
     outline: none;
 }
@@ -1519,7 +1533,7 @@ th.markdownTableHeadLeft, th.markdownTableHeadRight, th.markdownTableHeadCenter,
 }
 
 th.markdownTableHeadCenter, td.markdownTableBodyCenter {
-	text-align: middle;
+	text-align: center;
 	width: 10em;
 }
 svg .graph polygon {
