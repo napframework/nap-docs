@@ -222,7 +222,7 @@ This entry defines paths to search for module data in, use these locations to st
 	"{PROJECT_DIR}/module/data"
 ]
 ```
-Use the [findAsset](https://docs.nap.tech/d9/d25/classnap_1_1_module.html#aedd8e1de61bda74c9bf952f492ddccd7) function of the Module class to retrieve paths e.g.: `mYourModuleService->getModule()->findAsset('someshader.frag')` and then read them using a function such as [nap::utility:readFileToString](https://docs.nap.tech/dd/db0/namespacenap_1_1utility.html#a2a2dc66faeb526bab38cfb2b7858018d)
+Use the [Module::findAsset](@ref nap::Module::findAsset) function to retrieve paths e.g.: `mYourModuleService->getModule()->findAsset('someshader.frag')`
 
 
 ## Share Your Module {#user_module_sharing}
