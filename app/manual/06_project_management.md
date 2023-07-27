@@ -222,8 +222,7 @@ This entry defines paths to search for module data in, use these locations to st
 	"{PROJECT_DIR}/module/data"
 ]
 ```
-Use the [Module::findAsset](@ref nap::Module::findAsset) function to retrieve paths e.g.: `mYourModuleService->getModule()->findAsset('someshader.frag')`
-
+Use the [Module::findAsset](@ref nap::Module::findAsset) function to retrieve paths e.g.: `mYourModuleService->getModule()->findAsset("someshader.frag")`
 
 ## Share Your Module {#user_module_sharing}
 
