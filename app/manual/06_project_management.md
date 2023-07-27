@@ -17,6 +17,7 @@ Project Management {#project_management}
         *   [External Modules](@ref user_module_config_modules)
         *   [Library Search Paths](@ref user_module_config_search_paths)
         *   [DLL Search Paths](@ref user_module_config_dll_search)
+        *   [Data Search Paths](@ref user_module_config_data_search_paths)
     *   [Share](@ref user_module_sharing)
 *	[Custom CMake](@ref custom_cmake)
 	*	[Application](@ref custom_cmake_app)
@@ -201,7 +202,7 @@ This tells the build system to add the (above-mentioned) paths as [rpaths](https
 
 This section only applies to Windows. If your module links to a dynamic (third party) library NAP must be made aware of where it can find it. Otherwise, Napkin won't be able to open the project because it cannot load the third-party library requested by your module.
 
-You can tell the system where to attempt to find the li**brary by modifying the `WindowsDllSearchPaths` property in `module.json`. Take as an example the `module.json` of *napfont* in `system_modules`:
+You can tell the system where to attempt to find the library by modifying the `WindowsDllSearchPaths` property in `module.json`. Take as an example the `module.json` of *napfont* in `system_modules`:
 ```
 "WindowsDllSearchPaths": [
     "{ROOT}/system_modules/napfont/thirdparty/freetype/msvc/{BUILD_ARCH}/lib/Release",
@@ -212,6 +213,17 @@ You can tell the system where to attempt to find the li**brary by modifying the 
 This entry tells NAP to look for the `freetype.dll` (on which *napfont* depends) in the above-mentioned directories, both relative to the NAP root. Depending on the current build configuration the system will load either the Debug or Release version.
 
 *Note that in a future version of NAP the `WindowsDllSearchPaths` property will be deprecated and replaced by the `Windows` element of [LibrarySearchPaths](@ref user_module_config_search_paths)*
+
+### Data Search Paths {#user_module_config_data_search_paths}
+This entry defines paths to search for module data in, use these locations to store for example hardcoded shader files of your module.
+
+```
+"DataSearchPaths": [
+	"{PROJECT_DIR}/module/data"
+]
+```
+Use the [Module::findAsset](@ref nap::Module::findAsset) function to retrieve paths e.g.: `mYourModuleService->getModule()->findAsset('someshader.frag')`
+
 
 ## Share Your Module {#user_module_sharing}
 
