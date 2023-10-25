@@ -47,9 +47,9 @@ Opening a Project {#napkin_project_management}
 -----------------------
 
 To open a project:
-- `File > Open Project`<br>
+- `Project > Open Project...`<br>
 
-Use the file browser to select the project you want to load. The project is a `.json` file with the name: `project.json`. The `project.json` file points to a `Data` and `ServiceConfig` file. Both documents can be edited by napkin. The `Data` file contains application content, the [ServiceConfig](@ref service_config) file contains application configuration settings.
+Use the file browser to select the project you want to load. The project is a `.json` file with the name: `app.json`. The `app.json` file points to a `Data` and `ServiceConfig` file. Both documents can be edited by napkin. The `Data` file contains application content, the [ServiceConfig](@ref service_config) file contains application configuration settings.
 
 Before Napkin can load the `Data` file it will attempt to load all the `RequiredModules`. Every module has it's own set of dependencies, which will be resolved as well. If loading succeeds, Napkin can safely create and edit files because it can access all the resources exposed by the modules. You can safely launch multiple instances of Napkin to work on multiple projects at once.
 
@@ -60,7 +60,7 @@ To make a new data file:
 - `File > New` or `CTRL + N` creates an empty document.<br> 
 
 To open a different data file:
-- `File > Open` or `CTRL + O` <br>
+- `File > Open...` or `CTRL + O` <br>
 
 To save the data file:
 - `File > Save` or `CTRL + S` <br>
@@ -81,7 +81,7 @@ To make a new config file:
 - `Configuration > New` creates an empty document.<br>
 
 To open a different config file:
-- `Configuration > Open`<br>
+- `Configuration > Open...`<br>
 
 To save the config file:
 - `Configuration > Save`<br>
