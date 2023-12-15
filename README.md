@@ -1,11 +1,11 @@
 <br>
 <p align="center">
-  <img width=384 src="https://download.nap.tech/identity/svg/logos/nap_logo_blue.svg">
+  <img width=384 src="https://download.nap-labs.tech/identity/svg/logos/nap_logo_blue.svg">
 </p>
 
-Generates the NAP Framework system documentation, available at [docs.nap.tech](https://docs.nap.tech). Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.
+Generates the NAP Framework system documentation, available at [docs.nap-framework.tech](https://docs.nap-framework.tech). Documentation includes the user manual and info on all available system resources. The user manual is generated from the `.md` files located in the `app/manual` directory. Framework documentation is extracted from [NAP source code](https://github.com/napframework/nap). Documentation is guaranteed to be in sync with the main branch.
 
-| docs.nap.tech |
+| docs.nap-framework.tech |
 | ------------- |
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9eaa7116-9815-463b-8836-e1fc68b539a3/deploy-status)](https://app.netlify.com/sites/nap-docs/deploys)
 

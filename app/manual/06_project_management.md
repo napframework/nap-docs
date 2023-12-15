@@ -125,11 +125,11 @@ A user module contains more generic (not app related) resources and components t
 
 ## Install User Module {#user_module_installation}
 
-A list of publicly available user modules can be found at [modules.nap.tech](https://modules.nap.tech). These modules are created, maintained and shared by NAP users, independent of NAP Framework. 
+A list of publicly available user modules can be found at [modules.nap-framework.tech](https://modules.nap-framework.tech). These modules are created, maintained and shared by NAP users, independent of NAP Framework. 
 
 ### From ZIP {#user_module_installation_zip}
 
-[Download](https://modules.nap.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
+[Download](https://modules.nap-framework.tech) the module as `.zip` archive from (for example) Github and install it into the nap `modules` directory:
 
 1. Open a terminal
 2. Change into your NAP framework directory
@@ -226,7 +226,7 @@ Use the [Module::findAsset](@ref nap::Module::findAsset) function to retrieve pa
 
 ## Share Your Module {#user_module_sharing}
 
-You can share your module with others on [modules.nap.tech](https://modules.nap.tech). A typical module has the following content, which will be included when the module is shared:
+You can share your module with others on [modules.nap-framework.tech](https://modules.nap-framework.tech). A typical module has the following content, which will be included when the module is shared:
 
 | Content                 | Directory  | Required |
 |:------------------------|------------|----------|
@@ -251,7 +251,7 @@ Upload the contents of your module to a service of your liking, for example [Git
 
 ### Share
 
-Share your module on [modules.nap.tech](https://github.com/napframework/nap-modules) by following the [registration procedure](https://github.com/napframework/nap-modules#register-your-module) in the readme.
+Share your module on [modules.nap-framework.tech](https://github.com/napframework/nap-modules) by following the [registration procedure](https://github.com/napframework/nap-modules#register-your-module) in the readme.
 
 # Custom CMake {#custom_cmake}
 
@@ -288,7 +288,7 @@ You can add additional CMake logic at the user module level by providing an `mod
 
 This section explains how to add a third-party dependency to your module using the [module_extra.cmake](@ref custom_cmake_module) file. The same steps apply when adding a third-party dependency directly to your application, substituting `module_extra.cmake` with `app_extra.cmake`. We're going to use [CMake modules](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Modules.html) for this. Although other options are available, this is the preferred method.
 
-**Note that these instructions are by no means complete - they only scratch the surface of what's possible. Actual and better implementations can be found on [modules.nap.tech](https://modules.nap.tech), where many of the shared modules have a third-party dependency.**
+**Note that these instructions are by no means complete - they only scratch the surface of what's possible. Actual and better implementations can be found on [modules.nap-framework.tech](https://modules.nap-framework.tech), where many of the shared modules have a third-party dependency.**
 
 Let's add an imaginary (pre-built) dynamic library called `libfoo` to `napMyFirstModule`. All third-party dependencies are stored in the `thirdparty` directory under the project (module or app) root, in this case:
 ```
