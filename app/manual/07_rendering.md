@@ -7,10 +7,10 @@ Rendering {#rendering}
 *	[Example](@ref render_example)
 *	[Meshes](@ref meshes)
 	*	[Creating Meshes](@ref creating_meshes)
-		* [Mesh From File](@ref mesh_from_file)
-		* [Geometry From File](@ref geometry_from_file)
-		* [Predefined Shapes](@ref predefined_shapes)
-		* [Custom Mesh C++](@ref custom_mesh)
+		*	[Mesh From File](@ref mesh_from_file)
+		*	[Geometry From File](@ref geometry_from_file)
+		*	[Predefined Shapes](@ref predefined_shapes)
+		*	[Custom Mesh C++](@ref custom_mesh)
 	*	[Mesh Format](@ref mesh_format)
 	*	[Mesh Usage](@ref mesh_usage)
 *	[Text](@ref text)
@@ -19,10 +19,11 @@ Rendering {#rendering}
 	*	[Default Vertex Attributes](@ref default_attrs)
 	*	[Uniforms](@ref material_uniforms)
 	*	[Samplers](@ref material_samplers)
-    *   [Buffers](@ref material_buffers) 
-    *	[Color Blending](@ref blending)
-    *	[Depth](@ref depth)
-    *	[Rendering Meshes](@ref renderwithmaterials)
+	*	[Buffers](@ref material_buffers) 
+	*	[Constants](@ref material_constants)
+	*	[Color Blending](@ref blending)
+	*	[Depth](@ref depth)
+*	[Rendering Meshes](@ref renderwithmaterials)
 *	[Textures](@ref textures)
 	*	[Creating Textures](@ref creating_textures)
 		*	[GPU Textures](@ref gpu_textures)
@@ -32,7 +33,14 @@ Rendering {#rendering}
 	*	[Texture Sampling](@ref texture_sampling)
 *	[Windows](@ref multi_screen)
 *	[Offscreen Rendering](@ref offscreen_rendering)
-  *	[Cameras](@ref cameras)
+*	[Cameras](@ref cameras)
+*	[Layers](@ref layers)
+*	[Tags](@ref tags)
+*	[Advanced Rendering](@ref advanced_rendering)
+	*	[Lights](@ref lights)
+	*	[Custom Lights](@ref custom_lights)
+	*	[Cube Maps](@ref cube_maps)
+
 
 Introduction {#render_intro}
 =======================
@@ -459,7 +467,7 @@ void main()
 	float alpha = texture(glyph, passUVs.xy).r;
 
 	// Use alpha together with text color as fragment output
-    out_Color = vec4(ubo.textColor, alpha);
+	out_Color = vec4(ubo.textColor, alpha);
 }
 ```
 
@@ -606,6 +614,32 @@ And the following JSON to bind a GPU buffer to it:
  ```
 
 You can use a [fill policy](@ref nap::FillPolicy) to initialize the content of a GPU buffer. Without a fill policy the content isn't initialized. The `computeflocking` and `computeparticles` demos show you how to create, initialize and bind GPU buffers.
+
+Constants {#material_constants}
+-----------------------
+Shader constants are special unsigned integer variables that are parsed on shader initialization, but not actually assigned and compiled until creation of a graphics pipeline. Shader constants implement Vulkan specialization constants and are a powerful way to compile specialized versions of shaders per material instance. Graphics and compute pipeline keys are distinguished by a shader constant hash that is generated from the material instance resource. This way you can benefit from compiler optimizations like loop unrolling and branch elimination per material setup.
+
+~~~~~~~~~~~~~~~{.frag}
+layout (constant_id = 0) const uint SAMPLE_COUNT = 8;
+layout (constant_id = 1) const uint USE_EXPENSIVE_ROUTINE = 0;
+
+// main()
+// Loop unrolling
+for (uint i = 0; i < SAMPLE_COUNT; i++)
+{
+		// Perform expensive texture samples here
+}
+
+// Branch elimination
+if (USE_EXPENSIVE_ROUTINE > 0)
+{
+		// Perform an expensive computation here
+}
+else
+{
+		// Exit early here
+}
+~~~~~~~~~~~~~~~
 
 Color Blending {#blending}
 -----------------------
@@ -825,3 +859,141 @@ NAP supports two camera types:
 With an orthographic camera the scene is rendered using a flat projection matrix. With an orthographic camera the scene is rendered using a perspective matrix. The world space location of a camera, provided using a [transform](@ref nap::TransformComponent), is used to compose the view matrix. The camera projection method is used to compose the projection matrix. Both are extracted by the renderer and forwarded to the shader. 
 
 Every camera therefore needs access to a transform component that is a sibling of the parent entity. For a working example take a look at the multi window demo. This demo renders a set of objects to different windows using a mix of cameras.
+
+Layers {#layers}
+=======================
+
+Render layers can be used to group render components and configure the order in which they should be rendered. `nap::RenderLayer` objects are ordered in a `nap::RenderLayerRegistry` under the property `Layers`. The index of the layer in this list determines the rank of the `nap::RenderLayer` where 0 is the front, and the last index is the back. Render components without a layer assigned default to the front (index 0).
+
+One useful approach for layers is rendering a sky box or some other object that fills the background. This should always be rendered first, regardless of its location in the world. To do this, you can create a layer named "Background" last index in the registry and assign it to the component that renders the background. Other objects in the scene can be assigned to the layer "Default" on index 0 and will be sorted routinely based on the specified sorting algorithm.
+
+Tags {#tags}
+=======================
+
+Render tags can be used to categorize render components. Unlike render layers, tags are unordered and multiple of them can be assigned to a single render component. Each tag resource registers itself in the render service and is assigned a unique tag index on app initialization. This ensures tags can be composited into render masks, which are bit flags that are fast to compare.
+
+One useful example would be to categorize specific components as "Debug", distinguishing objects used as visual aid for debugging purposes from standard objects (tag "Default"). They may be excluded from rendering based on settings or a window setup for instance. You could do the following:
+
+`````{.cpp}
+// Consider caching the render mask
+RenderMask mask = mRenderService->findRenderMask("Default") | mRenderService->findRenderMask("Debug");
+mRenderService->renderObjects(renderTarget, camera, render_comps, mask);
+`````
+Advanced Rendering {#advanced_rendering}
+=======================
+
+NAP 0.7 introduces the new `naprenderadvanced` module comprising a set of rendering tools in supplement to the functionality of `naprender`. These currently include a system for setting up lights, rendering shadow and cube maps, various new standard shaders and several rendering-related utilities. The `nap::RenderAdvancedService` creates and manages internal resources such as render targets and textures that are bound to materials that use these advanced features.
+
+Lights {#lights}
+=======================
+
+The `naprenderadvanced` module includes a light system that can be used to create consistent lighting setups across render components fast. Any instance of a light is derived from `nap::LightComponent`/`nap::LightComponentInstance`. On initialization, each light component sets up its own light uniform data and registers itself at the `nap::RenderAdvancedService`. Light components are deregistered and registered again when appropriate on hot-reloads. NAP currently offers the following light types:
+
+- `nap::DirectionalLightComponent`
+- `nap::PointLightComponent`
+- `nap::SpotLightComponent`
+
+To visualize a lit renderable component its material must be compatible with the light system. This is fairly simple to do in Napkin: Create a `nap::BlinnPhongShader` resource, and then a `nap::Material` whose `Shader` property links to this shader. It is also possible to write a custom `nap::ShaderFromFile` shader that is compatible with the lighting system. For a guide to set this up, please refer to the section [Custom Lights](@ref custom_lights) below.
+
+Additional data related to the material surface is excluded from the system and must be set by the user. In the case of the `nap::BlinnPhongShader` these include `ambient`, `diffuse` and `specular` because they relate to material properties rather than light properties. The maximum number of lights per scene is always limited to `getMaximumLightCount`, superfluous lights are ignored. 
+
+Rendering with lights requires an additional call to `pushLights` with the render components whose material instances you wish to update light uniforms of. Alternatively, `renderShadows` with the `updateMaterials` argument set to `true` updates light uniforms and renders a shadow map. Here is how to render shadow maps in the `render()` hook of your app:
+
+~~~~~~~~~~~~~~~{.cpp}
+void LightsAndShadowApp::render()
+{
+	mRenderService->beginFrame();
+
+	std::vector<RenderableComponentInstance*> render_comps;
+	mWorldEntity->getComponentsOfTypeRecursive<RenderableComponentInstance>(render_comps);
+
+	if (mRenderService->beginHeadlessRecording())
+	{
+		mRenderAdvancedService->renderShadows(render_comps, true, mShadowMask);
+		mRenderService->endHeadlessRecording();
+	}
+	// ...
+}
+~~~~~~~~~~~~~~~
+
+If you do not intend to re-render shadows each frame, you can also exclusively update the material data of the components that are lit. The code snippet below filters the list of render components for those that contain the tag `Lit`.
+
+~~~~~~~~~~~~~~~{.cpp}
+
+utility::ErrorState error_state;
+auto lit_comps = mRenderService->filterObjects(render_comps, mRenderService->findRenderMask("Lit"));
+if (!mRenderAdvancedService->pushLights(lit_comps, error_state))
+	nap::Logger::error(error_state.toString().c_str());
+~~~~~~~~~~~~~~~
+
+For a complete demonstration of the light system, check out the new `lightsandshadow` demo.
+
+Custom Lights {#custom_lights}
+=======================
+
+In order for shaders to be compatible with the light system they must include a specific uniform struct with the name `light`, and additionally `shadow` when shadows are supported. In your shader files, first make sure to enable the `GL_GOOGLE_include_directive` extension to enable shader include files. Then, include the following files (`shadow.glslinc` is optional). Please note that NAP is only able to locate these module-specific shader files if your application is dependent on `naprenderadvanced`.
+
+~~~~~~~~~~~~~~~{.vert}{.frag}
+#extension GL_GOOGLE_include_directive : enable
+
+#include "maxlights.glslinc"	// Include MAX_LIGHTS constant
+#include "light.glslinc"		// Include Light struct, light types and helper functions
+#include "shadow.glslinc"		// Include functions for computing shadows
+~~~~~~~~~~~~~~~
+
+This will include the `Light` data structure in your shader as defined in `light.glslinc` and looks like this:
+
+~~~~~~~~~~~~~~~{.vert}{.frag}
+struct Light
+{
+	vec3 origin;
+	vec3 direction;
+	vec3 color;
+	float intensity;
+	float attenuation;
+	float angle;
+	float falloff;
+	uint flags;
+};
+~~~~~~~~~~~~~~~
+
+When implementing a custom shader that is compatible with the light system you can define the following uniform struct and read the data of `count` lights.
+
+~~~~~~~~~~~~~~~{.vert}{.frag}
+uniform light
+{
+	Light lights[MAX_LIGHTS];
+	uint count;
+} lit;
+~~~~~~~~~~~~~~~
+
+Below is a simple approach to mixing lights using the `computeLight` function in `blinnphongutils.glslinc`. `isLightEnabled` in `light.glslinc` checks whether the light is enabled by reading the appropriate bit flag.
+
+~~~~~~~~~~~~~~~{.frag}
+vec3 color = vec3(0.0;
+for (uint i = 0; i < min(lit.count, MAX_LIGHTS); i++)
+{
+	if (!isLightEnabled(lit.lights[i].flags))
+		continue;
+
+	color += computeLight(lit.lights[i], mtl, mvp.cameraPosition, normalize(passNormal), passPosition);
+}
+~~~~~~~~~~~~~~~
+
+For a complete example of how to write a compatible shader for NAP's light system, refer to the `blinnphongcolor` shader in the `naprenderadvanced/data/shaders` folder. This also shows how to setup quad and omni shadow mapping.
+
+Cube Maps {#cube_maps}
+=======================
+
+`nap::CubeMapFromFile` takes an image with an equirectangular projection as input and generates a `nap::RenderTextureCube` from it. This can then be sampled to render a sky box (see `nap::SkyBoxShader`), or add environmental reflections to objects. The `nap::BlinnPhongShader` includes the sampler `environmentMap`, and uniform `reflection` for this purpose.  
+
+This object must be pre-rendered at least once in a headless render pass in the first frame. The `nap::RenderAdvancedService` queues a `nap::HeadlessRenderCommand` for each `nap::CubeMapFromFile` in the scene after resource initialization, and will be handled when headless render commands are recorded. The code below only begins a headless recording operation only when headless commands are queued in the render service.
+
+~~~~~~~~~~~~~~~{.cpp}
+if (mRenderService->isHeadlessCommandQueued())
+{
+	// Handles `nap::CubeMapFromFile` pre-render operations in the first frame
+	if (mRenderService->beginHeadlessRecording())
+		mRenderService->endHeadlessRecording();
+}
+~~~~~~~~~~~~~~~
