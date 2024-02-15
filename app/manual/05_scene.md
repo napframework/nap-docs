@@ -259,7 +259,7 @@ The registration of this part of the component in the .cpp file should look fami
 ~~~~~~~~~~~~~~~{.cpp}
 RTTI_BEGIN_CLASS(nap::LineBlendComponent)
 	RTTI_PROPERTY("SelectionOne",	&nap::LineBlendComponent::mSelectionComponentOne,	nap::rtti::EPropertyMetaData::Required)
-	RTTI_PROPERTY("SelectionTwo",	&nap::LineBlendComponent::mSelectionComponentOne,	nap::rtti::EPropertyMetaData::Required)
+	RTTI_PROPERTY("SelectionTwo",	&nap::LineBlendComponent::mSelectionComponentTwo,	nap::rtti::EPropertyMetaData::Required)
 	RTTI_PROPERTY("Target",			&nap::LineBlendComponent::mTarget,					nap::rtti::EPropertyMetaData::Required)
 RTTI_END_CLASS
 ~~~~~~~~~~~~~~~  
