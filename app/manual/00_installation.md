@@ -33,7 +33,7 @@ NAP $(NAP_VERSION_FULL) supports `Visual Studio 2019 (v142)` on Windows, `XCode 
 
 ## Setup Your Build Environment {#setup_build_env_win64}
 
-NAP $(NAP_VERSION_FULL) supports `Windows 10 & 11 (x86_64)` with `Visual Studio 2019 (v142)`. Although NAP is known to work on other versions of Windows, v10 is the current supported platform. Other versions of Visual Studio are not supported at this moment.
+NAP $(NAP_VERSION_FULL) supports `Windows 10 & 11 (x86_64)` with `Visual Studio 2019 (v142)`. Other versions of Visual Studio are not supported at this moment.
 
 Download and install <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio 2019</a>. This link points to the community edition which can be used for free. Make sure to select `Desktop development with C++` when installing Visual Studio, including `MSVC v142 - VS 2019 C++ x64/x86` and the `Windows 10 SDK`. Other settings are optional. Download and install the <a href=https://www.microsoft.com/en-us/download/details.aspx?id=40784 target="_blank">Visual C++ 2013 Redistributable (x64)</a>.
 
@@ -85,7 +85,7 @@ xcode-select --install
 
 ## Desktop {#linux_desktop}
 
-NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04 & 22.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu 20.04 x86_64` is currently the only supported Linux desktop environment.
+NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04 & 22.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu 20.04 or 22.04` is currently the only supported Linux desktop environment.
 
 ## Raspberry Pi {#linux_pi}
 
