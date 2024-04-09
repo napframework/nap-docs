@@ -240,9 +240,10 @@ Up to this point we only worked with resources. Resources are classes. But somet
  // RGB Color
 class NAPAPI Color
 {
-	float r = 0.0f;
-	float g = 0.0f;
-	float b = 0.0f;
+	public:
+		float r = 0.0f;
+		float g = 0.0f;
+		float b = 0.0f;
 };
 ~~~~~~~~~~~~~~~
 
