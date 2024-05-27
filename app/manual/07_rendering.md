@@ -38,6 +38,7 @@ Rendering {#rendering}
 *	[Tags](@ref tags)
 *	[Advanced Rendering](@ref advanced_rendering)
 	*	[Lights](@ref lights)
+        *   [Shadows](@ref shadows) 
 	*	[Custom Lights](@ref custom_lights)
 	*	[Cube Maps](@ref cube_maps)
 
@@ -863,41 +864,58 @@ Every camera therefore needs access to a transform component that is a sibling o
 Layers {#layers}
 =======================
 
-Render layers can be used to group render components and configure the order in which they should be rendered. `nap::RenderLayer` objects are ordered in a `nap::RenderLayerRegistry` under the property `Layers`. The index of the layer in this list determines the rank of the `nap::RenderLayer` where 0 is the front, and the last index is the back. Render components without a layer assigned default to the front (index 0).
+Render layers can be used to group render components and configure the order in which they should be rendered. [RenderLayer](@ref nap::RenderLayer) objects are ordered in a [RenderChain](@ref nap::RenderChain) under the property `Layers`. The index of the layer in this list determines the `rank` of the layer where 0 is the front, and the last index is the back. Render components without a layer assigned default to the front (index 0).
 
-One useful approach for layers is rendering a sky box or some other object that fills the background. This should always be rendered first, regardless of its location in the world. To do this, you can create a layer named "Background" last index in the registry and assign it to the component that renders the background. Other objects in the scene can be assigned to the layer "Default" on index 0 and will be sorted routinely based on the specified sorting algorithm.
+One useful approach for layers is rendering a sky box or some other object that fills the background. This should always be rendered first, regardless of its location in the world. To do this, you can create a layer named `Background` last index in the registry and assign it to the component that renders the background. Other objects in the scene can be assigned to the layer "Default" on index 0 and will be sorted routinely based on the specified sorting algorithm.
 
 Tags {#tags}
 =======================
 
-Render tags can be used to categorize render components. Unlike render layers, tags are unordered and multiple of them can be assigned to a single render component. Each tag resource registers itself in the render service and is assigned a unique tag index on app initialization. This ensures tags can be composited into render masks, which are bit flags that are fast to compare.
+Render tags can be used to categorize render components. They are not ordered (unlike render layers) and multiple of them can be assigned to a render component. Each tag registers itself in the render service and receives a unique bitmask on initialization, allowing tags to be composited together into `render masks`.
 
-One useful example would be to categorize specific components as "Debug", distinguishing objects used as visual aid for debugging purposes from standard objects (tag "Default"). They may be excluded from rendering based on settings or a window setup for instance. You could do the following:
+One useful example would be to tag specific components as debug, to distinguishing them as a visual aid for debugging purposes and separating them from regular objects in your scene with (for example) the `SceneTag`:
 
 `````{.cpp}
-// Consider caching the render mask
-RenderMask mask = mRenderService->findRenderMask("Default") | mRenderService->findRenderMask("Debug");
-mRenderService->renderObjects(renderTarget, camera, render_comps, mask);
+auto scene_tag = mResourceManager->findObject("SceneTag");
+mRenderService->renderObjects(renderTarget, camera, render_comps, scene_tag);
 `````
+
+The above code excludes components tagged as debug because we only include objects with the `SceneTag`. Tags can be combined (ORd etc.) to include objects from both sets, for example:
+
+`````{.cpp}
+auto debug_tag = mResourceManager->findObject("DebugTag");
+auto scene_tag = mResourceManager->findObject("SceneTag");
+mRenderService->renderObjects(renderTarget, camera, render_comps, scene_tag | debug_tag);
+`````
+
+The above call renders all components with a Debug *or* Scene tag. 
+
 Advanced Rendering {#advanced_rendering}
 =======================
 
-NAP 0.7 introduces the new `naprenderadvanced` module comprising a set of rendering tools in supplement to the functionality of `naprender`. These currently include a system for setting up lights, rendering shadow and cube maps, various new standard shaders and several rendering-related utilities. The `nap::RenderAdvancedService` creates and manages internal resources such as render targets and textures that are bound to materials that use these advanced features.
+NAP 0.7+ introduces a new render module: the `naprenderadvanced` module. With a set of tools that expand (supplement) the default renderer, including: lights, shadows, cube maps, various new standard shaders and several rendering-related utilities. The [Render Advanced Service](@ref nap::RenderAdvancedService) creates and manages internal resources such as render targets and textures that are bound to materials that use these advanced features.
 
 Lights {#lights}
 =======================
 
-The `naprenderadvanced` module includes a light system that can be used to create consistent lighting setups across render components fast. Any instance of a light is derived from `nap::LightComponent`/`nap::LightComponentInstance`. On initialization, each light component sets up its own light uniform data and registers itself at the `nap::RenderAdvancedService`. Light components are deregistered and registered again when appropriate on hot-reloads. NAP currently offers the following light types:
+The `naprenderadvanced` module includes a light system that can be used to create consistent lighting setups. Every light is derived from a [LightComponent](@ref nap::LightComponent) and can cast shadows using shadow maps. On initialization, each light component sets up its own light uniform data and registers itself with the service.
 
-- `nap::DirectionalLightComponent`
-- `nap::PointLightComponent`
-- `nap::SpotLightComponent`
+NAP currently offers the following light types:
 
-To visualize a lit renderable component its material must be compatible with the light system. This is fairly simple to do in Napkin: Create a `nap::BlinnPhongShader` resource, and then a `nap::Material` whose `Shader` property links to this shader. It is also possible to write a custom `nap::ShaderFromFile` shader that is compatible with the lighting system. For a guide to set this up, please refer to the section [Custom Lights](@ref custom_lights) below.
+- [Spot](@ref nap::SpotLightComponent)
+- [Directional](@ref nap::DirectionalLightComponent)
+- [Point](@ref nap::PointLightComponent)
 
-Additional data related to the material surface is excluded from the system and must be set by the user. In the case of the `nap::BlinnPhongShader` these include `ambient`, `diffuse` and `specular` because they relate to material properties rather than light properties. The maximum number of lights per scene is always limited to `getMaximumLightCount`, superfluous lights are ignored. 
+Check out the new [lightsandshadow](@ref nap::LightsAndShadowApp) demo for a complete demonstration of the light system.
 
-Rendering with lights requires an additional call to `pushLights` with the render components whose material instances you wish to update light uniforms of. Alternatively, `renderShadows` with the `updateMaterials` argument set to `true` updates light uniforms and renders a shadow map. Here is how to render shadow maps in the `render()` hook of your app:
+You can use the standard [BlinnPhongShader](@ref nap::BlinnPhongShader) to quickly render a lit object. It is also possible to write a custom [Shader](@ref nap::ShaderFromFile) that is compatible with the lighting system. For a guide to set this up, please refer to the [Custom Lights](@ref custom_lights) section below. Settings related to the material (such as color etc..) can be set by the user in Napkin. In the case of the blinn phong shader these include `ambient`, `diffuse` and `specular`. The maximum number of lights per scene is always limited to `getMaximumLightCount`, additional lights are ignored. 
+
+Note that you **must** call [pushLights](@ref pushLights) manually to update all the light uniforms (location etc.) if you don't use shadows. 
+
+Shadows {#shadows}
+-----------------------
+
+Every (default) light can cast shadows using shadow maps. Shadow maps must be rendered *before* the objects that receive shadows, in the headless pass of the `render()` hook of your app:
 
 ~~~~~~~~~~~~~~~{.cpp}
 void LightsAndShadowApp::render()
@@ -912,11 +930,10 @@ void LightsAndShadowApp::render()
 		mRenderAdvancedService->renderShadows(render_comps, true, mShadowMask);
 		mRenderService->endHeadlessRecording();
 	}
-	// ...
 }
 ~~~~~~~~~~~~~~~
 
-If you do not intend to re-render shadows each frame, you can also exclusively update the material data of the components that are lit. The code snippet below filters the list of render components for those that contain the tag `Lit`.
+If you don't need or want to render shadow maps each frame you can update the light uniforms manually using a call to  [pushLights](@ref pushLights). Consider using a tag to only update components that are lit, for example:
 
 ~~~~~~~~~~~~~~~{.cpp}
 
@@ -926,7 +943,7 @@ if (!mRenderAdvancedService->pushLights(lit_comps, error_state))
 	nap::Logger::error(error_state.toString().c_str());
 ~~~~~~~~~~~~~~~
 
-For a complete demonstration of the light system, check out the new `lightsandshadow` demo.
+For a complete demonstration of the light system, check out the new [lightsandshadow](@ref nap::LightsAndShadowApp) or [spotlight](@ref nap::SpotlightApp) demo.
 
 Custom Lights {#custom_lights}
 =======================
