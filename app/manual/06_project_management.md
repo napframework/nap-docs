@@ -188,9 +188,6 @@ A target that links to a NAP module, that depends on a third-party dynamic libra
 "LibrarySearchPaths": {
     "Linux": [
         "{ROOT}/system_modules/napfont/thirdparty/freetype/linux/{BUILD_ARCH}/lib"
-    ],
-    "macOS": [
-        "{ROOT}/system_modules/napfont/thirdparty/freetype/macos/{BUILD_ARCH}/lib"
     ]
 }
 ```
@@ -378,7 +375,7 @@ So what did we do here? [find_package](https://cmake.org/cmake/help/latest/comma
 Note that on Unix based systems you must install the `libfoo` library into the `lib` directory when your application is packaged. To do that append the following to `module_extra.cmake` :
 ```
 if(UNIX)
-    # Install libfoo into lib directory in packaged application on macOS and Linux
+    # Install libfoo into lib directory in packaged application on Linux
     install(FILES $<TARGET_FILE:libfoo> DESTINATION lib)
 endif()
 ``` 

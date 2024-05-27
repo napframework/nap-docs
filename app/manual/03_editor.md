@@ -20,7 +20,7 @@ Editor {#napkin}
 What is Napkin? {#what_is_napkin}
 =======================
 
-Napkin allows you to create and edit application content, associated with a specific NAP project. NAP's main storage format is JSON, which we consider to be quite a readable format. But as projects get larger, it helps to have a more ergonomical view on the data you are creating. Napkin helps you do that. Fire up the editor, launch your NAP application and edit your file to see the changes you make reflected in real time. Files work cross platform and can be shared between Windows, macOS and Linux.
+Napkin allows you to create and edit application content, associated with a specific NAP project. NAP's main storage format is JSON, which we consider to be quite a readable format. But as projects get larger, it helps to have a more ergonomical view on the data you are creating. Napkin helps you do that. Fire up the editor, launch your NAP application and edit your file to see the changes you make reflected in real time. Files work cross platform and can be shared between Windows and Linux.
 
 ![](@ref content/napkin.png)
 
