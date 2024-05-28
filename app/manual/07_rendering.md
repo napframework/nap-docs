@@ -915,7 +915,7 @@ Note that you **must** call [pushLights](@ref pushLights) manually to update all
 Shadows {#shadows}
 -----------------------
 
-Every (default) light can cast shadows using shadow maps. Shadow maps must be rendered *before* the objects that receive shadows, in the headless pass of the `render()` hook of your app:
+Every (default) light can cast shadows using shadow maps. The shadow maps must be rendered **before** they are applied, in the headless render pass of the `render()` hook of your app:
 
 ~~~~~~~~~~~~~~~{.cpp}
 void LightsAndShadowApp::render()
@@ -948,17 +948,19 @@ For a complete demonstration of the light system, check out the new [lightsandsh
 Custom Lights {#custom_lights}
 =======================
 
-In order for shaders to be compatible with the light system they must include a specific uniform struct with the name `light`, and additionally `shadow` when shadows are supported. In your shader files, first make sure to enable the `GL_GOOGLE_include_directive` extension to enable shader include files. Then, include the following files (`shadow.glslinc` is optional). Please note that NAP is only able to locate these module-specific shader files if your application is dependent on `naprenderadvanced`.
+In order for shaders to be compatible with the light system they must include a specific uniform struct with the name `light`, and optionally `shadow` when shadows are supported. Make sure to enable the `GL_GOOGLE_include_directive` extension in your shader file to enable shader includes. Include the following files:
 
 ~~~~~~~~~~~~~~~{.vert}{.frag}
 #extension GL_GOOGLE_include_directive : enable
 
 #include "maxlights.glslinc"	// Include MAX_LIGHTS constant
 #include "light.glslinc"		// Include Light struct, light types and helper functions
-#include "shadow.glslinc"		// Include functions for computing shadows
+#include "shadow.glslinc"		// Include functions for computing shadows (optional)
 ~~~~~~~~~~~~~~~
 
-This will include the `Light` data structure in your shader as defined in `light.glslinc` and looks like this:
+ Please note that NAP is only able to locate these module-specific shader files if your application depends on `naprenderadvanced`.
+
+This will include the `Light` data structure in your shader as defined in `light.glslinc`, which looks like this:
 
 ~~~~~~~~~~~~~~~{.vert}{.frag}
 struct Light
@@ -974,7 +976,7 @@ struct Light
 };
 ~~~~~~~~~~~~~~~
 
-When implementing a custom shader that is compatible with the light system you can define the following uniform struct and read the data of `count` lights.
+When implementing a custom shader that is compatible with the light system you should define the following uniform struct and read the data of `count` lights.
 
 ~~~~~~~~~~~~~~~{.vert}{.frag}
 uniform light
@@ -997,20 +999,11 @@ for (uint i = 0; i < min(lit.count, MAX_LIGHTS); i++)
 }
 ~~~~~~~~~~~~~~~
 
-For a complete example of how to write a compatible shader for NAP's light system, refer to the `blinnphongcolor` shader in the `naprenderadvanced/data/shaders` folder. This also shows how to setup quad and omni shadow mapping.
+For a complete example of how to write a compatible shader for NAP's light system, refer to the `blinnphongcolor` shader in the `naprenderadvanced/data/shaders` folder. This also shows how to set up quad and omni shadow mapping.
 
 Cube Maps {#cube_maps}
 =======================
 
-`nap::CubeMapFromFile` takes an image with an equirectangular projection as input and generates a `nap::RenderTextureCube` from it. This can then be sampled to render a sky box (see `nap::SkyBoxShader`), or add environmental reflections to objects. The `nap::BlinnPhongShader` includes the sampler `environmentMap`, and uniform `reflection` for this purpose.  
+[CubeMapFromFile](@ref nap::CubeMapFromFile) takes an [equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) image as input and turns it into a [CubeMap](@ref nap::RenderTextureCube), which can be used to - for example - render a sky box using the [SkyBoxShader](@ref nap::SkyBoxShader) or add environmental reflections to objects using the [BlinnPhongShader](@ref nap::BlinnPhongShader), which has `environmentMap` and `reflection` inputs for this purpose. 
 
-This object must be pre-rendered at least once in a headless render pass in the first frame. The `nap::RenderAdvancedService` queues a `nap::HeadlessRenderCommand` for each `nap::CubeMapFromFile` in the scene after resource initialization, and will be handled when headless render commands are recorded. The code below only begins a headless recording operation only when headless commands are queued in the render service.
-
-~~~~~~~~~~~~~~~{.cpp}
-if (mRenderService->isHeadlessCommandQueued())
-{
-	// Handles `nap::CubeMapFromFile` pre-render operations in the first frame
-	if (mRenderService->beginHeadlessRecording())
-		mRenderService->endHeadlessRecording();
-}
-~~~~~~~~~~~~~~~
+Check out the [SkyBox](@ref nap::SkyBoxApp) demo to see how to work with cube maps.
