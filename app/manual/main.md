@@ -9,6 +9,9 @@ NAP Framework ships with many useful modules, including: a `Vulkan 2D/3D` render
 
 NAP also has built in support for many common protocols and standards, including: WebSocket, MIDI, OSC, Artnet, Serial, EtherCAT, OpenCV, SQLite and many others. NAP has been battle tested in production for years. For more information about NAP, how it is commonly used and what it can do for you, visit the [nap-framework.tech](https://nap-framework.tech) website.
 
+<br>
+![NAP Framework Editor (Napkin)](@ref content/nap_interface.jpg)
+
 ### Philosophy
 
 NAP is completely data driven and heavily influenced by modern game engine design, with one exception: it does not dictate any sort of pipeline. This allows NAP to run on any type of device: from low-power, energy efficient ARM computers such as the `Raspberry Pi` to `industrial PCs` and `x86 gaming rigs`. 

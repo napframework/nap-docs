@@ -38,7 +38,7 @@ Rendering {#rendering}
 *	[Tags](@ref tags)
 *	[Advanced Rendering](@ref advanced_rendering)
 	*	[Lights](@ref lights)
-        *   [Shadows](@ref shadows) 
+    *   [Shadows](@ref shadows) 
 	*	[Custom Lights](@ref custom_lights)
 	*	[Cube Maps](@ref cube_maps)
 
@@ -897,7 +897,7 @@ Advanced Rendering {#advanced_rendering}
 NAP 0.7+ introduces a new render module: the `naprenderadvanced` module. With a set of tools that expand (supplement) the default renderer, including: lights, shadows, cube maps, various new standard shaders and several rendering-related utilities. The [RenderAdvancedService](@ref nap::RenderAdvancedService) creates and manages internal resources such as render targets and textures that are bound to materials that use these advanced features.
 
 Lights {#lights}
-=======================
+-----------------------
 
 The `naprenderadvanced` module includes a light system that can be used to create consistent lighting setups. Every light is derived from a [LightComponent](@ref nap::LightComponent) and can cast shadows using shadow maps. On initialization, each light component sets up its own light uniform data and registers itself with the service.
 
@@ -907,9 +907,11 @@ NAP currently offers the following light types:
 - [Directional](@ref nap::DirectionalLightComponent)
 - [Point](@ref nap::PointLightComponent)
 
-Check out the new [lightsandshadow](@ref nap::LightsAndShadowApp) demo for a complete demonstration of the light system.
+Check out the `lightsandshadow` demo for a complete demonstration of the light system:
 
-You can use the standard [BlinnPhongShader](@ref nap::BlinnPhongShader) to quickly render a lit object. It is also possible to write a custom [Shader](@ref nap::ShaderFromFile) that is compatible with the lighting system. For a guide to set this up, please refer to the [Custom Lights](@ref custom_lights) section below. Settings related to the material (such as color etc..) can be set by the user in Napkin. In the case of the blinn phong shader these include `ambient`, `diffuse` and `specular`. The maximum number of lights per scene is always limited to `getMaximumLightCount`, additional lights are ignored. 
+![lightsandshadow demo](@ref content/lights.jpg)
+
+You can use the standard [BlinnPhongColorShader](@ref nap::BlinnPhongColorShader) to quickly render a lit object. It is also possible to write a custom [Shader](@ref nap::ShaderFromFile) that is compatible with the lighting system. For a guide to set this up, please refer to the [Custom Lights](@ref custom_lights) section below. Settings related to the material (such as color etc..) can be set by the user in Napkin. In the case of the blinn phong shader these include `ambient`, `diffuse` and `specular`. The maximum number of lights per scene is always limited to `getMaximumLightCount`, additional lights are ignored. 
 
 Note that you **must** call [pushLights()](@ref nap::RenderAdvancedService::pushLights) manually to update all the light uniforms (location etc.) if you don't use shadows. 
 
@@ -944,10 +946,10 @@ if (!mRenderAdvancedService->pushLights(lit_comps, error_state))
 	nap::Logger::error(error_state.toString().c_str());
 ~~~~~~~~~~~~~~~
 
-For a complete demonstration of the light system, check out the new [lightsandshadow](@ref nap::LightsAndShadowApp) or [spotlight](@ref nap::SpotlightApp) demo.
+For a complete demonstration of the light system, check out the new `lightsandshadow` or `spotlight` demo.
 
 Custom Lights {#custom_lights}
-=======================
+-----------------------
 
 In order for shaders to be compatible with the light system they must include a specific uniform struct with the name `light`, and optionally `shadow` when shadows are supported. Make sure to enable the `GL_GOOGLE_include_directive` extension in your shader file to enable shader includes. Include the following files:
 
@@ -1003,8 +1005,10 @@ for (uint i = 0; i < min(lit.count, MAX_LIGHTS); i++)
 For a complete example of how to write a compatible shader for NAP's light system, refer to the `blinnphongcolor` shader in the `naprenderadvanced/data/shaders` folder. This also shows how to set up quad and omni shadow mapping.
 
 Cube Maps {#cube_maps}
-=======================
+-----------------------
 
-[CubeMapFromFile](@ref nap::CubeMapFromFile) takes an [equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) image as input and turns it into a [CubeMap](@ref nap::RenderTextureCube), which can be used to - for example - render a sky box using the [SkyBoxShader](@ref nap::SkyBoxShader) or add environmental reflections to objects using the [BlinnPhongShader](@ref nap::BlinnPhongShader), which has `environmentMap` and `reflection` inputs for this purpose. 
+[CubeMapFromFile](@ref nap::CubeMapFromFile) takes an [equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) image as input and turns it into a [CubeMap](@ref nap::RenderTextureCube), which can be used to - for example - render a sky box using the [SkyBoxShader](@ref nap::SkyBoxShader) or add environmental reflections to objects using the [BlinnPhongShader](@ref nap::BlinnPhongShader), which has `environmentMap` and `reflection` inputs for this purpose.
 
-Check out the [SkyBox](@ref nap::SkyBoxApp) demo to see how to work with cube maps.
+Check out the `SkyBox` demo to see how to work with cube maps:
+![skybox demo](@ref content/cubemap.jpg)
+
