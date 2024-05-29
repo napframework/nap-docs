@@ -189,7 +189,11 @@ Simple geometric shapes, inluding a [plane](@ref nap::PlaneMesh), [sphere](@ref 
 
 ###Custom Mesh C++ {#custom_mesh}
 
-You can define your own static or dynamic mesh in code. The `heightmap`, `videomodulation` and `dynamicgeo` demos show you how to approach this. In the following example we define a new dynamic mesh. On initialization the instance is created. For the mesh to behave and render correctly we add a set of attributes. In this case `position`, `uv`, `id` and `color`. The mesh contains no actual (initial) vertex data. The vertex data grows / shrinks over time based on the number of active particles in the scene. For a more complete example refer to the `dynamicgeo` demo.
+You can define your own static or dynamic mesh in code. The `heightmap`, `videomodulation` and `dynamicgeo` demos show you how to approach this:
+
+![heightmap demo](@ref content/heightmap.jpg)
+
+In the following example we define a new dynamic mesh. On initialization the instance is created. For the mesh to behave and render correctly we add a set of attributes. In this case `position`, `uv`, `id` and `color`. The mesh contains no actual (initial) vertex data. The vertex data grows / shrinks over time based on the number of active particles in the scene. For a more complete example refer to the `dynamicgeo` demo.
 
 ~~~~~~~~~~~~~~~{.cpp}
 class ParticleMesh : public IMesh
@@ -771,7 +775,11 @@ A `MaxLodLevel` level of 0 disables mip-mapping and is ignored when mip mapping 
 Windows {#multi_screen}
 =======================
 
-You can add as many windows to your application as you want. Take a look at the multi window demo for a working example. That demo spawns three windows and renders the same set of objects (in different configurations) to every one of them. In your application you have to activate the window you want to render to before issuing any draw commands. This is demonstrated in the example below:
+You can add as many windows to your application as you want. Take a look at the multi window demo for a working example. That demo spawns three windows and renders the same set of objects (in different configurations) to every one of them:
+
+![multiwindow demo](@ref content/multiwindow.jpg)
+
+In your application you have to activate the window you want to render to before issuing any draw commands. This is demonstrated in the example below:
 
 ~~~~~~~~~~~~~~~{.cpp}
 void MultiWindowApp::render()
@@ -849,6 +857,10 @@ void VideoModulationApp::render()
 
 All headless (non window) render operations need to be executed within the headless recording block. Alternatively you can use the [RenderToTextureComponent](@ref nap::RenderToTextureComponent). This component allows you to render to a texture directly in screen space, without the need to define a render target or mesh, and can be used to apply a 'post process' render step. The video modulation demo uses this component to convert the output of a video player into a greyscale texture.
 
+The videomodulation demo shows how to apply a grey-scale effect to a captured video frame using a render to texture component. The FX texture is used for vertex displacement:
+
+![videomodulation demo](@ref content/offscreen_video.jpg)
+
 Cameras {#cameras}
 =======================
 
@@ -859,7 +871,7 @@ NAP supports two camera types:
 
 With an orthographic camera the scene is rendered using a flat projection matrix. With an orthographic camera the scene is rendered using a perspective matrix. The world space location of a camera, provided using a [transform](@ref nap::TransformComponent), is used to compose the view matrix. The camera projection method is used to compose the projection matrix. Both are extracted by the renderer and forwarded to the shader. 
 
-Every camera therefore needs access to a transform component that is a sibling of the parent entity. For a working example take a look at the multi window demo. This demo renders a set of objects to different windows using a mix of cameras.
+Every camera therefore needs access to a transform component that is a sibling of the parent entity. For a working example take a look at the `multiwindow` demo. This demo renders a set of objects to different windows using a mix of cameras.
 
 Layers {#layers}
 =======================
