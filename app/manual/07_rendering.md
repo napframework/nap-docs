@@ -579,7 +579,7 @@ This material binds the `WorldTexture` resource to the `inTexture` sampler of th
 
 Buffers {#material_buffers}
 -----------------------
-A buffer on a material binds a [GPUBuffer](@ref nap::GPUBuffer) to a shader input. Buffers are 'large' data containers that can be read *and written* to in a shader. The GPU buffer is a stand-alone resource that you declare in Napkin (similar to a 2D Texture) that can be written to and doesn't impose a layout. They are flexible, low level, data structures that you can use for all sorts of purposes in your render and compute pipeline.
+A buffer on a material binds a [GPUBuffer](@ref nap::GPUBuffer) to a shader input. Buffers are 'large' data containers that can be *read and written* to in a shader. The GPU buffer is a stand-alone resource that you declare in Napkin (similar to a 2D Texture) that can be written to and doesn't impose a layout. They are flexible, low level, data structures that you can use for all sorts of purposes in your render and compute pipeline.
 
 There are various types of buffers, including simple [numeric buffers](@ref nap::GPUBufferNumeric), [vertex buffers](@ref nap::VertexBuffer), [index buffers](@ref nap::IndexBuffer) and [nested buffers](@ref nap::StructBuffer). The type of buffer, in combination with how it is configured, defines how it can be used in your application. You can, for example, use a [compute shader](@ref nap::ComputeShader) to update the contents of a vertex buffer, which is bound to the position attribute of your particle system when rendered. 
 
@@ -1019,7 +1019,7 @@ For a complete example of how to write a compatible shader for NAP's light syste
 Cube Maps {#cube_maps}
 -----------------------
 
-[CubeMapFromFile](@ref nap::CubeMapFromFile) takes an [equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) image as input and turns it into a [CubeMap](@ref nap::RenderTextureCube), which can be used to - for example - render a sky box using the [SkyBoxShader](@ref nap::SkyBoxShader) or add environmental reflections to objects using the [BlinnPhongShader](@ref nap::BlinnPhongShader), which has `environmentMap` and `reflection` inputs for this purpose.
+[CubeMapFromFile](@ref nap::CubeMapFromFile) takes an [equirectangular](https://en.wikipedia.org/wiki/Equirectangular_projection) image as input and turns it into a [CubeMap](@ref nap::RenderTextureCube), which can be used to - for example - render a sky box using the [SkyBoxShader](@ref nap::SkyBoxShader) or add environmental reflections to objects using the [BlinnPhongShader](@ref nap::BlinnPhongColorShader), which has `environmentMap` and `reflection` inputs for this purpose.
 
 Check out the `SkyBox` demo to see how to work with cube maps:
 ![skybox demo](@ref content/cubemap.jpg)
