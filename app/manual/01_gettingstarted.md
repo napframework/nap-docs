@@ -178,9 +178,7 @@ In the inspector panel click on the icon next to `Shader` and select the `CubeSh
 
 #### Bind Color {#bind_cube_color}
 
-Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. Expand the new item and change the `Name` to *UBO*. Right-click on the `Uniforms` property of the new struct and add a `nap::UniformVec3` to it. Expand the new item and change the `Name` to *color* and the `Value` to *1 1 1* (white).
-
-You just set the (default) color of the cube to white by creating a binding in the material that targets the `UBO.color` uniform in the shader:
+Right-click on `Uniforms` in the inspector panel and add a `nap::UniformStruct` to it. From the popup menu, choose `UBO`, then navigate to the `color` uniform that was added. Set its value to *1 1 1*. By doing this, you have set the default color of the cube to white by creating a binding in the material that targets the `UBO.color` uniform in the shader:
 
 ~~~{cpp}
 // uniform buffer inputs
@@ -192,9 +190,7 @@ uniform UBO
 
 #### Bind Texture {#bind_cube_texture}
 
-Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D`. Change the `Name` of the new sampler to *inTexture*. Now click on the icon next to `Texture` and select the `CubeTexture` in the popup.
-
-You just set the (default) texture of the cube to `CubeTexture` by creating a binding in the material that targets the `inTexture` sampler in the shader:
+Right-click on `Samplers` in the inspector panel and add a `nap::Sampler2D` to it. From the popup menu, choose `inTexture` and expand the newly inserted item. Now click on the icon next to `Texture` and select the `CubeTexture` in the popup. By doing this, you set the default texture of the cube to `CubeTexture` by creating a binding in the material that targets the `inTexture` sampler in the shader.
 
 ~~~{cpp}
 // unfiorm sampler inputs 
