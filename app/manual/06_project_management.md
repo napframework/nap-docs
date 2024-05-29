@@ -7,7 +7,7 @@ Project Management {#project_management}
     *   [Configure](@ref app_config)
         *   [Application Module](@ref app_module)
         *   [External Modules](@ref app_config_modules)
-    *	[Package](@ref app_package)
+    *	[Package](@ref app_package_release)
 *   [User Module](@ref user_module) 
     *   [Install](@ref user_module_installation)
         *   [From Zip](@ref user_module_installation_zip)
@@ -92,7 +92,7 @@ You can add external modules to your application by modifying the `RequiredModul
 
 **Run `./regenerate.sh` inside your application folder to update the solution. Always run this script after making changes to `app.json` or `module.json`**
 
-## Package Application For Release {#app_package}
+## Package Application For Release {#app_package_release}
 
 Run `./package.sh` to compile and install a *release* build of your application into a distributable package. The self-contained package contains everything that your app needs to run stand-alone when extracted (except system libraries), including: 
 
@@ -188,9 +188,6 @@ A target that links to a NAP module, that depends on a third-party dynamic libra
 "LibrarySearchPaths": {
     "Linux": [
         "{ROOT}/system_modules/napfont/thirdparty/freetype/linux/{BUILD_ARCH}/lib"
-    ],
-    "macOS": [
-        "{ROOT}/system_modules/napfont/thirdparty/freetype/macos/{BUILD_ARCH}/lib"
     ]
 }
 ```
@@ -378,7 +375,7 @@ So what did we do here? [find_package](https://cmake.org/cmake/help/latest/comma
 Note that on Unix based systems you must install the `libfoo` library into the `lib` directory when your application is packaged. To do that append the following to `module_extra.cmake` :
 ```
 if(UNIX)
-    # Install libfoo into lib directory in packaged application on macOS and Linux
+    # Install libfoo into lib directory in packaged application on Linux
     install(FILES $<TARGET_FILE:libfoo> DESTINATION lib)
 endif()
 ``` 

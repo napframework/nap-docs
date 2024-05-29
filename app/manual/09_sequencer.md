@@ -196,7 +196,7 @@ The [independent clock](@ref nap::SequencePlayerIndependentClock) launches its o
 ## Audio Clock {#audio_clock}
 The update cycle is called on the audio thread of NAPs audio engine. Amount of update calls is dependent on audio buffer size and sample rate. For example, a buffer size of 1024 and sample rate of 44100 samples means 44100 / 1024 = 43.06640625 calls per second. To increase the number of update calls per second make the buffer size smaller. The [audio clock](@ref nap::SequencePlayerAudioClock) must be used when using an [audio track](@ref nap::SequenceTrackAudio) type in the sequencer.
 
-To change the buffer size and/or samplerate used by the [audio service](@ref nap::audio::AudioService), see [audio service configuration](@ref nap::audio::AudioServiceConfiguration). The following example creates a sequence player that uses an audio clock for playback.
+To change the buffer size and/or samplerate used by the [audio service](@ref nap::audio::AudioService), see [audio service configuration](@ref nap::audio::PortAudioServiceConfiguration). The following example creates a sequence player that uses an audio clock for playback.
 
 ```
 {
