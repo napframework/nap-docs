@@ -876,10 +876,9 @@ Every camera therefore needs access to a transform component that is a sibling o
 Layers {#layers}
 =======================
 
-
 [Render layers](@ref nap::RenderLayer) allow you to group render components and set the sequence in which they are rendered. These layers are organized and prioritized in a [RenderChain](@ref nap::RenderChain), where a layer's position in the list specifies its `rank`: 0 is the frontmost position (rendered first), and the last index is the rearmost. Components without an assigned layer automatically default to the front (index 0).
 
-One useful approach for layers is rendering a sky box or some other object that fills the background. This should always be rendered first, regardless of its location in the world. To do this, you can create a layer named `Background` last index in the registry and assign it to the component that renders the background. Other objects in the scene can be assigned to the layer "Default" on index 0 and will be sorted routinely based on the specified sorting algorithm.
+One useful approach for layers is to render a skybox or another background-filling object first, regardless of its position in the world. To achieve this, add a layer to the render chain named `Background` (rank 0) and assign it to the component responsible for rendering the background. Then, assign all other objects in the scene to the subsequent layer called `Scene` (rank 1). This setup ensures that the background is rendered before any other objects in your scene. Note that all objects in a layer are still sorted based on the assigned blend mode.
 
 Tags {#tags}
 =======================
