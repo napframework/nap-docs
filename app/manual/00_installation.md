@@ -47,7 +47,7 @@ Download and install <a href="https://visualstudio.microsoft.com/downloads/" tar
 
 ## Desktop {#linux_desktop}
 
-NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04 & 22.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu 20.04 or 22.04` is currently the only supported Linux desktop environment.
+NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04, 22.04 & 24.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu` is currently the only supported Linux desktop environment.
 
 ## Raspberry Pi {#linux_pi}
 
@@ -82,7 +82,7 @@ Alternatively you can follow the steps below to install the dependencies, howeve
 
 1. Run the following to install the dependencies via apt:
 ```
-apt-get install build-essential patchelf libglu1-mesa-dev
+apt-get install build-essential patchelf libglu1-mesa-dev mesa-vulkan-drivers libxcb-xinerama0 libjack0
 ```
 
 ## Run Your First Demo {#run_demo_linux}
