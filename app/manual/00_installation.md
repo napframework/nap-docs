@@ -9,9 +9,7 @@ Installation {#install}
 *	[Linux](@ref linux) 
 	*	[Desktop](@ref linux_desktop)
 	*	[Raspberry Pi](@ref linux_pi)
-		*	[Install the Vulkan Driver](@ref install_vulkan_driver)
 	*	[Setup Your Build Environment](@ref setup_build_env_linux)
-		*	[Manual Dependency Installation](@ref setup_manual_linux)
 	*	[Run Your First Demo](@ref run_demo_linux)
 
 # Overview {#build_env_overview}
@@ -47,21 +45,11 @@ Download and install <a href="https://visualstudio.microsoft.com/downloads/" tar
 
 ## Desktop {#linux_desktop}
 
-NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 20.04, 22.04 & 24.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu` is currently the only supported Linux desktop environment.
+NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 22.04 & 24.04` on `x86-64` machines using `GCC`. Although NAP is known to run on other distros: `Ubuntu` is currently the only supported Linux desktop environment.
 
 ## Raspberry Pi {#linux_pi}
 
-Only the `Raspberry Pi 4` running `Raspbian Bullseye (v11, armhf)` is 'fully' supported. Headless applications and services without graphics should run on older models, although this has not been tested. The editor (napkin) only works on the Raspberry Pi 4.
-
-### Install the Vulkan Driver {#install_vulkan_driver}
-
-Please note that the current `V3DV driver` in the `Raspbian Bullseye Repository` is tagged as experimental and should not be considered production ready. Although most demos work fine, we did run into minor render issues, most notably with the `heightmap` and `computeflocking` demos. Using a more recent (upstream) driver improved overall performance and resolved most known render issues.
-
-- Run the following command to install the driver from the Raspbian Repository 
-```
-sudo apt install mesa-vulkan-drivers
-```
-- Or compile and install the latest [Mesa driver](https://mesa3d.org/) from source
+Only the `Raspberry Pi 4 & 5` running `Raspbian bookworm (v12, arm64)` is 'fully' supported. Headless applications and services without graphics should run on older models, although this has not been tested. Please note that although most demos work fine, we did run into minor render issues with the `heightmap` and `computeflocking` demos. Using a more recent (upstream) driver improved overall performance and resolved most known render issues.
 
 ## Setup Your Build Environment {#setup_build_env_linux}
 
@@ -76,32 +64,18 @@ cd NAP-0.*
 ```
 3. If any changes are required re-run `check_build_environment` after those changes have been made to verify the final environment
 
-### Manual Dependency Installation {#setup_manual_linux}
-
-Alternatively you can follow the steps below to install the dependencies, however we still recommend running `check_build_environment` afterwards to verify your build environment.
-
-1. Run the following to install the dependencies via apt:
-```
-apt-get install build-essential patchelf libglu1-mesa-dev mesa-vulkan-drivers libxcb-xinerama0 libjack0
-```
-
 ## Run Your First Demo {#run_demo_linux}
 
 1. Navigate to the helloworld demo
 ```
 cd demos/helloworld
 ```
-2. Generate the Unix makefiles
+2. Generate the Unix makefiles and build the solution
 ```
-./regenerate
+./build.sh
 ```
-3. Build the solution
+3. Run the demo
 ```
-cd build_dir
-make
-```
-4. Run the demo
-```
-cd ../bin/GNU-Release-*
+cd bin/GNU-Release-*
 ./helloworld
 ```
