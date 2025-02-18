@@ -20,15 +20,15 @@ The prerequisites installation script is called `check_build_environment` and ca
 
 # Development Environments {#ides}
 
-NAP $(NAP_VERSION_FULL) supports `Visual Studio 2019 (v142)` on Windows and `make files` on Linux. Instead of using these environments you can use [Visual Studio Code](https://code.visualstudio.com/) or [CLion](https://www.jetbrains.com/clion) to author your code. Although we don't officially support these environments others have confirmed that they work as expected. Both `Visual Studio Code` and `CLion` can be configured using CMake, which is the system NAP uses to build and package applications.
+NAP $(NAP_VERSION_FULL) supports `Visual Studio 2019 & 2022` on Windows and `make files` on Linux. Instead of using these environments you can use [Visual Studio Code](https://code.visualstudio.com/) or [CLion](https://www.jetbrains.com/clion) to author your code. Although we don't officially support these environments others have confirmed that they work as expected. Both `Visual Studio Code` and `CLion` can be configured using CMake, which is the system NAP uses to build and package applications.
 
 # Windows {#win64}
 
 ## Setup Your Build Environment {#setup_build_env_win64}
 
-NAP $(NAP_VERSION_FULL) supports `Windows 10 & 11 (x86_64)` with `Visual Studio 2019 (v142)`. Other versions of Visual Studio are not supported at this moment.
+NAP $(NAP_VERSION_FULL) supports `Windows 10 & 11 (x86_64)` with `Visual Studio 2019 or 2022`.
 
-Download and install <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio 2019</a>. This link points to the community edition which can be used for free. Make sure to select `Desktop development with C++` when installing Visual Studio, including `MSVC v142 - VS 2019 C++ x64/x86` and the `Windows 10 SDK`. Other settings are optional. Download and install the <a href=https://www.microsoft.com/en-us/download/details.aspx?id=40784 target="_blank">Visual C++ 2013 Redistributable (x64)</a>.
+Download and install <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio 2022</a>. This link points to the community edition which can be used for free. Make sure to select `Desktop development with C++` when installing Visual Studio, including `MSVC v143 - VS 2022 C++ x64/x86` and the `Windows 10 SDK`. Other settings are optional.
 
 1. Extract `NAP-$(NAP_VERSION_FULL)-Win64-x86_64.zip` using Explorer (or your preferred tool)
 2. In `NAP-$(NAP_VERSION_FULL)-Win64-x86_64\tools` run `check_build_environment.bat` to guide you through installing prerequisites, following the instructions

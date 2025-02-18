@@ -10,7 +10,7 @@ NAP Framework ships with many useful modules, including: a `Vulkan 2D/3D` render
 NAP also has built in support for many common protocols and standards, including: WebSocket, MIDI, OSC, Artnet, Serial, EtherCAT, OpenCV, SQLite and many others. NAP has been battle tested in production for years. For more information about NAP, how it is commonly used and what it can do for you, visit the [nap-framework.tech](https://nap-framework.tech) website.
 
 <br>
-![NAP Framework Editor (Napkin)](@ref content/nap_interface.jpg)
+![NAP Framework Editor (Napkin)](@ref content/nap_interface.png)
 
 ### Philosophy
 
