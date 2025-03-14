@@ -65,7 +65,7 @@ tar jxvf NAP-0.*.tar.bz2
 2. Run the `check_build_environment` script to guide you through installing prerequisites, following the instructions:
 ```
 cd NAP-0.*
-./tools/check_build_environment
+./tools/check_build_environment.sh
 ```
 3. If any changes are required re-run `check_build_environment` after those changes have been made to verify the final environment
 
