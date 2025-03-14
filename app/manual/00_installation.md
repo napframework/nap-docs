@@ -54,7 +54,7 @@ Only the `Raspberry Pi 4 & 5` running `Raspbian bookworm (v12, arm64)` is 'fully
 
 ## Display Server {#linux_ds}
 
-When `Wayland` is configured as the display server, NAP applications and Napkin (the editor) will rely on `XWayland` for compatibility. It is recommended to use `X11` instead of Wayland until Wayland is (fully) supported.
+When `Wayland` is configured as the display server, NAP applications will rely on `XWayland` for compatibility. It is recommended to use `X11` instead of Wayland until Wayland is fully supported.
 
 ## Setup Your Build Environment {#setup_build_env_linux}
 
