@@ -9,6 +9,7 @@ Installation {#install}
 *	[Linux](@ref linux) 
 	*	[Desktop](@ref linux_desktop)
 	*	[Raspberry Pi](@ref linux_pi)
+	*	[Display Server](@ref linux_ds)
 	*	[Setup Your Build Environment](@ref setup_build_env_linux)
 	*	[Run Your First Demo](@ref run_demo_linux)
 
@@ -50,6 +51,10 @@ NAP $(NAP_VERSION_FULL) supports `Ubuntu Linux 22.04 & 24.04` on `x86-64` machin
 ## Raspberry Pi {#linux_pi}
 
 Only the `Raspberry Pi 4 & 5` running `Raspbian bookworm (v12, arm64)` is 'fully' supported. Headless applications and services without graphics should run on older models, although this has not been tested. Please note that although most demos work fine, we did run into minor render issues with the `heightmap` and `computeflocking` demos. Using a more recent (upstream) driver improved overall performance and resolved most known render issues.
+
+## Display Server {#linux_ds}
+
+When `Wayland` is configured as the display server, NAP applications and Napkin (the editor) will rely on `XWayland` for compatibility. It is recommended to use `X11` instead of Wayland until Wayland is (fully) supported.
 
 ## Setup Your Build Environment {#setup_build_env_linux}
 
