@@ -15,7 +15,7 @@ Installation {#install}
 
 # Overview {#build_env_overview}
 
-Installing the NAP release involves extracting the archive and running our script to guide you through dependency installation. Projects reside within the framework folder structure, and as such we recommend extracting the release into a user directory instead of a system directory. For example on Windows something like `My Documents` is a more suitable location than `C:\\Program Files.`
+Installing the NAP release involves extracting the archive and running our script to guide you through dependency installation. Projects reside within the framework folder structure, and as such we recommend extracting the release into a user directory instead of a system directory. For example on Windows something like `Documents` is a more suitable location than `C:\\Program Files.`
 
 The prerequisites installation script is called `check_build_environment` and can be found in the tools directory within the release.  The script attempts to verify that your build environment is ready for NAP and is designed to be re-run until all checks are successfully passed.
 
