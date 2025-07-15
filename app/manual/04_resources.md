@@ -268,9 +268,7 @@ So what are the advantages of using a struct? A struct is a lightweight object t
 
 In all other cases: define it as a class. But what is the difference between a class and resource? A resource is a stand-alone building block that can be declared independent of others, as a top level object, in data. It must carry an identifier and is initialized and resolved by NAP after construction. Every typeof resource must be derived from [Resource](@ref nap::Resource).
 
-On the other hand, classes and structs that are not a resource can't be declared independent of other objects. They must and a parent and won't be initialized or resolved.  
-
-Classes (and structs) that are not a Resource can't be declared independent of other objects. They must have a parent and won't be initialized or resolved. You can only use these objects as an [embedded object](@ref embedding_objects). Only when a class is derived from a Resource is it considered to be a resource to the system.
+On the other hand, classes and structs that are not a resource can't be declared independent of other objects. They must have a parent and won't be initialized or resolved by the resource manager.  
 
 This might sound confusing but try to follow these rules: Do I need to author my class or struct in Napkin?
 - Yes
