@@ -264,13 +264,13 @@ Each message has a Log Level attached that will indicate its severity:
 
 Use the filter to find specific messages. The dropdown on the top-right of this panel allows you to show or hide messages based on their level, in order of importance. `warning` is more important than `debug`. If a message pops up that has been underlined, you can double `RMB` it to reveal the object or property that message is saying something about.
 
-![](@ref content/napkin-panel-instance-props.png)
-
-Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resources panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
-
 Instance Properties {#instance_properties}
 -----------------------
 Shows all component instance property overrides.
+
+![](@ref content/napkin-panel-instance-props.png)
+
+Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resources panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
 
 Curve {#napkin_curve}
 -----------------------
