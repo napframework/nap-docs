@@ -12,11 +12,11 @@ Editor {#napkin}
 	* [Configuration](@ref napkin_configuration)
 	* [Apprunner](@ref napkin_apprunner)
 	* [Inspector](@ref napkin_inspector)
-	* [Modules](@ref napkin_modules)
 	* [Mesh Preview](@ref napkin_mesh_preview)
 	* [Texture Preview](@ref napkin_texture_preview)
-	* [Instance Properties](@ref instance_properties)
+	* [Modules](@ref napkin_modules)
 	* [Log](@ref napkin_log)
+	* [Instance Properties](@ref instance_properties)
 	* [Curve](@ref napkin_curve)
 
 What is Napkin? {#what_is_napkin}
@@ -49,7 +49,7 @@ Opening a Project {#napkin_project_management}
 -----------------------
 
 To open a project:
-- `Project > Open Project...`<br>
+- `Project > Open Project...` or `CTRP + P`<br>
 
 Use the file browser to select the project you want to load. The project is a `.json` file with the name: `app.json`. The `app.json` file points to a `Data` and `ServiceConfig` file. Both documents can be edited by napkin. The `Data` file contains application content, the [ServiceConfig](@ref service_config) file contains application configuration settings.
 
@@ -187,6 +187,91 @@ Allows you to start / stop the application you are working on.
 
 If your application logs object names in the proper format, you can double-click log messages with that link in the log panel and it will highlight the appropriate object/property in the editor.  
  
+Inspector {#napkin_inspector}
+-----------------------
+This panel shows the **properties** for the currently selected object.
+
+![](@ref content/napkin-panel-inspector.png)
+
+- If an object is selected in the `Resources` panel you are editing the default (shared) properties
+- If an object is selected in the `Scene` panel you are editing unique instance properties
+- If an object is selected in the `Configuration` panel you are editing service configuration properties
+
+Most properties are changed by typing in a new value in the `value` column. Some values like `Pointers` provide a button next to the field that allows you to select the target object. File properties have their own button that shows a file selection dialog in which you can select the file.
+
+Mesh Preview {#napkin_mesh_preview}
+-----------------------
+Allows you to inspect a mesh in 3D, including all of it's properties such as: light information, triangle count, available vertex attributes, connectivity, topology, bounds etc. Every type of mesh is supported, including triangular and non-triangular meshes like the [nap::Circle](@ref nap::Circle) and [nap::Line](@ref nap::Line).
+
+![](@ref content/napkin-panel-mesh-preview.png)
+
+To load a mesh resource:
+
+- Select a [mesh](@ref nap::IMesh) in the resources panel.
+- `RMB` on the mesh and select `Load into Mesh Preview`
+
+Resources that are a [mesh](@ref nap::IMesh) are eligable. Loading happens on a different thread, independent from the editor. If the load operation fails an error is reported in the [log panel](@ref napkin_log). Property changes that you make to the loaded mesh are reflected in the mesh preview panel. This allows you to inspect the mesh using different settings, without the need to re-load your application. A quick way to test this is to change the `Polygon Mode` of a loaded mesh.
+
+NAP ships with many meshes, including primtive 3D shapes such a [box](@ref nap::BoxMesh), [sphere](@ref nap::SphereMesh), [plane](@ref nap::PlaneMesh) and [torus](@ref nap::TorusMesh). For testing and / or shading purposes you can use a [humanoid](@ref nap::HumanoidMesh), [toy](@ref nap::ToyMesh), [shader ball](@ref nap::ShaderBallMesh) and [lucy](@ref nap::LucyMesh) mesh. Simple polygon shapes are available in the form of a [line](@ref nap::Line), [circle](@ref nap::Circle), [rectangle](@ref nap::Rectangle) etc. To load your own mesh, use a [geometry from file](@ref nap::GeometryFromFile) or [mesh from file](nap::MeshFromFile) resource. More about meshes can be found in the [render documentation](@ref rendering).
+
+
+Texture Preview {#napkin_texture_preview}
+-----------------------
+Allows you to inspect a 2D texture and cubemap in 2D *and* 3D, including all of it's properties such as: resolution, channels, bit depth etc. Every type of 2D texture and cubemap is supported, including the [nap::ImageFromFile](@ref nap::ImageFromFile) and [nap::CubeMapFromFile](@ref nap::CubeMapFromFile).
+
+![](@ref content/napkin-panel-texture-preview.png)
+
+To load a 2D texture resource:
+
+- Select a [2D texture](@ref nap::Texture2D) in the resources panel.
+- `RMB` on the texture and select `Load into Texture Preview`.
+
+![](@ref content/napkin-panel-cubemap-preview.png)
+
+To load a cubemap resource:
+
+- Select a [cubemap](@ref nap::TextureCube) in the resources panel.
+- `RMB` on the cubemap and select `Load into Texture Preview`.
+
+Resources that are a [2D texture](@ref nap::Texture2D) or [cubemap](@ref nap::TexturCube) are eligable. Loading happens on a different thread, independent from the editor. If the load operation fails an error is reported in the [log panel](@ref napkin_log). Property changes that you make to the loaded texture are reflected in the texture preview panel. This allows you to inspect the texture using different settings, without the need to re-load your application. A quick way to test this is to change the `Width` and `Height` of a loaded cubemap.
+
+NAP ships with a couple of 2D textures and cubemaps for testing purposes, including the [uv test texture](@ref nap::UVTestTexture), [test cube map](@ref nap::TestCubeMap) and [sunset cube map](@ref nap::SunsetCubeMap). To load your own texture, use an [image from file](@ref nap::ImageFromFile) or [cubemap from file](@ref nap::CubeMapFromFile) resource.
+
+You can bind the loaded texture to a custom mesh, to do so:
+
+- Select a [mesh](@ref nap::IMesh) in the resources panel.
+- `RMB` on the mesh and select `Load into Texture Preview`
+
+When a texture is loaded, the preview will attempt to load the mesh and apply it. However, the mesh must include a valid uv vertex attribute; otherwise, the texture cannot be applied, the operation will fail, and an error will be logged.
+
+Modules {#napkin_modules}
+-----------------------
+Shows all currently loaded modules by Napkin. The modules expose all available components and resources to Napkin and the running application.
+
+![](@ref content/napkin-panel-modules.png)
+
+Log {#napkin_log}
+-----------------------
+
+Shows Napkin related messages. If you're [running your application from Napkin](@ref napkin_apprunner) the output will be shown in this window too.
+![](@ref content/napkin-panel-log.png)
+
+Each message has a Log Level attached that will indicate its severity:
+	- `fine` and `debug` messages are usually not that interesting and will not be shown by default, they're mostly for figuring out the more specific details of your application and the editor.<br>
+	- `info` messages communicate a notable state change in the editor or your application.
+	- `warning` indicates you should probably look what is being said.
+	- `fatal` means something is not right and are very useful for discovering why something doesn't work.
+
+Use the filter to find specific messages. The dropdown on the top-right of this panel allows you to show or hide messages based on their level, in order of importance. `warning` is more important than `debug`. If a message pops up that has been underlined, you can double `RMB` it to reveal the object or property that message is saying something about.
+
+![](@ref content/napkin-panel-instance-props.png)
+
+Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resources panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
+
+Instance Properties {#instance_properties}
+-----------------------
+Shows all component instance property overrides.
+
 Curve {#napkin_curve}
 -----------------------
 
@@ -212,89 +297,3 @@ Controls:
 - Tangent handles can be "broken" for discontinuous curves or "aligned" for c2 continuous curves.
 
 Because of the one-dimensional evaluation nature of function curves, the editor will keep you from creating curves with "overhang" (ie. curves that have multiple solutions). In order to do so, the effective distance of the tangent handles will be limited.   
- 
-Inspector {#napkin_inspector}
------------------------
-This panel shows the **properties** for the currently selected object.
-
-![](@ref content/napkin-panel-inspector.png)
-
-- If an object is selected in the `Resources` panel you are editing the default (shared) properties
-- If an object is selected in the `Scene` panel you are editing unique instance properties
-- If an object is selected in the `Configuration` panel you are editing service configuration properties
-
-Most properties are changed by typing in a new value in the `value` column. Some values like `Pointers` provide a button next to the field that allows you to select the target object. File properties have their own button that shows a file selection dialog in which you can select the file.
-
-Modules {#napkin_modules}
------------------------
-Shows all currently loaded modules by Napkin. The modules expose all available components and resources to Napkin and the running application.
-
-Mesh Preview {#napkin_mesh_preview}
------------------------
-Allows you to inspect a mesh in 3D, including all of it's properties such as: light information, triangle count, available vertex attributes, connectivity, topology, bounds etc. Every type of mesh is supported, including triangular and non-triangular meshes like the [nap::Circle](@ref nap::Circle) and [nap::Line](@ref nap::Line).
-
-![](@ref content/napkin-panel-mesh-preview.png)
-
-To load a mesh resource:
-
-- Select a [mesh](@ref nap::IMesh) in the resources panel.
-- `RMB` on the mesh and select `Load into Mesh Preview`
-
-Resources that are a [mesh](@ref nap::IMesh) are eligable. Loading happens on a different thread, independent from the editor. If the load operation fails an error is reported in the [log panel](@ref napkin_log). Property changes that you make to the *loaded* mesh are reflected in the mesh preview panel. This allows you to inspect the mesh using different settings, without the need to re-load your application. A quick way to test this is to change the `Polygon Mode` of a loaded mesh.
-
-NAP ships with many meshes, including primtive 3D shapes such a [box](@ref nap::BoxMesh), [sphere](@ref nap::SphereMesh), [plane](@ref nap::PlaneMesh) and [torus](@ref nap::TorusMesh). For testing and / or shading purposes you can use a [humanoid](@ref nap::HumanoidMesh), [toy](@ref nap::ToyMesh), [shader ball](@ref nap::ShaderBallMesh) and [lucy](@ref nap::LucyMesh) mesh. Simple polygon shapes are available in the form of a [line](@ref nap::Line), [circle](@ref nap::Circle), [rectangle](@ref nap::Rectangle) etc. To load your own mesh, use a [geometry from file](@ref nap::GeometryFromFile) or [mesh from file](nap::MeshFromFile) resource. More about meshes can be found in the [render documentation](@ref rendering).
-
-
-Texture Preview {#napkin_mesh_preview}
------------------------
-Allows you to inspect a 2D texture and cubemap in 2D *and* 3D, including all of it's properties such as: resolution, channels, bit depth etc. Every type of 2D texture and cubemap is supported, including the [nap::ImageFromFile](@ref nap::ImageFromFile) and [nap::CubeMapFromFile](@ref nap::CubeMapFromFile).
-
-![](@ref content/napkin-panel-texture-preview.png)
-
-To load a 2D texture resource:
-
-- Select a [2D texture](@ref nap::Texture2D) in the resources panel.
-- `RMB` on the texture and select `Load into Texture Preview`.
-
-![](@ref content/napkin-panel-cubemap-preview.png)
-
-To load a cubemap resource:
-
-- Select a [cubemap](@ref nap::TextureCube) in the resources panel.
-- `RMB` on the cubemap and select `Load into Texture Preview`.
-
-Resources that are a [2D texture](@ref nap::Texture2D) or [cubemap](@ref nap::TexturCube) are eligable. Loading happens on a different thread, independent from the editor. If the load operation fails an error is reported in the [log panel](@ref napkin_log). Property changes that you make to the *loaded* texture are reflected in the texture preview panel. This allows you to inspect the texture using different settings, without the need to re-load your application. A quick way to test this is to change the `Width` and `Height` of a loaded cubemap.
-
-NAP ships with a couple of 2D textures and cubemaps for testing purposes, including the [uv test texture](@ref nap::UVTestTexture), [test cube map](@ref nap::TestCubeMap) and [sunset cube map](@ref nap::SunsetCubeMap). To load your own texture, use an [image from file](@ref nap::ImageFromFile) or [cubemap from file](@ref nap::CubeMapFromFile) resource.
-
-You can apply the loaded texture to a custom mesh, to do so:
-
-- Select a [mesh](@ref nap::IMesh) in the resources panel.
-- `RMB` on the mesh and select `Load into Texture Preview`
-
-When a texture is loaded, the preview will attempt to load the mesh and apply it. However, the mesh must include a valid uv vertex attribute; otherwise, the texture cannot be applied, the operation will fail, and an error will be logged.
-
-Instance Properties {#instance_properties}
------------------------
-Shows all component instance property overrides.
-
-![](@ref content/napkin-panel-modules.png)
-
-Log {#napkin_log}
------------------------
-
-Shows Napkin related messages. If you're [running your application from Napkin](@ref napkin_apprunner) the output will be shown in this window too.
-![](@ref content/napkin-panel-log.png)
-
-Each message has a Log Level attached that will indicate its severity:
-	- `fine` and `debug` messages are usually not that interesting and will not be shown by default, they're mostly for figuring out the more specific details of your application and the editor.<br>
-	- `info` messages communicate a notable state change in the editor or your application.
-	- `warning` indicates you should probably look what is being said.
-	- `fatal` means something is not right and are very useful for discovering why something doesn't work.
-
-Use the filter to find specific messages. The dropdown on the top-right of this panel allows you to show or hide messages based on their level, in order of importance. `warning` is more important than `debug`. If a message pops up that has been underlined, you can double `RMB` it to reveal the object or property that message is saying something about.
-
-![](@ref content/napkin-panel-instance-props.png)
-
-Napkin allows you to edit resource properties and instance properties. Instance properties are unique per instance where resource properties are shared by all instances. Only properties of a component can be overridden per instance because a component is instantiated, together with the entity the component belongs to. Select a resource in the resources panel to edit shared properties. Select a component in the scene panel to edit unique properties. 
-
