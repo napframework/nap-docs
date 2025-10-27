@@ -25,9 +25,9 @@ NAP has 3 distinct stages (or levels):
 
 # Why so many stages? {#why_levels}
 
-Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you least expect it! 
+Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you most need it! 
 
-As we know, software is always in a state of flux and maybe broken, unsupported or different 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on operating systems and versions. 
+As we know, software is always in a state of flux and maybe broken, unsupported or different 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on different operating systems. 
 
 It is also an easy way to share the project with other developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
 
