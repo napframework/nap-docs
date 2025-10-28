@@ -36,7 +36,7 @@ It is also a convenient way to share the project with external developers, witho
 
 # Is NAP difficult to learn? {#difficult_learn}
 
-Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. That said; the people that like it often end up loving it. But those who do enjoy it often become really passionate about it.
+Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. But those who do enjoy it often become really passionate about it.
 
 With that out of the way; C++ already isn't the easiest language and concepts like [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information), which are essential to how the editor and framework operate, can be especially challenging if you're new to these ideas. But once you grasp them, you’ll be rewarded with unmatched flexibility, speed, and modularity; transforming your intricate ideas into powerful tools or instruments.
 
