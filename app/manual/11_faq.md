@@ -28,15 +28,15 @@ NAP has 3 distinct stages (or levels):
 
 # Why so many stages? {#why_stages}
 
-Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework - including user modules - your application is developed against, which turns out to be very convenient when you *most* need it! You can choose to include the source code of your application, for easy distribution and runtime guarantees.
+Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you *most* need it! You can choose to include the source code of your application, for easy distribution and runtime guarantees.
 
-As we know, software is always in a state of flux and maybe broken, unsupported or incompatible 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on different operating systems. 
+As we know, software is always in a state of flux and is likely unsupported, incompatible or broken 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on different operating systems. 
 
 It is also a convenient way to share the project with external developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
 
 # Is NAP difficult to learn? {#difficult_learn}
 
-Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. That said; the people that like it often end up loving it.
+Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. That said; the people that like it often end up loving it. But those who do enjoy it often become really passionate about it.
 
 With that out of the way; C++ already isn't the easiest language and concepts like [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information), which are essential to how the editor and framework operate, can be especially challenging if you're new to these ideas. But once you grasp them, you’ll be rewarded with unmatched flexibility, speed, and modularity; transforming your intricate ideas into powerful tools or instruments.
 
