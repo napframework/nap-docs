@@ -83,31 +83,31 @@ That's it! The resource manager does something similar, although it assigns the 
 Yes you can, although less common but sometimes very useful. First you need to create a scene (resource) that can spawn, hold and update your entity resources:
 
 ~~~~~~~~~~~~~~~{.cpp}
-# Create the scene
+// Create the scene
 auto scene = std::make_unique<nap::Scene>(core);
 scene->mID = "MyScene";
 
-# Initialize the scene
+// Initialize the scene
 if (!scene->init(error))
     return false;
 
-# Store it
+// Store it
 mScene = std::move(scene);
 ~~~~~~~~~~~~~~~
 
 Next you create the entity to spawn including all of it's components, for example:
 
 ~~~~~~~~~~~~~~~{.cpp}
-# Create the entity resource
+// Create the entity resource
 auto entity = std::make_unique<nap::Entity>(core);
 entity->mID = "MyEntity";
 
-# Create and add a transform component
+// Create and add a transform component
 auto xform =  std::make_unique<nap::TransformComponent>()
 xform->mID = "MyTransform";
 entity->mComponents.emplace_back(xform.get());
 
-# Spawn it!
+// Spawn it!
 auto entity_instance = mScene->spawn(*entity, error);
 if(entity_instance == nullptr)
     return false;
