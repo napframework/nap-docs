@@ -9,6 +9,7 @@ FAQ {#faq}
 *   [Can I create resources at runtime?](@ref runtime_resources)
 *   [Can I spawn entities at runtime?](@ref runtime_entities)
 *   [What is the order of processing?](@ref processing_order)
+*   [Where to start with Vulkan in NAP?](@ref vulkan_nap)
 
 # Where should I start? {#start}
 
@@ -124,5 +125,6 @@ Components receive an `update()` call every frame in the **order of declaration*
 
 Root entities are updated in no particular order. Child entities are updated in the **order of declaration**.
 
+# Where to start with Vulkan in NAP? {#vulkan_nap}
 
-
+If you have experience with OpenGL and want to get started with Vulkan in NAP, I recommend reading our [OpenGL to VUlkan](https://blog.nap-labs.tech/d0/dfd/md_articles_001_nap_opengl_to_vulkan) transition blog. That article explains how and why we ported our engine from OpenGL to Vulkan, and the impact this had on performance and portability. If you're not comfortable with real-time 3D Graphics yet, it's better to start with the basics; a good book and after that some code. This will make it much easier to understand Vulkan-related code in NAP Framework; why it's there and what it does. I’ve also hosted a number of NAP rendering workshops over the years, a collection of the slides can be found [here](https://blog.nap-labs.tech/d3/dd0/md_articles_006_nap_render_workshop).
