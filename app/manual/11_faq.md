@@ -4,10 +4,11 @@ FAQ {#faq}
 *	[Where should I start?](@ref start)
 *   [What are the various stages?](@ref stages)
 *   [Why so many stages?](@ref why_stages)
-*   [Is NAP difficult?](@ref difficulty)
+*   [Is NAP difficult to learn?](@ref difficult_learn)
 *   [What editor should I use?](@ref editor_pref)
 *   [Can I create resources at runtime?](@ref runtime_resources)
 *   [Can I spawn entities at runtime?](@ref runtime_entities)
+*   [What is the order of processing?](@ref processing_order)
 
 # Where should I start? {#start}
 
@@ -21,19 +22,19 @@ And contrary to what you might think, compiling and working with NAP from source
 
 NAP has 3 distinct stages (or levels):
 
-1: NAP from Source; framework source code
-2: NAP from Package; compiled framework package
-3: NAP App; compiled distributable application
+1. NAP from Source; framework source code
+2. NAP from Package; compiled framework package
+3. NAP App; compiled distributable application
 
 # Why so many stages? {#why_stages}
 
-Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you most need it! 
+Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you *most* need it! You can choose to include the source code of your application, for easy distribution and runtime guarantees.
 
 As we know, software is always in a state of flux and maybe broken, unsupported or incompatible 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on different operating systems. 
 
-It is also an easy way to share the project with other developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
+It is also a convenient way to share the project with other developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
 
-# Is NAP difficult? {#difficulty}
+# Is NAP difficult to learn? {#difficult_learn}
 
 Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. 
 
@@ -79,7 +80,7 @@ That's it! The resource manager does something similar, although it assigns the 
 
 # Can I spawn entities at runtime? {#runtime_entities}
 
-Yes you can, although less common but sometimes very useful. First you need to create a scene that can spawn, hold and update your entity resources:
+Yes you can, although less common but sometimes very useful. First you need to create a scene (resource) that can spawn, hold and update your entity resources:
 
 ~~~~~~~~~~~~~~~{.cpp}
 # Create the scene
@@ -115,8 +116,13 @@ if(entity_instance == nullptr)
 
 The returned `entity_instance` is a handle to the entity spawned by your scene, which manages the entity for you. The entity is destroyed when the scene is destructed or by calling `Scene::Destroy`. The entites in your scene receive update calles every frame until the scene is destroyed.
 
+# What is the order of processing? {#processing_order}
 
+Parent entities are always updated before their children. This means that, if an entity has children, its components are processed first, followed by those of its descendants.
 
+Components receive an `update()` call every frame in the **order of declaration** in the editor. This means that if your entity has 2 components in the following order: (1)transform, (2)renderer; the the transform is updated before the renderer. The final (global) transform is calculated after update, on `postUpdate()`.
+
+Root entities are updated in no particular order. Child entities are updated in the **order of declaration**.
 
 
 
