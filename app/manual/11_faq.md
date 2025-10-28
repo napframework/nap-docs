@@ -137,9 +137,10 @@ The good news is: you don’t need to work with Vulkan directly unless you choos
 ## For NAP Framework
 Core engine: `core/src`  
 RTTI information: `rtti/src`  
-Utilities: `utility/src`  
-Demos: `demos`  
-Essential framework modules: `system_modules`    
+Utilities: `utility/src`   
+Applications: `apps`
+Essential framework modules: `system_modules`
+Demos: `demos`
 Editor source: `tools/napkin`  
 Build tools: `tools/buildsystem`  
 User modules: `modules`  
