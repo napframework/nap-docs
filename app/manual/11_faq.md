@@ -144,12 +144,12 @@ Editor source: `tools/napkin`
 Build tools: `tools/buildsystem`  
 User modules: `modules`  
 
-## For your application:
+## For your application
 Source code: `src`  
 App-specific module: `module/src`  
 Data files: `data`  
 
-## For your user module:
+## For your user module
 Source code: `src`  
 Third-party dependencies: `thirdparty`  
 Data files: `data`  
