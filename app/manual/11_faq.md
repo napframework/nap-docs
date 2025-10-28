@@ -41,7 +41,7 @@ Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, d
 
 With that out of the way; C++ already isn't the easiest language and concepts like [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information), which are essential to how the editor and framework operate, can be especially challenging if you're new to these ideas. But once you grasp them, you’ll be rewarded with unmatched flexibility, speed, and modularity; transforming your intricate ideas into powerful tools or instruments.
 
-And then there’s Vulkan: yes, it’s infamous for requiring hundreds of lines of code just to render a triangle. But here’s the good news; you don’t have to write all that code yourself. We’ve built a complete engine from scratch so you can start creating impressive visuals right away. In NAP, you won’t need to touch Vulkan unless you want to (and you really should—it’s incredible).
+And then there’s Vulkan: yes, it’s infamous for requiring hundreds of lines of code just to render a triangle. But here’s the good news; you don’t have to write all that code yourself. We’ve built a complete engine from scratch so you can start creating impressive visuals right away. In NAP, you won’t need to touch Vulkan unless you want to (and you really should, it’s incredible).
 
 If you find the code challenging, we strongly suggest reading [Effective Modern C++]((https://www.oreilly.com/library/view/effective-modern-c/9781491908419/)) by Scott Meyers. The book clearly explains the many new concepts of modern C++ that we use everywhere in NAP.
 
@@ -128,3 +128,5 @@ Root entities are updated in no particular order. Child entities are updated in 
 # Where to start with Vulkan in NAP? {#vulkan_nap}
 
 If you have experience with OpenGL and want to get started with Vulkan in NAP, I recommend reading our [OpenGL to VUlkan](https://blog.nap-labs.tech/d0/dfd/md_articles_001_nap_opengl_to_vulkan) transition blog. That article explains how and why we ported our engine from OpenGL to Vulkan, and the impact this had on performance and portability. If you're not comfortable with real-time 3D Graphics yet, it's better to start with the basics; a good book and after that some code. This will make it much easier to understand Vulkan-related code in NAP Framework; why it's there and what it does. I’ve also hosted a number of NAP rendering workshops over the years, a collection of the slides can be found [here](https://blog.nap-labs.tech/d3/dd0/md_articles_006_nap_render_workshop).
+
+The good news is: you don’t need to work with Vulkan directly unless you choose to! We’ve developed a full engine from the ground up, so you can render almost anything without ever issuing a single Vulkan command.
