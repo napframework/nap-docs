@@ -14,9 +14,9 @@ FAQ {#faq}
 
 If you're completely new to NAP it's best to [download](https://github.com/napframework/nap/releases) the pre-compiled `packaged framework` and try out some of the demos. Start with `helloworld` demo and work your way up in difficulty. All demos are well documented and explain various core concepts, including their building blocks. 
 
-Now, if you like what you see and want to start application development in NAP, we recommend working against [source](https://github.com/napframework/nap) instead of a package. The entire development team rolls like this, because we make frequent edits to the source code whilst developing the application; often on a seperate branch until ready for integration down-stream. Working against source also gives you deeper insight into the inner workings of the engine,  details otherwise hidden behind an interface.
+Now, if you like what you see and want to start application development in NAP, we recommend working against [source](https://github.com/napframework/nap) instead of a package. The entire development team rolls like this, because we make frequent edits to the source code whilst developing the application; often on a seperate branch until ready for integration down-stream. Working against source also gives you deeper insight into the inner workings of the engine, details otherwise hidden behind an interface.
 
-And contrary to what you might think, compiling and working with NAP from source is relatively straight forward and doesn't involve a lot of custom setup, compared to the framework release. The steps are explained in the online [.readme](https://github.com/napframework/nap?tab=readme-ov-file#compilation), which boil down to: Clone NAP, download and extract pre-compiled Qt, setup the `QT_DIR` environment variable, run the setup script and generate the solution. It won't take more than 10 minutes on most supported platforms, why? Because almost all third party are pre-compiled and should work out of the box.
+And contrary to what you might think, compiling and working with NAP from source is relatively straight forward and doesn't involve a lot of custom setup, compared to the framework release. The steps are explained in the online [.readme](https://github.com/napframework/nap?tab=readme-ov-file#compilation), which boil down to: Clone NAP, download and extract pre-compiled Qt, setup the `QT_DIR` environment variable, run the setup script and generate the solution. It won't take more than 10 minutes on most supported platforms, why? Because all third party dependencies are pre-compiled and should work out of the box.
 
 # What are the various stages? {#stages}
 
@@ -28,15 +28,15 @@ NAP has 3 distinct stages (or levels):
 
 # Why so many stages? {#why_stages}
 
-Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework your application is developed against, which turns out to be very convenient when you *most* need it! You can choose to include the source code of your application, for easy distribution and runtime guarantees.
+Good question! Having a pre-compiled binary release of the framework allows you to freeze and create a `snapshot` of the entire framework - including user modules - your application is developed against, which turns out to be very convenient when you *most* need it! You can choose to include the source code of your application, for easy distribution and runtime guarantees.
 
 As we know, software is always in a state of flux and maybe broken, unsupported or incompatible 1, 2 or 5 years from now. Having a complete snapshot of the entire NAP stack helps you get back in when you don't want to; without having to gather all the various bits and pieces that are maybe no longer available, unsupported or broken. This becomes especially important when you are responsible for many projects, at many different locations on different operating systems. 
 
-It is also a convenient way to share the project with other developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
+It is also a convenient way to share the project with external developers, without the need to provide them with access to all your modules, branches and other changes; parts of which might be private.
 
 # Is NAP difficult to learn? {#difficult_learn}
 
-Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. 
+Yes, in the beginning, until it clicks. If it doesn't click for you that's ok, don't beat yourself up over it! Some people like it, others don't. That said; the people that like it often end up loving it.
 
 With that out of the way; C++ already isn't the easiest language and concepts like [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information), which are essential to how the editor and framework operate, can be especially challenging if you're new to these ideas. But once you grasp them, you’ll be rewarded with unmatched flexibility, speed, and modularity; transforming your intricate ideas into powerful tools or instruments.
 
@@ -46,7 +46,7 @@ If you find the code challenging, we strongly suggest reading [Effective Modern 
 
 # What editor should I use? {#editor_pref}
 
-We generally recommend using [CLion](https://www.jetbrains.com/clion/) on both Linux and Windows. But my personal favorite is [Visual Studio](https://visualstudio.microsoft.com/) together with [Visual Assist](https://www.wholetomato.com/) on Windows; it's in my DNA - fast, complete, great debugger, pretty. But many in our team switched completely to Linux and are not coming back - their words not mine..
+We generally recommend using [CLion](https://www.jetbrains.com/clion/) on both Linux and Windows. But my personal favorite is [Visual Studio](https://visualstudio.microsoft.com/) together with [Visual Assist](https://www.wholetomato.com/) on Windows; it's in my DNA - fast, complete, great debugger, pretty. But most in our team switched completely to Linux and are not coming back - their words not mine..
 
 Also: don't generate 2 profiles at the same time in CLion, for example `Debug` & `Release`. Choose one *or* generate them one after the other - something in our build scripts prevents profiles from being generated at the same time in CLion and we haven't figured out what exactly.
 
@@ -80,7 +80,7 @@ That's it! The resource manager does something similar, although it assigns the 
 
 # Can I spawn entities at runtime? {#runtime_entities}
 
-Yes you can, although less common but sometimes very useful. First you need to create a scene (resource) that can spawn, hold and update your entity resources:
+Yes you can, although less common but sometimes very useful. First you need to create a scene (resource) that can spawn, hold and update your entity resource:
 
 ~~~~~~~~~~~~~~~{.cpp}
 // Create the scene
