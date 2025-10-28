@@ -10,6 +10,7 @@ FAQ {#faq}
 *   [Can I spawn entities at runtime?](@ref runtime_entities)
 *   [What is the order of processing?](@ref processing_order)
 *   [Where to start with Vulkan in NAP?](@ref vulkan_nap)
+*   [What are important directories?](@ref important_directories)
 
 # Where should I start? {#start}
 
@@ -130,3 +131,25 @@ Root entities are updated in no particular order. Child entities are updated in 
 If you have experience with OpenGL and want to get started with Vulkan in NAP, I recommend reading our [OpenGL to VUlkan](https://blog.nap-labs.tech/d0/dfd/md_articles_001_nap_opengl_to_vulkan) transition blog. That article explains how and why we ported our engine from OpenGL to Vulkan, and the impact this had on performance and portability. If you're not comfortable with real-time 3D Graphics yet, it's better to start with the basics; a good book and after that some code. This will make it much easier to understand Vulkan-related code in NAP Framework; why it's there and what it does. I’ve also hosted a number of NAP rendering workshops over the years, a collection of the slides can be found [here](https://blog.nap-labs.tech/d3/dd0/md_articles_006_nap_render_workshop).
 
 The good news is: you don’t need to work with Vulkan directly unless you choose to! We’ve developed a full engine from the ground up, so you can render almost anything without ever issuing a single Vulkan command.
+
+# What are important directories {#important_directories}
+
+## For NAP Framework
+Core engine: `core/src`  
+RTTI information: `rtti/src`  
+Utilities: `utility/src`  
+Demos: `demos`  
+Essential framework modules: `system_modules`    
+Editor source: `tools/napkin`  
+Build tools: `tools/buildsystem`  
+User modules: `modules`  
+
+## For your application:
+Source code: `src`  
+App-specific module: `module/src`  
+Data files: `data`  
+
+## For your user module:
+Source code: `src`  
+Third-party dependencies: `thirdparty`  
+Data files: `data`  
