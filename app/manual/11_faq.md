@@ -12,6 +12,7 @@ FAQ {#faq}
 *   [Where to start with Vulkan in NAP?](@ref vulkan_nap)
 *   [What are important directories?](@ref important_directories)
 *   [What's up with the pointer types?](@ref pointer_types)
+*   [Can I use raw pointers?](@ref raw_pointers)
 
 # Where should I start? {#start}
 
@@ -165,5 +166,15 @@ But why introduce a special type of pointer? To support hot-reloading by the res
 Consider a following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that happens to use the material is re-created and patched in by the system at runtime.
 
 It helps to view the `object ptr` as a link to an object and treat it as a regular pointer. However, if you don’t actually need a link to an object, avoid using it. Instead opt for a `unique_ptr` or (if required) a raw pointer; just remember that you’ll be responsible for managing the object’s lifetime in those cases.
+
+# Can I use raw pointers? {#raw_pointers}
+
+We try to avoid using raw pointers as much as possible, unless safe and usage is completely encapsulated. We prefer using `unique_ptr` where possible and don't encourage the usage of `shared_ptr`, unless required by a library. The reason? `shared_ptr` diffuses ownership, leading to code that’s less organized; at least, that’s how we see it!"
+
+When should you use a raw pointer? Typically, we use `raw pointers` in component instances, rather than an `object ptr`. Is this safe? Yes! Because these raw pointers refer to resources managed by the resource manager. If the underlying resource changes, the system automatically recreates the instance, ensuring the pointer remains valid until it is replaced.
+
+
+
+
 
 
