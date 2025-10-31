@@ -169,7 +169,7 @@ It helps to view the `object ptr` as a link to an object and treat it as a regul
 
 # Can I use raw pointers? {#raw_pointers}
 
-We try to avoid using raw pointers as much as possible, unless safe and usage is completely encapsulated. We prefer using `unique_ptr` where possible and don't encourage the usage of `shared_ptr`, unless required by a library. The reason? `shared_ptr` diffuses ownership, leading to code that’s less organized; at least, that’s how we see it!"
+We try to avoid using raw pointers as much as possible, unless safe and usage is completely encapsulated. We prefer using `unique_ptr` where possible and don't encourage the usage of `shared_ptr`, unless required by a library. The reason? `shared_ptr` diffuses ownership, leading to code that’s less organized; at least, that’s how we see it.
 
 When should you use a raw pointer? Typically, we use `raw pointers` in component instances, rather than an `object ptr`. Is this safe? Yes! Because these raw pointers point to resources managed by the resource manager. If the underlying resource changes, the system automatically recreates the instance, ensuring the pointer remains valid until it is replaced.
 
