@@ -163,7 +163,7 @@ Next to the standard pointer types (`std::unique_ptr` most notably), you'll freq
 
 Why use a dedicated pointer type? It enables the resource manager to implement hot-reloading. When application data changes, the manager swaps out affected objects for updated instances and cleans up the old ones automatically.
 
-Consider the following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that happens to use the material is re-created and patched in by the system at runtime.
+Consider the following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that uses the material is re-created and patched in by the system at runtime.
 
 It helps to view the `object ptr` as a link to an object and treat it as a regular pointer. However, if you don’t actually need a link to an object, avoid using it. Instead opt for a `unique_ptr` or (if required) a raw pointer; just remember that you’ll be responsible for managing the object’s lifetime in those cases.
 
