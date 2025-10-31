@@ -161,9 +161,9 @@ Data files: `data`
 
 Next to the standard pointer types (`std::unique_ptr` most notably), you'll frequently encounter and work with a `nap::rtti::ObjectPtr`; which points to a `nap::rtti::Object`, the most fundamental building block of the engine.
 
-But why introduce a special type of pointer? To support hot-reloading by the resource manager. When a data change is detected, the resource manager replaces all affected objects with new instances and automatically removes the old versions. 
+Why use a dedicated pointer type? It enables the resource manager to implement hot-reloading. When application data changes, the manager swaps out affected objects for updated instances and cleans up the old ones automatically.
 
-Consider a following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that happens to use the material is re-created and patched in by the system at runtime.
+Consider the following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that happens to use the material is re-created and patched in by the system at runtime.
 
 It helps to view the `object ptr` as a link to an object and treat it as a regular pointer. However, if you don’t actually need a link to an object, avoid using it. Instead opt for a `unique_ptr` or (if required) a raw pointer; just remember that you’ll be responsible for managing the object’s lifetime in those cases.
 
@@ -171,7 +171,7 @@ It helps to view the `object ptr` as a link to an object and treat it as a regul
 
 We try to avoid using raw pointers as much as possible, unless safe and usage is completely encapsulated. We prefer using `unique_ptr` where possible and don't encourage the usage of `shared_ptr`, unless required by a library. The reason? `shared_ptr` diffuses ownership, leading to code that’s less organized; at least, that’s how we see it!"
 
-When should you use a raw pointer? Typically, we use `raw pointers` in component instances, rather than an `object ptr`. Is this safe? Yes! Because these raw pointers refer to resources managed by the resource manager. If the underlying resource changes, the system automatically recreates the instance, ensuring the pointer remains valid until it is replaced.
+When should you use a raw pointer? Typically, we use `raw pointers` in component instances, rather than an `object ptr`. Is this safe? Yes! Because these raw pointers point to resources managed by the resource manager. If the underlying resource changes, the system automatically recreates the instance, ensuring the pointer remains valid until it is replaced.
 
 
 
