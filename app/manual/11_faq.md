@@ -11,6 +11,7 @@ FAQ {#faq}
 *   [What is the order of processing?](@ref processing_order)
 *   [Where to start with Vulkan in NAP?](@ref vulkan_nap)
 *   [What are important directories?](@ref important_directories)
+*   [What's up with the pointer types?](@ref pointer_types)
 
 # Where should I start? {#start}
 
@@ -154,3 +155,15 @@ Data files: `data`
 Source code: `src`    
 Third-party dependencies: `thirdparty`  
 Data files: `data`  
+
+# What's up with the pointer types? {#pointer_types}
+
+Next to the standard pointer types (`std::unique_ptr` most notably), you'll frequently encounter and work with a `nap::rtti::ObjectPtr`; which points to a `nap::rtti::Object`, the most fundamental building block of the engine.
+
+But why introduce a special type of pointer? To support hot-reloading by the resource manager. When a data change is detected, the resource manager replaces all affected objects with new instances and automatically removes the old versions. 
+
+Consider a following example: Every material links to a shader, and that link is a `rtti::ObjectPtr<Shader>`. Your material becomes invalid when the content (code) of the shader changes. Instead of keeping the old version around, the system tries to create and patch in the new version, replacing all objects it touches. This means that the shader, material and component that happens to use the material is re-created and patched in by the system at runtime.
+
+It helps to view the `object ptr` as a link to an object and treat it as a regular pointer. However, if you don’t actually need a link to an object, avoid using it. Instead opt for a `unique_ptr` or (if required) a raw pointer; just remember that you’ll be responsible for managing the object’s lifetime in those cases.
+
+
