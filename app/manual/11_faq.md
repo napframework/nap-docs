@@ -124,7 +124,7 @@ The returned `entity_instance` is a handle to the entity spawned by your scene, 
 
 Parent entities are always updated before their children. This means that, if an entity has children, its components are processed first, followed by those of its descendants.
 
-Components receive an `update()` call every frame in the **order of declaration** in the editor. This means that if your entity has 2 components in the following order: (1)transform, (2)renderer; the the transform is updated before the renderer. The final (global) transform is calculated after update, on `postUpdate()`.
+Components receive an `update()` call every frame in the **order of declaration** in the editor. This means that if your entity has 2 components in the following order: (1)transform, (2)renderer; the transform is updated before the renderer. The final (global) transform is calculated after update, on `postUpdate()`.
 
 Root entities are updated in no particular order. Child entities are updated in the **order of declaration**.
 
